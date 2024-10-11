@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Ready-Study-Go/static/css/main.f4e92ad4.css",
+    "main.js": "/Ready-Study-Go/static/js/main.3b7cdadb.js",
+    "index.html": "/Ready-Study-Go/index.html",
+    "main.f4e92ad4.css.map": "/Ready-Study-Go/static/css/main.f4e92ad4.css.map",
+    "main.3b7cdadb.js.map": "/Ready-Study-Go/static/js/main.3b7cdadb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f4e92ad4.css",
+    "static/js/main.3b7cdadb.js"
+  ]
+}
