@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+.homepage {
+  padding: 20px;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sections a {
+  padding: 10px;
+  background-color: #eee;
+  text-decoration: none;
+  color: #333;
+  border-radius: 5px;
+}
+
+.exercise-page {
+  padding: 20px;
+}
