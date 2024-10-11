@@ -3,7 +3,7 @@ import '../assets/styles/nouns.css'; // Імпорт CSS-стилів
 
 // Приклад даних, які можна завантажити з Google Sheets
 const words = [
-  { german: 'Apfel', translation: 'Яблуко' },
+  { german: 'Ich', translation: 'Я' },
   { german: 'Hund', translation: 'Собака' },
   { german: 'Haus', translation: 'Будинок' }
 ];
