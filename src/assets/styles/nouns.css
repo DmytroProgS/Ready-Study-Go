@@ -1,0 +1,32 @@
+.word-card {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  
+  .word-card__german {
+    margin-right: 20px;
+    font-size: 20px;
+  }
+  
+  .word-card__translation {
+    width: 200px;
+    height: 50px;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #ccc;
+  }
+  
+  .word-card__translation--revealed {
+    background-color: #f0f0f0;
+  }
+
+  .words-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Вирівнює елементи по горизонталі */
+    justify-content: center; /* Вирівнює елементи по вертикалі */
+  }

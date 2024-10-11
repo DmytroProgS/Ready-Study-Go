@@ -6,7 +6,7 @@ function HomePage() {
     <div className="homepage">
       <h1>Вивчення слів</h1>
       <div className="sections">
-        <Link to="/exercise/1">Розділ 1</Link>
+        <Link to="/nouns">Іменники</Link>
         <Link to="/exercise/2">Розділ 2</Link>
         <Link to="/exercise/3">Розділ 3</Link>
         {/* Додати більше розділів */}

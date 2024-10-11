@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ExercisePage from './pages/ExercisePage';
 import NotFoundPage from './pages/NotFoundPage';
+import NounsExercise from './components/NounsExercise';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
+        <Route path="/nouns" element={<NounsExercise />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/exercise/:id" element={<ExercisePage />} />
           <Route path="*" element={<NotFoundPage />} />
