@@ -11,6 +11,11 @@ function HomePage() {
         <Link to="/exercise/3">Розділ 3</Link>
         {/* Додати більше розділів */}
       </div>
+
+      <h2>Підготовка до іспитів</h2>
+      <div className="sections">
+        <Link to="/b2">Підготовка до B2</Link>
+      </div>
     </div>
   );
 }
