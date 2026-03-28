@@ -1,7 +1,46 @@
 const lesenTeil3Variants = [
   {
     id: 1,
-    title: "Variante 1 (07.02.2025)",
+    label: "1",
+    title: "Variante 1",
+    questions: [
+      { person: "Gabi", text: "Ich hatte gerade Urlaub und gleich am ersten Urlaubstag wurde meine Kleine krank und ich musste sie vier Tage lang pflegen. Wenn ich im Urlaub krank werde, kann ich die Tage zurückbekommen. Aber wie ist das, wenn das Kind krank wird?", answer: "d" },
+      { person: "Charlotte", text: "Ich konnte leider mal wieder nicht zur Arbeit gehen, weil mein Kind krank war. Als ich heute angerufen habe, hat mein Chef total überzogen reagiert und mir mit Kündigung gedroht, wenn ich mehr als einen Tag fehle. Das geht doch nicht, oder?", answer: "x" },
+      { person: "Lars", text: "Ich bin letzten Montag mit furchtbaren Kopfschmerzen aufgewacht und konnte nicht aufstehen. Leider habe ich vergessen, meinen Arbeitgeber anzurufen, und bin im Bett geblieben. Jetzt will mein Chef mir kündigen, weil ich unentschuldigt gefehlt habe. Geht das so einfach?", answer: "b" },
+      { person: "Kamil", text: "Gestern war ich krank. Als ich heute wieder im Büro war, wollte mein Chef direkt die Krankschreibung haben. Ich war immer der Meinung, die braucht man erst nach drei Tagen?", answer: "a" },
+    ],
+    options: [
+      { letter: "a", text: "Günther, vor 9 Stunden - 'Das kann man pauschal gar nicht so sagen. Wie das in deinem Unternehmen geregelt ist, steht in deinem Arbeitsvertrag. Ab wann du eine Arbeitsunfähigkeitsbescheinigung brauchst, findest du meistens unter den Paragraphen 'Arbeitsverhinderung' oder 'Krankheit'.'" },
+      { letter: "b", text: "Marion, vor 4 Stunden - 'Nein, vorher musst du erst mal eine Abmahnung bekommen. Wenn du dann allerdings noch mal fehlst, ohne Bescheid zu sagen, musst du mit der Kündigung rechnen. Such doch noch mal das Gespräch mit deinem Chef. Ihr findet bestimmt eine Lösung.'" },
+      { letter: "c", text: "Karin, vor 45 Minuten - 'Du kannst nicht einfach kommen und gehen, wann du willst, auch wenn du die Absicht hattest, die versäumte Zeit nachzuholen. Die Arbeitszeiten sind ja vertraglich geregelt. Wenn sich Mitarbeiter nicht daran halten, ist eine Abmahnung vor der Kündigung nicht notwendig.'" },
+      { letter: "d", text: "Elli, vor 3 Stunden - 'Wie du selbst schreibst, können im Krankheitsfall die Urlaubstage auf dein Urlaubskonto zurückgebucht werden. Du brauchst natürlich ein ärztliches Attest. Das gilt allerdings nicht, wenn du dich um ein krankes Kind kümmern musst. In diesem Fall gelten die Urlaubstage als genommen.'" },
+      { letter: "e", text: "Sabine, vor 40 Minuten - 'Diese Situation kennen doch alle Eltern. Wenn ich für meinen Sohn mal keine Betreuung finde, kann ich ihn auch ausnahmsweise mit ins Büro nehmen. Meine Chefin ist da zum Glück sehr verständnisvoll.'" },
+      { letter: "f", text: "Jorge, vor 2 Stunden - 'Also ich gehe immer gleich am ersten Krankheitstag zum Arzt. Sicher ist sicher. Außerdem kann es nicht schaden, wenn dich ein Doktor anschaut, wenn du dich nicht wohlfühlst. Gerade wenn du Kinder hast, ist es wichtig, dass du weißt, was dir fehlt. Du willst ja niemanden anstecken.'" },
+    ],
+  },
+  {
+    id: 2,
+    label: "1.1",
+    title: "Variante 1.1",
+    questions: [
+      { person: "Gabi", text: "Ich hatte gerade Urlaub und gleich am ersten Urlaubstag wurde meine Kleine krank und ich musste sie vier Tage lang pflegen. Wenn ich im Urlaub krank werde, kann ich die Tage zurückbekommen. Aber wie ist das, wenn das Kind krank wird?", answer: "d" },
+      { person: "Charlotte", text: "Ich konnte leider mal wieder nicht zur Arbeit gehen, weil mein Kind krank war. Als ich heute angerufen habe, hat mein Chef total überzogen reagiert und mir mit Kündigung gedroht, wenn ich mehr als einen Tag fehle. Das geht doch nicht, oder?", answer: "x" },
+      { person: "Lars", text: "Ich bin letzten Montag mit furchtbaren Kopfschmerzen aufgewacht und konnte nicht aufstehen. Leider habe ich vergessen, meinen Arbeitgeber anzurufen, und bin im Bett geblieben. Jetzt will mein Chef mir kündigen, weil ich unentschuldigt gefehlt habe. Geht das so einfach?", answer: "b" },
+      { person: "Kamil", text: "Gestern war ich krank. Als ich heute wieder im Büro war, wollte mein Chef direkt die Krankschreibung haben. Ich war immer der Meinung, die braucht man erst nach drei Tagen?", answer: "a" },
+    ],
+    options: [
+      { letter: "a", text: "Günther, vor 9 Stunden - 'Das kann man pauschal gar nicht so sagen. Wie das in deinem Unternehmen geregelt ist, steht in deinem Arbeitsvertrag. Ab wann du eine Arbeitsunfähigkeitsbescheinigung brauchst, findest du meistens unter den Paragraphen 'Arbeitsverhinderung' oder 'Krankheit'.'" },
+      { letter: "b", text: "Marion, vor 4 Stunden - 'Nein, vorher musst du erst mal eine Abmahnung bekommen. Wenn du dann allerdings noch mal fehlst, ohne Bescheid zu sagen, musst du mit der Kündigung rechnen. Such doch noch mal das Gespräch mit deinem Chef. Ihr findet bestimmt eine Lösung.'" },
+      { letter: "c", text: "Karin, vor 45 Minuten - 'Du kannst nicht einfach kommen und gehen, wann du willst, auch wenn du die Absicht hattest, die versäumte Zeit nachzuholen. Die Arbeitszeiten sind ja vertraglich geregelt. Wenn sich Mitarbeiter nicht daran halten, ist eine Abmahnung vor der Kündigung nicht notwendig.'" },
+      { letter: "d", text: "Elli, vor 3 Stunden - 'Wie du selbst schreibst, können im Krankheitsfall die Urlaubstage auf dein Urlaubskonto zurückgebucht werden. Du brauchst natürlich ab den ersten Tag ein ärztliches Attest. Anders sieht es aus, wenn du einen Familienangehörigen betreust. Das ist dann nicht Sache deines Arbeitgebers.'" },
+      { letter: "e", text: "Sabine, vor 40 Minuten - 'Diese Situation kennen doch alle Eltern. Wenn ich für meinen Sohn mal keine Betreuung finde, kann ich ihn auch ausnahmsweise mit ins Büro nehmen. Meine Chefin ist da zum Glück sehr verständnisvoll.'" },
+      { letter: "f", text: "Jorge, vor 2 Stunden - 'Also ich gehe immer gleich am ersten Krankheitstag zum Arzt. Sicher ist sicher. Außerdem kann es nicht schaden, wenn dich ein Doktor anschaut, wenn du dich nicht wohlfühlst. Gerade wenn du Kinder hast, ist es wichtig, dass du weißt, was dir fehlt. Du willst ja niemanden anstecken.'" },
+    ],
+  },
+  {
+    id: 3,
+    label: "1.2",
+    title: "Variante 1.2",
     questions: [
       { person: "Petra", text: "Ich konnte leider mal wieder nicht zur Arbeit gehen, weil mein Kind krank war. Als ich heute angerufen habe, hat mein Chef total überzogen reagiert und mir mit Kündigung gedroht, wenn ich mehr als einen Tag fehle. Das geht doch nicht, oder?", answer: "x" },
       { person: "Giovanni", text: "Ich bin letzten Montag mit furchtbaren Kopfschmerzen aufgewacht und konnte nicht aufstehen. Leider habe ich vergessen, meinen Arbeitgeber anzurufen, und bin im Bett geblieben. Jetzt will mein Chef mir kündigen, weil ich unentschuldigt gefehlt habe. Geht das so einfach?", answer: "b" },
@@ -18,7 +57,8 @@ const lesenTeil3Variants = [
     ],
   },
   {
-    id: 2,
+    id: 4,
+    label: "2",
     title: "Variante 2",
     questions: [
       { person: "Inka", text: "Ich bin Auszubildende in einem Büro und muss immer pünktlich Feierabend machen, weil ich meinen einjährigen Sohn von der Krippe abholen muss. Mein Chef sieht das gar nicht gern und droht mir jetzt sogar mit Kündigung. Was soll ich machen?", answer: "a" },
@@ -28,7 +68,7 @@ const lesenTeil3Variants = [
     ],
     options: [
       { letter: "a", text: "Susi, vor 1 Stunde - 'Solange du so nicht weniger arbeitest als im Vertrag vereinbart, müsstest du rechtlich auf der sicheren Seite sein. Wenn du es genau wissen willst, solltest du in diesem Fall einen Anwalt für Arbeitsrecht kontaktieren. Mit einer Rechtsschutzversicherung wird das auch nicht so teuer.'" },
-      { letter: "b", text: "Julia, vor 1 Stunde - 'Rein rechtlich kannst du das nicht ohne Zustimmung deiner Eltern machen. Sie müssen die Kündigung sogar unterschreiben. An deiner Stelle würde ich mir das aber noch mal überlegen. Ich kann deinen Vater jedenfalls gut verstehen. Er macht sich halt Sorgen um deine Zukunft.'" },
+      { letter: "b", text: "Julia, vor 1 Stunde - 'Rein rechtlich kannst du das nicht ohne Zustimmung deiner Eltern machen. Sie müssen die Kündigung sogar unterschreiben. An deiner Stelle würde ich mir das aber noch mal überlegen. Ich kann deinen Vater jedenfalls gut verstehen. Er macht sich halt Sorgen um deine Zukunft.'", alt: "Damit Minderjährige die Ausbildung verlassen, müssen die Eltern eine Kündigung unterschreiben." },
       { letter: "c", text: "Jürgen, vor 2 Stunden - 'Hi, ich würde die Ausbildung auf keinen Fall abbrechen. Mit Berufen im Finanzbereich hast du gute Aussichten auf dem Arbeitsmarkt und verdienst später auch gutes Geld. Mach dir das nicht kaputt. Meine Tochter ist Steuerberaterin und sucht händeringend nach fähigen Mitarbeitern. Sie kann sich vor Aufträgen gar nicht retten.'" },
       { letter: "d", text: "Jochen, vor 5 Stunden - 'Also ich würde noch warten, bis dein Kind etwas größer ist, und mich jetzt noch nicht um einen Ausbildungsplatz bewerben. Wenn es etwas selbstständiger ist, wird vieles leichter. Eine Ausbildung kannst du auch in drei oder vier Jahren noch machen. Dein Kind braucht dich jetzt.'" },
       { letter: "e", text: "Achim, vor 6 Stunden - 'Schutz von Leben und Gesundheit ist das oberste Gebot. Um dich und dein Kind zu schützen, darfst du während der Schwangerschaft keine körperlich anstrengenden Arbeiten verrichten und auch Tätigkeiten, bei denen du Lärm, Schmutz, Kälte usw. ausgesetzt bist, sind tabu.'" },
@@ -36,7 +76,8 @@ const lesenTeil3Variants = [
     ],
   },
   {
-    id: 3,
+    id: 5,
+    label: "3",
     title: "Variante 3",
     questions: [
       { person: "Som", text: "Meine Kinder sind unter der Woche ganztags in der Kita, damit ich Vollzeit arbeiten kann. Jetzt soll ich in den nächsten Wochen samstags ins Büro kommen. Ich habe aber niemanden, der da auf meine Kinder aufpassen kann. Kann der Arbeitgeber das verlangen?", answer: "e" },
@@ -54,7 +95,8 @@ const lesenTeil3Variants = [
     ],
   },
   {
-    id: 4,
+    id: 6,
+    label: "4",
     title: "Variante 4",
     questions: [
       { person: "Thia", text: "Voll gemein, ich habe nur 25 Urlaubstage! Mein Freund hat hingegen 30 Tage im Jahr. Ich frage mich, ob mir nicht auch mehr Tage zustehen. Kennt sich von euch da jemand aus?", answer: "a" },
@@ -72,8 +114,28 @@ const lesenTeil3Variants = [
     ],
   },
   {
-    id: 5,
+    id: 7,
+    label: "5",
     title: "Variante 5",
+    questions: [
+      { person: "Mikke", text: "Heute hatte ich auf dem Weg zur Arbeit einen Unfall. Ich habe noch einen Umweg über die Kita gemacht, bin gestolpert und habe mir den Knöchel gebrochen. Bin ich denn jetzt versichert? Ich habe ja nicht den direkten Weg zur Arbeit genommen.", answer: "x" },
+      { person: "Ludmilla", text: "Ich habe eine Abmahnung bekommen, weil ich regelmäßig zu spät zur Arbeit komme. Ich fahre immer rechtzeitig von zu Hause weg und finde dann bei der Firma keine Parkmöglichkeit. Muss der Arbeitgeber nicht eigentlich seinen Mitarbeitern Parkplätze stellen?", answer: "a" },
+      { person: "Peter", text: "Ich wollte heute Morgen mit der S-Bahn zur Arbeit fahren, aber diese ist wegen des Unwetters ausgefallen. So hatte ich keine Möglichkeit, ins Büro zu kommen, da ich kein Auto habe. Hätte ich ein Taxi nehmen müssen?", answer: "f" },
+      { person: "Ingo", text: "Immer das Gleiche. Der Bus kommt zu spät, steht im Stau oder fällt aus. Jetzt habe ich Ärger mit meinem Chef, weil ich öfter mit Verspätung im Büro erscheine. Bin ich verpflichtet, immer einen früheren Bus zu nehmen, damit ich pünktlich bin?", answer: "d" },
+    ],
+    options: [
+      { letter: "a", text: "Hans, vor 2 Stunden - 'Der Arbeitgeber hat eine Fürsorgepflicht und dazu gehört auch, dass er für Fahrzeuge der Mitarbeiter eine Unterbringungsmöglichkeit zu schaffen hat. Aber nur, wenn das ohne zu großen Aufwand geht. Wenn ein Unternehmen in der Innenstadt ist, gibt es einfach nicht genug Platz für Parkmöglichkeiten.'" },
+      { letter: "b", text: "Thilo, vor 45 Minuten - 'Wenn die Bahn wegen eines Sturms nicht weiterfahren kann und in einem Bahnhof stehen bleiben, haben die Fahrgäste meistens Anspruch auf einen Taxigutschein, damit sie auf diese Weise ihr Ziel erreichen. Du kannst auf der Webseite der Deutschen Bahn nachlesen, unter welchen Umständen die Bahn deine Weiterfahrt bezahlt.'", alt: "Mallory, vor 45 Minuten: Wenn ein Zug seine Reise nicht fortsetzen kann und in einem Bahnhof stehen bleiben muss, bezahlt die Deutsche Bahn den Fahrgästen in bestimmten Fällen eine Weiterfahrt im Taxi. Oder sie übernimmt die Kosten für eine Hotelübernachtung. Nähere Infos findest du auf der Webseite der Deutschen Bahn." },
+      { letter: "c", text: "Johannes, vor 3 Stunden - 'Wenn du auf dem Weg zur Arbeit einen Autounfall hast, bezahlt die Unfallversicherung nur Personenschäden. Sachschäden sind dabei nicht inbegriffen. Du kannst aber grundsätzlich selbst entscheiden, welches Fahrzeug du für den Arbeitsweg benutzt.'" },
+      { letter: "d", text: "Jacqueline, vor 30 Minuten - 'Du bist dafür verantwortlich, rechtzeitig an deinem Arbeitsplatz zu erscheinen. Wie du das machst, ist deine Sache. Aber du kannst keinesfalls die Verantwortung auf die öffentlichen Verkehrsmittel schieben und dich auf den Standpunkt stellen, dass du nichts für deine Verspätung kannst.'" },
+      { letter: "e", text: "Andreij, vor 4 Stunden - 'Natürlich hast du an deinem Arbeitsplatz Versicherungsschutz, aber dieser gilt nicht in allen Teilen des Gebäudes. Auf der Toilette bist du zum Beispiel nicht versichert. Warum das so ist, weiß ich aber auch nicht.'" },
+      { letter: "f", text: "Alex, vor 45 Minuten - 'Als Arbeitnehmer musst du dafür sorgen, zum Job zu kommen. Wenn das nicht geht, darfst du aber keine Abmahnung bekommen. Ob du ein Taxi nehmen musst, kommt darauf an, ob die Kosten dafür über deinem Arbeitslohn für einen Tag liegen. Wenn ja, sind diese Kosten für dich nicht zumutbar.'" },
+    ],
+  },
+  {
+    id: 8,
+    label: "5.1",
+    title: "Variante 5.1",
     questions: [
       { person: "Natalie", text: "Ich habe eine Abmahnung bekommen, weil ich regelmäßig zu spät zur Arbeit komme. Ich fahre immer rechtzeitig von zu Hause weg und finde dann bei der Firma keine Parkmöglichkeit. Muss der Arbeitgeber nicht eigentlich seinen Mitarbeitern Parkplätze stellen?", answer: "a" },
       { person: "Batiste", text: "Ich wollte heute Morgen mit der S-Bahn zur Arbeit fahren, aber diese ist wegen des Unwetters ausgefallen. So hatte ich keine Möglichkeit, ins Büro zu kommen. Da ich kein Auto habe, hätte ich ein Taxi nehmen müssen?", answer: "f" },
@@ -82,7 +144,7 @@ const lesenTeil3Variants = [
     ],
     options: [
       { letter: "a", text: "Enric, vor 2 Stunden - 'Der Arbeitgeber hat eine Fürsorgepflicht und dazu gehört auch, dass er für Fahrzeuge der Mitarbeiter eine Unterbringungsmöglichkeit zu schaffen hat, aber nur, wenn das ohne zu großen Aufwand geht. Wenn ein Unternehmen in der Innenstadt ist, gibt es einfach nicht genug Platz für Parkmöglichkeiten.'" },
-      { letter: "b", text: "Mallory, vor 45 Minuten - 'Wenn die Bahn wegen eines Sturms nicht weiterfahren kann und in einem Bahnhof stehen bleiben muss, haben die Fahrgäste meistens Anspruch auf einen Taxigutschein, damit sie auf diese Weise ihr Ziel erreichen. Du kannst auf der Webseite der Deutschen Bahn nachlesen, unter welchen Umständen die Bahn deine Weiterfahrt bezahlt.'" },
+      { letter: "b", text: "Mallory, vor 45 Minuten - 'Wenn die Bahn wegen eines Sturms nicht weiterfahren kann und in einem Bahnhof stehen bleiben, haben die Fahrgäste meistens Anspruch auf einen Taxigutschein, damit sie auf diese Weise ihr Ziel erreichen. Du kannst auf der Webseite der Deutschen Bahn nachlesen, unter welchen Umständen die Bahn deine Weiterfahrt bezahlt.'" },
       { letter: "c", text: "Mao, vor 3 Stunden - 'Wenn du auf dem Weg zur Arbeit einen Autounfall hast, bezahlt die Unfallversicherung nur Personenschäden. Sachschäden sind dabei nicht inbegriffen. Du kannst aber grundsätzlich selbst entscheiden, welches Fahrzeug du für den Arbeitsweg benutzt.'" },
       { letter: "d", text: "Nastasia, vor 30 Minuten - 'Du bist dafür verantwortlich, rechtzeitig an deinem Arbeitsplatz zu erscheinen. Wie du das machst, ist deine Sache. Aber du kannst keinesfalls die Verantwortung auf die öffentlichen Verkehrsmittel schieben und dich auf den Standpunkt stellen, dass du nichts für deine Verspätung kannst.'" },
       { letter: "e", text: "Bartomeu, vor 4 Stunden - 'Natürlich hast du an deinem Arbeitsplatz Versicherungsschutz, aber dieser gilt nicht in allen Teilen des Gebäudes. Auf der Toilette bist du zum Beispiel nicht versichert. Warum das so ist, weiß ich aber auch nicht.'" },
@@ -90,7 +152,8 @@ const lesenTeil3Variants = [
     ],
   },
   {
-    id: 6,
+    id: 9,
+    label: "6",
     title: "Variante 6",
     questions: [
       { person: "Claudia", text: "Ich muss während der Arbeit eine Uniform tragen. Mir ist es unangenehm, die schon morgens in der Bahn anzuhaben, und ich möchte mich lieber im Hotel umziehen. Muss ich dafür früher kommen oder gilt die Umkleidezeit als Arbeitszeit?", answer: "x" },
@@ -108,7 +171,8 @@ const lesenTeil3Variants = [
     ],
   },
   {
-    id: 7,
+    id: 10,
+    label: "7",
     title: "Variante 7",
     questions: [
       { person: "Torsten", text: "Wir hatten neulich im Büro eine Diskussion darüber, ab wann man in Rente gehen kann. Ich dachte immer, man muss bis 67 arbeiten. Aber meine Kollegin meinte, dass sie zwei Jahre früher in Rente gehen wird. Geht das überhaupt?", answer: "e" },

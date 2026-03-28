@@ -167,6 +167,16 @@
   line-height: 1.5;
 }
 
+.lesen-alt-answer {
+  margin-top: 8px !important;
+  padding: 8px;
+  background: #fff8e1;
+  border-left: 3px solid #ffc107;
+  font-style: italic;
+  font-size: 0.9em;
+  color: #666 !important;
+}
+
 .lesen-actions {
   margin: 24px 0;
   display: flex;

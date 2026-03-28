@@ -58,13 +58,13 @@ function LesenTeil3Page() {
               onClick={() => handleGoToVariant(i)}
               className={`lesen-variant-btn ${i === variantIndex ? 'active' : ''}`}
             >
-              {i + 1}
+              {v.label}
             </button>
           ))}
         </div>
       </div>
 
-      <p className="lesen-subtitle">Variante {variantIndex + 1} / {lesenTeil3Variants.length} — Ordnen Sie die Kommentare den Personen zu. Ein Kommentar passt nicht (X).</p>
+      <p className="lesen-subtitle">Variante {variant.label} ({variantIndex + 1} / {lesenTeil3Variants.length}) — Ordnen Sie die Kommentare den Personen zu. Ein Kommentar passt nicht (X).</p>
 
       <div className="lesen-columns">
         <div className="lesen-questions">
@@ -114,6 +114,9 @@ function LesenTeil3Page() {
               <div key={opt.letter} className="lesen-text-block">
                 <strong>{opt.letter}) {author}</strong>
                 <p>{body}</p>
+                {opt.alt && (
+                  <p className="lesen-alt-answer">{opt.alt}</p>
+                )}
               </div>
             );
           })}

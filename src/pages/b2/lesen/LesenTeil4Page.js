@@ -22,7 +22,7 @@ function LesenTeil4Page() {
     setAnswers(prev => ({ ...prev, [index]: value }));
   };
 
-  const allAnswered = Object.keys(answers).length === 5;
+  const allAnswered = Object.keys(answers).length === variant.questions.length;
 
   const handleSubmit = () => {
     if (!allAnswered) return;
@@ -58,21 +58,37 @@ function LesenTeil4Page() {
               onClick={() => handleGoToVariant(i)}
               className={`lesen-variant-btn ${i === variantIndex ? 'active' : ''}`}
             >
-              {i + 1}
+              {v.label}
             </button>
           ))}
         </div>
       </div>
 
-      <p className="lesen-subtitle">Variante {variantIndex + 1} / {lesenTeil4Variants.length} — Lesen Sie das Protokoll und beantworten Sie die Fragen.</p>
+      <p className="lesen-subtitle">Variante {variant.label} ({variantIndex + 1} / {lesenTeil4Variants.length}) — Lesen Sie das Protokoll und beantworten Sie die Fragen.</p>
 
       <div className="lesen4-layout">
         <div className="lesen4-text">
           <h2>Protokoll</h2>
           <div className="lesen2-text">
-            {variant.text.split('\n').map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
+            {variant.text.split('\n').map((p, i) => {
+              if (!p) return <p key={i}>&nbsp;</p>;
+              if (/^TOP \d/.test(p) || p.startsWith('Tagesordnungspunkte:')) {
+                return <p key={i}><strong>{p}</strong></p>;
+              }
+              const boldLabels = [
+                'Protokoll ', 'Besprechungsraum:', 'Ort:', 'Tagungsraum:', 'Sitzungsraum:',
+                'Konferenzraum', 'Zentrale,', 'Abteilung ',
+                'Teilnehmende:', 'Anwesende:', 'Sitzungsleitung:', 'Protokollantin:',
+                'Protokollant:', 'Protokollführung:', 'Nicht Anwesende:', 'Entschuldigt:',
+                'Extern:', 'Gast:'
+              ];
+              for (const label of boldLabels) {
+                if (p.startsWith(label)) {
+                  return <p key={i}><strong>{label}</strong>{p.slice(label.length)}</p>;
+                }
+              }
+              return <p key={i}>{p}</p>;
+            })}
           </div>
         </div>
 
@@ -119,8 +135,8 @@ function LesenTeil4Page() {
           </button>
         ) : (
           <>
-            <div className={`lesen-result ${score === 5 ? 'perfect' : ''}`}>
-              Результат: {score} / 5
+            <div className={`lesen-result ${score === variant.questions.length ? 'perfect' : ''}`}>
+              Результат: {score} / {variant.questions.length}
             </div>
             <button onClick={handleNext} className="lesen-btn lesen-btn-next">
               Наступний варіант
