@@ -4,19 +4,19 @@ const horenTeil4Variants = [
     audioUrl: 'https://t.me/B2_C2_Deutsch/65534/195147',
     sections: [
       {
-        title: 'Nummer 36 \u2014 Andrea Faber',
+        title: 'Nummer 36 — Andrea',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Andrea Faber. Es geht um unser Arbeitsfr\u00fchst\u00fcck am Freitag. Leider muss ich den Termin absagen. Es hat sich spontan ein Treffen mit dem Vertreter aus Wien ergeben. Das kann ich nicht verschieben. K\u00f6nnten wir unser Fr\u00fchst\u00fcck auf Montag, den 25., verlegen? Ruf mich bitte zur\u00fcck.',
+        dialogue: 'Hallo, hier ist Andrea Faber. Wir sind doch am Freitag zum Arbeitsfrühstück verabredet. Leider kann ich unseren Termin nicht einhalten. Wir haben ein spontanes Treffen mit unserem Vertreter aus Wien. Kannst du auch nächste Woche Montag? Das ist der 25. Ich halte dir mal den Vormittag frei. Sei doch so nett und gib mir bitte heute noch Bescheid, ob dir der Termin passt. Es ist wichtig, dass wir uns zeitnah zusammensetzen. Danke.',
         questions: [
           {
             number: 36, type: 'abc',
             statement: 'Andrea',
-            options: ['a) kann den geplanten Termin nicht einhalten.', 'b) braucht den Termin verschieben.', 'c) m\u00f6chte den Termin vereinbaren/anmelden.'],
+            options: ['a) kann den geplanten Termin nicht einhalten.', 'b) braucht den Termin verschieben.', 'c) möchte den Termin vereinbaren/anmelden.'],
             answer: 'a',
             alts: [
               {
                 statement: 'Andrea',
-                options: ['a) wird mit dem Vertreter fr\u00fchst\u00fccken.', 'b) sagt den Termin ab.', 'c) wird sich am Montag melden.'],
+                options: ['a) wird mit dem Vertreter frühstücken.', 'b) sagt den Termin ab.', 'c) wird sich am Montag melden.'],
                 answer: 'a'
               }
             ]
@@ -24,26 +24,26 @@ const horenTeil4Variants = [
         ]
       },
       {
-        title: 'Nummer 37 \u2014 Frau Plasberg',
+        title: 'Nummer 37 — Frau Plasberg',
         audioUrl: null,
-        dialogue: 'Guten Tag, Frau Plasberg, hier Zeuner. Es geht um unseren Termin am Dienstag zur neuen Werbekampagne. Leider muss ich den Termin absagen, weil wir eine Steuerpr\u00fcfung bekommen haben. Den Rest der Woche bin ich auf Dienstreise. K\u00f6nnten wir uns n\u00e4chsten Dienstag treffen? Am Freitag kommt au\u00dferdem der Kunde zur Pr\u00e4sentation. Bitte rufen Sie mich zur\u00fcck.',
+        dialogue: 'Hallo, hier ist Zeuner, der neuen Assistent der Geschäftsleitung. Sie wollten am Dienstag die neue Werbekampagne mit Frau Plasberg besprechen, aber sie ist leider wegen einer Steuerprüfung hier im Haus verhindert. Die restliche Woche ist sie auf Dienstreise. Ginge bei Ihnen auch der Dienstag nächster Woche zur selben Zeit. Bevor unser Kunde am Freitag kommender Woche zur Präsentation kommt, müssen noch wichtige Dinge geklärt werden. Bitte bestätigen Sie den Termin. Vielen Dank.',
         questions: [
           {
             number: 37, type: 'abc',
             statement: 'Frau Plasberg',
-            options: ['a) m\u00f6chte Steuerpr\u00fcfung auswerten.', 'b) m\u00f6chte die neue Werbekampagne diskutieren.', 'c) m\u00f6chte \u00fcber die Dienstreise sprechen.'],
+            options: ['a) möchte Steuerprüfung auswerten.', 'b) möchte die neue Werbekampagne diskutieren.', 'c) möchte über die Dienstreise sprechen.'],
             answer: 'b'
           }
         ]
       },
       {
-        title: 'Nummer 38 \u2014 Daniela Sch\u00f6ller',
+        title: 'Nummer 38 — Daniela Schöller',
         audioUrl: null,
-        dialogue: 'Hier ist Daniela Sch\u00f6ller von der Firma Neuhaus. Ihre Ware ist versandfertig. Ich m\u00f6chte Sie darauf hinweisen, dass die Ware sehr zerbrechlich ist. Wir haben den Eilzuschlag bezahlt. Die Ware muss unbedingt heute noch abgeholt werden.',
+        dialogue: 'Hallo, Daniela Schöller von der Firma Neuhaus. Die für heute angekündigte Ware ist jetzt versandfertig. Ich habe Ihnen ja schon gesagt, dass das Transporthub sehr zerbrechlich ist und nicht gestattet werden darf. Wie Sie wissen, ist die Lieferung sehr eilig und der Kunde hat den Eilzuschlag gezahlt. Es ist also unumgänglich, dass die Kisten heute noch abgeholt werden. Bitte bestätigen Sie mir kurz, dass das heute noch klappt. Bis später.',
         questions: [
           {
             number: 38, type: 'abc',
-            statement: 'Daniela Sch\u00f6ller',
+            statement: 'Daniela Schöller',
             options: ['a) bittet um heutige Abholung der Ware.', 'b) braucht die Lieferung dringend.', 'c) hat den Eilzuschlag bezahlt.'],
             answer: 'a',
             alts: [
@@ -57,27 +57,27 @@ const horenTeil4Variants = [
         ]
       },
       {
-        title: 'Nummer 39 \u2014 Lattermann',
+        title: 'Nummer 39 — Lattermann',
         audioUrl: null,
-        dialogue: 'Hier Lattermann von der Firma Top Elektronik. Leider konnte die Maschine wegen eines Sturms in Hamburg nicht verladen werden. Die Lieferung verz\u00f6gert sich um circa eine Woche. Das Schiff kommt voraussichtlich am 16. Mai in Dresden an.',
+        dialogue: 'Hallo, Guido Lattermann von der Firma Top Elektronik. Ich muss Ihnen leider mitteilen, dass die von Ihnen bestellte Maschine heute wegen des Sturms in Hamburg nicht verladen werden konnte. Die Lieferung verzögert sich wahrscheinlich um eine Woche. So wie es aussieht, kommt das Schiff am 16. Mai bei Ihnen in Dresden an. Es wäre nett, wenn Sie uns dann den Empfang der Ware bestätigen können. Ein kurzer Anruf reicht. Ich wünsche Ihnen einen schönen Tag und bitte entschuldigen Sie die Unannehmlichkeiten.',
         questions: [
           {
             number: 39, type: 'abc',
             statement: 'Herr Lattermann',
-            options: ['a) bekommt eine Maschine aus Hamburg.', 'b) best\u00e4tigt den Empfang der Maschine.', 'c) liefert Maschine nach Dresden.'],
+            options: ['a) bekommt eine Maschine aus Hamburg.', 'b) bestätigt den Empfang der Maschine.', 'c) liefert Maschine nach Dresden.'],
             answer: 'c'
           }
         ]
       },
       {
-        title: 'Nummer 40 \u2014 Bernhard',
+        title: 'Nummer 40 — Bernhard',
         audioUrl: null,
-        dialogue: 'Hier Bernhard aus der Gesch\u00e4ftsleitung. Wir haben uns Ihren Entwurf f\u00fcr die Homepage angesehen. Im Gro\u00dfen und Ganzen ist er gut, aber es gibt noch \u00c4nderungsw\u00fcnsche. Wir m\u00f6chten, dass die 10-j\u00e4hrige Garantie st\u00e4rker hervorgehoben wird. Bitte kontaktieren Sie meine Sekret\u00e4rin Frau Zimmer f\u00fcr einen Termin.',
+        dialogue: 'Bernhard, Geschäftsleitung. Ich habe mir Ihren Entwurf für unsere neue Homepage angesehen. Im Großen und Ganzen gefällt er mir recht gut, aber ich habe noch ein paar Änderungen. Wir sollten mehr hervorheben, was uns von anderen Firmen unterscheidet. Z.B. die zehnjährige Garantie, die wir auf unsere Produkte geben. Das ist aber noch nicht alles. Bitte melden Sie sich bei meiner Sekretärin Frau Zimmer für einen Termin, bei dem ich Ihnen die Punkte kurz erläutern kann.',
         questions: [
           {
             number: 40, type: 'abc',
             statement: 'Frau Bernhard',
-            options: ['a) hat \u00c4nderungsw\u00fcnsche f\u00fcr die Homepage.', 'b) meldet sich bei ihrer Sekret\u00e4rin.', 'c) m\u00f6chte die Garantie verl\u00e4ngern.'],
+            options: ['a) hat Änderungswünsche für die Homepage.', 'b) meldet sich bei ihrer Sekretärin.', 'c) möchte die Garantie verlängern.'],
             answer: 'a'
           }
         ]
@@ -89,66 +89,66 @@ const horenTeil4Variants = [
     audioUrl: 'https://t.me/B2_C2_Deutsch/65534/195150',
     sections: [
       {
-        title: 'Nummer 36 \u2014 Robert Kr\u00fcger',
+        title: 'Nummer 36 — Robert Krüger',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Robert Kr\u00fcger. Ich bin dieses Jahr f\u00fcr die Organisation der Weihnachtsfeier zust\u00e4ndig. Ich bin noch neu hier und kenne mich in der Stadt nicht so gut aus. Letztes Jahr wart ihr ja beim Griechen. Ich w\u00fcrde gerne etwas anderes ausprobieren, vielleicht etwas mit mehr fleischlosen Gerichten.',
+        dialogue: 'Hi, Robert Krüger hier. Ich habe die Organisation der diesjährigen Weihnachtsfeier ja von dir übernommen. Ich weiß aber noch nicht, welches Restaurant ich reservieren soll. Ich bin ja noch ziemlich neu in der Stadt. Ihr wart letztes Jahr doch beim Griechen, oder? Dieses Jahr sollte es etwas anderes sein. Vielleicht eins, wo es eine größere Auswahl an Fleischlosen Gerichten gibt. Deine Meinung hier wäre mir wichtig.',
         questions: [
           {
             number: 36, type: 'abc',
-            statement: 'Robert Kr\u00fcger',
-            options: ['a) hat letztes Jahr die Weihnachtsfeier organisiert.', 'b) m\u00f6chte bei einem Griechen feiern.', 'c) denkt an die Interessen der Vegetarier.'],
+            statement: 'Robert Krüger',
+            options: ['a) hat letztes Jahr die Weihnachtsfeier organisiert.', 'b) möchte bei einem Griechen feiern.', 'c) denkt an die Interessen der Vegetarier.'],
             answer: 'c'
           }
         ]
       },
       {
-        title: 'Nummer 37 \u2014 Katrin',
+        title: 'Nummer 37 — Katrin',
         audioUrl: null,
-        dialogue: 'Hallo Bettina, hier ist Katrin. Heli Joni hat n\u00e4chste Woche runden Geburtstag und wir brauchen ein Geschenk. Jeder gibt 5 Euro, das sind ungef\u00e4hr 70 Euro insgesamt. Hast du eine Idee, was wir schenken k\u00f6nnten?',
+        dialogue: 'Hallo Bettina. Katrin hier. Hast du schon gehört, dass Heli Joni nächste Woche einen runden Geburtstag feiert? Wir, ihr Team, brauchen noch ein Geschenk für sie, haben aber keine Idee. Du kennst sie ja privat. Hast du vielleicht einen Vorschlag? Normalerweise gibt jeder 5 €. Es darf also etwa 70 € kosten. Wenn es etwas mehr kostet, ist es aber auch nicht schlimm. Kannst du mich später zurückrufen? Das wäre super.',
         questions: [
           {
             number: 37, type: 'abc',
             statement: 'Katrin',
-            options: ['a) will Bettina mit einem Geschenk \u00fcberraschen.', 'b) sucht eine Anregung f\u00fcr ein Geschenk.', 'c) m\u00f6chte ein kleines Geschenk f\u00fcr f\u00fcnf Euro kaufen.'],
+            options: ['a) will Bettina mit einem Geschenk überraschen.', 'b) sucht eine Anregung für ein Geschenk.', 'c) möchte ein kleines Geschenk für fünf Euro kaufen.'],
             answer: 'b'
           }
         ]
       },
       {
-        title: 'Nummer 38 \u2014 Stefan K\u00f6rner',
+        title: 'Nummer 38 — Stefan Körner',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Stefan K\u00f6rner. Die Brandmelder m\u00fcssen ausgetauscht werden. Die Firma M\u00fcller Brandschutz GmbH hat gesagt, das geht nur noch bis Ende des Jahres. K\u00f6nntest du bitte bei der Firma anrufen und einen Termin vereinbaren?',
+        dialogue: 'Hallo, Stefan Körner hier. Ich wollte Sie nur daran erinnern, dass die Brandmelder in den Büros demnächst ausgetauscht werden müssen. Bei der letzten Wartung hat uns der Fachmann von der Müller Brandschutz GmbH darauf aufmerksam gemacht, dass wir sie nur noch bis Ende des Jahres in Betrieb haben dürfen. Können Sie bitte bei der Firma anrufen und fragen, wann jemand bei uns vorbeikommen kann? Bei Fragen rufen Sie mich einfach zurück.',
         questions: [
           {
             number: 38, type: 'abc',
-            statement: 'Stefan K\u00f6rner bittet seinen Kollegen,',
+            statement: 'Stefan Körner bittet seinen Kollegen,',
             options: ['a) die Wartung zu beauftragen.', 'b) einen Termin zu vereinbaren.', 'c) die Brandmelder zu warten.'],
             answer: 'b'
           }
         ]
       },
       {
-        title: 'Nummer 39 \u2014 Barbara',
+        title: 'Nummer 39 — Barbara',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Barbara. Die franz\u00f6sischen Kollegen kommen uns besuchen. Am Montagvormittag machen wir eine Betriebsbesichtigung und am Nachmittag ein Begegnungsfest. Ich brauche die genaue Anzahl der Anmeldungen f\u00fcr Essen und Getr\u00e4nke. Den Raum habe ich schon gebucht.',
+        dialogue: 'Hallo, Barbara hier. Ich rufe noch mal an wegen des Besuchs der Kollegen aus unserer französischen Niederlassung. So viel ich weiß, ist am Montagmorgen eine Betriebsbesichtigung geplant und am Nachmittag gibt es dann noch ein großes Begegnungsfest. Ich brauche bitte noch die genaue Zahl der Anmeldungen, damit ich das Essen und die Getränke bestellen kann. Du hast den Raum ja schon gebucht, richtig? Melde dich doch einfach, wenn du wieder am Platz bist.',
         questions: [
           {
             number: 39, type: 'abc',
             statement: 'Barbara',
-            options: ['a) organisiert allein das Begegnungsfest.', 'b) wird den franz\u00f6sischen Kollegen die Firma zeigen.', 'c) k\u00fcmmert sich um die Verpflegung der G\u00e4ste.'],
+            options: ['a) organisiert allein das Begegnungsfest.', 'b) wird den französischen Kollegen die Firma zeigen.', 'c) kümmert sich um die Verpflegung der Gäste.'],
             answer: 'c'
           }
         ]
       },
       {
-        title: 'Nummer 40 \u2014 Michaell Br\u00fcger',
+        title: 'Nummer 40 — Michaell Brüger',
         audioUrl: null,
-        dialogue: 'Guten Tag, hier ist Michaell Br\u00fcger von der Br\u00fcger Hausverwaltung. Die Heizung in der Ludwigsstra\u00dfe 8 ist seit zwei Tagen defekt. F\u00fcr die n\u00e4chsten Tage sind minus 5 Grad angek\u00fcndigt. Bitte rufen Sie mich dringend zur\u00fcck.',
+        dialogue: 'Hallo, Michaell Brüger von der Brüger Hausverwaltung. Wie ich Ihnen gestern schon auf den Anrufbeantworter gesprochen habe, ist bei uns im Haus in der Ludwigsstraße 8 seit vorgestern die Heizung defekt. Das Problem muss umgehend behoben werden, da in den nächsten Tagen -5 Grad erwartet werden. Ich hätte eigentlich gestern mit einem zeitnahen Rückruf gerechnet. Das hat in den letzten Jahren ja immer geklappt. Rufen Sie mich bitte in den nächsten Stunden zurück.',
         questions: [
           {
             number: 40, type: 'abc',
-            statement: 'Michaell Br\u00fcger m\u00f6chte, dass',
-            options: ['a) die Heizung repariert wird.', 'b) er in den n\u00e4chsten Tagen zur\u00fcckgerufen wird.', 'c) die Heizk\u00f6rper ausgetauscht werden.'],
+            statement: 'Michaell Brüger möchte, dass',
+            options: ['a) die Heizung repariert wird.', 'b) er in den nächsten Tagen zurückgerufen wird.', 'c) die Heizkörper ausgetauscht werden.'],
             answer: 'a'
           }
         ]
@@ -160,9 +160,9 @@ const horenTeil4Variants = [
     audioUrl: 'https://t.me/B2_C2_Deutsch/65534/124141',
     sections: [
       {
-        title: 'Nummer 36 \u2014 Waldemar',
+        title: 'Nummer 36 — Waldemar',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Waldemar aus der \u00d6ffentlichkeitsarbeit. Meine Tochter hat Fieber und ich muss sie abholen. K\u00f6nntest du bitte die Betriebsf\u00fchrung um 10:30 Uhr \u00fcbernehmen? Der Rundgang geht vom Verwaltungsgeb\u00e4ude zur Produktionshalle, dann zur Lagerhalle, danach zu den B\u00fcros in der 1. Etage und zum Schluss in die Kantine.',
+        dialogue: 'Hallo, Waldemar Hahrmann, Öffentlichkeitsarbeit. Die Lehrerin von meiner Tochter hat angerufen. Die Kleine hat Fieber und muss abgeholt werden. Heute sollte ich doch gegen 10:30 Uhr die potenziellen Partner unserer Firma durch den Betrieb führen. Könntest du das übernehmen? Wäre super. Ist auch ganz unproblematisch. Treffpunkt ist der Eingangsbereich des Verwaltungsgebäudes. Dann geht es sofort über zu der neuen Produktionshalle und danach noch in die Lagerhalle. Nach einem kurzen Rundgang durch die Büros auf der ersten Etage schließen wir mit Kaffee und Kuchen in der Kantine ab.',
         questions: [
           {
             number: 36, type: 'abc',
@@ -173,22 +173,22 @@ const horenTeil4Variants = [
         ]
       },
       {
-        title: 'Nummer 37 \u2014 Jana Wartner',
+        title: 'Nummer 37 — Jana',
         audioUrl: null,
-        dialogue: 'Guten Tag, hier ist Jana Wartner von Hessen-Gr\u00f6nland. Vielen Dank f\u00fcr Ihren Kostenvoranschlag. Wir m\u00f6chten einen Probeauftrag \u00fcber 10 Laserdrucker X3 aufgeben. Wir h\u00e4tten gerne 5 Prozent Einf\u00fchrungsrabatt. Die Bezahlung erfolgt bar bei Lieferung. Wir brauchen die Drucker f\u00fcr unser Gro\u00dfraumb\u00fcro.',
+        dialogue: 'Hallo, hier ist Jana Wartner von Hessen-Grönland. Danke für den Kostenvoranschlag, den Sie mir gestern noch gemailt haben. Wir möchten einen Probeauftrag für zehn Laserdrucker Modell X3 aufheben. Bei unserem letzten Gespräch haben wir 5% Einführungsrabatt vereinbart. Die Zahlung erfolgt bar bei der Lieferung. Den Auftrag bekommen Sie natürlich noch ganz offiziell da näher. Aber wir brauchen die Drucker wirklich dringend für unser neues Großraumbüro. Können Sie mir garantieren, dass die Lieferung rechtzeitig eintreffen wird? Bitte um gute Antwort.',
         questions: [
           {
             number: 37, type: 'abc',
             statement: 'Jana',
-            options: ['a) hat den Auftrag bereits gemailt.', 'b) m\u00f6chte einen h\u00f6heren Rabatt vereinbaren.', 'c) ben\u00f6tigt die Drucker f\u00fcr das Gro\u00dfraumb\u00fcro.'],
+            options: ['a) hat den Auftrag bereits gemailt.', 'b) mochte einen höheren Rabatt vereinbaren.', 'c) benötigt die Drucker für das Großraumbüro.'],
             answer: 'c'
           }
         ]
       },
       {
-        title: 'Nummer 38 \u2014 Erisia',
+        title: 'Nummer 38 — Erisia',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Erisia. Frau Schmidt ist bis Mittag weg und ich bin allein am Empfang. Die russischen G\u00e4ste sind fr\u00fcher gekommen als erwartet. Ich brauche dringend einen Dolmetscher. Ich habe die G\u00e4ste in den Konferenzraum gesetzt und ihnen Kaffee und Snacks angeboten.',
+        dialogue: 'Hallo, Erisia hier. Frau Schmidt musste dringend kurz weg und wird erst gegen Mittag wieder hier sein. Deshalb ist Jana alleine am Empfang. Jetzt ist der Zug aus Russland auch noch früher gekommen als geplant. Jana kann doch keine Russen speisen. Wir bräuchten deine Hilfe zum Dolmetschen. Ich habe die Gatten in den Konferenzraum gebracht und ihnen den Kaffee und Snacks angeboten. Könntest du dich um sie kümmern, bis Frau Schmidt zurück ist? Das wäre super. Danke.',
         questions: [
           {
             number: 38, type: 'abc',
@@ -199,22 +199,22 @@ const horenTeil4Variants = [
         ]
       },
       {
-        title: 'Nummer 39 \u2014 Trixi',
+        title: 'Nummer 39 — Trixi',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Trixi. Es geht um unseren Messeauftritt in K\u00f6ln. Ich habe eine g\u00fcnstige Spedition f\u00fcr den Transport von Leipzig nach K\u00f6ln gefunden. Die Kontenmappe, Brosch\u00fcren und Werbeposter nehme ich selbst mit. Wir brauchen noch zwei Kollegen f\u00fcr den Auf- und Abbau. Au\u00dferdem m\u00fcssen wir noch Hotelzimmer buchen.',
+        dialogue: 'Hi, Trixi nochmal. Es geht schon wieder um den Messeauftritt in Köln nächste Woche. Ich habe nun endlich eine preisgünstige Spedition gefunden, die unsere Ausstellungsstücke von Leipzig nach Köln und zurück transportiert. Kontenmappe, Broschüren und Werbeposter haben wir alles schon verpackt. Ich kann sie mitnehmen, weil ich selbst vor Ort sein werde. Nur eins noch. Für den Auf- und Abbau des Standes brauche ich zwei handkräftige Kollegen zur Unterstützung. Bitte heute noch melden, wer mithelfen könnte, sodass ich die Hotelzimmer für die Woche verwirklich buchen kann. Danke.',
         questions: [
           {
             number: 39, type: 'abc',
             statement: 'Trixi',
-            options: ['a) f\u00e4hrt mit zur Messe nach K\u00f6ln.', 'b) hat die Hotelzimmer schon gebucht.', 'c) findet keine kosteng\u00fcnstige Spedition.'],
+            options: ['a) fährt mit zur Messe nach Köln.', 'b) hat die Hotelzimmer schon gebucht.', 'c) findet keine kostengünstige Spedition.'],
             answer: 'a'
           }
         ]
       },
       {
-        title: 'Nummer 40 \u2014 Julius',
+        title: 'Nummer 40 — Julius',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Julius aus der Personalabteilung. Es geht um die Fortbildung bei H\u00e4ndelbau. Bitte beachten Sie: Es gilt Rauchverbot im ganzen Haus. Die gr\u00fcn markierten Bereiche d\u00fcrfen wegen der Gabelstapler nicht betreten werden. Bitte halten Sie sich an die Sicherheitsvorschriften.',
+        dialogue: 'Hallo, Julius Lehmann, Personalabteilung. Wegen der Fortbildung bei Händelbau nächste Woche. Kannst du bitte den Teilnehmern noch einmal deutlich sagen, dass dort im ganzen Haus Rauchverbot besteht? Der Raucherbereich befindet sich frei. Die Kollegen sollen außerdem zu ihrer eigenen Sicherheit stets auf den grün markierten Bereichen bleiben, wegen der Gefahr von Gabelstaplern angefangen zu werden. Das sind Sicherheitsvorschriften, die wir unbedingt einhalten müssen. Sonst würden wir in diesem Unternehmen keine Fortbildung mehr machen. Das wäre sehr schade, denn bisher gab es nur gute Rückmeldungen zu den Veranstaltungen. Danke.',
         questions: [
           {
             number: 40, type: 'abc',
@@ -231,66 +231,66 @@ const horenTeil4Variants = [
     audioUrl: 'https://t.me/B2_C2_Deutsch/65534/158141',
     sections: [
       {
-        title: 'Nummer 36 \u2014 Rita',
+        title: 'Nummer 36 — Rita',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Rita. Mein Sohn braucht einen Laptop. Unsere Abteilung bekommt neue Computer und Drucker. Die alten werden g\u00fcnstig an Mitarbeiter verkauft. Wer Interesse hat, kann sich bis Freitag am schwarzen Brett eintragen. Der Verkauf ist am Montag um 14:30 Uhr im Gro\u00dfraumb\u00fcro 2. Der Erl\u00f6s geht an das Sommerfest.',
+        dialogue: 'Hallo, Rita hier. Du hast mir doch erzählt, dass dein Sohn einen Laptop sucht. Nächste Woche bekommt unsere Abteilung neue Computer und neue Drucker. Deshalb werden die alten Geräte günstig an interessierte Mitarbeiter abgegeben. Das heißt, wer noch für zu Hause Computer, Laptops oder Drucker braucht, kann sich bis Freitag in eine Liste am schwarzen Brett eintragen. Der Verkauf findet dann ab Montag ab 14:30 Uhr im Großraumbüro 2 statt. Man kann die Geräte dann direkt mitnehmen. Der Erlös wird übrigens für die Finanzierung unseres Sommerfests verwendet.',
         questions: [
           {
             number: 36, type: 'abc',
             statement: 'Rita',
-            options: ['a) informiert \u00fcber den Verkauf der Firmencomputer.', 'b) m\u00f6chte ihren privaten Computer g\u00fcnstig verkaufen.', 'c) sorgt sich um die Finanzierung des Sommerfests.'],
+            options: ['a) informiert über den Verkauf der Firmencomputer.', 'b) möchte ihren privaten Computer günstig verkaufen.', 'c) sorgt sich um die Finanzierung des Sommerfests.'],
             answer: 'a'
           }
         ]
       },
       {
-        title: 'Nummer 37 \u2014 Konstantinos Pagonas',
+        title: 'Nummer 37 — Konstantinos Pagonas',
         audioUrl: null,
-        dialogue: 'Guten Tag, hier ist Konstantinos Pagonas von der Firma Pizzos. Es geht um Ihren Besuch n\u00e4chste Woche. Ein Kollege wird Sie an der Ausgangshalle A am Infopoint abholen und zum Werk Thessaloniki fahren. Die Werksbesichtigung machen wir dann gemeinsam.',
+        dialogue: 'Guten Tag, Konstantinos Pagonis von der Firma Pizzos. Ich wollte mich nochmal wegen Ihres Besuchs in der nächsten Woche melden. Sie brauchen sich nicht um den Transfer vom Flughafen zur Firma kümmern. Meine Kollegin wird Sie in der Ausgangshalle A am Infopoint empfangen und mit Ihnen zusammen zu unserem Werk in Thessaloniki fahren. Dort warte ich auf Sie und wir machen gemeinsam eine Werksbesichtigung. Ich freue mich schon, Sie persönlich kennenzulernen.',
         questions: [
           {
             number: 37, type: 'abc',
             statement: 'Konstantinos Pagonas ruft an, um',
-            options: ['a) einen Firmenbesuch anzuk\u00fcndigen.', 'b) nach dem Weg zur Firma zu fragen.', 'c) organisatorische Informationen mitzuteilen.'],
+            options: ['a) einen Firmenbesuch anzukündigen.', 'b) nach dem Weg zur Firma zu fragen.', 'c) organisatorische Informationen mitzuteilen.'],
             answer: 'c'
           }
         ]
       },
       {
-        title: 'Nummer 38 \u2014 Lara Hartmann',
+        title: 'Nummer 38 — Lara Hartmann',
         audioUrl: null,
-        dialogue: 'Guten Tag, hier ist Lara Hartmann aus der Personalabteilung. Das Steuerb\u00fcro braucht noch die Belege f\u00fcr Ihre Dienstreise nach Berlin im Mai letzten Jahres. Bringen Sie bitte die Originale am Montag mit.',
+        dialogue: 'Lara Hartmann aus der Personalabteilung. Ich habe Sie bisher leider nicht persönlich erreicht, deshalb spreche ich jetzt auf die Mailbox. Unser Steuerbüro hat gestern angerufen. Dort benötigt man dringend die Belege für Ihre Dienstreise nach Berlin im Mai des vergangenen Jahres. Können Sie mir diese bitte im Original am Montag im Büro vorbeibringen? Vielen Dank und entschuldigen Sie die kurze Frist. Für Rückfragen erreichen Sie mich heute noch bis 17 Uhr.',
         questions: [
           {
             number: 38, type: 'abc',
             statement: 'Lara Hartmann',
-            options: ['a) ben\u00f6tigt Dokumente f\u00fcr das Steuerb\u00fcro.', 'b) bringt der Kollegin die Belege vorbei.', 'c) hat gestern das Steuerb\u00fcro angerufen.'],
+            options: ['a) benötigt Dokumente für das Steuerbüro.', 'b) bringt der Kollegin die Belege vorbei.', 'c) hat gestern das Steuerbüro angerufen.'],
             answer: 'a'
           }
         ]
       },
       {
-        title: 'Nummer 39 \u2014 Thomas Barthel',
+        title: 'Nummer 39 — Thomas Barthel',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Thomas Barthel aus der IT-Abteilung. Sie hatten angerufen, weil sich Ihr PC nicht herunterfahren l\u00e4sst. Entschuldigung f\u00fcr die sp\u00e4te R\u00fcckmeldung, wir hatten viel zu tun seit der Systemumstellung. Ich kann das Problem wahrscheinlich \u00fcber Fernwartung beheben. Rufen Sie mich bitte an.',
+        dialogue: 'Thomas Barthel, IT-Abteilung. Sie hatten angerufen, weil Sie Ihren PC nicht mehr runterfahren können. Entschuldigen Sie, dass ich mich jetzt erst melde, aber seit der Systemumstellung haben wir im ganzen Haus viel zu tun, weil viele Kollegen Fragen dazu haben. Aber Ihr Problem, denke ich, kann ich per Fernwartung lösen. Dazu bräuchte ich Sie aber am Telefon. Bitte rufen Sie mich zurück. Ich bin heute bis 18 Uhr im Büro.',
         questions: [
           {
             number: 39, type: 'abc',
             statement: 'Thomas Barthel',
-            options: ['a) hat Schwierigkeiten mit seinem Computer.', 'b) kann das aufgetretene Problem wohl schnell l\u00f6sen.', 'c) soll eine Systemumstellung im Haus vornehmen.'],
+            options: ['a) hat Schwierigkeiten mit seinem Computer.', 'b) kann das aufgetretene Problem wohl schnell lösen.', 'c) soll eine Systemumstellung im Haus vornehmen.'],
             answer: 'b'
           }
         ]
       },
       {
-        title: 'Nummer 40 \u2014 Klara G\u00fcnther',
+        title: 'Nummer 40 — Klara Günther',
         audioUrl: null,
-        dialogue: 'Guten Tag, hier ist Klara G\u00fcnther aus der Personalabteilung. Die Urlaubsplanung wird zentral gemacht. Die Frist ist der 30. November \u00fcber das Intranet. Heute ist der 29. \u2013 bitte denken Sie daran, Ihren Urlaub rechtzeitig einzutragen.',
+        dialogue: 'Clara Günther, Personalabteilung hier. Die Geschäftsführung hatte doch beschlossen, dass die Urlaubsplanung für das kommende Jahr zentral gemacht werden soll. Daher wurden alle Mitarbeiterinnen und Mitarbeiter aufgefordert, ihre Urlaubswünsche bis zum 30. November im Intranet einzutragen. Heute ist schon der 29. und ich habe gesehen, dass Sie noch nichts angegeben haben. Deshalb dachte ich, ich sage noch mal kurz Bescheid. Für den Fall, dass Sie es vergessen haben. Schönen Tag noch.',
         questions: [
           {
             number: 40, type: 'abc',
-            statement: 'Klara G\u00fcnther',
-            options: ['a) erinnert an die neue Urlaubsplanung.', 'b) legt die Urlaubsplanung zentral fest.', 'c) m\u00f6chte am 29. November Urlaub nehmen.'],
+            statement: 'Klara Günther',
+            options: ['a) erinnert an die neue Urlaubsplanung.', 'b) legt die Urlaubsplanung zentral fest.', 'c) möchte am 29. November Urlaub nehmen.'],
             answer: 'a'
           }
         ]
@@ -302,61 +302,61 @@ const horenTeil4Variants = [
     audioUrl: 'https://t.me/B2_C2_Deutsch/65534/136295',
     sections: [
       {
-        title: 'Nummer 36 \u2014 Jana / Katia',
+        title: 'Nummer 36 — Jana / Katia',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Jana. Es geht um den Workshop am 8. Mai. Wir brauchen einen Beamer im Raum K7 und Internetzugang. Der Flipchart muss im Raum bleiben. Moderationskarten und Marker bringe ich selbst mit.',
+        dialogue: 'Hallo, Jana / Katia Müller hier. Es geht nochmal um unseren Workshop am 8. Mai. Könntest du bitte dafür sorgen, dass im Raum K7 ein funktionstüchtiger Beamer steht? Und Internet brauchen wir natürlich auch. Ich würde vor der Veranstaltung alle Tops auf einen Flipchart schreiben. Wir müssen dann nur sicherstellen, dass der auch im Raum bleibt. Nicht, dass wir wieder kurz vor Veranstaltungsbeginn danach suchen müssen. Und Moderationskarten und Marker bringe ich übrigens mit.',
         questions: [
           {
             number: 36, type: 'abc',
             statement: 'Jana / Katia',
-            options: ['a) ben\u00f6tigt einen Internetzugang im Raum.', 'b) besorgt einen Beamer f\u00fcr die Veranstaltung.', 'c) stellt den Flipchart in den Veranstaltungsraum.'],
+            options: ['a) benötigt einen Internetzugang im Raum.', 'b) besorgt einen Beamer für die Veranstaltung.', 'c) stellt den Flipchart in den Veranstaltungsraum.'],
             answer: 'a'
           }
         ]
       },
       {
-        title: 'Nummer 37 \u2014 Felix',
+        title: 'Nummer 37 — Felix',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Felix. Es geht um die Schulung f\u00fcr den Kundenservice. Ich schlage vor, die Schulung online durchzuf\u00fchren, um Zeit und Kosten zu sparen. Ich habe bereits Softwareanbieter kontaktiert. Wir brauchen noch einen Feedbackbogen und einen Abschlusstest. Wann h\u00e4ttest du Zeit f\u00fcr ein Treffen?',
+        dialogue: 'Hi, Felix hier. Ich habe gute Nachrichten. Unsere Kollegen vom Kundenservice bekommen jetzt ihre Schulung und wir sollen das vorbereiten. Um Zeit und Kosten zu sparen, soll diese Fortbildung online stattfinden. Und ich habe schon mehrere Anbieter für die Schulungssoftware angefragt. Ich hoffe, die Angebote kommen nächste Woche. Dann können wir uns vielleicht gleich für eins entscheiden. Wir müssen auch noch einen Feedbackbogen und einen Abschlusstest entwerfen. Wann würde es dir denn am besten passen?',
         questions: [
           {
             number: 37, type: 'abc',
             statement: 'Felix',
-            options: ['a) bittet um einen Terminvorschlag.', 'b) hat schon Angebote f\u00fcr die Software.', 'c) soll an einer Schulung teilnehmen.'],
+            options: ['a) bittet um einen Terminvorschlag.', 'b) hat schon Angebote für die Software.', 'c) soll an einer Schulung teilnehmen.'],
             answer: 'a'
           }
         ]
       },
       {
-        title: 'Nummer 38 \u2014 Kathrin Sch\u00f6nberner',
+        title: 'Nummer 38 — Kathrin Schönberner',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Kathrin Sch\u00f6nberner aus der Kundenbetreuung. Es gibt Beschwerden \u00fcber die Spedition \u201eFlink und Sicher\u201c. Die Lieferfristen werden nicht eingehalten. Einige Kunden drohen, zur Konkurrenz zu gehen. Vielleicht m\u00fcssen wir einen neuen Partner finden.',
+        dialogue: 'Hallo, hier ist Kathrin Schönberner von der Kundenbetreuung. Ich habe heute schon wieder einige Beschwerden von Kunden bekommen, auch von Standkunden übrigens, weil es immer wieder Probleme mit der Spedition „Flink und Sicher" gibt. Wenn die weiterhin die vereinbarten Lieferfristen nicht einhalten, gehen unsere Kunden zur Konkurrenz. Ich glaube, wir sollten dringend handeln und uns zusammensetzen, um eine Lösung zu finden. Vielleicht müssen wir uns nach einem neuen Partner umschauen. Passt Ihnen morgen um drei.',
         questions: [
           {
             number: 38, type: 'abc',
-            statement: 'Kathrin Sch\u00f6nberner hat',
+            statement: 'Kathrin Schönberner hat',
             options: ['a) Angst, Kunden zu verlieren.', 'b) eine neue Spedition gefunden.', 'c) Fristen nicht beachtet.'],
             answer: 'a'
           }
         ]
       },
       {
-        title: 'Nummer 39 \u2014 Daniel Meyer',
+        title: 'Nummer 39 — Daniel Meyer',
         audioUrl: null,
-        dialogue: 'Guten Tag, hier ist Daniel Meyer von der Firma Busch. Es geht um den Austausch Ihrer Telefonanlage in der Semperstra\u00dfe 2. Ich h\u00e4tte ein paar Fragen: Wie lange ist die Anlage nicht funktionsf\u00e4hig? Werden die Telefonapparate auch ausgetauscht? Und kann die Einweisung am selben Tag stattfinden?',
+        dialogue: 'Daniel Meyer von der Firma Busch. Guten Tag. Nächste Woche wechseln Sie ja die Telefonanlage bei uns in der Semperstraße 2 aus. Und dazu habe ich noch ein paar Fragen. Wie lange werden wir denn nicht telefonieren können? Außerdem hatten Sie gesagt, dass die Telefonapparate ausgetauscht werden müssen. Bringen Sie die neuen gleich mit? Und wir brauchen noch eine Einweisung in die Nutzung der neuen Anlage. Es wäre sinnvoll, wenn wir das an dem Tag auch gleich machen könnten.',
         questions: [
           {
             number: 39, type: 'abc',
-            statement: 'Daniel Meyer m\u00f6chte wissen,',
-            options: ['a) ob die Telefonapparate ausgetauscht werden.', 'b) wer den Kollegen die Anlage erkl\u00e4rt.', 'c) wie lange die Telefonanlage nicht funktionieren wird.'],
+            statement: 'Daniel Meyer möchte wissen,',
+            options: ['a) ob die Telefonapparate ausgetauscht werden.', 'b) wer den Kollegen die Anlage erklärt.', 'c) wie lange die Telefonanlage nicht funktionieren wird.'],
             answer: 'c'
           }
         ]
       },
       {
-        title: 'Nummer 40 \u2014 Anja',
+        title: 'Nummer 40 — Anja',
         audioUrl: null,
-        dialogue: 'Hallo, hier ist Anja. Am Freitag gibt es eine au\u00dferplanm\u00e4\u00dfige Abteilungsbesprechung. K\u00f6nntest du Katharinas Pr\u00e4sentation \u00fcbernehmen? Sie ist auf Schulung. Es geht um die Verkaufszahlen des letzten Quartals. Ich habe leider keinen \u00dcberblick dar\u00fcber.',
+        dialogue: 'Hallo, hier ist Anja nochmal. Du kommst doch am Freitag auch zu der außerplanmäßigen Abteilungsbesprechung, oder? Zumindest habe ich deinen Namen auf der Liste gelesen. Kannst du bitte Katharinas Präsentation übernehmen? Sie ist die ganze nächste Woche auf einer Schulung und kommt dann erst wieder Montag ins Haus. Ihr habt doch die Verkaufszahlen vom letzten Quartal zusammen ausgewertet. Ich habe darüber leider keinen Überblick und kann es nicht selbst machen. Gibst du mir bitte kurz Bescheid, ob es klappt? Danke.',
         questions: [
           {
             number: 40, type: 'abc',
@@ -373,66 +373,66 @@ const horenTeil4Variants = [
     audioUrl: null,
     sections: [
       {
-        title: 'Nummer 36 \u2014 Juri',
+        title: 'Nummer 36 — Juri',
         audioUrl: 'https://t.me/B2_C2_Deutsch/65534/153252',
-        dialogue: 'Hallo Tim, hier ist Juri. Ich bereite morgen eine Pr\u00e4sentation vor und brauche einen Laptop, einen Beamer, einen Flipchart und eine wei\u00dfe Tafel. Die Unterlagen bringe ich sp\u00e4ter vorbei. Es kommen ungef\u00e4hr 150 Teilnehmer. Wir brauchen also auch Mappen.',
+        dialogue: 'Hi Tim, Juri hier. Ich habe gehört, dass du den Raum für meine Präsentation morgen vorbereitest. Ich wollte dich bitten, folgende technische Ausstattung für mich bereitzuhalten. Da ich Power-Point nutzen werde, brauche ich einen Laptop und einen Beamer. Außerdem wären noch ein Flipchart und eine weiße Tafel mit den passenden Stiften gut. Die Unterlagen, die bei allen Besuchern auf dem Stuhl liegen sollen, bringe ich dir später vorbei. Wir rechnen mit ca. 150 Teilnehmern. Ich würde dich also bitten, entsprechend viele Mappen vorzubereiten. Danke dir.',
         questions: [
           {
             number: 36, type: 'abc',
             statement: 'Juri',
-            options: ['a) bereitet den Raum f\u00fcr die Veranstaltung vor.', 'b) braucht von Tim eine Power-Point-Pr\u00e4sentation.', 'c) h\u00e4lt am n\u00e4chsten Tag einen Vortrag.'],
+            options: ['a) bereitet den Raum für die Veranstaltung vor.', 'b) braucht von Tim eine Power-Point-Präsentation.', 'c) hält am nächsten Tag einen Vortrag.'],
             answer: 'c'
           }
         ]
       },
       {
-        title: 'Nummer 37 \u2014 Anita',
+        title: 'Nummer 37 — Anita',
         audioUrl: 'https://t.me/B2_C2_Deutsch/65534/153251',
-        dialogue: 'Hallo Steffi, hier ist Anita aus der Buchhaltung. Wir haben vor sechs Wochen die Rechnung C134 an Schneider Waren geschickt, aber es ist noch kein Zahlungseingang zu verzeichnen. Ich werde eine Zahlungserinnerung verschicken.',
+        dialogue: 'Anita aus der Buchhaltung hier. Hallo Steffi. Ich kann für die Rechnung Nr. C134, die wir vor 6 Wochen an die Firma Schneider Waren geschickt haben, noch immer keinen Zahlungseingang feststellen. Weißt du, was da los ist? Sie haben die Ware doch erhalten, oder? Schau doch bitte mal in deinen Unterlagen nach und sag mir Bescheid. Wenn von unserer Seite aus alles in Ordnung ist, werde ich nämlich heute eine Zahlungserinnerung an die Firma rausschicken. Ruf mich doch bitte kurz an.',
         questions: [
           {
             number: 37, type: 'abc',
             statement: 'Anita',
-            options: ['a) bittet Steffi, die Rechnung zu bezahlen.', 'b) hat vor sechs Wochen eine Rechnung bezahlt.', 'c) m\u00f6chte eine Zahlungsaufforderung verschicken.'],
+            options: ['a) bittet Steffi, die Rechnung zu bezahlen.', 'b) hat vor sechs Wochen eine Rechnung bezahlt.', 'c) möchte eine Zahlungsaufforderung verschicken.'],
             answer: 'c'
           }
         ]
       },
       {
-        title: 'Nummer 38 \u2014 Mario Gro\u00df',
+        title: 'Nummer 38 — Mario Groß',
         audioUrl: 'https://t.me/B2_C2_Deutsch/65534/153250',
-        dialogue: 'Guten Tag, hier ist Mario Gro\u00df vom Weinhandel Winzer. Wir haben Ihr Angebot erhalten, aber die Preise sind f\u00fcr unsere monatliche St\u00fcckzahl zu hoch. Maximal k\u00f6nnen wir 7,50 Euro pro Flasche bezahlen. Andere Weing\u00fcter bieten gute Qualit\u00e4t zu diesem Preis. Allerdings gef\u00e4llt uns Ihre Qualit\u00e4t sehr gut.',
+        dialogue: 'Weinhandel Winzer, Mario Groß, guten Tag. Ich habe Ihr Angebot bekommen und würde mich gerne persönlich mit Ihnen darüber unterhalten. Die Preise scheinen mir bei der Stückzahl an Flaschen, die wir monatlich abnehmen würden, sehr hoch. Und ich wollte mal nachfragen, ob wir darüber noch verhandeln können. Mehr als 7,50 Euro pro Flasche können wir leider nicht bezahlen. Es gibt andere Weingüter, die durchaus gute Weine zu diesem Preis anbieten. Wir finden aber Ihre Qualität sehr überzeugend und würden uns freuen, wenn wir uns einig werden könnten.',
         questions: [
           {
             number: 38, type: 'abc',
-            statement: 'Mario Gro\u00df',
-            options: ['a) bittet um ein schriftliches Angebot.', 'b) kennt auch andere Weing\u00fcter mit guter Qualit\u00e4t.', 'c) m\u00f6chte den Wein g\u00fcnstiger liefern.'],
+            statement: 'Mario Groß',
+            options: ['a) bittet um ein schriftliches Angebot.', 'b) kennt auch andere Weingüter mit guter Qualität.', 'c) möchte den Wein günstiger liefern.'],
             answer: 'b'
           }
         ]
       },
       {
-        title: 'Nummer 39 \u2014 Irina M\u00fcller',
+        title: 'Nummer 39 — Irina Müller',
         audioUrl: 'https://t.me/B2_C2_Deutsch/65534/153249',
-        dialogue: 'Guten Tag, hier ist Irina M\u00fcller aus dem Sekretariat von Dr. Schmidt. Wir haben Ihr Angebot f\u00fcr Schneidemaschinen gesehen und haben Interesse. Dr. Schmidt m\u00f6chte sich die Ger\u00e4te aber vor einer Bestellung ansehen. K\u00f6nnten Sie zu uns kommen und eine Pr\u00e4sentation machen? N\u00e4chsten Freitag um 11 Uhr w\u00e4re uns recht.',
+        dialogue: 'Irina Müller, Sekretariat Dr. Schmidt, guten Tag. Herr Dr. Schmidt hat Ihr Angebot für die Schneidemaschinen erhalten und ist daran interessiert. Allerdings würde er sich die Geräte gerne erst ansehen, bevor wir eine Bestellung aufgeben. Wäre es möglich, dass Sie ihm die Geräte persönlich vorführen? Könnte Herr Dr. Schmidt vielleicht für eine Präsentation bei Ihnen in der Firma vorbeikommen? Der nächste Freitag würde für ihn gut passen. Am besten vormittags. Wenn es geht, um 11 Uhr. Bitte rufen Sie mich doch zurück. Vielen Dank.',
         questions: [
           {
             number: 39, type: 'abc',
-            statement: 'Irina M\u00fcller',
-            options: ['a) bereitet eine Pr\u00e4sentation vor.', 'b) bittet um einen Besuchstermin f\u00fcr ihren Chef.', 'c) hat Interesse an einem Angebot.'],
+            statement: 'Irina Müller',
+            options: ['a) bereitet eine Präsentation vor.', 'b) bittet um einen Besuchstermin für ihren Chef.', 'c) hat Interesse an einem Angebot.'],
             answer: 'b'
           }
         ]
       },
       {
-        title: 'Nummer 40 \u2014 Taro Klein',
+        title: 'Nummer 40 — Taro Klein',
         audioUrl: 'https://t.me/B2_C2_Deutsch/65534/153248',
-        dialogue: 'Guten Tag, hier ist Taro Klein von der Werbeagentur Pfeiffer & Partner. Es geht um die Werbekampagne f\u00fcr das Autohaus Scherm. Frau Dr. Pfeiffer hat morgen einen Termin dort. Sie m\u00f6chte, dass Herr Wei\u00df mitkommt, falls es R\u00fcckfragen oder \u00c4nderungsvorschl\u00e4ge gibt.',
+        dialogue: 'Werbeagentur Pfeiffer & Partner, Taro Klein am Apparat. Guten Tag, Herr Weiß, Sie haben doch die Werbekampagne für das Autohaus Scherm geplant. Unsere Geschäftsführerin, Frau Dr. Pfeiffer, hat morgen Nachmittag einen Termin bei den Kunden und hätte gerne, dass Sie sie begleiten. Sie können am besten Rede und Antwort stehen, wenn es Rückfragen zu den Entwürfen gibt und beurteilen, inwieweit irgendwelche Änderungsvorschläge realisierbar sind oder nicht. Bitte rufen Sie mich an, um den Termin zu bestätigen. Danke.',
         questions: [
           {
             number: 40, type: 'abc',
             statement: 'Taro Klein',
-            options: ['a) bittet Frau Pfeiffer um Unterst\u00fctzung.', 'b) hatte gerade einen Termin mit dem Autohaus.', 'c) m\u00f6chte die Werbekampagne ver\u00e4ndern.'],
+            options: ['a) bittet Frau Pfeiffer um Unterstützung.', 'b) hatte gerade einen Termin mit dem Autohaus.', 'c) möchte die Werbekampagne verändern.'],
             answer: 'c'
           }
         ]
@@ -451,7 +451,7 @@ const horenTeil4Variants = [
           {
             number: 36, type: 'abc',
             statement: 'Jan',
-            options: ['a) kennt bereits die Kosten f\u00fcr die Farben.', 'b) kontaktiert den Techniker.', 'c) k\u00fcmmert sich um die Farbauswahl.'],
+            options: ['a) kennt bereits die Kosten für die Farben.', 'b) kontaktiert den Techniker.', 'c) kümmert sich um die Farbauswahl.'],
             answer: 'c'
           }
         ]
@@ -464,7 +464,7 @@ const horenTeil4Variants = [
           {
             number: 37, type: 'abc',
             statement: 'Die Firma Software Solution',
-            options: ['a) liefert in f\u00fcnf bis sechs Stunden ihre Kassen.', 'b) m\u00f6chte mit dem Supermarkt einen Termin vereinbaren.', 'c) \u00fcberwacht die Sicherheit im Kassenbereich.'],
+            options: ['a) liefert in fünf bis sechs Stunden ihre Kassen.', 'b) möchte mit dem Supermarkt einen Termin vereinbaren.', 'c) überwacht die Sicherheit im Kassenbereich.'],
             answer: 'b'
           }
         ]
@@ -477,7 +477,7 @@ const horenTeil4Variants = [
           {
             number: 38, type: 'abc',
             statement: 'Gabi soll',
-            options: ['a) den Operationsplan \u00e4ndern.', 'b) Herrn Sommer anrufen.', 'c) mit dem Hausarzt \u00fcber die Blutwerte sprechen.'],
+            options: ['a) den Operationsplan ändern.', 'b) Herrn Sommer anrufen.', 'c) mit dem Hausarzt über die Blutwerte sprechen.'],
             answer: 'a'
           }
         ]
@@ -490,7 +490,7 @@ const horenTeil4Variants = [
           {
             number: 39, type: 'abc',
             statement: 'Anna',
-            options: ['a) bestellt italienisches Essen f\u00fcr alle.', 'b) organisiert eine Aktivit\u00e4t f\u00fcr das Team.', 'c) will nur mit Claudia ins Kino gehen.'],
+            options: ['a) bestellt italienisches Essen für alle.', 'b) organisiert eine Aktivität für das Team.', 'c) will nur mit Claudia ins Kino gehen.'],
             answer: 'b'
           }
         ]
@@ -503,7 +503,7 @@ const horenTeil4Variants = [
           {
             number: 40, type: 'abc',
             statement: 'Stefan berichtet, dass',
-            options: ['a) der Lieferant erkrankt ist.', 'b) die Kolleg*innen streiken wollen.', 'c) nicht p\u00fcnktlich geliefert werden kann.'],
+            options: ['a) der Lieferant erkrankt ist.', 'b) die Kolleg*innen streiken wollen.', 'c) nicht pünktlich geliefert werden kann.'],
             answer: 'c'
           }
         ]
