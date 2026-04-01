@@ -9,6 +9,10 @@ import HorenPage from './pages/b2/HorenPage';
 import LesenPage from './pages/b2/LesenPage';
 import SchreibenPage from './pages/b2/SchreibenPage';
 import SprechenPage from './pages/b2/SprechenPage';
+import HorenTeil1Page from './pages/b2/horen/HorenTeil1Page';
+import HorenTeil2Page from './pages/b2/horen/HorenTeil2Page';
+import HorenTeil3Page from './pages/b2/horen/HorenTeil3Page';
+import HorenTeil4Page from './pages/b2/horen/HorenTeil4Page';
 import LesenTeil1Page from './pages/b2/lesen/LesenTeil1Page';
 import LesenTeil2Page from './pages/b2/lesen/LesenTeil2Page';
 import LesenTeil3Page from './pages/b2/lesen/LesenTeil3Page';
@@ -23,6 +27,10 @@ function App() {
         <Route path="/nouns" element={<NounsExercise />} />
           <Route path="/b2" element={<B2Page />} />
           <Route path="/b2/horen" element={<HorenPage />} />
+          <Route path="/b2/horen/teil1" element={<HorenTeil1Page />} />
+          <Route path="/b2/horen/teil2" element={<HorenTeil2Page />} />
+          <Route path="/b2/horen/teil3" element={<HorenTeil3Page />} />
+          <Route path="/b2/horen/teil4" element={<HorenTeil4Page />} />
           <Route path="/b2/lesen" element={<LesenPage />} />
           <Route path="/b2/lesen/teil1" element={<LesenTeil1Page />} />
           <Route path="/b2/lesen/teil2" element={<LesenTeil2Page />} />
