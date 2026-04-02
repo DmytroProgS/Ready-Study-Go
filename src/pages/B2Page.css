@@ -50,6 +50,22 @@
   margin-right: 14px;
   width: 32px;
   text-align: center;
+  line-height: 1;
+}
+
+.b2-card__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(76, 175, 80, 0.2);
+  color: #2e7d32;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-right: 14px;
+  flex-shrink: 0;
 }
 
 .b2-card__label {
