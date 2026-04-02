@@ -83,6 +83,15 @@
   50% { transform: translateY(-4px); }
 }
 
+.b2-section-title {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
 .b2-hint {
   margin-top: 20px;
   font-size: 0.85rem;

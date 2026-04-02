@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage';
 import ExercisePage from './pages/ExercisePage';
 import NotFoundPage from './pages/NotFoundPage';
 import NounsExercise from './components/NounsExercise';
+import GrammarPage from './pages/GrammarPage';
+import PraepositionenPage from './pages/PraepositionenPage';
 import B2Page from './pages/B2Page';
 import HorenPage from './pages/b2/HorenPage';
 import LesenPage from './pages/b2/LesenPage';
@@ -24,7 +26,10 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-        <Route path="/nouns" element={<NounsExercise />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/grammar" element={<GrammarPage />} />
+          <Route path="/grammar/praep/:mode" element={<PraepositionenPage />} />
+          <Route path="/nouns" element={<NounsExercise />} />
           <Route path="/b2" element={<B2Page />} />
           <Route path="/b2/horen" element={<HorenPage />} />
           <Route path="/b2/horen/teil1" element={<HorenTeil1Page />} />
@@ -38,7 +43,6 @@ function App() {
           <Route path="/b2/lesen/teil4" element={<LesenTeil4Page />} />
           <Route path="/b2/schreiben" element={<SchreibenPage />} />
           <Route path="/b2/sprechen" element={<SprechenPage />} />
-          <Route path="/" element={<HomePage />} />
           <Route path="/exercise/:id" element={<ExercisePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

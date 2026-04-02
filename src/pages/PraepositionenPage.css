@@ -1,0 +1,161 @@
+.praep-page {
+  padding: 30px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.praep-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 4px;
+}
+
+.praep-counter {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+/* Card flip */
+.praep-card {
+  perspective: 800px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  min-height: 220px;
+}
+
+.praep-card__inner {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.praep-card--flipped .praep-card__inner {
+  transform: rotateY(180deg);
+}
+
+.praep-card__front,
+.praep-card__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 220px;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.praep-card__front {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border-left: 5px solid #1976d2;
+}
+
+.praep-card__back {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border-left: 5px solid #4caf50;
+  transform: rotateY(180deg);
+}
+
+.praep-card__hint {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.praep-card__text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1a237e;
+  line-height: 1.5;
+}
+
+.praep-card__tap {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.praep-card__de-example {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #1b5e20;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.praep-card__info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.praep-card__verb {
+  background: #2e7d32;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.praep-card__prep {
+  background: #ff8f00;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.praep-card__ua-verb {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* Navigation */
+.praep-nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.praep-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #e0e0e0;
+  color: #333;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.praep-btn:hover:not(:disabled) {
+  background: #bdbdbd;
+}
+
+.praep-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.praep-btn--shuffle {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.praep-btn--shuffle:hover {
+  background: #ffe0b2;
+}
