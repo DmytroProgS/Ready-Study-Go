@@ -75,7 +75,10 @@ function SprachbausteineTeil2Page() {
 
       <p className="sb-subtitle">Variante {vi + 1} — {v.title}</p>
 
-      <div className="sb-text">{renderText()}</div>
+      <div className="sb-text">
+        <div className="sb-title-bold">{v.title}</div>
+        {renderText()}
+      </div>
 
       {submitted && (
         <div className={`sb-score ${score === 6 ? 'perfect' : 'partial'}`}>

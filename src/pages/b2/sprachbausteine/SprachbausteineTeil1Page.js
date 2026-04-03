@@ -50,9 +50,12 @@ function SprachbausteineTeil1Page() {
             disabled={submitted}
           >
             <option value="">— виберіть —</option>
-            {v.options.map(opt => (
-              <option key={opt} value={opt}>{opt}</option>
-            ))}
+            {v.options.map(opt => {
+              const usedElsewhere = usedWords.includes(opt) && answers[gap] !== opt;
+              return (
+                <option key={opt} value={opt} disabled={usedElsewhere}>{opt}</option>
+              );
+            })}
           </select>
           {isWrong && <span className="sb-correct-hint">→ {correct}</span>}
         </span>
@@ -85,7 +88,10 @@ function SprachbausteineTeil1Page() {
         </div>
       </div>
 
-      <div className="sb-text">{renderText()}</div>
+      <div className="sb-text">
+        <div className="sb-title-bold">{v.title}</div>
+        {renderText()}
+      </div>
 
       {submitted && (
         <div className={`sb-score ${score === 6 ? 'perfect' : 'partial'}`}>
