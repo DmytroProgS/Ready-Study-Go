@@ -17,6 +17,11 @@ function B2Page() {
           <span className="b2-card__label">Lesen</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
+        <Link to="/b2/sprachbausteine" className="b2-card b2-card--ready">
+          <span className="b2-card__icon">✏️</span>
+          <span className="b2-card__label">Sprachbausteine</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
         <Link to="/b2/schreiben" className="b2-card b2-card--soon">
           <span className="b2-card__icon">✍️</span>
           <span className="b2-card__label">Schreiben</span>

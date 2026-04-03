@@ -11,6 +11,9 @@ import HorenPage from './pages/b2/HorenPage';
 import LesenPage from './pages/b2/LesenPage';
 import SchreibenPage from './pages/b2/SchreibenPage';
 import SprechenPage from './pages/b2/SprechenPage';
+import SprachbausteinePage from './pages/b2/SprachbausteinePage';
+import SprachbausteineTeil1Page from './pages/b2/sprachbausteine/SprachbausteineTeil1Page';
+import SprachbausteineTeil2Page from './pages/b2/sprachbausteine/SprachbausteineTeil2Page';
 import HorenTeil1Page from './pages/b2/horen/HorenTeil1Page';
 import HorenTeil2Page from './pages/b2/horen/HorenTeil2Page';
 import HorenTeil3Page from './pages/b2/horen/HorenTeil3Page';
@@ -41,6 +44,9 @@ function App() {
           <Route path="/b2/lesen/teil2" element={<LesenTeil2Page />} />
           <Route path="/b2/lesen/teil3" element={<LesenTeil3Page />} />
           <Route path="/b2/lesen/teil4" element={<LesenTeil4Page />} />
+          <Route path="/b2/sprachbausteine" element={<SprachbausteinePage />} />
+          <Route path="/b2/sprachbausteine/teil1" element={<SprachbausteineTeil1Page />} />
+          <Route path="/b2/sprachbausteine/teil2" element={<SprachbausteineTeil2Page />} />
           <Route path="/b2/schreiben" element={<SchreibenPage />} />
           <Route path="/b2/sprechen" element={<SprechenPage />} />
           <Route path="/exercise/:id" element={<ExercisePage />} />

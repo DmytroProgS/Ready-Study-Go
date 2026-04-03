@@ -1,0 +1,116 @@
+import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import variants from '../../../data/sprachbausteineTeil1Data';
+import '../../../assets/styles/sprachbausteine.css';
+
+const GAPS = [46, 47, 48, 49, 50, 51];
+
+function SprachbausteineTeil1Page() {
+  const [vi, setVi] = useState(0);
+  const [answers, setAnswers] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const v = variants[vi];
+
+  const score = useMemo(() => {
+    if (!submitted) return 0;
+    return GAPS.reduce((s, g) => s + (answers[g] === v.answers[g] ? 1 : 0), 0);
+  }, [submitted, answers, v]);
+
+  const usedWords = Object.values(answers);
+
+  const handleSelect = (gap, value) => {
+    if (submitted) return;
+    setAnswers(prev => ({ ...prev, [gap]: value || undefined }));
+  };
+
+  const handleSubmit = () => setSubmitted(true);
+  const handleReset = () => { setAnswers({}); setSubmitted(false); };
+  const handleGoTo = (i) => { setVi(i); setAnswers({}); setSubmitted(false); };
+
+  const allAnswered = GAPS.every(g => answers[g]);
+
+  const renderText = () => {
+    const parts = v.text.split(/(__\d{2}__)/);
+    return parts.map((part, i) => {
+      const match = part.match(/^__(\d{2})__$/);
+      if (!match) return <span key={i}>{part}</span>;
+      const gap = parseInt(match[1]);
+      const userAns = answers[gap];
+      const correct = v.answers[gap];
+      const isCorrect = submitted && userAns === correct;
+      const isWrong = submitted && userAns !== correct;
+      return (
+        <span key={i}>
+          <span className="sb-gap-num">[{gap}]</span>
+          <select
+            className={`sb-gap-select ${isCorrect ? 'correct' : ''} ${isWrong ? 'wrong' : ''}`}
+            value={userAns || ''}
+            onChange={e => handleSelect(gap, e.target.value)}
+            disabled={submitted}
+          >
+            <option value="">— виберіть —</option>
+            {v.options.map(opt => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+          {isWrong && <span className="sb-correct-hint">→ {correct}</span>}
+        </span>
+      );
+    });
+  };
+
+  return (
+    <div className="sb-page">
+      <div className="sb-header">
+        <Link to="/b2/sprachbausteine" className="back-link">← Назад до Sprachbausteine</Link>
+        <h1>Sprachbausteine Teil 1</h1>
+        <div className="sb-variant-nav">
+          {variants.map((_, i) => (
+            <button key={i} onClick={() => handleGoTo(i)} className={`sb-variant-btn ${i === vi ? 'active' : ''}`}>
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <p className="sb-subtitle">Variante {vi + 1} — {v.title}</p>
+
+      <div className="sb-options">
+        <div className="sb-options-title">Варіанти для вибору:</div>
+        <div className="sb-options-list">
+          {v.options.map(opt => (
+            <span key={opt} className={`sb-option-chip ${usedWords.includes(opt) ? 'used' : ''}`}>{opt}</span>
+          ))}
+        </div>
+      </div>
+
+      <div className="sb-text">{renderText()}</div>
+
+      {submitted && (
+        <div className={`sb-score ${score === 6 ? 'perfect' : 'partial'}`}>
+          Результат: {score} / 6 {score === 6 ? '🎉' : ''}
+        </div>
+      )}
+
+      <div className="sb-actions">
+        {!submitted ? (
+          <button className="sb-btn sb-btn--check" onClick={handleSubmit} disabled={!allAnswered}>
+            Перевірити
+          </button>
+        ) : (
+          <>
+            <button className="sb-btn sb-btn--next" onClick={() => handleGoTo((vi + 1) % variants.length)}>
+              Наступний варіант
+            </button>
+            <button className="sb-btn sb-btn--reset" onClick={handleReset}>
+              Спробувати ще раз
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default SprachbausteineTeil1Page;
