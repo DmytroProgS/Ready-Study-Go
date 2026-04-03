@@ -1,6 +1,6 @@
 const sprachbausteineTeil2Variants = [
   {
-    id: 1, title: 'Stornierung des Auftrages',
+    id: 1, label: '1', title: 'Stornierung des Auftrages',
     text: `Sehr geehrte Damen und Herren,
 nach dem Besuch Ihres Vertriebsmitarbeiters entschieden wir uns für __52__ von zwei Kaffeevollautomaten für unsere Krankenhauskantine.
 Unsere Auftragserteilung erfolgte in KW 12. Wir __53__ eine Auftragsbestätigung mit Liefertermin in KW 16. __54__ der Lieferfrist haben wir Sie telefonisch mehrmals eindringlich darauf hingewiesen, dass wir die Maschinen dringend benötigen. __55__ wir uns in KW 18 und haben die Lieferung immer noch nicht erhalten. Wir räumen Ihnen letztmalig eine Lieferfrist bis Ablauf der KW 20 ein. Sollte die Ware bis dahin __56__ sein, machen wir von unserem Widerrufsrecht Gebrauch und stornieren unsere Bestellung. Wir bitten um Ihr Verständnis.
@@ -17,7 +17,7 @@ Eva Al Hossan`,
     }
   },
   {
-    id: 2, title: 'Verspätete Lieferung (neue Version)',
+    id: 2, label: '1.1', title: 'Verspätete Lieferung (neue Version)',
     text: `Sehr geehrte Damen und Herren,
 nach dem Besuch Ihres Vertriebsmitarbeiters entschieden wir uns für __52__ von zwei Kaffeevollautomaten für unsere Krankenhauskantine.
 Unsere Auftragserteilung erfolgte in KW 12. Wir __53__ eine Auftragsbestätigung mit Liefertermin in KW 16. Nach Ablauf der Lieferfrist haben wir Sie telefonisch mehrmals eindringlich __54__, dass wir die Maschinen dringend benötigen. __55__ wir uns in KW 18 und haben die Lieferung immer noch nicht erhalten. Wir räumen Ihnen letztmalig eine Lieferfrist bis Ablauf der KW 20 ein. Sollte die Ware bis dahin __56__ sein, machen wir von unserem Widerrufsrecht Gebrauch und stornieren unsere Bestellung. Wir bitten um Ihr Verständnis.
@@ -34,7 +34,7 @@ Eva Al Hossan`,
     }
   },
   {
-    id: 3, title: 'Beschwerde (Bettcouch)',
+    id: 3, label: '2', title: 'Beschwerde (Bettcouch)',
     text: `Sehr geehrte Frau Janiashvilli,
 wir danken Ihnen für Ihr Schreiben, mit dem Sie uns auf die Schäden an der Bettcouch aufmerksam machen, die Sie bei uns gekauft haben. Wir haben __52__ und teilen Ihre Ansicht. Offensichtlich ist bei unserer Qualitätskontrolle __53__ worden. __54__ hätte die Couch nicht ausgeliefert werden dürfen.
 Heute erhalten Sie das Ersatzprodukt, das beschädigte Möbelstück wird dann kostenlos mitgenommen. Wir bitten Sie, die entstandenen __55__, und wünschen Ihnen viel Vergnügen mit Ihrem neuen Sitzmöbel. Ihre Reklamation haben wir an die Abteilung für Qualitätssicherung weitergegeben, um sicherzustellen, dass solche Fehler zukünftig vermieden werden. Als kleines Dankeschön für Ihr Verständnis finden Sie anbei einen Gutschein __56__ 50 Euro für Ihren nächsten Besuch in unserem Haus.
@@ -51,7 +51,7 @@ Ludmilla Dombrowski Leiterin Kundenservice`,
     }
   },
   {
-    id: 4, title: 'Beschwerde (neue Version)',
+    id: 4, label: '2.1', title: 'Beschwerde (neue Version)',
     text: `Sehr geehrte Frau Janiashvilli,
 vielen Dank für Ihr Schreiben, in dem Sie uns auf die Schäden an der bei uns bestellten Bettcouch hinweisen. Wir haben Ihre Reklamation anhand Ihrer mitgeschickten Fotos geprüft. Offensichtlich ist bei unserer Qualitätskontrolle __52__ worden. Die Couch hätte __53__ nicht ausgeliefert werden dürfen.
 Selbstverständlich erhalten Sie ein Ersatzprodukt, das beschädigte Möbelstück wird dann kostenlos mitgenommen. Wir bitten Sie, die entstandenen __54__. Rufen Sie uns gerne an und teilen Sie uns mit, zu welchem Termin wir die neue __55__ sollen. Als Entschuldigung finden Sie anbei einen Gutschein __56__ 50 Euro.
@@ -68,7 +68,7 @@ Ludmilla Dombrowski`,
     }
   },
   {
-    id: 5, title: 'Zahlungserinnerung',
+    id: 5, label: '3', title: 'Zahlungserinnerung',
     text: `Sehr geehrter Herr Batic,
 In Oktober haben wir in Ihrem Firmengebäude an der Heizungsanlage Reparaturarbeiten ausgeführt. Da wir __52__ gehört haben, gehen wir davon aus, dass alles zu Ihrer Zufriedenheit war. Allerdings ist bislang für unsere Rechnung Nr. 2008/123 in Höhe von 2.746,- Euro leider keine __53__.
 Für den Fall, dass die Rechnung bei Ihnen verloren gegangen ist, senden wir Ihnen anbei eine neue mit der Bitte um __54__.
@@ -86,7 +86,7 @@ Ilka Desgrane (Heizung und Sanitär Resch)`,
     }
   },
   {
-    id: 6, title: 'Reinigungsservice',
+    id: 6, label: '4', title: 'Reinigungsservice',
     text: `Sehr geehrte Damen und Herren,
 vielen Dank für Ihr Interesse an unseren Leistungen. Für den regelmäßigen Reinigungsservice Ihres Restaurants hatten wir Ihnen am 24.11. ein Angebot __52__ unterbreitet. Wie aus der Übersicht auf der zweiten Seite hervorgeht, ist eine Reinigung Ihrer Räumlichkeiten auch am frühen Sonntagmorgen für uns selbstverständlich ohne Probleme machbar. Für diesen Service berechnen wir im Rahmen unserer Rabattaktion keinen Wochenendzuschlag. Hatten Sie schon die Möglichkeit, __53__? Bitte denken Sie daran, dass die erwähnte Rabattaktion nur noch bis Ende des Jahres __54__. Sollten Sie dazu noch Fragen haben, zögern Sie bitte nicht, sich mit uns __55__. Unsere Mitarbeiter im Kundenservice __56__ Ihnen gerne jederzeit zur Verfügung. Wir freuen uns, Sie zukünftig __57__ zu können.
 Mit freundlichen Grüßen
@@ -101,7 +101,7 @@ Helmuth Heidinger („Tiptop-Service")`,
     }
   },
   {
-    id: 7, title: 'Auftragsbestätigung',
+    id: 7, label: '5', title: 'Auftragsbestätigung',
     text: `Sehr geehrte Frau Mackbock,
 ich danke Ihnen für Ihre Bestellung und bestätige hiermit die Zustellung des PKW Bulldog zum Preis von 1078 Euro zzgl. MwSt. an die von __52__ Lieferadresse. Sollte Ihre Rechnungsadresse nicht mit der Lieferadresse übereinstimmen, teilen Sie uns dies bitte bis spätestens 07.07 schriftlich mit.
 Die Rechnungszustellung erfolgt per Post. Bitte beachten Sie, dass wir bei Zahlung des Kaufpreises innerhalb von sieben Tagen nach Lieferung __53__. Ansonsten muss der Rechnungsbetrag bis 30 Tagen nach Wareneingang __54__.
@@ -120,7 +120,26 @@ Christoph Sellert`,
     }
   },
   {
-    id: 8, title: 'Angebot',
+    id: 8, label: '5.1', title: 'Auftragsbestätigung (neuer Lücke №55)',
+    text: `Sehr geehrte Frau Mackbock,
+ich danke Ihnen für Ihre Bestellung und bestätige hiermit die Zustellung des PKW Bulldog zum Preis von 1078 Euro zzgl. MwSt. an die von __52__ Lieferadresse. Sollte Ihre Rechnungsadresse nicht mit der Lieferadresse übereinstimmen, teilen Sie uns dies bitte bis spätestens 07.07 schriftlich mit.
+Die Rechnungszustellung erfolgt per Post. Bitte beachten Sie, dass wir bei Zahlung des Kaufpreises innerhalb von sieben Tagen nach Lieferung __53__. Ansonsten muss der Rechnungsbetrag bis 30 Tagen nach Wareneingang __54__.
+Die detaillierten Konditionen __55__ in unseren allgemeinen Geschäftsbedingungen auf der Rückseite unserer Auftragsbestätigung.
+Bei Rückfragen steht Ihnen unser 24-Stunden-Service unter der Rufnummer 0175 345621 zur Verfügung. Bitte halten Sie hierzu Ihre __56__.
+Wir versprechen Ihnen eine zuverlässige __57__ und sind sicher, dass Sie mit unserem Produkt zufrieden sein werden.
+Mit freundlichen Grüßen
+Christoph Sellert`,
+    gaps: {
+      52: { options: ['Ihnen angegebene', 'ihr angeordnete', 'mir angeführte'], answer: 'Ihnen angegebene' },
+      53: { options: ['3% Ermäßigung bezahlen', '3% Rabatt wünschen', '3% Skonto gewähren'], answer: '3% Skonto gewähren' },
+      54: { options: ['beglichen werden', 'dokumentiert werden', 'verhandelt werden'], answer: 'beglichen werden' },
+      55: { options: ['erklären Sie', 'schreiben Sie', 'finden Sie gerne'], answer: 'finden Sie gerne' },
+      56: { options: ['Auftragsnummer bereit', 'Kundennummer fest', 'Rechnungsnummer an'], answer: 'Auftragsnummer bereit' },
+      57: { options: ['Ausführung Ihres Auftrags', 'Bearbeitung Ihrer Anfrage', 'Durchführung Ihrer Arbeit'], answer: 'Ausführung Ihres Auftrags' }
+    }
+  },
+  {
+    id: 9, label: '6', title: 'Angebot (Schreibtischcontainer)',
     text: `Sehr geehrte Damen und Herren,
 wir danken Ihnen für Ihre Anfrage vom 08.12.20xx und unterbreiten Ihnen __52__ acht Schreibtischcontainer MV 17 WW weiß zum Preis von je 156,99 Euro netto. Ab einem Auftragswert von 900,00 Euro liefern wir frei Haus, ansonsten fällt eine Lieferpauschale __53__ von 39,00 Euro an.
 Gerne montieren wir die Möbel auch vor Ort. Die Kosten für den Aufbau __54__ nach dem Warenwert und betragen 20% des Nettopreises. Natürlich besteht auch __55__ die Ware in unserem Lager abzuholen und selbst aufzubauen.
@@ -138,7 +157,7 @@ Lars Walter`,
     }
   },
   {
-    id: 9, title: 'Fehlerhafte Lieferung',
+    id: 10, label: '7', title: 'Fehlerhafte Lieferung',
     text: `Sehr geehrter Herr Sonneberg,
 vielen Dank für die schnelle Bearbeitung unserer Bestellung vom 29.10.
 Für die Einrichtung unserer Pausenräume hatten wir zehn Sitzeckbänken in der Farbe Weiß bestellt. __52__ Sie zehn Tische und für jede Sitzeinheit drei Stühle in der gleichen Farbe liefern.

@@ -67,7 +67,7 @@ function SprachbausteineTeil2Page() {
         <div className="sb-variant-nav">
           {variants.map((_, i) => (
             <button key={i} onClick={() => handleGoTo(i)} className={`sb-variant-btn ${i === vi ? 'active' : ''}`}>
-              {i + 1}
+              {_.label || (i + 1)}
             </button>
           ))}
         </div>
