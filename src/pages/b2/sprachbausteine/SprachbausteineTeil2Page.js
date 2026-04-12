@@ -49,8 +49,8 @@ function SprachbausteineTeil2Page() {
             disabled={submitted}
           >
             <option value="">— виберіть —</option>
-            {gapData.options.map(opt => (
-              <option key={opt} value={opt}>{opt}</option>
+            {gapData.options.map((opt, idx) => (
+              <option key={opt} value={opt}>{String.fromCharCode(97 + idx)}) {opt}</option>
             ))}
           </select>
           {isWrong && <span className="sb-correct-hint">→ {correct}</span>}
