@@ -22,6 +22,7 @@ import LesenTeil1Page from './pages/b2/lesen/LesenTeil1Page';
 import LesenTeil2Page from './pages/b2/lesen/LesenTeil2Page';
 import LesenTeil3Page from './pages/b2/lesen/LesenTeil3Page';
 import LesenTeil4Page from './pages/b2/lesen/LesenTeil4Page';
+import BeschwerdePage from './pages/b2/schreiben/BeschwerdePage';
 import './App.css';
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/b2/sprachbausteine/teil1" element={<SprachbausteineTeil1Page />} />
           <Route path="/b2/sprachbausteine/teil2" element={<SprachbausteineTeil2Page />} />
           <Route path="/b2/schreiben" element={<SchreibenPage />} />
+          <Route path="/b2/schreiben/beschwerde" element={<BeschwerdePage />} />
           <Route path="/b2/sprechen" element={<SprechenPage />} />
           <Route path="/exercise/:id" element={<ExercisePage />} />
           <Route path="*" element={<NotFoundPage />} />
