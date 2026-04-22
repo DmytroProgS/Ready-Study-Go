@@ -6,6 +6,8 @@ import NotFoundPage from './pages/NotFoundPage';
 import NounsExercise from './components/NounsExercise';
 import GrammarPage from './pages/GrammarPage';
 import PraepositionenPage from './pages/PraepositionenPage';
+import HomeworkPage from './pages/HomeworkPage';
+import HomeworkCardsPage from './pages/homework/HomeworkCardsPage';
 import B2Page from './pages/B2Page';
 import HorenPage from './pages/b2/HorenPage';
 import LesenPage from './pages/b2/LesenPage';
@@ -34,6 +36,8 @@ function App() {
           <Route path="/grammar" element={<GrammarPage />} />
           <Route path="/grammar/praep/:mode" element={<PraepositionenPage />} />
           <Route path="/nouns" element={<NounsExercise />} />
+          <Route path="/homework" element={<HomeworkPage />} />
+          <Route path="/homework/set/:setId" element={<HomeworkCardsPage />} />
           <Route path="/b2" element={<B2Page />} />
           <Route path="/b2/horen" element={<HorenPage />} />
           <Route path="/b2/horen/teil1" element={<HorenTeil1Page />} />
