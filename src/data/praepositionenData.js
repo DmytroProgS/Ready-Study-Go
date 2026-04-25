@@ -11,7 +11,7 @@ export const currentSet = [
   { verb: 'einladen', prep: 'zu + D', ua: 'запрошувати (на щось)', exUA: 'Можу я запросити тебе на обід?', exDE: 'Kann ich dich zum Essen einladen?' },
   { verb: 'warten', prep: 'mit + D, auf + A', ua: 'чекати (з чимось)', exUA: 'Зачекайте з відставкою!', exDE: 'Warte noch mit deiner Kündigung!' },
   { verb: 'träumen', prep: 'von + D', ua: 'мріяти (про щось)', exUA: 'Багато хто мріє про будинок із садом.', exDE: 'Viele träumen von einem Haus mit Garten.' },
-  { verb: 'sich beschäftigen', prep: 'mit + D', ua: 'займатися (чимось)', exUA: 'Я дуже зайнятий своєю роботою.', exDE: 'Ich beschäftige mich mit meiner Arbeit sehr beschäftigt.' },
+  { verb: 'sich beschäftigen', prep: 'mit + D', ua: 'займатися (чимось)', exUA: 'Я багато займаюся своєю роботою.', exDE: 'Ich beschäftige mich viel mit meiner Arbeit.' },
   { verb: 'abhängen', prep: 'von + D', ua: 'залежати (від когось/чогось)', exUA: 'Це залежить від тебе, що ми робитимемо.', exDE: 'Es hängt von dir ab, was wir machen.' },
   { verb: 'sich ärgern', prep: 'über + A', ua: 'злитися, сердитися (через щось/когось)', exUA: 'На кого ж ти так сердишся?', exDE: 'Über wen ärgerst du dich denn so?' },
   { verb: 'sprechen', prep: 'von + D, mit + D, über + A', ua: 'говорити (про щось)', exUA: 'Ніно говорив про тебе.', exDE: 'Nino hat von dir gesprochen.' },
