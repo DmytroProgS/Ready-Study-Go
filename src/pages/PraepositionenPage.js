@@ -61,16 +61,43 @@ function PraepositionenPage() {
         <div className="praep-card__inner">
           <div className="praep-card__front">
             <p className="praep-card__hint">Переклади на німецьку:</p>
-            <p className="praep-card__text">{card.exUA}</p>
+            {card.variants ? (
+              <ol className="praep-card__list praep-card__list--ua">
+                {card.variants.map((v, i) => (
+                  <li key={i}>{v.exUA}</li>
+                ))}
+              </ol>
+            ) : (
+              <p className="praep-card__text">{card.exUA}</p>
+            )}
             <p className="praep-card__tap">натисни для відповіді</p>
           </div>
           <div className="praep-card__back">
-            <p className="praep-card__de-example">{card.exDE}</p>
-            <div className="praep-card__info">
-              <span className="praep-card__verb">{card.verb}</span>
-              <span className="praep-card__prep">{card.prep}</span>
-            </div>
-            <p className="praep-card__ua-verb">{card.ua}</p>
+            {card.variants ? (
+              <>
+                <div className="praep-card__info praep-card__info--center">
+                  <span className="praep-card__verb">{card.verb}</span>
+                </div>
+                <ol className="praep-card__variants">
+                  {card.variants.map((v, i) => (
+                    <li key={i} className="praep-card__variant">
+                      <span className="praep-card__variant-de">{v.exDE}</span>
+                      <span className="praep-card__prep">{v.prep.split(',')[0].trim()}</span>
+                      <span className="praep-card__variant-ua">{v.ua}</span>
+                    </li>
+                  ))}
+                </ol>
+              </>
+            ) : (
+              <>
+                <p className="praep-card__de-example">{card.exDE}</p>
+                <div className="praep-card__info">
+                  <span className="praep-card__verb">{card.verb}</span>
+                  <span className="praep-card__prep">{card.prep}</span>
+                </div>
+                <p className="praep-card__ua-verb">{card.ua}</p>
+              </>
+            )}
           </div>
         </div>
       </div>

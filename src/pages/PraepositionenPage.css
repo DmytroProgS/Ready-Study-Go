@@ -21,13 +21,12 @@
   perspective: 800px;
   cursor: pointer;
   margin-bottom: 20px;
-  min-height: 220px;
 }
 
 .praep-card__inner {
   position: relative;
   width: 100%;
-  min-height: 220px;
+  display: grid;
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
@@ -38,9 +37,7 @@
 
 .praep-card__front,
 .praep-card__back {
-  position: absolute;
-  top: 0;
-  left: 0;
+  grid-area: 1 / 1;
   width: 100%;
   min-height: 220px;
   backface-visibility: hidden;
@@ -121,6 +118,58 @@
   font-size: 0.9rem;
   color: #555;
   margin-top: 4px;
+}
+
+.praep-card__list {
+  margin: 0;
+  padding-left: 1.4em;
+  line-height: 1.45;
+}
+
+.praep-card__list--ua {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #1a237e;
+}
+
+.praep-card__list--ua li + li {
+  margin-top: 6px;
+}
+
+.praep-card__info--center {
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.praep-card__variants {
+  list-style: decimal;
+  margin: 0;
+  padding-left: 1.5em;
+  line-height: 1.4;
+}
+
+.praep-card__variant {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 6px 0;
+}
+
+.praep-card__variant + .praep-card__variant {
+  border-top: 1px dashed rgba(76, 175, 80, 0.35);
+}
+
+.praep-card__variant-de {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1b5e20;
+  flex: 1 1 100%;
+}
+
+.praep-card__variant-ua {
+  font-size: 0.85rem;
+  color: #555;
 }
 
 /* Navigation */
