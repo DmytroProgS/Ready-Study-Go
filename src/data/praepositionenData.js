@@ -20,8 +20,8 @@ export const currentSet = [
   {
     verb: 'sich streiten',
     variants: [
-      { prep: 'mit + D, über + A', ua: 'сваритися (з кимось)', exUA: 'Сибілле часто свариться зі своїм другом.', exDE: 'Sibille streitet oft mit ihrem Freund.' },
-      { prep: 'über + A, mit + D', ua: 'сваритися (через щось)', exUA: 'Здебільшого вони сваряться через прибирання.', exDE: 'Meistens streiten sie über das Putzen.' },
+      { prep: 'mit + D, über + A', ua: 'сваритися (з кимось)', exUA: 'Сибілле часто свариться зі своїм другом.', exDE: 'Sibille streitet sich oft mit ihrem Freund.' },
+      { prep: 'über + A, mit + D', ua: 'сваритися (через щось)', exUA: 'Здебільшого вони сваряться через прибирання.', exDE: 'Meistens streiten sie sich über das Putzen.' },
     ],
   },
   { verb: 'ausgeben', prep: 'für + A', ua: 'витрачати (гроші) (на щось)', exUA: 'Багато людей витрачають свої гроші на розкішний автомобіль.', exDE: 'Viele Leute geben ihr Geld für ein Luxusauto aus.' },
@@ -183,7 +183,7 @@ export const extraSet = [
   {
     verb: 'sich informieren',
     variants: [
-      { prep: 'über + A, bei + D', ua: 'дізнаватися, отримувати інформацію (про щось)', exUA: 'Ми поінформовані про нещасний випадок.', exDE: 'Wir sind über den Unfall informiert.' },
+      { prep: 'über + A, bei + D', ua: 'дізнаватися, отримувати інформацію (про щось)', exUA: 'Ми отримуємо інформацію про нещасний випадок.', exDE: 'Wir informieren uns über den Unfall.' },
       { prep: 'bei + D, über + A', ua: 'дізнаватися, отримувати інформацію (у когось)', exUA: 'Батько отримав інформацію у школі.', exDE: 'Der Vater hat sich bei der Schule informiert.' },
     ],
   },
@@ -242,7 +242,7 @@ export const extraSet = [
   { verb: 'zahlen', prep: 'für + A', ua: 'платити (за щось)', exUA: 'Я плачу тобі за збитки.', exDE: 'Ich zahle dir für den Schaden.' },
   { verb: 'zufrieden sein', prep: 'mit + D', ua: 'бути задоволеним (чимось)', exUA: 'Своїм життям я дуже задоволений.', exDE: 'Mit meinem Leben bin ich sehr zufrieden.' },
   { verb: 'zweifeln', prep: 'an + D', ua: 'сумніватися (у чомусь)', exUA: 'Вона сумнівається у його історії.', exDE: 'Sie zweifelt an seiner Geschichte.' },
-  { verb: 'anmelden', prep: 'für + A, bei + D', ua: 'реєструвати (когось/щось) (на щось)', exUA: 'Ти вже зареєструвався на курс?', exDE: 'Hast du dich schon für den Kurs angemeldet?' },
+  { verb: 'anmelden', prep: 'für + A, bei + D', ua: 'реєструвати (когось/щось) (на щось)', exUA: 'Я записую свого сина на курс.', exDE: 'Ich melde meinen Sohn für den Kurs an.' },
   { verb: 'anrufen', prep: 'bei + D', ua: 'телефонувати (комусь/кудись)', exUA: 'Ти мусиш ще зателефонувати до туристичного бюро.', exDE: 'Du musst noch beim Reisebüro anrufen.' },
   { verb: 'ansehen', prep: 'als + A', ua: 'розглядати (когось/щось) (як когось/щось)', exUA: 'Він розглядає мене як свого друга.', exDE: 'Er sieht mich als seinen Freund an.' },
   { verb: 'anstellen', prep: 'als + A', ua: 'наймати на роботу (як когось/щось)', exUA: 'Ми хотіли б найняти Вас водієм.', exDE: 'Wir möchten Sie gern als Fahrer anstellen.' },
