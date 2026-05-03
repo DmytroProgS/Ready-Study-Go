@@ -1,6 +1,6 @@
 export const currentSet = [
   { verb: 'gratulieren', prep: 'zu + D', ua: 'вітати (з чимось)', exUA: 'Я вітаю тебе з твоїм іспитом!', exDE: 'Ich gratuliere dir zu deinem Examen!' },
-  { verb: 'sich melden', prep: 'bei + D', ua: 'зв\'язатися', exUA: 'Я маю завтра зв\'язатися з шефом (дати про себе знати).', exDE: 'Du sollst dich bei deiner Schwester melden.' },
+  { verb: 'sich melden', prep: 'bei + D', ua: 'зв\'язатися', exUA: 'Я маю завтра зв\'язатися з шефом (дати про себе знати).', exDE: 'Ich soll mich morgen bei meinem Chef melden.' },
   {
     verb: 'sich entschuldigen',
     variants: [
