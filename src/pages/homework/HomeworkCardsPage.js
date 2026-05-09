@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { homework1 } from '../../data/homeworkData';
+import { homework1, homework2 } from '../../data/homeworkData';
 import '../PraepositionenPage.css';
 
 const sets = {
   '1': { data: homework1, title: 'Заняття 20.04' },
+  '2': { data: homework2, title: 'Заняття 04.05' },
 };
 
 function shuffle(arr) {
@@ -79,7 +80,7 @@ function HomeworkCardsPage() {
         <button onClick={next} disabled={index === cards.length - 1} className="praep-btn">Далі &rarr;</button>
       </div>
 
-      <Link to="/homework" className="back-link">&larr; До завдань</Link>
+      <Link to={setId === '2' ? '/homework/set/2' : '/homework'} className="back-link">&larr; Назад</Link>
     </div>
   );
 }
