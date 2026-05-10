@@ -10,6 +10,7 @@ import HomeworkPage from './pages/HomeworkPage';
 import HomeworkCardsPage from './pages/homework/HomeworkCardsPage';
 import HomeworkSet2MenuPage from './pages/homework/HomeworkSet2MenuPage';
 import HomeworkSet2ExercisesPage from './pages/homework/HomeworkSet2ExercisesPage';
+import FesteAusdrueckePage from './pages/homework/FesteAusdrueckePage';
 import B2Page from './pages/B2Page';
 import HorenPage from './pages/b2/HorenPage';
 import LesenPage from './pages/b2/LesenPage';
@@ -39,6 +40,7 @@ function App() {
           <Route path="/grammar/praep/:mode" element={<PraepositionenPage />} />
           <Route path="/nouns" element={<NounsExercise />} />
           <Route path="/homework" element={<HomeworkPage />} />
+          <Route path="/homework/feste-ausdruecke" element={<FesteAusdrueckePage />} />
           <Route path="/homework/set/:setId" element={<HomeworkCardsPage />} />
           <Route path="/homework/set/2" element={<HomeworkSet2MenuPage />} />
           <Route path="/homework/set/:setId/words" element={<HomeworkCardsPage />} />

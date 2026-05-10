@@ -1,0 +1,139 @@
+.feste-page {
+  padding: 30px 20px;
+  max-width: 720px;
+  margin: 0 auto;
+  color: #2c3e50;
+  text-align: left;
+}
+
+.feste-page__title {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.feste-page__intro {
+  font-size: 0.92rem;
+  color: #555;
+  margin-bottom: 22px;
+  font-style: italic;
+}
+
+.feste-group {
+  margin-bottom: 22px;
+}
+
+.feste-group__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.feste-group__diamond {
+  font-size: 0.9rem;
+}
+
+.feste-group__de {
+  font-weight: 700;
+}
+
+.feste-group__sep {
+  color: #888;
+  font-weight: 400;
+}
+
+.feste-group__ua {
+  font-weight: 600;
+}
+
+.feste-group--violet .feste-group__diamond {
+  color: #1976d2;
+}
+.feste-group--violet .feste-group__de,
+.feste-group--violet .feste-group__ua {
+  color: #5b3fbf;
+}
+
+.feste-group--coral .feste-group__diamond {
+  color: #1976d2;
+}
+.feste-group--coral .feste-group__de,
+.feste-group--coral .feste-group__ua {
+  color: #e74c3c;
+}
+
+.feste-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+  border-left: 4px solid #b0bec5;
+}
+
+.feste-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.feste-card--violet {
+  border-left-color: #7e57c2;
+}
+.feste-card--coral {
+  border-left-color: #e74c3c;
+}
+
+.feste-card__ua {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.feste-card__de-wrap {
+  position: relative;
+  min-height: 26px;
+}
+
+.feste-card__hidden {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #90a4ae;
+  font-style: italic;
+  user-select: none;
+}
+
+.feste-card__hidden-icon {
+  font-size: 0.95rem;
+}
+
+.feste-card__de {
+  font-size: 1rem;
+  color: #2e7d32;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.feste-card--violet.feste-card--open .feste-card__de {
+  color: #5b3fbf;
+}
+.feste-card--coral.feste-card--open .feste-card__de {
+  color: #c0392b;
+}
+
+.feste-page__hint {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 24px;
+  text-align: center;
+}
