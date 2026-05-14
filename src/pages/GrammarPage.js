@@ -12,9 +12,10 @@ function GrammarPage() {
           <span className="b2-card__label">Präpositionen — Вчимо зараз</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
-        <Link to="/grammar/praep/extra" className="b2-card b2-card--soon">
+        <Link to="/grammar/praep/extra" className="b2-card b2-card--ready">
           <span className="b2-card__icon">📚</span>
-          <span className="b2-card__label">Präpositionen — Додати після</span>
+          <span className="b2-card__label">Präpositionen — По вживаності</span>
+          <span className="b2-card__pig">🐷</span>
         </Link>
       </div>
       <Link to="/" className="back-link">← Назад</Link>

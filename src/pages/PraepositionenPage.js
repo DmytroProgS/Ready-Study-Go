@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { currentSet, extraSet } from '../data/praepositionenData';
 import { praepositionenFrequencyGroups } from '../data/praepositionenFrequencyGroups';
 import './PraepositionenPage.css';
+
+const TOP_GROUP_KEYS = ['top30', 'top31_50', 'top51_75', 'top76_100'];
 
 function shuffle(arr) {
   const a = [...arr];
@@ -16,38 +18,63 @@ function shuffle(arr) {
 function PraepositionenPage() {
   const { mode } = useParams();
   const dataset = mode === 'extra' ? extraSet : currentSet;
-  const title = mode === 'extra' ? 'Додати після' : 'Вчимо зараз';
+  const title = mode === 'extra' ? 'По вживаності' : 'Вчимо зараз';
   const [selectedGroup, setSelectedGroup] = useState(mode === 'extra' ? 'top30' : 'all');
 
-  const groupLabels = {
-    top30: 'TOP 30',
-    top31_50: 'TOP 31-50',
-    top51_75: 'TOP 51-75',
-    top76_100: 'TOP 76-100',
-    all: `Усі ${dataset.length}`,
-  };
+  const remainderVerbs = useMemo(() => {
+    if (mode !== 'extra') return dataset.map((card) => card.verb);
+    const topVerbSet = new Set(TOP_GROUP_KEYS.flatMap((key) => praepositionenFrequencyGroups[key]));
+    return dataset.map((card) => card.verb).filter((verb) => !topVerbSet.has(verb));
+  }, [dataset, mode]);
 
-  const selectedGroupVerbs = selectedGroup === 'all'
-    ? dataset.map((card) => card.verb)
-    : praepositionenFrequencyGroups[selectedGroup];
+  const groupLabels = useMemo(() => {
+    if (mode === 'extra') {
+      return {
+        top30: 'TOP 30',
+        top31_50: 'TOP 31-50',
+        top51_75: 'TOP 51-75',
+        top76_100: 'TOP 76-100',
+        all: `Залишок (${remainderVerbs.length})`,
+      };
+    }
+    return {
+      top30: 'TOP 30',
+      top31_50: 'TOP 31-50',
+      top51_75: 'TOP 51-75',
+      top76_100: 'TOP 76-100',
+      all: `Усі ${dataset.length}`,
+    };
+  }, [dataset.length, mode, remainderVerbs.length]);
 
-  const filteredDataset = selectedGroup === 'all' || mode !== 'extra'
-    ? dataset
-    : dataset.filter((card) => selectedGroupVerbs.includes(card.verb));
+  const selectedGroupVerbs = useMemo(() => {
+    if (mode === 'extra') {
+      return selectedGroup === 'all'
+        ? remainderVerbs
+        : praepositionenFrequencyGroups[selectedGroup];
+    }
+    return dataset.map((card) => card.verb);
+  }, [dataset, mode, remainderVerbs, selectedGroup]);
+
+  const filteredDataset = useMemo(() => {
+    if (mode !== 'extra') return dataset;
+    return dataset.filter((card) => selectedGroupVerbs.includes(card.verb));
+  }, [dataset, mode, selectedGroupVerbs]);
 
   const [cards, setCards] = useState([]);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
 
-  const reshuffleCards = useCallback(() => {
+  const reshuffleCards = () => {
+    setCards(shuffle(filteredDataset));
+    setIndex(0);
+    setFlipped(false);
+  };
+
+  useEffect(() => {
     setCards(shuffle(filteredDataset));
     setIndex(0);
     setFlipped(false);
   }, [filteredDataset]);
-
-  useEffect(() => {
-    reshuffleCards();
-  }, [reshuffleCards]);
 
   const card = cards[index];
 
@@ -85,11 +112,6 @@ function PraepositionenPage() {
               >
                 {groupLabels[groupKey]}
               </button>
-            ))}
-          </div>
-          <div className="praep-group-verbs">
-            {selectedGroup !== 'all' && selectedGroupVerbs.map((verb) => (
-              <span key={verb} className="praep-group-verb">{verb}</span>
             ))}
           </div>
         </div>
