@@ -12,6 +12,8 @@ function FesteAusdrueckePage() {
   };
 
   const activeGroup = festeAusdrueckeGroups[activeGroupIndex];
+  const hasPrev = activeGroupIndex > 0;
+  const hasNext = activeGroupIndex < festeAusdrueckeGroups.length - 1;
 
   return (
     <div className="feste-page">
@@ -19,6 +21,21 @@ function FesteAusdrueckePage() {
       <p className="feste-page__intro">
         Прочитай українську фразу, згадай німецький варіант — і клацни на картку, щоб перевірити себе.
       </p>
+
+      <div className="feste-group-nav">
+        <button type="button" className="feste-nav-btn" onClick={() => setActiveGroupIndex((prev) => Math.max(prev - 1, 0))} disabled={!hasPrev}>
+          ← Назад
+        </button>
+
+        <div className="feste-nav-current">
+          <span className="feste-nav-current__de">{activeGroup.de}</span>
+          <span className="feste-nav-current__ua">{activeGroup.ua}</span>
+        </div>
+
+        <button type="button" className="feste-nav-btn" onClick={() => setActiveGroupIndex((prev) => Math.min(prev + 1, festeAusdrueckeGroups.length - 1))} disabled={!hasNext}>
+          Вперед →
+        </button>
+      </div>
 
       <div className="feste-group-tabs">
         {festeAusdrueckeGroups.map((group, gi) => (
