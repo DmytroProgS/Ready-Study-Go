@@ -25,6 +25,15 @@ function HomePage() {
         </Link>
       </div>
 
+      <h2 className="b2-section-title">Розмовні фрази</h2>
+      <div className="b2-sections">
+        <Link to="/phrases" className="b2-card b2-card--ready">
+          <span className="b2-card__icon">💬</span>
+          <span className="b2-card__label">Фрази для різних заходів</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
+      </div>
+
       <h2 className="b2-section-title">Підготовка до іспитів</h2>
       <div className="b2-sections">
         <Link to="/b2" className="b2-card b2-card--ready">

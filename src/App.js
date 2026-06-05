@@ -29,6 +29,7 @@ import LesenTeil2Page from './pages/b2/lesen/LesenTeil2Page';
 import LesenTeil3Page from './pages/b2/lesen/LesenTeil3Page';
 import LesenTeil4Page from './pages/b2/lesen/LesenTeil4Page';
 import BeschwerdePage from './pages/b2/schreiben/BeschwerdePage';
+import PhrasesPage from './pages/PhrasesPage';
 import './App.css';
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
           <Route path="/homework/set/2" element={<HomeworkSet2MenuPage />} />
           <Route path="/homework/set/:setId/words" element={<HomeworkCardsPage />} />
           <Route path="/homework/set/2/exercises" element={<HomeworkSet2ExercisesPage />} />
+          <Route path="/phrases" element={<PhrasesPage />} />
           <Route path="/b2" element={<B2Page />} />
           <Route path="/b2/horen" element={<HorenPage />} />
           <Route path="/b2/horen/teil1" element={<HorenTeil1Page />} />
