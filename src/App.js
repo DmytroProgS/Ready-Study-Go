@@ -30,6 +30,11 @@ import LesenTeil3Page from './pages/b2/lesen/LesenTeil3Page';
 import LesenTeil4Page from './pages/b2/lesen/LesenTeil4Page';
 import BeschwerdePage from './pages/b2/schreiben/BeschwerdePage';
 import PhrasesPage from './pages/PhrasesPage';
+import WordTrainerPage from './pages/WordTrainerPage';
+import AkkusativDativExercisePage from './pages/AkkusativDativExercisePage';
+import WechselpraepositionenExercisePage from './pages/WechselpraepositionenExercisePage';
+import VerbPraepExercisePage from './pages/VerbPraepExercisePage';
+import GenitivExercisePage from './pages/GenitivExercisePage';
 import './App.css';
 
 function App() {
@@ -40,6 +45,11 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/grammar" element={<GrammarPage />} />
           <Route path="/grammar/praep/:mode" element={<PraepositionenPage />} />
+          <Route path="/word-trainer" element={<WordTrainerPage />} />
+          <Route path="/word-trainer/akkusativ-dativ" element={<AkkusativDativExercisePage />} />
+          <Route path="/word-trainer/wechselpraep" element={<WechselpraepositionenExercisePage />} />
+          <Route path="/word-trainer/verben-praep" element={<VerbPraepExercisePage />} />
+          <Route path="/word-trainer/genitiv" element={<GenitivExercisePage />} />
           <Route path="/nouns" element={<NounsExercise />} />
           <Route path="/homework" element={<HomeworkPage />} />
           <Route path="/homework/feste-ausdruecke" element={<FesteAusdrueckePage />} />

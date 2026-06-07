@@ -1,0 +1,177 @@
+.word-trainer-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.trainer-title {
+  text-align: center;
+  font-size: 3em;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.trainer-subtitle {
+  text-align: center;
+  font-size: 1.3em;
+  color: #7f8c8d;
+  margin-bottom: 50px;
+  font-weight: 300;
+}
+
+.trainer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.trainer-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.trainer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.trainer-card:hover::before {
+  left: 100%;
+}
+
+.trainer-card--akkusativ {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.trainer-card--wechsel {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.trainer-card--verb {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.trainer-card--genitiv {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+}
+
+.trainer-card__icon {
+  font-size: 3em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.trainer-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.trainer-card__title {
+  font-size: 1.6em;
+  margin-bottom: 8px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.trainer-card__subtitle {
+  font-size: 0.95em;
+  margin-bottom: 12px;
+  opacity: 0.95;
+  font-weight: 600;
+}
+
+.trainer-card__description {
+  font-size: 0.9em;
+  opacity: 0.85;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.trainer-card__arrow {
+  font-size: 1.5em;
+  text-align: right;
+  margin-top: 15px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.trainer-card:hover .trainer-card__arrow {
+  opacity: 1;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2c3e50;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-link:hover {
+  background: white;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .trainer-title {
+    font-size: 2em;
+  }
+
+  .trainer-subtitle {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+  }
+
+  .trainer-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .trainer-card {
+    padding: 20px;
+  }
+
+  .trainer-card__icon {
+    font-size: 2.5em;
+  }
+
+  .trainer-card__title {
+    font-size: 1.3em;
+  }
+}
