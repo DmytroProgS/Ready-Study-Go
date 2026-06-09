@@ -1,0 +1,75 @@
+/* Заняття 08.06 — навігація по вправах 1–5 */
+
+.set4-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto 26px;
+  max-width: 700px;
+}
+
+.set4-nav__tab {
+  font-size: 1em;
+  font-weight: 700;
+  color: #5b4b8a;
+  padding: 10px 20px;
+  border: 2px solid #c9bdf0;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+}
+
+.set4-nav__tab:hover {
+  background: #f3e5f5;
+}
+
+.set4-nav__tab.is-active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.set4-nav__tab:active {
+  transform: translateY(1px);
+}
+
+.set4-exercise__head {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.set4-exercise__title {
+  font-size: 1.6em;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.set4-exercise__subtitle {
+  color: #7f8c8d;
+  margin: 4px 0 0;
+  font-size: 1em;
+}
+
+.set4-placeholder {
+  background: #fff;
+  border: 2px dashed #c9bdf0;
+  border-radius: 12px;
+  padding: 48px 24px;
+  text-align: center;
+  color: #8e7fb8;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .set4-nav__tab {
+    padding: 8px 14px;
+    font-size: 0.92em;
+  }
+  .set4-exercise__title {
+    font-size: 1.35em;
+  }
+}

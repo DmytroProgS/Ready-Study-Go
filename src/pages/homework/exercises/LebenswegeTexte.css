@@ -1,0 +1,86 @@
+/* Вправа 5 — три тексти для читання */
+
+.lwege-story {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 0 auto 18px;
+  max-width: 780px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #2a7f7f;
+}
+
+.lwege-story__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.lwege-story__num {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2a7f7f;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lwege-story__title {
+  margin: 0;
+  font-size: 1.25em;
+  color: #2c3e50;
+}
+
+.lwege-story__author {
+  margin: 2px 0 0;
+  color: #7f8c8d;
+  font-variant: small-caps;
+  font-size: 0.95em;
+}
+
+.lwege-story__body p {
+  margin: 0 0 12px;
+  color: #2c3e50;
+  font-size: 1.02em;
+  line-height: 1.65;
+}
+
+.lwege-fn {
+  color: #2a7f7f;
+  font-weight: 700;
+  font-size: 0.7em;
+  padding-left: 1px;
+}
+
+.lwege-footnotes {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  background: #eef4f4;
+  border-radius: 10px;
+}
+
+.lwege-footnotes__item {
+  color: #34495e;
+  font-size: 0.92em;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.lwege-footnotes__num {
+  display: inline-block;
+  font-weight: 700;
+  color: #2a7f7f;
+  margin-right: 6px;
+}
+
+@media (max-width: 600px) {
+  .lwege-story {
+    padding: 20px 18px;
+  }
+}

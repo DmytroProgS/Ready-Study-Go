@@ -47,7 +47,6 @@ function generateWrongAnswers(correctAnswer, exercises) {
 function WechselpraepositionenExercisePage() {
   const [exercises, setExercises] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [stats, setStats] = useState({ correct: 0, total: 0 });
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [isAnswered, setIsAnswered] = useState(false);
   const [options, setOptions] = useState([]);
@@ -73,18 +72,6 @@ function WechselpraepositionenExercisePage() {
   const handleAnswer = (answer) => {
     setSelectedAnswer(answer);
     setIsAnswered(true);
-    
-    if (answer === currentExercise.answer) {
-      setStats(prev => ({
-        correct: prev.correct + 1,
-        total: prev.total + 1
-      }));
-    } else {
-      setStats(prev => ({
-        ...prev,
-        total: prev.total + 1
-      }));
-    }
   };
 
   const nextExercise = () => {
@@ -105,27 +92,17 @@ function WechselpraepositionenExercisePage() {
     setCurrentIndex(0);
     setSelectedAnswer('');
     setIsAnswered(false);
-    setStats({ correct: 0, total: 0 });
   };
 
   if (exercises.length === 0) return <div>Завантаження...</div>;
 
   const isCorrect = selectedAnswer === currentExercise.answer;
-  const percentage = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
   const { clue: hintClue, rule: hintRule } = splitHint(currentExercise.hint);
 
   return (
     <div className="trainer-exercise">
       <div className="trainer-header">
         <h1>Wechselpräpositionen — Wo vs. Wohin?</h1>
-        <div className="trainer-stats">
-          <span className="stat-item">
-            <strong>{currentIndex + 1}</strong> / {exercises.length}
-          </span>
-          <span className="stat-item">
-            ✓ {stats.correct} / {stats.total} ({percentage}%)
-          </span>
-        </div>
       </div>
 
       <div className="exercise-card">
@@ -186,26 +163,35 @@ function WechselpraepositionenExercisePage() {
         <button
           onClick={prevExercise}
           disabled={currentIndex === 0}
-          className="nav-btn"
+          className="nav-btn nav-btn--icon"
+          aria-label="Попередня"
+          title="Попередня"
         >
-          ← Попередня
+          ←
         </button>
         <button
           onClick={resetExercises}
-          className="nav-btn nav-btn--reset"
+          className="nav-btn nav-btn--icon nav-btn--reset"
+          aria-label="Заново"
+          title="Заново"
         >
-          🔄 Заново
+          🔄
         </button>
         <button
           onClick={nextExercise}
           disabled={currentIndex === exercises.length - 1}
-          className="nav-btn"
+          className="nav-btn nav-btn--icon"
+          aria-label="Наступна"
+          title="Наступна"
         >
-          Наступна →
+          →
         </button>
       </div>
 
-      <Link to="/word-trainer" className="back-link">← Повернутись до вибору</Link>
+      <div className="trainer-footer">
+        <span className="trainer-count"><strong>{currentIndex + 1}</strong> / {exercises.length}</span>
+        <Link to="/word-trainer" className="back-link">← Повернутись до вибору</Link>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,98 @@
+/* Розділ «Слова» — флешкартки з перевертанням */
+
+.ws-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.ws-ctrl {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: #667eea;
+  background: #fff;
+  border: 2px solid #c9bdf0;
+  border-radius: 8px;
+  padding: 7px 16px;
+  cursor: pointer;
+}
+
+.ws-ctrl:hover {
+  background: #f3e5f5;
+}
+
+.ws-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Картка */
+.ws-card {
+  border: none;
+  background: transparent;
+  padding: 0;
+  height: 110px;
+  cursor: pointer;
+  perspective: 900px;
+  font-family: inherit;
+}
+
+.ws-card__inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.ws-card.is-flipped .ws-card__inner {
+  transform: rotateY(180deg);
+}
+
+.ws-card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  line-height: 1.3;
+}
+
+.ws-card__face--front {
+  background: linear-gradient(135deg, #fef9e7 0%, #fce9b8 100%);
+  color: #5b4b8a;
+  font-weight: 700;
+  font-size: 1.02em;
+}
+
+.ws-card__face--back {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.98em;
+  transform: rotateY(180deg);
+}
+
+.ws-card:hover .ws-card__face--front {
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 600px) {
+  .ws-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .ws-card {
+    height: 100px;
+  }
+}

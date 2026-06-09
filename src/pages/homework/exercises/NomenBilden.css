@@ -1,0 +1,228 @@
+/* Вправа 3 — утворення іменника від дієслова */
+
+.nb-list {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 26px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.nb-row {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 6px 10px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid #eef0f4;
+}
+
+.nb-row:last-child {
+  border-bottom: none;
+}
+
+.nb-row--example {
+  background: #f6fbf7;
+  border-radius: 8px;
+  padding: 12px 10px;
+}
+
+.nb-num {
+  font-weight: 700;
+  color: #8e44ad;
+}
+
+.nb-sentence {
+  color: #2c3e50;
+  font-size: 1.05em;
+  line-height: 1.5;
+}
+
+.nb-sentence em {
+  font-style: italic;
+  font-weight: 700;
+  color: #5b4b8a;
+}
+
+.nb-answer {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* Артиклі */
+.nb-articles {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.nb-art {
+  font-size: 0.92em;
+  font-weight: 700;
+  color: #5b4b8a;
+  padding: 5px 10px;
+  border: 2px solid #c9bdf0;
+  border-radius: 7px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.nb-art:hover:not(:disabled) {
+  background: #f3e5f5;
+}
+
+.nb-art.is-selected {
+  background: #667eea;
+  color: #fff;
+  border-color: #667eea;
+}
+
+.nb-art.is-correct {
+  background: #27ae60;
+  color: #fff;
+  border-color: #27ae60;
+}
+
+.nb-art.is-wrong {
+  background: #fdecea;
+  color: #c0392b;
+  border-color: #e74c3c;
+}
+
+.nb-art:disabled {
+  cursor: default;
+}
+
+/* Літери */
+.nb-word {
+  display: inline-flex;
+  gap: 3px;
+  align-items: flex-end;
+}
+
+.nb-letter {
+  width: 1.5em;
+  height: 1.9em;
+  font-size: 1.05em;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.9em;
+  border-radius: 5px;
+}
+
+.nb-letter--given {
+  color: #2c3e50;
+  background: #eef0f4;
+  border: 1px solid #d6dae2;
+}
+
+.nb-input {
+  font-family: inherit;
+  color: #2c3e50;
+  border: none;
+  border-bottom: 2px solid #667eea;
+  background: #f8fafc;
+  padding: 0;
+  outline: none;
+  text-transform: lowercase;
+}
+
+.nb-input:focus {
+  background: #eef0fc;
+}
+
+.nb-input.is-correct {
+  color: #1e8449;
+  border-bottom-color: #27ae60;
+  background: #eafaf1;
+}
+
+.nb-input.is-wrong {
+  color: #c0392b;
+  border-bottom-color: #e74c3c;
+  background: #fdecea;
+}
+
+.nb-fix {
+  color: #1e8449;
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+.nb-ok {
+  color: #1e8449;
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+.nb-check {
+  font-size: 0.88em;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.nb-check:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.nb-retry {
+  font-size: 0.82em;
+  font-weight: 700;
+  color: #667eea;
+  background: #fff;
+  border: 2px solid #c9bdf0;
+  border-radius: 8px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.nb-retry:hover {
+  background: #f3e5f5;
+}
+
+.nb-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.nb-progress {
+  font-size: 1.05em;
+  color: #2c3e50;
+}
+
+.nb-progress strong {
+  color: #667eea;
+}
+
+.nb-tag {
+  font-size: 0.78em;
+  font-weight: 700;
+  color: #1e8449;
+  background: #eafaf1;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .nb-list {
+    padding: 18px 14px;
+  }
+  .nb-sentence {
+    font-size: 1em;
+  }
+}

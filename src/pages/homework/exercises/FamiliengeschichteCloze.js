@@ -1,12 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import {
   familienTitle,
   familienAuthor,
   familienBlanks,
   familienParagraphs,
-} from '../../data/homeworkFamiliengeschichteData';
-import './Familiengeschichte.css';
+} from '../../../data/homeworkFamiliengeschichteData';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -19,7 +17,8 @@ function shuffle(arr) {
 
 const blankNumbers = Object.keys(familienBlanks).map(Number).sort((a, b) => a - b);
 
-function FamiliengeschichtePage() {
+// Вправа 1 — cloze "Auf der Suche nach der eigenen Familiengeschichte".
+function FamiliengeschichteCloze() {
   const [answers, setAnswers] = useState({});
   const [checked, setChecked] = useState(false);
 
@@ -73,16 +72,13 @@ function FamiliengeschichtePage() {
           ))}
         </select>
         <sup className="cloze-num">{n}</sup>
-        {checked && !isCorrect && (
-          <span className="cloze-fix">→ {blank.answer}</span>
-        )}
+        {checked && !isCorrect && <span className="cloze-fix">→ {blank.answer}</span>}
       </span>
     );
   };
 
   return (
-    <div className="cloze-page">
-      <h1 className="cloze-page__lesson">Заняття 08.06</h1>
+    <div className="cloze-exercise">
       <p className="cloze-page__instruction">
         Was passt? Lesen Sie den Artikel und ergänzen Sie die Verben in der richtigen Form.
         Оберіть правильний варіант для кожного пропуску, потім натисніть «Перевірити».
@@ -119,7 +115,9 @@ function FamiliengeschichtePage() {
             onClick={handleCheck}
             disabled={!allAnswered}
           >
-            {allAnswered ? 'Перевірити' : `Заповни всі пропуски (${Object.keys(answers).length}/${blankNumbers.length})`}
+            {allAnswered
+              ? 'Перевірити'
+              : `Заповни всі пропуски (${Object.keys(answers).length}/${blankNumbers.length})`}
           </button>
         ) : (
           <button className="cloze-btn cloze-btn--reset" onClick={handleReset}>
@@ -130,7 +128,9 @@ function FamiliengeschichtePage() {
 
       {checked && (
         <div
-          className={`cloze-result ${correctCount === blankNumbers.length ? 'cloze-result--perfect' : ''}`}
+          className={`cloze-result ${
+            correctCount === blankNumbers.length ? 'cloze-result--perfect' : ''
+          }`}
         >
           <div className="cloze-result__score">
             Результат: <strong>{correctCount}</strong> / {blankNumbers.length} правильно
@@ -150,10 +150,8 @@ function FamiliengeschichtePage() {
           </div>
         </div>
       )}
-
-      <Link to="/homework" className="back-link">&larr; Назад</Link>
     </div>
   );
 }
 
-export default FamiliengeschichtePage;
+export default FamiliengeschichteCloze;

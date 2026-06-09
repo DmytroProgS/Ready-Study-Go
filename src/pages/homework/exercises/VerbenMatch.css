@@ -1,0 +1,140 @@
+/* Вправа 2 — підбір дієслова до виразів */
+
+.vmatch-pool {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 24px;
+  max-width: 720px;
+}
+
+.vmatch-pool__verb {
+  font-size: 1.02em;
+  font-weight: 700;
+  color: #5b4b8a;
+  padding: 10px 18px;
+  border: 2px solid #c9bdf0;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.1s, border-color 0.15s;
+}
+
+.vmatch-pool__verb:hover {
+  background: #f3e5f5;
+}
+
+.vmatch-pool__verb:active {
+  transform: translateY(1px);
+}
+
+.vmatch-pool__verb.is-solved {
+  border-color: #27ae60;
+  background: #eafaf1;
+  color: #1e8449;
+}
+
+.vmatch-pool__verb.is-correct {
+  border-color: #27ae60;
+  background: #27ae60;
+  color: #fff;
+}
+
+.vmatch-pool__verb.is-wrong {
+  border-color: #e74c3c;
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.vmatch-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.vmatch-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 16px;
+}
+
+.vmatch-card__score {
+  font-size: 0.9em;
+  color: #8e7fb8;
+  font-weight: 600;
+}
+
+.vmatch-card__phrases {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vmatch-phrase {
+  font-size: 1.15em;
+  color: #2c3e50;
+  background: #f5f7fa;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid #c9bdf0;
+}
+
+.vmatch-feedback {
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.vmatch-feedback.is-correct {
+  background: #eafaf1;
+  color: #1e8449;
+}
+
+.vmatch-feedback.is-wrong {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.vmatch-nav {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.vmatch-nav__btn {
+  font-size: 1em;
+  font-weight: 700;
+  color: #667eea;
+  padding: 10px 22px;
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.vmatch-nav__btn:disabled {
+  color: #cbd5e1;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .vmatch-card {
+    padding: 22px 18px;
+  }
+  .vmatch-phrase {
+    font-size: 1.05em;
+  }
+}
