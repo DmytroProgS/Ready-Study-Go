@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { verbPraepExercises } from '../data/wordTrainerVerbPraepData';
+import { currentSet, extraSet } from '../data/praepositionenData';
 import '../assets/styles/wordTrainer.css';
 
 function shuffle(arr) {
@@ -10,6 +11,49 @@ function shuffle(arr) {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+
+// Стягнені форми прийменника з артиклем (zu + dem = zum тощо),
+// щоб у реченні ховати саме "zum"/"zur", а не порожнє "zu".
+const PREP_CONTRACTIONS = {
+  an: ['am', 'ans'], in: ['im', 'ins'], zu: ['zum', 'zur'], bei: ['beim'],
+  von: ['vom'], auf: ['aufs'], um: ['ums'], 'über': ['übers'], 'für': ['fürs'],
+  vor: ['vors'], hinter: ['hinters'], unter: ['unters'], durch: ['durchs'],
+};
+
+const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+// Замінює прийменник у реченні на "____". Не покладається на \b
+// (ламається на умлаутах) і враховує стягнені форми та варіанти "auf/für".
+function blankPreposition(sentence, prepRule) {
+  const prepPart = (prepRule || '').split(',')[0].split('+')[0].trim(); // 'über' | 'auf/für'
+  const preps = prepPart.split('/').map((p) => p.trim()).filter(Boolean);
+  if (!preps.length) return sentence;
+
+  const candidates = [];
+  for (const p of preps) {
+    candidates.push(...(PREP_CONTRACTIONS[p] || []), p);
+  }
+  // довші форми першими, щоб "zum" виграв у "zu"
+  candidates.sort((a, b) => b.length - a.length);
+
+  for (const word of candidates) {
+    const re = new RegExp(
+      '(^|[^A-Za-zÄÖÜäöüß])(' + escapeRegExp(word) + ')(?=[^A-Za-zÄÖÜäöüß]|$)',
+      'i'
+    );
+    if (re.test(sentence)) return sentence.replace(re, '$1____');
+  }
+  return sentence;
+}
+
+function detectCasus(prepRule) {
+  const hasA = /\+\s*A/i.test(prepRule);
+  const hasD = /\+\s*D/i.test(prepRule);
+  if (hasA && hasD) return 'Dativ/Akkusativ';
+  if (hasA) return 'Akkusativ';
+  if (hasD) return 'Dativ';
+  return '';
 }
 
 function generateWrongAnswers(correctAnswer, exercises) {
@@ -44,7 +88,39 @@ function VerbPraepExercisePage() {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    const shuffled = shuffle(verbPraepExercises);
+    // Build additional exercises from praepositionenData (currentSet + extraSet)
+    const combinedPraep = [...extraSet, ...currentSet];
+    const extraExercises = [];
+    let nextId = Math.max(...verbPraepExercises.map(e => e.id || 0)) + 1;
+
+    for (let card of combinedPraep) {
+      if (extraExercises.length >= 50) break;
+      const sources = card.variants
+        ? card.variants.map((v) => ({
+            prep: v.prep,
+            ua: v.ua || card.ua || '',
+            exDE: v.exDE || card.exDE || '',
+            exUA: v.exUA || card.exUA || '',
+          }))
+        : [{ prep: card.prep, ua: card.ua || '', exDE: card.exDE || '', exUA: card.exUA || '' }];
+
+      for (const src of sources) {
+        if (extraExercises.length >= 50) break;
+        extraExercises.push({
+          id: nextId++,
+          verb: card.verb,
+          prep: src.prep,
+          ua: src.ua,
+          exDE: blankPreposition(src.exDE, src.prep),
+          exUA: src.exUA,
+          answer: src.prep,
+          casus: detectCasus(src.prep),
+        });
+      }
+    }
+
+    const all = [...verbPraepExercises, ...extraExercises.slice(0, 50)];
+    const shuffled = shuffle(all);
     setExercises(shuffled);
   }, []);
 
@@ -121,12 +197,16 @@ function VerbPraepExercisePage() {
       <div className="exercise-card">
         <div className="exercise-german">{currentExercise.exDE}</div>
         <div className="exercise-ua">{currentExercise.exUA}</div>
-        <div className="exercise-verb">
-          <strong>{currentExercise.verb}</strong> — {currentExercise.ua}
-        </div>
-        <div className="exercise-category">
-          Керування: <strong>{currentExercise.prep}</strong>
-        </div>
+        {isAnswered && (
+          <div className="exercise-verb">
+            <strong>{currentExercise.verb}</strong> — {currentExercise.ua}
+          </div>
+        )}
+        {isAnswered && (
+          <div className="exercise-category">
+            Керування: <strong>{currentExercise.prep}</strong>
+          </div>
+        )}
 
         <div className="exercise-answer-buttons">
           {options.map((option) => {

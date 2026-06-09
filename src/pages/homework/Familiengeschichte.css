@@ -1,0 +1,247 @@
+/* Заняття 08.06 — інтерактивний cloze */
+
+.cloze-page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.cloze-page__lesson {
+  text-align: center;
+  font-size: 2em;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.cloze-page__instruction {
+  max-width: 700px;
+  margin: 0 auto 28px;
+  text-align: center;
+  color: #34495e;
+  font-size: 1em;
+  line-height: 1.5;
+  background: #f3e5f5;
+  padding: 12px 18px;
+  border-radius: 8px;
+}
+
+.cloze-article {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 34px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid #2a7f7f;
+}
+
+.cloze-article__title {
+  color: #2a7f7f;
+  font-size: 1.5em;
+  margin: 0 0 4px;
+}
+
+.cloze-article__author {
+  color: #7f8c8d;
+  font-style: italic;
+  margin: 0 0 22px;
+}
+
+.cloze-article__body p {
+  font-size: 1.12em;
+  line-height: 2.1;
+  color: #2c3e50;
+  margin: 0 0 16px;
+}
+
+/* Пропуски */
+.cloze-blank {
+  display: inline;
+  white-space: nowrap;
+}
+
+.cloze-select {
+  font-size: 0.95em;
+  font-family: inherit;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 3px 8px;
+  margin: 0 2px;
+  border: 2px solid #b0bec5;
+  border-radius: 6px;
+  background: #f8fafc;
+  cursor: pointer;
+  vertical-align: baseline;
+}
+
+.cloze-select--filled {
+  border-color: #667eea;
+  background: #eef0fc;
+}
+
+.cloze-select--correct {
+  border-color: #27ae60;
+  background: #eafaf1;
+  color: #1e8449;
+}
+
+.cloze-select--wrong {
+  border-color: #e74c3c;
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.cloze-select:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.cloze-num {
+  color: #8e44ad;
+  font-size: 0.7em;
+  font-weight: 700;
+  margin-left: 1px;
+}
+
+.cloze-given {
+  font-weight: 700;
+  color: #1e8449;
+  border-bottom: 2px solid #27ae60;
+  padding: 0 2px;
+}
+
+.cloze-fix {
+  color: #1e8449;
+  font-weight: 700;
+  font-size: 0.9em;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+/* Дії */
+.cloze-actions {
+  text-align: center;
+  margin: 28px 0 10px;
+}
+
+.cloze-btn {
+  font-size: 1.05em;
+  font-weight: 700;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cloze-btn:active {
+  transform: translateY(1px);
+}
+
+.cloze-btn--check {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.cloze-btn--check:disabled {
+  background: #cbd5e1;
+  color: #fff;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.cloze-btn--reset {
+  background: #fff;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+/* Підсумок */
+.cloze-result {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 20px 0 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cloze-result--perfect {
+  border: 2px solid #27ae60;
+}
+
+.cloze-result__score {
+  font-size: 1.3em;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.cloze-result__score strong {
+  color: #667eea;
+  font-size: 1.2em;
+}
+
+.cloze-result__item {
+  display: grid;
+  grid-template-columns: 28px 130px 1fr;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+.cloze-result__item.is-ok {
+  background: #eafaf1;
+}
+
+.cloze-result__item.is-bad {
+  background: #fdecea;
+}
+
+.cloze-result__n {
+  font-weight: 700;
+  color: #8e44ad;
+  text-align: center;
+}
+
+.cloze-result__ans {
+  font-weight: 700;
+  color: #1e8449;
+}
+
+.cloze-result__note {
+  color: #34495e;
+  font-size: 0.92em;
+  line-height: 1.4;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .cloze-article {
+    padding: 22px 18px;
+  }
+  .cloze-article__body p {
+    font-size: 1.05em;
+    line-height: 2;
+  }
+  .cloze-result__item {
+    grid-template-columns: 24px 1fr;
+  }
+  .cloze-result__note {
+    grid-column: 2;
+  }
+}

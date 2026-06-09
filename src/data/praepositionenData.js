@@ -188,7 +188,7 @@ export const extraSet = [
     ],
   },
   { verb: 'sich konzentrieren', prep: 'auf + A', ua: 'концентруватися, зосереджуватися (на чомусь)', exUA: 'Зосередься на важливому!', exDE: 'Konzentrier dich auf das Wichtige!' },
-  { verb: 'sich orientieren', prep: 'an + D', ua: 'орієнтуватися (на щось)', exUA: 'У всьому орієнтується на свою сестру.', exDE: 'Sie orientiert sich in allem an ihrer Schwester.' },
+  { verb: 'sich orientieren', prep: 'an + D', ua: 'орієнтуватися (на щось)', exUA: 'У всьому орієнтується на свого брата.', exDE: 'Sie orientiert sich in allem an ihrem Bruder.' },
   { verb: 'sich treffen', prep: 'mit + D', ua: 'зустрічатися (з кимось)', exUA: 'Пізніше я зустрічаюся зі своїм чоловіком.', exDE: 'Später treffe ich mich mit meinem Mann.' },
   {
     verb: 'sich unterhalten',

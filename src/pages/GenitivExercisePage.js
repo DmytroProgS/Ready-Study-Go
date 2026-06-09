@@ -121,13 +121,15 @@ function GenitivExercisePage() {
       <div className="exercise-card">
         <div className="exercise-question">{currentExercise.german}</div>
         <div className="exercise-hint">{currentExercise.hint}</div>
-        <div className="exercise-category">
-          {currentExercise.prepCategory === 'Genitivpräposition' ? (
-            <>Прийменник: <strong>{currentExercise.prep}</strong> | Керування: <strong>{currentExercise.prep} + Genitiv</strong></>
-          ) : (
-            <>Часовий вираз: <strong>{currentExercise.prep}</strong></>
-          )}
-        </div>
+        {isAnswered && (
+          <div className="exercise-category">
+            {currentExercise.prepCategory === 'Genitivpräposition' ? (
+              <>Прийменник: <strong>{currentExercise.prep}</strong> | Керування: <strong>{currentExercise.prep} + Genitiv</strong></>
+            ) : (
+              <>Часовий вираз: <strong>{currentExercise.prep}</strong></>
+            )}
+          </div>
+        )}
 
         <div className="exercise-answer-buttons">
           {options.map((option) => {

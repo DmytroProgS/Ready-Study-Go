@@ -12,10 +12,18 @@ function shuffle(arr) {
   return a;
 }
 
+// Підказка має вигляд "[Питальне слово] → правило" (напр. "[Де?] → an + Dativ").
+// Питальне слово показуємо завжди, а правило — лише після відповіді, щоб не зливати її.
+function splitHint(hint) {
+  const i = (hint || '').indexOf(']');
+  if (i === -1) return { clue: hint || '', rule: '' };
+  return { clue: hint.slice(0, i + 1), rule: hint.slice(i + 1).trim() };
+}
+
 function generateWrongAnswers(correctAnswer, exercises) {
   const wrongAnswers = [];
   const allAnswers = exercises.map(e => e.answer).filter(a => a !== correctAnswer);
-  
+
   for (let i = 0; i < 3 && wrongAnswers.length < 3; i++) {
     const randomAnswer = allAnswers[Math.floor(Math.random() * allAnswers.length)];
     if (!wrongAnswers.includes(randomAnswer) && randomAnswer !== correctAnswer) {
@@ -104,6 +112,7 @@ function WechselpraepositionenExercisePage() {
 
   const isCorrect = selectedAnswer === currentExercise.answer;
   const percentage = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
+  const { clue: hintClue, rule: hintRule } = splitHint(currentExercise.hint);
 
   return (
     <div className="trainer-exercise">
@@ -120,11 +129,13 @@ function WechselpraepositionenExercisePage() {
       </div>
 
       <div className="exercise-card">
-        <div className="exercise-hint">{currentExercise.hint}</div>
+        <div className="exercise-hint">{hintClue}{isAnswered && hintRule && ` ${hintRule}`}</div>
         <div className="exercise-question">{currentExercise.german}</div>
-        <div className="exercise-category">
-          Відмінок: <strong>{currentExercise.casus}</strong> | Прийменник: <strong>{currentExercise.category}</strong>
-        </div>
+        {isAnswered && (
+          <div className="exercise-category">
+            Відмінок: <strong>{currentExercise.casus}</strong> | Прийменник: <strong>{currentExercise.category}</strong>
+          </div>
+        )}
 
         <div className="exercise-answer-buttons">
           {options.map((option) => {
