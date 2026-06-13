@@ -57,25 +57,36 @@ function detectCasus(prepRule) {
 }
 
 function generateWrongAnswers(correctAnswer, exercises) {
+  // Дві форми відповідей у тренажері:
+  //  - форма-правило: "an + D" (містить "+")
+  //  - форма зі статтею: "an einem" (без "+")
+  // Дистрактори добираємо тієї ж форми, що й правильна відповідь, щоб
+  // варіанти були однорідні й правильний не вирізнявся форматом.
+  const isRule = correctAnswer.includes('+');
+  const pool = [...new Set(
+    exercises
+      .map(e => e.answer)
+      .filter(a => a && a !== correctAnswer && a.includes('+') === isRule)
+  )];
+
   const wrongAnswers = [];
-  const allAnswers = exercises.map(e => e.answer).filter(a => a !== correctAnswer);
-  
-  for (let i = 0; i < 3 && wrongAnswers.length < 3; i++) {
-    const randomAnswer = allAnswers[Math.floor(Math.random() * allAnswers.length)];
-    if (!wrongAnswers.includes(randomAnswer) && randomAnswer !== correctAnswer) {
-      wrongAnswers.push(randomAnswer);
-    }
+  for (const answer of shuffle(pool)) {
+    if (wrongAnswers.length >= 3) break;
+    wrongAnswers.push(answer);
   }
-  
+
   if (wrongAnswers.length < 3) {
-    const similar = ['an den', 'an die', 'an dem', 'auf den', 'auf die', 'von dem', 'von der', 'nach dem', 'nach der',
-                     'mit dem', 'mit der', 'zu dem', 'zu der', 'für die', 'für den', 'über den', 'über die']
-      .filter(a => a !== correctAnswer && !wrongAnswers.includes(a));
-    while (wrongAnswers.length < 3 && similar.length > 0) {
-      wrongAnswers.push(similar.pop());
+    const fillers = (isRule
+      ? ['an + A', 'auf + A', 'mit + D', 'über + A', 'von + D', 'für + A',
+         'zu + D', 'nach + D', 'bei + D', 'um + A', 'aus + D', 'in + A', 'gegen + A', 'vor + D']
+      : ['an den', 'an die', 'an dem', 'auf den', 'auf die', 'von dem', 'von der', 'nach dem', 'nach der',
+         'mit dem', 'mit der', 'zu dem', 'zu der', 'für die', 'für den', 'über den', 'über die']
+    ).filter(a => a !== correctAnswer && !wrongAnswers.includes(a));
+    while (wrongAnswers.length < 3 && fillers.length > 0) {
+      wrongAnswers.push(fillers.pop());
     }
   }
-  
+
   return wrongAnswers.slice(0, 3);
 }
 
@@ -112,7 +123,9 @@ function VerbPraepExercisePage() {
           ua: src.ua,
           exDE: blankPreposition(src.exDE, src.prep),
           exUA: src.exUA,
-          answer: src.prep,
+          // Тільки перший прийменник зі списку керування — саме він
+          // підходить до цього речення; решта показується в підказці "Керування".
+          answer: src.prep.split(',')[0].trim(),
           casus: detectCasus(src.prep),
         });
       }
