@@ -1,0 +1,6 @@
+/* Центрування тексту карток «Вивчення слів» (не зачіпає граматичні тренажери) */
+.word-cards .praep-card__front,
+.word-cards .praep-card__back {
+  align-items: center;
+  text-align: center;
+}
