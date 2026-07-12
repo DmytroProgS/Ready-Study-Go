@@ -1,0 +1,124 @@
+/* Вправа 1 — вибір правильного дієслова з двох варіантів */
+
+.wgv-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 0 auto 12px;
+  max-width: 760px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.wgv-item__num {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #2a7f7f;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.wgv-item__body {
+  flex: 1 1 auto;
+}
+
+.wgv-sentence {
+  margin: 0 0 10px;
+  color: #2c3e50;
+  font-size: 1.05em;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.wgv-blank {
+  display: inline-block;
+  min-width: 70px;
+  padding: 2px 10px;
+  margin: 0 2px;
+  border-bottom: 2px dashed #b0bec5;
+  color: #90a4ae;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+}
+
+.wgv-blank--filled {
+  border-bottom-color: #667eea;
+  color: #2c3e50;
+}
+
+.wgv-blank--correct {
+  border-bottom-color: #27ae60;
+  color: #1e8449;
+}
+
+.wgv-blank--wrong {
+  border-bottom-color: #e74c3c;
+  color: #c0392b;
+  text-decoration: line-through;
+}
+
+.wgv-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.wgv-pill {
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 700;
+  color: #2c3e50;
+  padding: 6px 16px;
+  border: 2px solid #b0bec5;
+  border-radius: 999px;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.wgv-pill:hover:not(:disabled) {
+  border-color: #667eea;
+  background: #eef0fc;
+}
+
+.wgv-pill--selected {
+  border-color: #667eea;
+  background: #eef0fc;
+  color: #4a58c4;
+}
+
+.wgv-pill--answer {
+  border-color: #27ae60;
+  background: #eafaf1;
+  color: #1e8449;
+}
+
+.wgv-pill--wrong {
+  border-color: #e74c3c;
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.wgv-pill:disabled {
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .wgv-sentence {
+    font-size: 1em;
+  }
+  .wgv-pill {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}

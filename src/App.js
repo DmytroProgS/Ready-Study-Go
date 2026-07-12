@@ -15,6 +15,7 @@ import FesteAusdrueckePage from './pages/homework/FesteAusdrueckePage';
 import HomeworkSet4Page from './pages/homework/HomeworkSet4Page';
 import HomeworkSet5Page from './pages/homework/HomeworkSet5Page';
 import HomeworkSet6Page from './pages/homework/HomeworkSet6Page';
+import HomeworkSet7Page from './pages/homework/HomeworkSet7Page';
 import B2Page from './pages/B2Page';
 import HorenPage from './pages/b2/HorenPage';
 import LesenPage from './pages/b2/LesenPage';
@@ -60,6 +61,7 @@ function App() {
           <Route path="/homework/set/4" element={<HomeworkSet4Page />} />
           <Route path="/homework/set/5" element={<HomeworkSet5Page />} />
           <Route path="/homework/set/6" element={<HomeworkSet6Page />} />
+          <Route path="/homework/set/7" element={<HomeworkSet7Page />} />
           <Route path="/homework/set/:setId" element={<HomeworkCardsPage />} />
           <Route path="/homework/set/2" element={<HomeworkSet2MenuPage />} />
           <Route path="/homework/set/:setId/words" element={<HomeworkCardsPage />} />

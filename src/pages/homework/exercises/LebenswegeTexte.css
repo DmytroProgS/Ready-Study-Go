@@ -51,6 +51,25 @@
   text-align: left;
 }
 
+.lwege-story__section + .lwege-story__section {
+  margin-top: 12px;
+}
+
+.lwege-story__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 6px;
+  background: #2a7f7f;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85em;
+  vertical-align: middle;
+}
+
 .lwege-fn {
   color: #2a7f7f;
   font-weight: 700;
