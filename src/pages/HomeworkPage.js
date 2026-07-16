@@ -42,6 +42,11 @@ function HomeworkPage() {
           <span className="b2-card__label">Заняття 09.07</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
+        <Link to="/homework/set/8" className="b2-card b2-card--ready">
+          <span className="b2-card__num">8</span>
+          <span className="b2-card__label">Заняття 16.07</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
         <Link to="/homework/feste-ausdruecke" className="b2-card b2-card--ready">
           <span className="b2-card__icon">💬</span>
           <span className="b2-card__label">Feste Ausdrücke</span>

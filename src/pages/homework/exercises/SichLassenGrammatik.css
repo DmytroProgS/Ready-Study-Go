@@ -1,0 +1,389 @@
+/* Граматика — sich + lassen + Infinitiv (гейміфікований гайд) */
+
+.slg {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ---- Рівень ---- */
+.slg-level {
+  background: #fff;
+  border-radius: 14px;
+  margin: 0 auto 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.slg-level__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--lvl-color, #2a7f7f);
+}
+
+.slg-level__badge {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.8em;
+  letter-spacing: 0.5px;
+}
+
+.slg-level__title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.slg-level__body {
+  padding: 18px 20px;
+}
+
+/* ---- Формула ---- */
+.slg-formula {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.slg-chip {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+.slg-chip--green { background: #2ecc71; }
+.slg-chip--orange { background: #e67e22; }
+.slg-chip--blue { background: #4a58c4; }
+
+.slg-plus, .slg-eq {
+  font-weight: 800;
+  color: #7f8c8d;
+  font-size: 1.1em;
+}
+
+.slg-caption {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  margin: 4px 0 14px;
+}
+
+.slg-transform {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  background: #f6f8fb;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+.slg-old { color: #c0392b; font-weight: 600; }
+.slg-new { color: #1e8449; font-weight: 700; flex: 1 1 auto; }
+.slg-new em, .slg-old em { font-weight: 400; color: #7f8c8d; }
+.slg-arrow { color: #667eea; font-weight: 800; }
+
+.slg-example {
+  text-align: center;
+  color: #1e8449;
+  font-weight: 600;
+  margin: 4px 0 0;
+}
+.slg-example em { color: #7f8c8d; font-weight: 400; }
+
+.slg-rule {
+  background: #eef0fc;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #2c3e50;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+.slg-rule em { color: #7f8c8d; font-weight: 400; }
+
+.slg-slot {
+  display: inline-block;
+  border: 2px dashed #8e44ad;
+  border-radius: 6px;
+  padding: 0 8px;
+  color: #8e44ad;
+}
+
+/* ---- Гравці (займенники) ---- */
+.slg-players {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.slg-player {
+  border: 2px solid #e4e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fbfcfe;
+}
+.slg-player--sel {
+  border-color: #27ae60;
+  background: #eafaf1;
+}
+.slg-player__map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.slg-player__pron {
+  background: #b0bec5;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.slg-player__refl {
+  background: #4a58c4;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+.slg-player__ex {
+  margin: 0;
+  font-size: 0.9em;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.slg-note {
+  background: #fff8e6;
+  border-left: 4px solid #f1c40f;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #7d6608;
+  margin: 14px 0 0;
+}
+
+/* ---- Чекпоінт ---- */
+.slg-checkpoint {
+  background: #eef0fc;
+  border: 2px solid #c3cbf5;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 0 auto 18px;
+}
+.slg-checkpoint__head {
+  font-weight: 800;
+  color: #3a46b0;
+  font-size: 1.05em;
+  margin-bottom: 4px;
+}
+.slg-xp {
+  background: #4a58c4;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75em;
+  margin-left: 6px;
+}
+.slg-checkpoint__task {
+  color: #2c3e50;
+  font-weight: 600;
+  margin: 6px 0 12px;
+}
+.slg-cp-item { margin-bottom: 12px; }
+.slg-cp-q { margin: 0 0 6px; color: #2c3e50; line-height: 1.5; }
+.slg-cp-words {
+  display: inline-block;
+  margin-left: 6px;
+  color: #667eea;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+/* ---- Розкривна відповідь ---- */
+.slg-reveal {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px dashed #b0bec5;
+  border-radius: 10px;
+  background: #f8fafc;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.slg-reveal:hover { border-color: #27ae60; }
+.slg-reveal--open { border-style: solid; border-color: #27ae60; background: #eafaf1; }
+.slg-reveal__label { color: #7f8c8d; font-weight: 700; font-size: 0.9em; }
+.slg-reveal__text { color: #1e8449; font-weight: 700; }
+
+/* ---- VS Mode ---- */
+.slg-vs {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+.slg-vs__side {
+  flex: 1 1 0;
+  background: #fdecea;
+  border-radius: 12px;
+  padding: 14px;
+}
+.slg-vs__side--green { background: #eafaf1; }
+.slg-vs__side h4 { margin: 0 0 6px; color: #2c3e50; }
+.slg-vs__desc { margin: 0 0 8px; font-weight: 700; color: #34495e; }
+.slg-vs__desc em { font-weight: 400; color: #7f8c8d; }
+.slg-vs__ex { margin: 0 0 4px; color: #2c3e50; }
+.slg-vs__ua { margin: 0; font-size: 0.88em; color: #7f8c8d; font-style: italic; }
+.slg-vs__badge {
+  align-self: center;
+  font-weight: 900;
+  color: #e74c3c;
+  font-size: 1.3em;
+}
+
+/* ---- Часи ---- */
+.slg-timeline { display: flex; flex-direction: column; gap: 10px; }
+.slg-tense {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-left: 3px solid #2980b9;
+  padding-left: 14px;
+}
+.slg-tense__label { flex: 0 0 130px; }
+.slg-tense__name { display: block; font-weight: 800; color: #2980b9; }
+.slg-tense__form {
+  display: inline-block;
+  margin-top: 2px;
+  background: #e67e22;
+  color: #fff;
+  padding: 1px 8px;
+  border-radius: 6px;
+  font-size: 0.82em;
+  font-weight: 700;
+}
+.slg-tense__ex { margin: 0; color: #2c3e50; }
+.slg-warn {
+  display: inline-block;
+  margin-left: 8px;
+  color: #b9770e;
+  font-size: 0.82em;
+}
+
+/* ---- Прислівники ---- */
+.slg-adverbs { display: flex; flex-direction: column; gap: 8px; }
+.slg-adverb { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.slg-adverb__w {
+  flex: 0 0 auto;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.slg-adverb__w em { font-weight: 400; opacity: 0.9; }
+.slg-adverb__ex { color: #2c3e50; }
+
+/* ---- Магніт ---- */
+.slg-magnet { display: flex; gap: 12px; }
+.slg-magnet__col { flex: 1 1 0; border-radius: 12px; padding: 14px; }
+.slg-magnet__col--ok { background: #eafaf1; }
+.slg-magnet__col--no { background: #fdecea; }
+.slg-magnet__col h4 { margin: 0 0 10px; color: #2c3e50; }
+.slg-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.slg-tag { padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 0.9em; }
+.slg-tag--ok { background: #27ae60; color: #fff; }
+.slg-tag--no { background: #e74c3c; color: #fff; }
+.slg-magnet__hint { margin: 0; font-size: 0.85em; color: #7f8c8d; }
+.slg-magnet__bad { margin: 0; padding-left: 18px; }
+.slg-magnet__bad li { color: #c0392b; font-size: 0.85em; margin-bottom: 4px; }
+.slg-magnet__bad em { color: #7f8c8d; font-style: italic; }
+
+/* ---- Pro Moves ---- */
+.slg-pro { display: flex; flex-direction: column; gap: 12px; }
+.slg-pro__row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border: 2px solid #eef0f4;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.slg-pro__cat {
+  flex: 0 0 130px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  color: var(--pro-color, #2c3e50);
+  line-height: 1.2;
+}
+.slg-pro__cat em { font-weight: 400; color: #7f8c8d; font-size: 0.82em; }
+.slg-pro__icon { font-size: 1.4em; }
+.slg-pro__ex { flex: 1 1 auto; }
+.slg-pro__ex p { margin: 0 0 6px; color: #2c3e50; }
+.slg-pro__ex span { color: #7f8c8d; font-size: 0.88em; }
+
+/* ---- Bug Tracker ---- */
+.slg-bugs { display: flex; flex-direction: column; gap: 10px; }
+.slg-bug {
+  display: grid;
+  gap: 4px;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: #f8fafc;
+}
+.slg-bug__name { font-weight: 800; color: #e74c3c; font-size: 0.85em; }
+.slg-bug__bad { color: #c0392b; }
+.slg-bug__good { color: #1e8449; font-weight: 600; }
+.slg-bug__good em { color: #7f8c8d; font-weight: 400; }
+
+/* ---- Final Boss ---- */
+.slg-boss {
+  background: #2c2f6b;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin: 0 auto 18px;
+}
+.slg-boss__head { color: #ffd166; font-weight: 800; font-size: 1.1em; margin-bottom: 12px; }
+.slg-boss .slg-cp-q { color: #eef0fc; }
+.slg-boss .slg-reveal { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.3); }
+.slg-boss .slg-reveal__label { color: #c3cbf5; }
+.slg-boss .slg-reveal--open { background: #eafaf1; border-color: #27ae60; }
+.slg-boss .slg-reveal__text { color: #1e8449; }
+
+/* ---- Mission Complete ---- */
+.slg-complete {
+  text-align: center;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.slg-complete span {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 2px 12px;
+  border-radius: 999px;
+  font-size: 0.75em;
+  margin-left: 6px;
+}
+.slg-complete p { margin: 10px 0 0; font-weight: 500; font-size: 0.72em; opacity: 0.95; }
+
+@media (max-width: 640px) {
+  .slg-players { grid-template-columns: 1fr; }
+  .slg-vs, .slg-magnet { flex-direction: column; }
+  .slg-vs__badge { transform: rotate(90deg); }
+  .slg-tense { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .slg-tense__label { flex-basis: auto; }
+  .slg-pro__row { flex-direction: column; }
+  .slg-pro__cat { flex-basis: auto; }
+}

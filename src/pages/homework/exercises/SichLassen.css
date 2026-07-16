@@ -1,0 +1,102 @@
+/* Завдання 1 — sich + lassen + Infinitiv (приховане рішення) */
+
+.sila-hint {
+  display: inline-block;
+  margin-top: 4px;
+  color: #7f8c8d;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.sila-item {
+  max-width: 820px;
+  margin: 0 auto 14px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.sila-item__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.sila-item__num {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2a7f7f;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.sila-item__given {
+  flex: 1 1 auto;
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.05em;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.sila-item__note {
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #eef4f4;
+  color: #2a7f7f;
+  font-size: 0.75em;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.sila-solution {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 16px;
+  border: 2px dashed #b0bec5;
+  border-radius: 10px;
+  background: #f8fafc;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.sila-solution:hover {
+  border-color: #27ae60;
+}
+
+.sila-solution--open {
+  border-style: solid;
+  border-color: #27ae60;
+  background: #eafaf1;
+}
+
+.sila-solution__label {
+  color: #7f8c8d;
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+.sila-solution__text {
+  color: #1e8449;
+  font-weight: 600;
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .sila-item__given {
+    font-size: 1em;
+  }
+}
