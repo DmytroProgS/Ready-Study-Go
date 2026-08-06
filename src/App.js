@@ -35,6 +35,7 @@ import LesenTeil3Page from './pages/b2/lesen/LesenTeil3Page';
 import LesenTeil4Page from './pages/b2/lesen/LesenTeil4Page';
 import BeschwerdePage from './pages/b2/schreiben/BeschwerdePage';
 import PhrasesPage from './pages/PhrasesPage';
+import TrainerPage from './pages/trainer/TrainerPage';
 import WordTrainerPage from './pages/WordTrainerPage';
 import AkkusativDativExercisePage from './pages/AkkusativDativExercisePage';
 import WechselpraepositionenExercisePage from './pages/WechselpraepositionenExercisePage';
@@ -69,6 +70,7 @@ function App() {
           <Route path="/homework/set/:setId/words" element={<HomeworkCardsPage />} />
           <Route path="/homework/set/2/exercises" element={<HomeworkSet2ExercisesPage />} />
           <Route path="/phrases" element={<PhrasesPage />} />
+          <Route path="/trainer" element={<TrainerPage />} />
           <Route path="/b2" element={<B2Page />} />
           <Route path="/b2/horen" element={<HorenPage />} />
           <Route path="/b2/horen/teil1" element={<HorenTeil1Page />} />

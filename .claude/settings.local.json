@@ -8,7 +8,18 @@
       "Bash(node -e ' *)",
       "Bash(node _tmp_test_blank.mjs)",
       "Bash(node --input-type=module -e ' *)",
-      "mcp__claude_ai_Google_Drive__list_recent_files"
+      "mcp__claude_ai_Google_Drive__list_recent_files",
+      "PowerShell(npm install firebase --silent 2>&1 | Select-Object -Last 5; Write-Output \"EXIT: $LASTEXITCODE\")",
+      "PowerShell(npm run build 2>&1 | Tee-Object -FilePath \"$env:TEMP\\\\rsg_build.log\" | Out-Null; Write-Output \"EXIT: $LASTEXITCODE\"; Write-Output \"---- LOG ----\"; Get-Content \"$env:TEMP\\\\rsg_build.log\" -Tail 40)",
+      "PowerShell($env:NODE_OPTIONS=\"--max-old-space-size=4096\"; $env:GENERATE_SOURCEMAP=\"false\"; npm run build 2>&1 | Tee-Object -FilePath \"$env:TEMP\\\\rsg_build2.log\" | Out-Null; Write-Output \"EXIT: $LASTEXITCODE\"; Write-Output \"---- LOG ----\"; Get-Content \"$env:TEMP\\\\rsg_build2.log\" -Tail 25)",
+      "PowerShell(node -v)",
+      "PowerShell(npm -v)",
+      "PowerShell($env:BROWSER=\"none\"; $env:CI=\"false\"; $p = Start-Process -FilePath \"npm\" -ArgumentList \"start\" -NoNewWindow -PassThru -RedirectStandardOutput \"$env:TEMP\\\\rsg_dev.log\" -RedirectStandardError \"$env:TEMP\\\\rsg_dev_err.log\"; Write-Output \"PID: $\\($p.Id\\)\"; Start-Sleep -Seconds 55; Write-Output \"---- OUT ----\"; Get-Content \"$env:TEMP\\\\rsg_dev.log\" -Tail 40 -ErrorAction SilentlyContinue; Write-Output \"---- ERR ----\"; Get-Content \"$env:TEMP\\\\rsg_dev_err.log\" -Tail 40 -ErrorAction SilentlyContinue; Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue; Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue)",
+      "Bash(BROWSER=none CI=false npm.cmd start)",
+      "Bash(echo \"started pid $!\")",
+      "Read(//tmp/**)",
+      "Bash(break)",
+      "Bash(taskkill //F //IM node.exe)"
     ]
   }
 }

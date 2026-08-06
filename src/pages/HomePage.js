@@ -7,6 +7,16 @@ function HomePage() {
     <div className="b2-page">
       <h1 className="b2-title">Ready Study Go!</h1>
 
+      <h2 className="b2-section-title b2-section-title--star">⭐ Мій тренажер речень</h2>
+      <div className="b2-sections">
+        <Link to="/trainer" className="b2-card b2-card--featured">
+          <span className="b2-card__badge">NEW</span>
+          <span className="b2-card__icon">🧠</span>
+          <span className="b2-card__label">Тренажер речень (кабінет)</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
+      </div>
+
       <h2 className="b2-section-title">Тренування граматики</h2>
       <div className="b2-sections">
         <Link to="/grammar" className="b2-card b2-card--ready">

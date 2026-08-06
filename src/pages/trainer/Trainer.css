@@ -1,0 +1,360 @@
+.trainer-page {
+  padding: 24px 20px 60px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.trainer-title {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.trainer-loading {
+  text-align: center;
+  color: #888;
+  padding: 40px 0;
+}
+
+/* Верхня панель з юзером */
+.trainer-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.trainer-user {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.trainer-logout {
+  border: none;
+  background: #f0f0f0;
+  color: #444;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.trainer-logout:hover {
+  background: #e0e0e0;
+}
+
+/* Вкладки */
+.trainer-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.trainer-tab {
+  flex: 1;
+  border: 1px solid #cfd8e9;
+  background: #fff;
+  color: #1f3b6f;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.trainer-tab.is-active {
+  background: #dbe9ff;
+  border-color: #1976d2;
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+/* Кнопки та інпути (спільні) */
+.trainer-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #e0e0e0;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.trainer-btn:hover:not(:disabled) {
+  filter: brightness(0.96);
+}
+
+.trainer-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.trainer-btn--primary {
+  background: #1976d2;
+  color: #fff;
+}
+
+.trainer-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #cfd8e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.trainer-input:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+/* Форма входу */
+.trainer-login {
+  max-width: 360px;
+  margin: 0 auto 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.trainer-login__hint {
+  text-align: center;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.trainer-error {
+  color: #c62828;
+  font-size: 0.9rem;
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+/* ==== Навчання ==== */
+.study-view {
+  text-align: center;
+}
+
+.study-counter {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.study-card {
+  perspective: 900px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.study-card__inner {
+  position: relative;
+  width: 100%;
+  display: grid;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.study-card--flipped .study-card__inner {
+  transform: rotateY(180deg);
+}
+
+.study-card__front,
+.study-card__back {
+  grid-area: 1 / 1;
+  width: 100%;
+  min-height: 220px;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.study-card__front {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border-left: 5px solid #1976d2;
+}
+
+.study-card__back {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border-left: 5px solid #4caf50;
+  transform: rotateY(180deg);
+}
+
+.study-card__hint {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.study-card__text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #1a237e;
+  line-height: 1.5;
+}
+
+.study-card__tap {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.study-card__de {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1b5e20;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.study-speak {
+  border: none;
+  background: #ffffff;
+  color: #1b5e20;
+  border: 1px solid #4caf50;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.study-speak:hover {
+  background: #f1f8e9;
+}
+
+.study-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.study-btn--ok {
+  background: #4caf50;
+  color: #fff;
+  flex: 1;
+  max-width: 200px;
+}
+
+.study-btn--fail {
+  background: #ef5350;
+  color: #fff;
+  flex: 1;
+  max-width: 200px;
+}
+
+.study-flip-hint {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.study-empty {
+  text-align: center;
+  color: #555;
+  line-height: 1.6;
+  padding: 20px 0;
+}
+
+.study-done {
+  font-size: 1.2rem;
+  color: #2e7d32;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.study-empty .trainer-btn {
+  margin-top: 16px;
+}
+
+/* ==== Мої картки ==== */
+.mycards-form {
+  background: #f5f7ff;
+  border: 1px solid #dbe2f5;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.mycards-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #2f4d91;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.mycards-form .trainer-btn {
+  width: 100%;
+}
+
+.mycards-count {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.mycards-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mycards-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background: #fff;
+}
+
+.mycards-item__texts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  min-width: 0;
+}
+
+.mycards-item__de {
+  font-weight: 500;
+  color: #1b5e20;
+}
+
+.mycards-item__ua {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.mycards-item__actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.mycards-icon {
+  border: none;
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.mycards-icon:hover {
+  background: #e0e0e0;
+}
+
+.mycards-icon--del:hover {
+  background: #ffcdd2;
+}
