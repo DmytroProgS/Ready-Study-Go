@@ -2,36 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../trainer/firebase';
-import { subscribeCards, subscribeStreak } from '../../trainer/cardsApi';
+import { subscribeCards } from '../../trainer/cardsApi';
 import LoginForm from './LoginForm';
-import StudyView from './StudyView';
+import VoiceStudyView from './VoiceStudyView';
 import MyCardsView from './MyCardsView';
 import './Trainer.css';
 
-function TrainerPage() {
-  const [user, setUser] = useState(undefined); // undefined = ще перевіряємо, null = не залогінений
+// Голосовий тренажер: та сама автентифікація й ті самі картки, що й у текстовому,
+// але вкладка навчання — вимова через мікрофон.
+function VoiceTrainerPage() {
+  const [user, setUser] = useState(undefined);
   const [cards, setCards] = useState([]);
-  const [streak, setStreak] = useState({ streak: 0, lastDay: null });
-  const [tab, setTab] = useState('study');
+  const [tab, setTab] = useState('voice');
 
-  // Стежимо за станом автентифікації.
   useEffect(() => {
     return onAuthStateChanged(auth, (u) => setUser(u));
   }, []);
 
-  // Поки є юзер — підписуємось на його картки та серію в реальному часі.
   useEffect(() => {
     if (!user) {
       setCards([]);
-      setStreak({ streak: 0, lastDay: null });
       return;
     }
-    const unsubCards = subscribeCards(user.uid, setCards);
-    const unsubStreak = subscribeStreak(user.uid, setStreak);
-    return () => {
-      unsubCards();
-      unsubStreak();
-    };
+    return subscribeCards(user.uid, setCards);
   }, [user]);
 
   if (user === undefined) {
@@ -41,7 +34,7 @@ function TrainerPage() {
   if (!user) {
     return (
       <div className="trainer-page">
-        <h1 className="trainer-title">Тренажер речень</h1>
+        <h1 className="trainer-title">Голосовий тренажер 🎤</h1>
         <LoginForm />
         <Link to="/" className="back-link">&larr; На головну</Link>
       </div>
@@ -57,10 +50,10 @@ function TrainerPage() {
 
       <nav className="trainer-tabs">
         <button
-          className={`trainer-tab ${tab === 'study' ? 'is-active' : ''}`}
-          onClick={() => setTab('study')}
+          className={`trainer-tab ${tab === 'voice' ? 'is-active' : ''}`}
+          onClick={() => setTab('voice')}
         >
-          🎯 Навчання
+          🎤 Вимова
         </button>
         <button
           className={`trainer-tab ${tab === 'cards' ? 'is-active' : ''}`}
@@ -70,8 +63,8 @@ function TrainerPage() {
         </button>
       </nav>
 
-      {tab === 'study' ? (
-        <StudyView uid={user.uid} cards={cards} streak={streak} />
+      {tab === 'voice' ? (
+        <VoiceStudyView cards={cards} />
       ) : (
         <MyCardsView uid={user.uid} cards={cards} />
       )}
@@ -81,4 +74,4 @@ function TrainerPage() {
   );
 }
 
-export default TrainerPage;
+export default VoiceTrainerPage;

@@ -17,6 +17,15 @@ function HomePage() {
         </Link>
       </div>
 
+      <div className="b2-sections">
+        <Link to="/trainer-voice" className="b2-card b2-card--featured">
+          <span className="b2-card__badge">NEW</span>
+          <span className="b2-card__icon">🎤</span>
+          <span className="b2-card__label">Тренажер речень голосовий (кабінет)</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
+      </div>
+
       <h2 className="b2-section-title">Тренування граматики</h2>
       <div className="b2-sections">
         <Link to="/grammar" className="b2-card b2-card--ready">

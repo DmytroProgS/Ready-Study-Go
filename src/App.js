@@ -36,6 +36,7 @@ import LesenTeil4Page from './pages/b2/lesen/LesenTeil4Page';
 import BeschwerdePage from './pages/b2/schreiben/BeschwerdePage';
 import PhrasesPage from './pages/PhrasesPage';
 import TrainerPage from './pages/trainer/TrainerPage';
+import VoiceTrainerPage from './pages/trainer/VoiceTrainerPage';
 import WordTrainerPage from './pages/WordTrainerPage';
 import AkkusativDativExercisePage from './pages/AkkusativDativExercisePage';
 import WechselpraepositionenExercisePage from './pages/WechselpraepositionenExercisePage';
@@ -71,6 +72,7 @@ function App() {
           <Route path="/homework/set/2/exercises" element={<HomeworkSet2ExercisesPage />} />
           <Route path="/phrases" element={<PhrasesPage />} />
           <Route path="/trainer" element={<TrainerPage />} />
+          <Route path="/trainer-voice" element={<VoiceTrainerPage />} />
           <Route path="/b2" element={<B2Page />} />
           <Route path="/b2/horen" element={<HorenPage />} />
           <Route path="/b2/horen/teil1" element={<HorenTeil1Page />} />

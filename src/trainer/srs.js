@@ -13,8 +13,9 @@
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 // Пауза (у днях) після успішного пригадування для кожного рівня.
-// Перше «Згадав» → 3 дні, далі росте, щоб добре завчене рідше з'являлось.
-export const STEPS_DAYS = [3, 7, 16, 30, 60, 120];
+// М'який старт: нове слово закріплюється (сьогодні → завтра), і лише потім
+// інтервали розганяються. 0 = «ще сьогодні», далі — дні.
+export const STEPS_DAYS = [0, 1, 3, 7, 16, 30, 60, 120];
 
 // Значення прогресу для нової картки (щойно доданої).
 export function initialProgress(now = Date.now()) {
@@ -49,4 +50,20 @@ export function buildQueue(cards, now = Date.now()) {
 // Скільки карток чекають наступного показу (для підказки «завтра буде N»).
 export function countUpcoming(cards, now = Date.now()) {
   return cards.filter((c) => !isDue(c, now)).length;
+}
+
+// Від якого рівня вважаємо картку «добре завченою» (інтервал ≥ 16 днів).
+export const LEARNED_BOX = 5;
+
+// Зведена статистика по колоді для панелі показників.
+export function computeStats(cards, now = Date.now()) {
+  let due = 0;
+  let paused = 0;
+  let learned = 0;
+  for (const c of cards) {
+    if (isDue(c, now)) due += 1;
+    else paused += 1;
+    if ((c.box ?? 0) >= LEARNED_BOX) learned += 1;
+  }
+  return { total: cards.length, due, paused, learned };
 }

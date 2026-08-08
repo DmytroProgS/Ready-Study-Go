@@ -19,7 +19,18 @@
       "Bash(echo \"started pid $!\")",
       "Read(//tmp/**)",
       "Bash(break)",
-      "Bash(taskkill //F //IM node.exe)"
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(echo \"started $!\")",
+      "Bash(BROWSER=none CI=false PORT=3007 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3007 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3007 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3008 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3008 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3008 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3009 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3009 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3009 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3010 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3010 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3010 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3011 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3011 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3011 not listening\" })"
     ]
   }
 }

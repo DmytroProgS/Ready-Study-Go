@@ -137,10 +137,103 @@
   text-align: center;
 }
 
+/* Вибір набору (у тренажерах) */
+.study-setpick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.study-setpick select {
+  padding: 6px 10px;
+  border: 1px solid #cfd8e9;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.9rem;
+  max-width: 220px;
+}
+
+/* Панель статистики */
+.study-stats {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.study-stats span {
+  background: #f5f7ff;
+  border: 1px solid #dbe2f5;
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+/* Перемикач напряму */
+.study-dir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  color: #999;
+}
+
+.study-dir .is-active {
+  color: #1976d2;
+  font-weight: 700;
+}
+
+.study-dir__switch {
+  border: 1px solid #cfd8e9;
+  background: #fff;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.study-dir__switch:hover {
+  background: #eef3ff;
+}
+
+.study-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
 .study-counter {
   color: #888;
   font-size: 0.9rem;
-  margin-bottom: 16px;
+}
+
+.study-all-btn {
+  border: 1px solid #cfd8e9;
+  background: #fff;
+  color: #1f3b6f;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.study-all-btn:hover {
+  background: #eef3ff;
+}
+
+.study-keys {
+  font-size: 0.75rem;
+  color: #bbb;
 }
 
 .study-card {
@@ -294,10 +387,39 @@
   width: 100%;
 }
 
+.mycards-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.mycards-filter select {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #cfd8e9;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.9rem;
+}
+
 .mycards-count {
   font-size: 0.9rem;
   color: #888;
   margin-bottom: 10px;
+}
+
+.mycards-item__set {
+  align-self: flex-start;
+  background: #ede7f6;
+  color: #5e35b1;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-bottom: 4px;
 }
 
 .mycards-list {
@@ -357,4 +479,166 @@
 
 .mycards-icon--del:hover {
   background: #ffcdd2;
+}
+
+/* ==== Голосовий тренажер ==== */
+.voice-view {
+  text-align: center;
+}
+
+.voice-card {
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+  border-left: 5px solid #7b2ff7;
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(123, 47, 247, 0.15);
+}
+
+.voice-card__label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.voice-card__de {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #4527a0;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.voice-card__ua {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 16px;
+}
+
+.voice-card__ua--big {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #4527a0;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Блок правильної відповіді (після спроби) */
+.voice-answer {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(123, 47, 247, 0.3);
+}
+
+.voice-answer__label {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.voice-words--spoken {
+  font-size: 1.05rem;
+}
+
+.voice-mic--retry {
+  margin-top: 14px;
+  background: #f9a825;
+  box-shadow: 0 4px 14px rgba(249, 168, 37, 0.35);
+  font-size: 1rem;
+  padding: 12px 22px;
+}
+
+.voice-mic {
+  border: none;
+  border-radius: 999px;
+  background: #7b2ff7;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(123, 47, 247, 0.35);
+  transition: transform 0.1s;
+}
+
+.voice-mic:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.voice-mic.is-listening {
+  background: #e53935;
+  animation: micPulse 1s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(229, 57, 53, 0); }
+}
+
+.voice-result {
+  margin-top: 20px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.voice-score {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.voice-score.is-good { color: #2e7d32; }
+.voice-score.is-mid { color: #f9a825; }
+.voice-score.is-low { color: #e53935; }
+
+.voice-score__sub {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #999;
+}
+
+.voice-result__title {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.voice-words {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.voice-w--ok { color: #2e7d32; font-weight: 600; }
+.voice-w--bad { color: #c62828; text-decoration: line-through; opacity: 0.7; }
+
+.voice-result__heard {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
+
+.voice-nav {
+  margin-top: 20px;
+}
+
+/* Інлайн-редагування картки */
+.mycards-edit {
+  width: 100%;
+}
+
+.mycards-edit .trainer-input {
+  margin-bottom: 8px;
+}
+
+.mycards-edit__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.mycards-edit__actions .trainer-btn {
+  padding: 8px 14px;
+  font-size: 0.9rem;
 }
