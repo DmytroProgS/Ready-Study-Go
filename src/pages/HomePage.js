@@ -35,6 +35,15 @@ function HomePage() {
         </Link>
       </div>
 
+      <h2 className="b2-section-title">Самостійні заняття</h2>
+      <div className="b2-sections">
+        <Link to="/self-study" className="b2-card b2-card--ready">
+          <span className="b2-card__icon">📚</span>
+          <span className="b2-card__label">Самостійні заняття</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
+      </div>
+
       <h2 className="b2-section-title">Домашні завдання від Ольги/Марго</h2>
       <div className="b2-sections">
         <Link to="/homework" className="b2-card b2-card--ready">

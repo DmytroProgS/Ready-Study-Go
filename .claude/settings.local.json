@@ -30,7 +30,19 @@
       "Bash(BROWSER=none CI=false PORT=3010 npm.cmd start)",
       "PowerShell($c = Get-NetTCPConnection -LocalPort 3010 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3010 not listening\" })",
       "Bash(BROWSER=none CI=false PORT=3011 npm.cmd start)",
-      "PowerShell($c = Get-NetTCPConnection -LocalPort 3011 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3011 not listening\" })"
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3011 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3011 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3013 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3013 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3013 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3014 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3014 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3014 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3015 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3015 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3015 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3016 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3016 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3016 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3017 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3017 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3017 not listening\" })",
+      "Bash(BROWSER=none CI=false PORT=3018 npm.cmd start)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3018 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3018 not listening\" })"
     ]
   }
 }

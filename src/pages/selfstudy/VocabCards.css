@@ -1,0 +1,85 @@
+.vocab-cards .praep-card__back.vocab-back {
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: left;
+  padding: 20px;
+  gap: 4px;
+}
+
+.vocab-word-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.vocab-word {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1b5e20;
+  margin: 0;
+}
+
+.vocab-speak {
+  border: 1px solid #4caf50;
+  background: #fff;
+  color: #1b5e20;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.vocab-speak:hover {
+  background: #f1f8e9;
+}
+
+.vocab-examples {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vocab-ex {
+  padding: 10px 0;
+}
+
+.vocab-ex + .vocab-ex {
+  border-top: 1px dashed rgba(76, 175, 80, 0.35);
+}
+
+.vocab-ex__de {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1b5e20;
+  line-height: 1.45;
+  margin-bottom: 3px;
+}
+
+.vocab-ex__ua {
+  display: block;
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.vocab-ex__speak {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0 0 0 6px;
+  vertical-align: middle;
+}
+
+.vocab-ex__speak:hover {
+  opacity: 0.7;
+}
+
+.vocab-empty {
+  text-align: center;
+  color: #888;
+  padding: 20px 0;
+}
