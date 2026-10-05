@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm uninstall sharp --silent 2>&1 | Select-Object -Last 1; Write-Output \"DONE: $LASTEXITCODE\")"
+    ]
+  }
+}

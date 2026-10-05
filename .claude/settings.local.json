@@ -49,7 +49,8 @@
       "Bash(python -c \"from PIL import Image; print\\('Pillow: YES'\\)\")",
       "PowerShell(npm install sharp --silent 2>&1 | Select-Object -Last 3; Write-Output \"EXIT: $LASTEXITCODE\")",
       "PowerShell(npm uninstall sharp --silent 2>&1 | Select-Object -Last 2; Write-Output \"EXIT: $LASTEXITCODE\")",
-      "PowerShell($c = Get-NetTCPConnection -LocalPort 3019 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3019 not listening\" })"
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3019 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3019 not listening\" })",
+      "PowerShell(npm install sharp --silent 2>&1 | Select-Object -Last 1; Write-Output \"INSTALLED: $LASTEXITCODE\")"
     ]
   }
 }
