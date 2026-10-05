@@ -42,7 +42,14 @@
       "Bash(BROWSER=none CI=false PORT=3017 npm.cmd start)",
       "PowerShell($c = Get-NetTCPConnection -LocalPort 3017 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3017 not listening\" })",
       "Bash(BROWSER=none CI=false PORT=3018 npm.cmd start)",
-      "PowerShell($c = Get-NetTCPConnection -LocalPort 3018 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3018 not listening\" })"
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3018 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3018 not listening\" })",
+      "Bash(command -v magick convert inkscape rsvg-convert python python3 node)",
+      "Bash(node -e \"try{require\\('sharp'\\);console.log\\('sharp: YES'\\)}catch\\(e\\){console.log\\('sharp: no'\\)}\")",
+      "Bash(python -c \"import cairosvg; print\\('cairosvg: YES'\\)\")",
+      "Bash(python -c \"from PIL import Image; print\\('Pillow: YES'\\)\")",
+      "PowerShell(npm install sharp --silent 2>&1 | Select-Object -Last 3; Write-Output \"EXIT: $LASTEXITCODE\")",
+      "PowerShell(npm uninstall sharp --silent 2>&1 | Select-Object -Last 2; Write-Output \"EXIT: $LASTEXITCODE\")",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3019 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3019 not listening\" })"
     ]
   }
 }
