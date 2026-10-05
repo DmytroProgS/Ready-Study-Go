@@ -1,25 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <!-- німецький прапор як фон -->
   <defs>
     <clipPath id="r"><rect width="512" height="512" rx="112"/></clipPath>
   </defs>
+  <!-- німецький прапор як фон -->
   <g clip-path="url(#r)">
-    <rect x="0" y="0"      width="512" height="170.7" fill="#111111"/>
-    <rect x="0" y="170.7"  width="512" height="170.7" fill="#dd0000"/>
-    <rect x="0" y="341.3"  width="512" height="170.7" fill="#ffce00"/>
+    <rect x="0" y="0"     width="512" height="170.7" fill="#111111"/>
+    <rect x="0" y="170.7" width="512" height="170.7" fill="#dd0000"/>
+    <rect x="0" y="341.3" width="512" height="170.7" fill="#ffce00"/>
   </g>
 
-  <!-- свинка -->
-  <!-- вушка -->
-  <path d="M168 180 L232 160 L212 244 Z" fill="#e58aa8"/>
-  <path d="M344 180 L280 160 L300 244 Z" fill="#e58aa8"/>
+  <!-- вушка (більші) -->
+  <path d="M132 142 L250 188 L196 252 Z" fill="#e58aa8"/>
+  <path d="M380 142 L262 188 L316 252 Z" fill="#e58aa8"/>
+  <path d="M166 172 L228 196 L200 236 Z" fill="#cf6f92"/>
+  <path d="M346 172 L284 196 L312 236 Z" fill="#cf6f92"/>
+
   <!-- голова -->
-  <circle cx="256" cy="276" r="132" fill="#f7a9c4"/>
-  <!-- очі -->
-  <circle cx="210" cy="252" r="13" fill="#3a2630"/>
-  <circle cx="302" cy="252" r="13" fill="#3a2630"/>
+  <circle cx="256" cy="278" r="132" fill="#f7a9c4"/>
+
   <!-- п'ятачок -->
-  <ellipse cx="256" cy="312" rx="60" ry="42" fill="#e98fb0"/>
-  <ellipse cx="234" cy="312" rx="10" ry="15" fill="#7c4a59"/>
-  <ellipse cx="278" cy="312" rx="10" ry="15" fill="#7c4a59"/>
+  <ellipse cx="256" cy="320" rx="60" ry="42" fill="#e98fb0"/>
+  <ellipse cx="234" cy="320" rx="10" ry="15" fill="#7c4a59"/>
+  <ellipse cx="278" cy="320" rx="10" ry="15" fill="#7c4a59"/>
+
+  <!-- окуляри «розумника» -->
+  <g stroke="#2a2140" stroke-width="11" fill="#ffffff" fill-opacity="0.35">
+    <circle cx="206" cy="250" r="38"/>
+    <circle cx="306" cy="250" r="38"/>
+  </g>
+  <path d="M244 250 h28 M168 245 l-22 -8 M344 245 l22 -8"
+        stroke="#2a2140" stroke-width="11" fill="none" stroke-linecap="round"/>
+
+  <!-- очі -->
+  <circle cx="206" cy="250" r="13" fill="#3a2630"/>
+  <circle cx="306" cy="250" r="13" fill="#3a2630"/>
 </svg>
