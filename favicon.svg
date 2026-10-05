@@ -1,18 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- фон -->
-  <rect width="64" height="64" rx="14" fill="#1976d2"/>
-  <!-- волосся -->
-  <circle cx="32" cy="30" r="18" fill="#4e342e"/>
-  <!-- обличчя -->
-  <circle cx="32" cy="36" r="17" fill="#ffd9a8"/>
-  <!-- окуляри: лінзи -->
-  <g stroke="#1a237e" stroke-width="2.6" fill="#ffffff" fill-opacity="0.55">
-    <circle cx="24.5" cy="37" r="6.2"/>
-    <circle cx="39.5" cy="37" r="6.2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- німецький прапор як фон -->
+  <defs>
+    <clipPath id="r"><rect width="512" height="512" rx="112"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect x="0" y="0"      width="512" height="170.7" fill="#111111"/>
+    <rect x="0" y="170.7"  width="512" height="170.7" fill="#dd0000"/>
+    <rect x="0" y="341.3"  width="512" height="170.7" fill="#ffce00"/>
   </g>
-  <!-- окуляри: перемичка та дужки -->
-  <path d="M30.7 37 h2.6 M18.3 36 l-3.5 -1.5 M45.7 36 l3.5 -1.5"
-        stroke="#1a237e" stroke-width="2.6" fill="none" stroke-linecap="round"/>
-  <!-- усмішка -->
-  <path d="M26 46 Q32 50 38 46" stroke="#8d5524" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+  <!-- свинка -->
+  <!-- вушка -->
+  <path d="M168 180 L232 160 L212 244 Z" fill="#e58aa8"/>
+  <path d="M344 180 L280 160 L300 244 Z" fill="#e58aa8"/>
+  <!-- голова -->
+  <circle cx="256" cy="276" r="132" fill="#f7a9c4"/>
+  <!-- очі -->
+  <circle cx="210" cy="252" r="13" fill="#3a2630"/>
+  <circle cx="302" cy="252" r="13" fill="#3a2630"/>
+  <!-- п'ятачок -->
+  <ellipse cx="256" cy="312" rx="60" ry="42" fill="#e98fb0"/>
+  <ellipse cx="234" cy="312" rx="10" ry="15" fill="#7c4a59"/>
+  <ellipse cx="278" cy="312" rx="10" ry="15" fill="#7c4a59"/>
 </svg>
