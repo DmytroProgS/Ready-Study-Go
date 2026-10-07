@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(npm uninstall sharp --silent 2>&1 | Select-Object -Last 1; Write-Output \"DONE: $LASTEXITCODE\")"
+      "PowerShell(npm uninstall sharp --silent 2>&1 | Select-Object -Last 1; Write-Output \"DONE: $LASTEXITCODE\")",
+      "Bash(BROWSER=none CI=false PORT=3020 npm.cmd start)",
+      "Bash(echo \"started $!\")",
+      "Read(//tmp/**)",
+      "Bash(break)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3020 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue; Write-Output \"stopped PID $\\($c.OwningProcess\\)\" } else { Write-Output \"port 3020 not listening\" })"
     ]
   }
 }
