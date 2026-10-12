@@ -22,6 +22,20 @@ function SelfStudyPage() {
         <span className="treasure-link__rainbow">🌈</span>
       </a>
 
+      <a
+        className="treasure-link"
+        href="https://meet.google.com/ivd-ztvg-uyy"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span className="treasure-link__icon">📞</span>
+        <span className="treasure-link__text">
+          <span className="treasure-link__title">Актуальне посилання на Зідзвони</span>
+          <span className="treasure-link__sub">зустріч у Google Meet</span>
+        </span>
+        <span className="treasure-link__rainbow">🌈</span>
+      </a>
+
       <div className="b2-sections">
         <Link to="/self-study/05-10" className="b2-card b2-card--ready">
           <span className="b2-card__icon">📅</span>
