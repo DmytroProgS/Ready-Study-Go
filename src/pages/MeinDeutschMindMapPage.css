@@ -13,3 +13,9 @@
 .mind-level-picker label{display:block;font-weight:700;margin-bottom:8px}
 .mind-level-picker select{width:100%;max-width:350px;padding:10px;border:1px solid #cbd4ee;border-radius:9px;background:white;color:#172b53;font:inherit}
 .mind-level-picker .mind-muted{margin:9px 0 0}
+
+.mind-task-label{display:inline-block;margin:4px 0 12px;padding:6px 12px;border-radius:20px;background:#e8e5ff;color:#4535a9;font-size:14px;font-weight:800}
+.mind-prompt-card{background:#eef5ff;border:1px solid #b9cef7;border-left:5px solid #4d68c6;border-radius:14px;padding:20px 22px;margin-bottom:16px}
+.mind-prompt-card .mind-prompt{margin:0;color:#122e66;font-size:clamp(22px,3vw,29px);font-weight:800;line-height:1.5}
+.mind-extra-examples{border-top:1px solid #dce5f4;padding-top:14px;margin-top:18px;color:#23385f}
+.mind-extra-examples ul{margin:10px 0 0;padding-left:22px;line-height:1.75}
