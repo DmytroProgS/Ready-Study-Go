@@ -26,6 +26,14 @@ function HomePage() {
         </Link>
       </div>
 
+      <div className="b2-sections">
+        <Link to="/mein-deutsch-mind-map" className="b2-card b2-card--ready" style={{ background: 'linear-gradient(110deg, #dce9ff, #e9dcff)', borderLeftColor: '#6552cf' }}>
+          <span className="b2-card__icon">🧠</span>
+          <span className="b2-card__label">Mein Deutsch Mind Map</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
+      </div>
+
       <h2 className="b2-section-title">Тренування граматики</h2>
       <div className="b2-sections">
         <Link to="/grammar" className="b2-card b2-card--ready">
