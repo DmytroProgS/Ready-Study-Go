@@ -18,6 +18,15 @@ import HomeworkSet6Page from './pages/homework/HomeworkSet6Page';
 import HomeworkSet7Page from './pages/homework/HomeworkSet7Page';
 import HomeworkSet8Page from './pages/homework/HomeworkSet8Page';
 import B2Page from './pages/B2Page';
+import C1Page from './pages/C1Page';
+import C1InfoPage from './pages/c1/C1InfoPage';
+import C1ModulePage from './pages/c1/C1ModulePage';
+import C1ExercisePage from './pages/c1/C1ExercisePage';
+import C1SchreibenPage from './pages/c1/C1SchreibenPage';
+import C1SprechenPage from './pages/c1/C1SprechenPage';
+import StellungnahmePage from './pages/c1/StellungnahmePage';
+import SprechenDtbPage from './pages/c1/SprechenDtbPage';
+import { SprechenDtbTeil1, SprechenDtbTeil2, SprechenDtbTeil3 } from './pages/c1/SprechenDtbTeile';
 import HorenPage from './pages/b2/HorenPage';
 import LesenPage from './pages/b2/LesenPage';
 import SchreibenPage from './pages/b2/SchreibenPage';
@@ -94,6 +103,17 @@ function App() {
           <Route path="/b2/schreiben" element={<SchreibenPage />} />
           <Route path="/b2/schreiben/beschwerde" element={<BeschwerdePage />} />
           <Route path="/b2/sprechen" element={<SprechenPage />} />
+          <Route path="/c1" element={<C1Page />} />
+          <Route path="/c1/info" element={<C1InfoPage />} />
+          <Route path="/c1/schreiben" element={<C1SchreibenPage />} />
+          <Route path="/c1/sprechen" element={<C1SprechenPage />} />
+          <Route path="/c1/stellungnahme" element={<StellungnahmePage />} />
+          <Route path="/c1/sprechen-dtb" element={<SprechenDtbPage />} />
+          <Route path="/c1/sprechen-dtb/teil1" element={<SprechenDtbTeil1 />} />
+          <Route path="/c1/sprechen-dtb/teil2" element={<SprechenDtbTeil2 />} />
+          <Route path="/c1/sprechen-dtb/teil3" element={<SprechenDtbTeil3 />} />
+          <Route path="/c1/:module" element={<C1ModulePage />} />
+          <Route path="/c1/:module/:part" element={<C1ExercisePage />} />
           <Route path="/exercise/:id" element={<ExercisePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

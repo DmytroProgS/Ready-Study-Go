@@ -69,6 +69,11 @@ function HomePage() {
           <span className="b2-card__label">Підготовка до B2</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
+        <Link to="/c1" className="b2-card b2-card--ready">
+          <span className="b2-card__icon">🏆</span>
+          <span className="b2-card__label">Підготовка до C1</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
       </div>
     </div>
   );
