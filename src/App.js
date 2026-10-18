@@ -53,6 +53,7 @@ import AkkusativDativExercisePage from './pages/AkkusativDativExercisePage';
 import WechselpraepositionenExercisePage from './pages/WechselpraepositionenExercisePage';
 import VerbPraepExercisePage from './pages/VerbPraepExercisePage';
 import GenitivExercisePage from './pages/GenitivExercisePage';
+import MeinDeutschMindMapPage from './pages/MeinDeutschMindMapPage';
 import './App.css';
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/grammar" element={<GrammarPage />} />
+          <Route path="/mein-deutsch-mind-map" element={<MeinDeutschMindMapPage />} />
           <Route path="/grammar/praep/:mode" element={<PraepositionenPage />} />
           <Route path="/word-trainer" element={<WordTrainerPage />} />
           <Route path="/word-trainer/akkusativ-dativ" element={<AkkusativDativExercisePage />} />
