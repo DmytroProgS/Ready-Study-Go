@@ -8,3 +8,8 @@
 .mind-random-cta p{line-height:1.5}
 .mind-random-cta .mind-actions button{border:1px solid #5145bc;border-radius:12px;background:#5145bc;color:#fff;padding:12px 16px;font-weight:700;cursor:pointer}
 .mind-random-cta .mind-actions button.secondary{background:white;color:#5145bc}
+
+.mind-level-picker{margin:12px 0;padding:12px 14px;border:1px solid #ddd7ff;background:#fff;border-radius:12px}
+.mind-level-picker label{display:block;font-weight:700;margin-bottom:8px}
+.mind-level-picker select{width:100%;max-width:350px;padding:10px;border:1px solid #cbd4ee;border-radius:9px;background:white;color:#172b53;font:inherit}
+.mind-level-picker .mind-muted{margin:9px 0 0}
