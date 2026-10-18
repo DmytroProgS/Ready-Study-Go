@@ -33,7 +33,6 @@ export default function MeinDeutschMindMapPage() {
   const [round, setRound] = useState(0);
   const [scope, setScope] = useState('selected');
   const [deck, setDeck] = useState(() => makeDeck('selected', situations[0].id));
-  const [lastCard, setLastCard] = useState(null);
   const [showGrammarHint, setShowGrammarHint] = useState(false);
   const situation = situations.find(item => item.id === situationId) || situations[0];
   const variant = situation.variants.find(item => item.id === variantId) || situation.variants[0];
@@ -48,7 +47,6 @@ export default function MeinDeutschMindMapPage() {
     setScope(newScope);
     setDeck(makeDeck(newScope, id));
     setRound(0);
-    setLastCard(null);
     setInput('');
     setChecked(false);
     setShowAnswer(false);
@@ -61,7 +59,6 @@ export default function MeinDeutschMindMapPage() {
   };
   const next = () => {
     const used = deck[0];
-    setLastCard(used);
     setDeck(previous => {
       if (previous.length > 1) return previous.slice(1);
       const fresh = makeDeck(scope, situationId);
