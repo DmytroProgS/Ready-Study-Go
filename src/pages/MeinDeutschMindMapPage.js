@@ -5,7 +5,7 @@ import './MeinDeutschMindMapPage.css';
 
 const STORAGE = 'ready-study-go-mind-map-v1';
 const normalize = value => value.toLocaleLowerCase('de-DE').replace(/[.!?…,]/g, '').replace(/\s+/g, ' ').trim();
-const groups = ['Час', 'Спілкування', 'Зв’язки', 'Умови'];
+const groups = ['Час', 'Спілкування', 'Зв’язки', 'Умови', 'Стан'];
 const shuffle = items => {
   const result = [...items];
   for (let i = result.length - 1; i > 0; i--) {
