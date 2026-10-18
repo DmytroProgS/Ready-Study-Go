@@ -4,7 +4,7 @@ import { situations } from '../data/mindMapSituations';
 import './MeinDeutschMindMapPage.css';
 
 const STORAGE = 'ready-study-go-mind-map-v1';
-const normalize = value => value.toLocaleLowerCase('de-DE').replace(/[.!?…,]/g, '').replace(/\\s+/g, ' ').trim();
+const normalize = value => value.toLocaleLowerCase('de-DE').replace(/[.!?…,]/g, '').replace(/\s+/g, ' ').trim();
 const groups = ['Час', 'Спілкування', 'Зв’язки', 'Умови'];
 
 export default function MeinDeutschMindMapPage() {
