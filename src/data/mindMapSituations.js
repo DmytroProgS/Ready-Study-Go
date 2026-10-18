@@ -1,568 +1,1235 @@
+// Situation-centred grammar: each variant transforms the same central idea.
 export const situations = [
   {
-    id: 'invitation', title: 'Запрошення до кіно', context: 'Друг запрошує тебе в кіно, але ти маєш працювати.',
-    core: 'Ich kann heute nicht mitkommen.', translation: 'Сьогодні я не можу піти з тобою.',
-    variants: [
-      {id:'present',label:'Теперішнє',group:'Час',de:'Ich kann heute nicht mitkommen.',uk:'Сьогодні я не можу піти з тобою.',tip:'Präsens: модальне дієслово kann стоїть на другому місці, mitkommen — у кінці.'},
-      {id:'past',label:'Минуле',group:'Час',de:'Ich konnte gestern nicht mitkommen.',uk:'Учора я не зміг піти з тобою.',tip:'Präteritum модального дієслова können → konnte. Дуже природно в усному мовленні.'},
-      {id:'perfect',label:'Perfekt',group:'Час',de:'Ich habe gestern nicht mitkommen können.',uk:'Учора я не зміг піти з тобою.',tip:'Perfekt із модальним дієсловом та іншим інфінітивом: подвійний інфінітив mitkommen können.'},
-      {id:'future',label:'Майбутнє',group:'Час',de:'Ich werde morgen nicht mitkommen können.',uk:'Завтра я не зможу піти з тобою.',tip:'Futur I: werde + mitkommen können. У розмові також природно: Morgen kann ich nicht mitkommen.'},
-      {id:'question',label:'Запитання',group:'Спілкування',de:'Kannst du heute mitkommen?',uk:'Ти сьогодні можеш піти з нами?',tip:'У загальному запитанні відмінюване дієслово стоїть на першому місці.'},
-      {id:'reason',label:'Причина',group:'Зв’язки',de:'Ich kann nicht mitkommen, weil ich arbeiten muss.',uk:'Я не можу піти, тому що мушу працювати.',tip:'Після weil відмінюване muss стоїть у кінці підрядної частини.'},
-      {id:'contrast',label:'Попри це',group:'Зв’язки',de:'Obwohl ich arbeiten muss, komme ich mit.',uk:'Хоча я мушу працювати, я піду з вами.',tip:'Після obwohl — дієслово в кінці; у головній частині komme перед підметом ich.'},
-      {id:'hypothetical',label:'Уявна умова',group:'Умови',de:'Wenn ich Zeit hätte, würde ich mitkommen.',uk:'Якби я мав час, я б пішов з вами.',tip:'Konjunktiv II: hätte + würde mitkommen. Це нереальна ситуація зараз.'},
-      {id:'regret',label:'Жаль про минуле',group:'Умови',de:'Wenn ich gestern Zeit gehabt hätte, wäre ich mitgekommen.',uk:'Якби я вчора мав час, я б пішов із вами.',tip:'Konjunktiv II Vergangenheit: gehabt hätte та wäre mitgekommen.'},
-      {id:'polite',label:'Ввічлива відповідь',group:'Спілкування',de:'Ich würde gern mitkommen, aber ich muss arbeiten.',uk:'Я б із задоволенням пішов із вами, але мушу працювати.',tip:'würde gern — ввічливий спосіб висловити бажання.'}
+    "id": "invitation",
+    "title": "Запрошення до кіно",
+    "context": "Друг запрошує тебе в кіно, але ти маєш працювати.",
+    "core": "Ich kann heute nicht mitkommen.",
+    "translation": "Сьогодні я не можу піти з тобою.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Теперішнє",
+        "group": "Час",
+        "de": "Ich kann heute nicht mitkommen.",
+        "uk": "Сьогодні я не можу піти з тобою.",
+        "tip": "Präsens: модальне дієслово kann стоїть на другому місці, mitkommen — у кінці."
+      },
+      {
+        "id": "past",
+        "label": "Минуле",
+        "group": "Час",
+        "de": "Ich konnte gestern nicht mitkommen.",
+        "uk": "Учора я не зміг піти з тобою.",
+        "tip": "Präteritum модального дієслова können → konnte. Дуже природно в усному мовленні."
+      },
+      {
+        "id": "perfect",
+        "label": "Perfekt",
+        "group": "Час",
+        "de": "Ich habe gestern nicht mitkommen können.",
+        "uk": "Учора я не зміг піти з тобою.",
+        "tip": "Perfekt із модальним дієсловом та іншим інфінітивом: подвійний інфінітив mitkommen können."
+      },
+      {
+        "id": "future",
+        "label": "Майбутнє",
+        "group": "Час",
+        "de": "Ich werde morgen nicht mitkommen können.",
+        "uk": "Завтра я не зможу піти з тобою.",
+        "tip": "Futur I: werde + mitkommen können. У розмові також природно: Morgen kann ich nicht mitkommen."
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Kannst du heute mitkommen?",
+        "uk": "Ти сьогодні можеш піти з нами?",
+        "tip": "У загальному запитанні відмінюване дієслово стоїть на першому місці."
+      },
+      {
+        "id": "reason",
+        "label": "Причина",
+        "group": "Зв’язки",
+        "de": "Ich kann nicht mitkommen, weil ich arbeiten muss.",
+        "uk": "Я не можу піти, тому що мушу працювати.",
+        "tip": "Після weil відмінюване muss стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "contrast",
+        "label": "Попри це",
+        "group": "Зв’язки",
+        "de": "Obwohl ich heute viel zu tun habe, kann ich mitkommen.",
+        "uk": "Хоча сьогодні в мене багато справ, я можу піти з вами.",
+        "tip": "Після obwohl — дієслово в кінці; у головній частині komme перед підметом ich."
+      },
+      {
+        "id": "hypothetical",
+        "label": "Уявна умова",
+        "group": "Умови",
+        "de": "Wenn ich Zeit hätte, würde ich mitkommen.",
+        "uk": "Якби я мав час, я б пішов з вами.",
+        "tip": "Konjunktiv II: hätte + würde mitkommen. Це нереальна ситуація зараз."
+      },
+      {
+        "id": "regret",
+        "label": "Жаль про минуле",
+        "group": "Умови",
+        "de": "Wenn ich gestern Zeit gehabt hätte, hätte ich mitkommen können.",
+        "uk": "Якби вчора я мав час, то зміг би піти з вами.",
+        "tip": "Konjunktiv II Vergangenheit: gehabt hätte та wäre mitgekommen."
+      },
+      {
+        "id": "polite",
+        "label": "Ввічлива відповідь",
+        "group": "Спілкування",
+        "de": "Ich würde gern mitkommen, aber ich muss arbeiten.",
+        "uk": "Я б із задоволенням пішов із вами, але мушу працювати.",
+        "tip": "würde gern — ввічливий спосіб висловити бажання."
+      },
+      {
+        "id": "negative",
+        "label": "Заперечення",
+        "group": "Спілкування",
+        "de": "Ich kann heute nicht mitkommen.",
+        "uk": "Сьогодні я не можу піти з тобою.",
+        "tip": "nicht / kein: заперечення дії або іменника."
+      },
+      {
+        "id": "deshalb",
+        "label": "Наслідок: deshalb",
+        "group": "Зв’язки",
+        "de": "Ich muss heute arbeiten. Deshalb kann ich nicht mitkommen.",
+        "uk": "Сьогодні я мушу працювати. Тому я не можу піти з вами.",
+        "tip": "deshalb — прислівник, після нього в головному реченні стоїть відмінюване дієслово."
+      },
+      {
+        "id": "trotzdem",
+        "label": "Попри це: trotzdem",
+        "group": "Зв’язки",
+        "de": "Ich muss heute arbeiten. Trotzdem kann ich mitkommen.",
+        "uk": "Сьогодні я мушу працювати. Попри це я можу піти з вами.",
+        "tip": "trotzdem — прислівник; після нього дієслово займає друге місце."
+      },
+      {
+        "id": "dass",
+        "label": "Думка: dass",
+        "group": "Зв’язки",
+        "de": "Es tut mir leid, dass ich heute nicht mitkommen kann.",
+        "uk": "Мені шкода, що сьогодні я не можу піти з вами.",
+        "tip": "Після dass відмінюване дієслово стоїть наприкінці підрядної частини."
+      },
+      {
+        "id": "indirect",
+        "label": "Непряме питання: ob",
+        "group": "Спілкування",
+        "de": "Ich weiß noch nicht, ob ich heute mitkommen kann.",
+        "uk": "Я ще не знаю, чи зможу сьогодні піти з вами.",
+        "tip": "ob вводить непряме запитання «чи»; дієслово в кінці."
+      },
+      {
+        "id": "relative",
+        "label": "Relativsatz",
+        "group": "Зв’язки",
+        "de": "Der Freund, mit dem ich heute nicht mitkommen kann, ist enttäuscht.",
+        "uk": "Друг, з яким я сьогодні не можу піти, розчарований.",
+        "tip": "Відносний займенник узгоджується з іменником за родом і числом, а відмінок залежить від ролі в підрядному реченні."
+      },
+      {
+        "id": "zu",
+        "label": "Infinitiv mit zu",
+        "group": "Зв’язки",
+        "de": "Ich hoffe, heute doch noch mitkommen zu können.",
+        "uk": "Я сподіваюся, що сьогодні все-таки зможу піти з вами.",
+        "tip": "Інфінітивна конструкція з zu; з модальними дієсловами можливі складні форми."
+      },
+      {
+        "id": "mixed",
+        "label": "Змішана умова",
+        "group": "Умови",
+        "de": "Wenn ich gestern nicht so lange gearbeitet hätte, könnte ich heute mitkommen.",
+        "uk": "Якби я вчора не працював так довго, сьогодні зміг би піти з вами.",
+        "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      }
     ]
   },
   {
-    id:'learning',title:'Вивчення німецької',context:'Ти хочеш більше практикувати німецьку, але не завжди знаходиш час.',
-    core:'Ich lerne jeden Tag Deutsch.',translation:'Я щодня вивчаю німецьку.',
-    variants:[
-      {id:'present',label:'Теперішнє',group:'Час',de:'Ich lerne jeden Tag Deutsch.',uk:'Я щодня вивчаю німецьку.',tip:'Präsens для звичної дії.'},
-      {id:'past',label:'Минуле',group:'Час',de:'Früher lernte ich jeden Tag Deutsch.',uk:'Раніше я щодня вивчав німецьку.',tip:'Präteritum; у розмові частіше: Früher habe ich jeden Tag Deutsch gelernt.'},
-      {id:'perfect',label:'Perfekt',group:'Час',de:'Gestern habe ich Deutsch gelernt.',uk:'Учора я вчив німецьку.',tip:'Perfekt: haben + Partizip II.'},
-      {id:'future',label:'Майбутнє',group:'Час',de:'Morgen werde ich Deutsch lernen.',uk:'Завтра я вчитиму німецьку.',tip:'У живій мові також: Morgen lerne ich Deutsch.'},
-      {id:'question',label:'Запитання',group:'Спілкування',de:'Lernst du jeden Tag Deutsch?',uk:'Ти щодня вивчаєш німецьку?',tip:'Так/ні запитання: Lernst на першому місці.'},
-      {id:'reason',label:'Причина',group:'Зв’язки',de:'Ich lerne Deutsch, weil ich flüssiger sprechen möchte.',uk:'Я вчу німецьку, тому що хочу говорити вільніше.',tip:'Після weil möchte стоїть у кінці.'},
-      {id:'contrast',label:'Попри це',group:'Зв’язки',de:'Obwohl ich wenig Zeit habe, lerne ich jeden Tag Deutsch.',uk:'Хоча в мене мало часу, я щодня вчу німецьку.',tip:'Підрядна частина на першому місці, далі відразу lerne.'},
-      {id:'hypothetical',label:'Уявна умова',group:'Умови',de:'Wenn ich mehr Zeit hätte, würde ich mehr Deutsch lernen.',uk:'Якби я мав більше часу, я б більше вчив німецьку.',tip:'Konjunktiv II для нереальної теперішньої умови.'},
-      {id:'regret',label:'Жаль про минуле',group:'Умови',de:'Wenn ich früher mehr geübt hätte, hätte ich schneller Fortschritte gemacht.',uk:'Якби я раніше більше практикувався, я б швидше досяг прогресу.',tip:'Konjunktiv II Vergangenheit в обох частинах.'},
-      {id:'polite',label:'Бажання',group:'Спілкування',de:'Ich würde gern flüssiger Deutsch sprechen.',uk:'Я хотів би вільніше говорити німецькою.',tip:'würde gern + інфінітив.'}
+    "id": "learning",
+    "title": "Вивчення німецької",
+    "context": "Ти хочеш більше практикувати німецьку, але не завжди знаходиш час.",
+    "core": "Ich lerne jeden Tag Deutsch.",
+    "translation": "Я щодня вивчаю німецьку.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Теперішнє",
+        "group": "Час",
+        "de": "Ich lerne jeden Tag Deutsch.",
+        "uk": "Я щодня вивчаю німецьку.",
+        "tip": "Präsens для звичної дії."
+      },
+      {
+        "id": "past",
+        "label": "Минуле",
+        "group": "Час",
+        "de": "Früher lernte ich jeden Tag Deutsch.",
+        "uk": "Раніше я щодня вивчав німецьку.",
+        "tip": "Präteritum; у розмові частіше: Früher habe ich jeden Tag Deutsch gelernt."
+      },
+      {
+        "id": "perfect",
+        "label": "Perfekt",
+        "group": "Час",
+        "de": "Ich habe gestern Deutsch gelernt.",
+        "uk": "Учора я вчив німецьку.",
+        "tip": "Perfekt: haben + Partizip II."
+      },
+      {
+        "id": "future",
+        "label": "Майбутнє",
+        "group": "Час",
+        "de": "Morgen werde ich wieder Deutsch lernen.",
+        "uk": "Завтра я знову вчитиму німецьку.",
+        "tip": "У живій мові також: Morgen lerne ich Deutsch."
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Lernst du jeden Tag Deutsch?",
+        "uk": "Ти щодня вивчаєш німецьку?",
+        "tip": "Так/ні запитання: Lernst на першому місці."
+      },
+      {
+        "id": "reason",
+        "label": "Причина",
+        "group": "Зв’язки",
+        "de": "Ich lerne jeden Tag Deutsch, weil ich flüssiger sprechen möchte.",
+        "uk": "Я щодня вчу німецьку, тому що хочу говорити вільніше.",
+        "tip": "Після weil möchte стоїть у кінці."
+      },
+      {
+        "id": "contrast",
+        "label": "Попри це",
+        "group": "Зв’язки",
+        "de": "Obwohl ich wenig Zeit habe, lerne ich jeden Tag Deutsch.",
+        "uk": "Хоча в мене мало часу, я щодня вчу німецьку.",
+        "tip": "Підрядна частина на першому місці, далі відразу lerne."
+      },
+      {
+        "id": "hypothetical",
+        "label": "Уявна умова",
+        "group": "Умови",
+        "de": "Wenn ich mehr Zeit hätte, würde ich jeden Tag länger Deutsch lernen.",
+        "uk": "Якби я мав більше часу, я б щодня довше вчив німецьку.",
+        "tip": "Konjunktiv II для нереальної теперішньої умови."
+      },
+      {
+        "id": "regret",
+        "label": "Жаль про минуле",
+        "group": "Умови",
+        "de": "Wenn ich früher jeden Tag Deutsch gelernt hätte, hätte ich das C1-Niveau schneller erreicht.",
+        "uk": "Якби я раніше щодня вивчав німецьку, я б швидше досяг рівня C1.",
+        "tip": "Konjunktiv II Vergangenheit в обох частинах."
+      },
+      {
+        "id": "polite",
+        "label": "Бажання",
+        "group": "Спілкування",
+        "de": "Ich würde gern jeden Tag Deutsch lernen.",
+        "uk": "Я хотів би щодня вивчати німецьку.",
+        "tip": "würde gern + інфінітив."
+      },
+      {
+        "id": "negative",
+        "label": "Заперечення",
+        "group": "Спілкування",
+        "de": "Ich lerne nicht jeden Tag Deutsch.",
+        "uk": "Я не щодня вивчаю німецьку.",
+        "tip": "nicht / kein: заперечення дії або іменника."
+      },
+      {
+        "id": "deshalb",
+        "label": "Наслідок: deshalb",
+        "group": "Зв’язки",
+        "de": "Ich möchte flüssiger sprechen. Deshalb lerne ich jeden Tag Deutsch.",
+        "uk": "Я хочу говорити вільніше. Тому я щодня вчу німецьку.",
+        "tip": "deshalb — прислівник, після нього в головному реченні стоїть відмінюване дієслово."
+      },
+      {
+        "id": "trotzdem",
+        "label": "Попри це: trotzdem",
+        "group": "Зв’язки",
+        "de": "Ich habe wenig Zeit. Trotzdem lerne ich jeden Tag Deutsch.",
+        "uk": "У мене мало часу. Попри це я щодня вчу німецьку.",
+        "tip": "trotzdem — прислівник; після нього дієслово займає друге місце."
+      },
+      {
+        "id": "dass",
+        "label": "Думка: dass",
+        "group": "Зв’язки",
+        "de": "Ich finde es wichtig, dass ich jeden Tag Deutsch lerne.",
+        "uk": "Я вважаю важливим, що щодня вивчаю німецьку.",
+        "tip": "Після dass відмінюване дієслово стоїть наприкінці підрядної частини."
+      },
+      {
+        "id": "indirect",
+        "label": "Непряме питання: ob",
+        "group": "Спілкування",
+        "de": "Ich frage mich, ob ich jeden Tag genug Deutsch lerne.",
+        "uk": "Я запитую себе, чи достатньо вчу німецьку щодня.",
+        "tip": "ob вводить непряме запитання «чи»; дієслово в кінці."
+      },
+      {
+        "id": "relative",
+        "label": "Relativsatz",
+        "group": "Зв’язки",
+        "de": "Das Deutsch, das ich jeden Tag lerne, hilft mir im Alltag.",
+        "uk": "Німецька, яку я щодня вчу, допомагає мені в повсякденному житті.",
+        "tip": "Відносний займенник узгоджується з іменником за родом і числом, а відмінок залежить від ролі в підрядному реченні."
+      },
+      {
+        "id": "zu",
+        "label": "Infinitiv mit zu",
+        "group": "Зв’язки",
+        "de": "Ich versuche, jeden Tag Deutsch zu lernen.",
+        "uk": "Я намагаюся щодня вивчати німецьку.",
+        "tip": "Інфінітивна конструкція з zu; з модальними дієсловами можливі складні форми."
+      },
+      {
+        "id": "passive",
+        "label": "Passiv",
+        "group": "Стан",
+        "de": "Deutsch wird in diesem Kurs jeden Tag gelernt.",
+        "uk": "На цьому курсі німецьку вивчають щодня.",
+        "tip": "werden + Partizip II. Пасив не завжди природний для кожного базового вислову."
+      },
+      {
+        "id": "mixed",
+        "label": "Змішана умова",
+        "group": "Умови",
+        "de": "Wenn ich früher jeden Tag Deutsch gelernt hätte, würde ich heute flüssiger sprechen.",
+        "uk": "Якби я раніше щодня вчив німецьку, сьогодні говорив би вільніше.",
+        "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      }
     ]
   },
-{
-  "id": "job",
-  "title": "Співбесіда та робота",
-  "context": "Ти розповідаєш про досвід і шукаєш нову роботу.",
-  "core": "Ich suche eine neue Stelle.",
-  "translation": "Я шукаю нову роботу.",
-  "variants": [
-    {
-      "id": "present",
-      "label": "Теперішнє",
-      "group": "Час",
-      "de": "Ich suche eine neue Stelle.",
-      "uk": "Я шукаю нову роботу.",
-      "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
-    },
-    {
-      "id": "past",
-      "label": "Минуле",
-      "group": "Час",
-      "de": "Früher suchte ich eine Stelle in Berlin.",
-      "uk": "Раніше я шукав роботу в Берліні.",
-      "tip": "Präteritum: форма для розповіді про минуле."
-    },
-    {
-      "id": "perfect",
-      "label": "Perfekt",
-      "group": "Час",
-      "de": "Ich habe mich gestern beworben.",
-      "uk": "Учора я подав заявку на роботу.",
-      "tip": "Perfekt: допоміжне дієслово й Partizip II."
-    },
-    {
-      "id": "future",
-      "label": "Майбутнє",
-      "group": "Час",
-      "de": "Nächste Woche werde ich mich bewerben.",
-      "uk": "Наступного тижня я подам заявку.",
-      "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
-    },
-    {
-      "id": "question",
-      "label": "Запитання",
-      "group": "Спілкування",
-      "de": "Haben Sie schon Berufserfahrung?",
-      "uk": "У вас уже є професійний досвід?",
-      "tip": "У запитанні відмінюване дієслово стоїть на початку."
-    },
-    {
-      "id": "reason",
-      "label": "Причина",
-      "group": "Зв’язки",
-      "de": "Ich bewerbe mich, weil ich mich weiterentwickeln möchte.",
-      "uk": "Я подаю заявку, тому що хочу розвиватися.",
-      "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "contrast",
-      "label": "Попри це",
-      "group": "Зв’язки",
-      "de": "Obwohl ich wenig Erfahrung habe, lerne ich schnell.",
-      "uk": "Хоча в мене мало досвіду, я швидко навчаюся.",
-      "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "hypothetical",
-      "label": "Уявна умова",
-      "group": "Умови",
-      "de": "Wenn ich die Stelle bekäme, würde ich sofort anfangen.",
-      "uk": "Якби я отримав посаду, то відразу почав би.",
-      "tip": "Konjunktiv II для уявної умови."
-    },
-    {
-      "id": "regret",
-      "label": "Жаль про минуле",
-      "group": "Умови",
-      "de": "Wenn ich mich früher beworben hätte, hätte ich vielleicht eine Chance gehabt.",
-      "uk": "Якби я подав заявку раніше, можливо, мав би шанс.",
-      "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
-    },
-    {
-      "id": "polite",
-      "label": "Ввічливе формулювання",
-      "group": "Спілкування",
-      "de": "Könnten Sie mir bitte mehr über die Stelle erzählen?",
-      "uk": "Чи могли б ви розповісти більше про цю посаду?",
-      "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
-    }
-  ]
-},
-{
-  "id": "appointment",
-  "title": "Домовленість про зустріч",
-  "context": "Потрібно перенести зустріч і пояснити причину.",
-  "core": "Ich muss unseren Termin verschieben.",
-  "translation": "Мені потрібно перенести нашу зустріч.",
-  "variants": [
-    {
-      "id": "present",
-      "label": "Теперішнє",
-      "group": "Час",
-      "de": "Ich muss unseren Termin verschieben.",
-      "uk": "Мені потрібно перенести нашу зустріч.",
-      "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
-    },
-    {
-      "id": "past",
-      "label": "Минуле",
-      "group": "Час",
-      "de": "Ich musste den Termin verschieben.",
-      "uk": "Мені довелося перенести зустріч.",
-      "tip": "Präteritum: форма для розповіді про минуле."
-    },
-    {
-      "id": "perfect",
-      "label": "Perfekt",
-      "group": "Час",
-      "de": "Ich habe den Termin verschoben.",
-      "uk": "Я переніс зустріч.",
-      "tip": "Perfekt: допоміжне дієслово й Partizip II."
-    },
-    {
-      "id": "future",
-      "label": "Майбутнє",
-      "group": "Час",
-      "de": "Ich werde morgen einen neuen Termin vereinbaren.",
-      "uk": "Завтра я домовлюся про нову зустріч.",
-      "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
-    },
-    {
-      "id": "question",
-      "label": "Запитання",
-      "group": "Спілкування",
-      "de": "Können wir uns am Freitag treffen?",
-      "uk": "Можемо зустрітися в п’ятницю?",
-      "tip": "У запитанні відмінюване дієслово стоїть на початку."
-    },
-    {
-      "id": "reason",
-      "label": "Причина",
-      "group": "Зв’язки",
-      "de": "Ich muss absagen, weil ich krank bin.",
-      "uk": "Мені потрібно скасувати зустріч, тому що я хворію.",
-      "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "contrast",
-      "label": "Попри це",
-      "group": "Зв’язки",
-      "de": "Obwohl ich wenig Zeit habe, komme ich vorbei.",
-      "uk": "Хоча в мене мало часу, я зайду.",
-      "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "hypothetical",
-      "label": "Уявна умова",
-      "group": "Умови",
-      "de": "Wenn ich früher fertig wäre, könnte ich kommen.",
-      "uk": "Якби я закінчив раніше, то зміг би прийти.",
-      "tip": "Konjunktiv II для уявної умови."
-    },
-    {
-      "id": "regret",
-      "label": "Жаль про минуле",
-      "group": "Умови",
-      "de": "Wenn du früher Bescheid gesagt hättest, hätte ich anders geplant.",
-      "uk": "Якби ти повідомив раніше, я б спланував інакше.",
-      "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
-    },
-    {
-      "id": "polite",
-      "label": "Ввічливе формулювання",
-      "group": "Спілкування",
-      "de": "Wäre es möglich, den Termin zu verschieben?",
-      "uk": "Чи можна було б перенести зустріч?",
-      "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
-    }
-  ]
-},
-{
-  "id": "disagreement",
-  "title": "Незгода та аргументація",
-  "context": "Ти ввічливо не погоджуєшся й пояснюєш свою позицію.",
-  "core": "Ich sehe das anders.",
-  "translation": "Я бачу це інакше.",
-  "variants": [
-    {
-      "id": "present",
-      "label": "Теперішнє",
-      "group": "Час",
-      "de": "Ich sehe das anders.",
-      "uk": "Я бачу це інакше.",
-      "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
-    },
-    {
-      "id": "past",
-      "label": "Минуле",
-      "group": "Час",
-      "de": "Damals sah ich das anders.",
-      "uk": "Тоді я дивився на це інакше.",
-      "tip": "Präteritum: форма для розповіді про минуле."
-    },
-    {
-      "id": "perfect",
-      "label": "Perfekt",
-      "group": "Час",
-      "de": "Ich habe meine Meinung geändert.",
-      "uk": "Я змінив свою думку.",
-      "tip": "Perfekt: допоміжне дієслово й Partizip II."
-    },
-    {
-      "id": "future",
-      "label": "Майбутнє",
-      "group": "Час",
-      "de": "Ich werde meinen Standpunkt erklären.",
-      "uk": "Я поясню свою позицію.",
-      "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
-    },
-    {
-      "id": "question",
-      "label": "Запитання",
-      "group": "Спілкування",
-      "de": "Warum siehst du das anders?",
-      "uk": "Чому ти бачиш це інакше?",
-      "tip": "У запитанні відмінюване дієслово стоїть на початку."
-    },
-    {
-      "id": "reason",
-      "label": "Причина",
-      "group": "Зв’язки",
-      "de": "Ich bin dagegen, weil das zu teuer ist.",
-      "uk": "Я проти, тому що це надто дорого.",
-      "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "contrast",
-      "label": "Попри це",
-      "group": "Зв’язки",
-      "de": "Obwohl ich deine Argumente verstehe, bin ich anderer Meinung.",
-      "uk": "Хоча я розумію твої аргументи, я іншої думки.",
-      "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "hypothetical",
-      "label": "Уявна умова",
-      "group": "Умови",
-      "de": "Wenn ich an deiner Stelle wäre, würde ich anders entscheiden.",
-      "uk": "Якби я був на твоєму місці, я б вирішив інакше.",
-      "tip": "Konjunktiv II для уявної умови."
-    },
-    {
-      "id": "regret",
-      "label": "Жаль про минуле",
-      "group": "Умови",
-      "de": "Wenn wir früher darüber gesprochen hätten, hätten wir den Streit vermieden.",
-      "uk": "Якби ми поговорили про це раніше, ми б уникнули сварки.",
-      "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
-    },
-    {
-      "id": "polite",
-      "label": "Ввічливе формулювання",
-      "group": "Спілкування",
-      "de": "Dürfte ich dazu etwas ergänzen?",
-      "uk": "Чи можна мені дещо додати?",
-      "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
-    }
-  ]
-},
-{
-  "id": "mistake",
-  "title": "Помилка та вибачення",
-  "context": "Ти припустився помилки й хочеш її виправити.",
-  "core": "Ich habe einen Fehler gemacht.",
-  "translation": "Я припустився помилки.",
-  "variants": [
-    {
-      "id": "present",
-      "label": "Теперішнє",
-      "group": "Час",
-      "de": "Ich mache manchmal Fehler.",
-      "uk": "Я іноді роблю помилки.",
-      "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
-    },
-    {
-      "id": "past",
-      "label": "Минуле",
-      "group": "Час",
-      "de": "Damals machte ich viele Fehler.",
-      "uk": "Тоді я робив багато помилок.",
-      "tip": "Präteritum: форма для розповіді про минуле."
-    },
-    {
-      "id": "perfect",
-      "label": "Perfekt",
-      "group": "Час",
-      "de": "Ich habe einen Fehler gemacht.",
-      "uk": "Я припустився помилки.",
-      "tip": "Perfekt: допоміжне дієслово й Partizip II."
-    },
-    {
-      "id": "future",
-      "label": "Майбутнє",
-      "group": "Час",
-      "de": "Ich werde den Fehler korrigieren.",
-      "uk": "Я виправлю помилку.",
-      "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
-    },
-    {
-      "id": "question",
-      "label": "Запитання",
-      "group": "Спілкування",
-      "de": "Wie kann ich das wiedergutmachen?",
-      "uk": "Як я можу це виправити?",
-      "tip": "У запитанні відмінюване дієслово стоїть на початку."
-    },
-    {
-      "id": "reason",
-      "label": "Причина",
-      "group": "Зв’язки",
-      "de": "Es tut mir leid, weil ich dich enttäuscht habe.",
-      "uk": "Мені шкода, тому що я тебе розчарував.",
-      "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "contrast",
-      "label": "Попри це",
-      "group": "Зв’язки",
-      "de": "Obwohl ich vorsichtig war, ist mir ein Fehler passiert.",
-      "uk": "Хоча я був уважним, зі мною трапилася помилка.",
-      "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "hypothetical",
-      "label": "Уявна умова",
-      "group": "Умови",
-      "de": "Wenn ich mehr Zeit hätte, würde ich alles noch einmal prüfen.",
-      "uk": "Якби в мене було більше часу, я б усе перевірив ще раз.",
-      "tip": "Konjunktiv II для уявної умови."
-    },
-    {
-      "id": "regret",
-      "label": "Жаль про минуле",
-      "group": "Умови",
-      "de": "Wenn ich besser aufgepasst hätte, wäre das nicht passiert.",
-      "uk": "Якби я був уважнішим, цього б не сталося.",
-      "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
-    },
-    {
-      "id": "polite",
-      "label": "Ввічливе формулювання",
-      "group": "Спілкування",
-      "de": "Könntest du mir bitte noch eine Chance geben?",
-      "uk": "Чи міг би ти дати мені ще один шанс?",
-      "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
-    }
-  ]
-},
-{
-  "id": "housing",
-  "title": "Квартира та побут",
-  "context": "Ти шукаєш житло й спілкуєшся з орендодавцем.",
-  "core": "Ich suche eine größere Wohnung.",
-  "translation": "Я шукаю більшу квартиру.",
-  "variants": [
-    {
-      "id": "present",
-      "label": "Теперішнє",
-      "group": "Час",
-      "de": "Ich suche eine größere Wohnung.",
-      "uk": "Я шукаю більшу квартиру.",
-      "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
-    },
-    {
-      "id": "past",
-      "label": "Минуле",
-      "group": "Час",
-      "de": "Früher wohnte ich in einer kleinen Wohnung.",
-      "uk": "Раніше я жив у маленькій квартирі.",
-      "tip": "Präteritum: форма для розповіді про минуле."
-    },
-    {
-      "id": "perfect",
-      "label": "Perfekt",
-      "group": "Час",
-      "de": "Ich habe gestern eine Wohnung besichtigt.",
-      "uk": "Учора я оглянув квартиру.",
-      "tip": "Perfekt: допоміжне дієслово й Partizip II."
-    },
-    {
-      "id": "future",
-      "label": "Майбутнє",
-      "group": "Час",
-      "de": "Nächsten Monat werde ich umziehen.",
-      "uk": "Наступного місяця я переїду.",
-      "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
-    },
-    {
-      "id": "question",
-      "label": "Запитання",
-      "group": "Спілкування",
-      "de": "Ist die Wohnung noch frei?",
-      "uk": "Квартира ще вільна?",
-      "tip": "У запитанні відмінюване дієслово стоїть на початку."
-    },
-    {
-      "id": "reason",
-      "label": "Причина",
-      "group": "Зв’язки",
-      "de": "Ich möchte umziehen, weil die Wohnung zu klein ist.",
-      "uk": "Я хочу переїхати, тому що квартира замала.",
-      "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "contrast",
-      "label": "Попри це",
-      "group": "Зв’язки",
-      "de": "Obwohl die Miete hoch ist, gefällt mir die Wohnung.",
-      "uk": "Хоча оренда дорога, квартира мені подобається.",
-      "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "hypothetical",
-      "label": "Уявна умова",
-      "group": "Умови",
-      "de": "Wenn die Wohnung günstiger wäre, würde ich sie mieten.",
-      "uk": "Якби квартира була дешевшою, я б її орендував.",
-      "tip": "Konjunktiv II для уявної умови."
-    },
-    {
-      "id": "regret",
-      "label": "Жаль про минуле",
-      "group": "Умови",
-      "de": "Wenn ich früher gesucht hätte, hätte ich vielleicht etwas Günstigeres gefunden.",
-      "uk": "Якби я почав шукати раніше, можливо, знайшов би щось дешевше.",
-      "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
-    },
-    {
-      "id": "polite",
-      "label": "Ввічливе формулювання",
-      "group": "Спілкування",
-      "de": "Könnte ich die Wohnung am Samstag besichtigen?",
-      "uk": "Чи міг би я оглянути квартиру в суботу?",
-      "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
-    }
-  ]
-},
-{
-  "id": "plans",
-  "title": "Плани та зміни",
-  "context": "Ти хочеш змінити звички й розповідаєш про плани.",
-  "core": "Ich möchte etwas in meinem Leben ändern.",
-  "translation": "Я хочу щось змінити у своєму житті.",
-  "variants": [
-    {
-      "id": "present",
-      "label": "Теперішнє",
-      "group": "Час",
-      "de": "Ich möchte etwas in meinem Leben ändern.",
-      "uk": "Я хочу щось змінити у своєму житті.",
-      "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
-    },
-    {
-      "id": "past",
-      "label": "Минуле",
-      "group": "Час",
-      "de": "Früher wollte ich im Ausland leben.",
-      "uk": "Раніше я хотів жити за кордоном.",
-      "tip": "Präteritum: форма для розповіді про минуле."
-    },
-    {
-      "id": "perfect",
-      "label": "Perfekt",
-      "group": "Час",
-      "de": "Ich habe einen wichtigen Entschluss gefasst.",
-      "uk": "Я ухвалив важливе рішення.",
-      "tip": "Perfekt: допоміжне дієслово й Partizip II."
-    },
-    {
-      "id": "future",
-      "label": "Майбутнє",
-      "group": "Час",
-      "de": "Ab morgen werde ich regelmäßig Sport treiben.",
-      "uk": "Від завтра я регулярно займатимуся спортом.",
-      "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
-    },
-    {
-      "id": "question",
-      "label": "Запитання",
-      "group": "Спілкування",
-      "de": "Was würdest du gern ändern?",
-      "uk": "Що ти хотів би змінити?",
-      "tip": "У запитанні відмінюване дієслово стоїть на початку."
-    },
-    {
-      "id": "reason",
-      "label": "Причина",
-      "group": "Зв’язки",
-      "de": "Ich möchte mehr Sport machen, weil ich mich fitter fühlen will.",
-      "uk": "Я хочу більше займатися спортом, тому що хочу почуватися бадьоріше.",
-      "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "contrast",
-      "label": "Попри це",
-      "group": "Зв’язки",
-      "de": "Obwohl es schwierig wird, möchte ich es versuchen.",
-      "uk": "Хоча це буде складно, я хочу спробувати.",
-      "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
-    },
-    {
-      "id": "hypothetical",
-      "label": "Уявна умова",
-      "group": "Умови",
-      "de": "Wenn ich mehr Mut hätte, würde ich etwas Neues ausprobieren.",
-      "uk": "Якби в мене було більше сміливості, я б спробував щось нове.",
-      "tip": "Konjunktiv II для уявної умови."
-    },
-    {
-      "id": "regret",
-      "label": "Жаль про минуле",
-      "group": "Умови",
-      "de": "Wenn ich früher angefangen hätte, wäre ich jetzt weiter.",
-      "uk": "Якби я почав раніше, зараз був би далі.",
-      "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
-    },
-    {
-      "id": "polite",
-      "label": "Ввічливе формулювання",
-      "group": "Спілкування",
-      "de": "Ich würde gern deine Meinung dazu hören.",
-      "uk": "Я хотів би почути твою думку про це.",
-      "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
-    }
-  ]
-}
+  {
+    "id": "job",
+    "title": "Співбесіда та робота",
+    "context": "Ти розповідаєш про досвід і шукаєш нову роботу.",
+    "core": "Ich suche eine neue Stelle.",
+    "translation": "Я шукаю нову роботу.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Теперішнє",
+        "group": "Час",
+        "de": "Ich suche eine neue Stelle.",
+        "uk": "Я шукаю нову роботу.",
+        "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
+      },
+      {
+        "id": "past",
+        "label": "Минуле",
+        "group": "Час",
+        "de": "Früher suchte ich eine neue Stelle.",
+        "uk": "Раніше я шукав нову роботу.",
+        "tip": "Präteritum: форма для розповіді про минуле."
+      },
+      {
+        "id": "perfect",
+        "label": "Perfekt",
+        "group": "Час",
+        "de": "Ich habe schon nach einer neuen Stelle gesucht.",
+        "uk": "Я вже шукав нову роботу.",
+        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+      },
+      {
+        "id": "future",
+        "label": "Майбутнє",
+        "group": "Час",
+        "de": "Morgen werde ich weiter nach einer neuen Stelle suchen.",
+        "uk": "Завтра я продовжу шукати нову роботу.",
+        "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Suchst du eine neue Stelle?",
+        "uk": "Ти шукаєш нову роботу?",
+        "tip": "У запитанні відмінюване дієслово стоїть на початку."
+      },
+      {
+        "id": "reason",
+        "label": "Причина",
+        "group": "Зв’язки",
+        "de": "Ich suche eine neue Stelle, weil ich mich beruflich weiterentwickeln möchte.",
+        "uk": "Я шукаю нову роботу, тому що хочу професійно розвиватися.",
+        "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "contrast",
+        "label": "Попри це",
+        "group": "Зв’язки",
+        "de": "Obwohl ich bereits arbeite, suche ich eine neue Stelle.",
+        "uk": "Хоча я вже працюю, я шукаю нову роботу.",
+        "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "hypothetical",
+        "label": "Уявна умова",
+        "group": "Умови",
+        "de": "Wenn ich mehr Zeit hätte, würde ich intensiver nach einer neuen Stelle suchen.",
+        "uk": "Якби я мав більше часу, я б активніше шукав нову роботу.",
+        "tip": "Konjunktiv II для уявної умови."
+      },
+      {
+        "id": "regret",
+        "label": "Жаль про минуле",
+        "group": "Умови",
+        "de": "Wenn ich früher nach einer neuen Stelle gesucht hätte, hätte ich vielleicht schon eine gefunden.",
+        "uk": "Якби я почав шукати нову роботу раніше, можливо, уже знайшов би її.",
+        "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
+      },
+      {
+        "id": "polite",
+        "label": "Ввічливе формулювання",
+        "group": "Спілкування",
+        "de": "Ich würde gern eine neue Stelle finden.",
+        "uk": "Я хотів би знайти нову роботу.",
+        "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
+      },
+      {
+        "id": "negative",
+        "label": "Заперечення",
+        "group": "Спілкування",
+        "de": "Ich suche im Moment keine neue Stelle.",
+        "uk": "Зараз я не шукаю нову роботу.",
+        "tip": "nicht / kein: заперечення дії або іменника."
+      },
+      {
+        "id": "deshalb",
+        "label": "Наслідок: deshalb",
+        "group": "Зв’язки",
+        "de": "Ich möchte mich weiterentwickeln. Deshalb suche ich eine neue Stelle.",
+        "uk": "Я хочу розвиватися. Тому шукаю нову роботу.",
+        "tip": "deshalb — прислівник, після нього в головному реченні стоїть відмінюване дієслово."
+      },
+      {
+        "id": "trotzdem",
+        "label": "Попри це: trotzdem",
+        "group": "Зв’язки",
+        "de": "Ich habe wenig Zeit. Trotzdem suche ich eine neue Stelle.",
+        "uk": "У мене мало часу. Попри це я шукаю нову роботу.",
+        "tip": "trotzdem — прислівник; після нього дієслово займає друге місце."
+      },
+      {
+        "id": "dass",
+        "label": "Підрядне: dass",
+        "group": "Зв’язки",
+        "de": "Ich hoffe, dass ich bald eine neue Stelle finde.",
+        "uk": "Я сподіваюся, що скоро знайду нову роботу.",
+        "tip": "Після dass відмінюване дієслово стоїть наприкінці підрядної частини."
+      },
+      {
+        "id": "indirect",
+        "label": "Непряме питання: ob",
+        "group": "Спілкування",
+        "de": "Ich frage mich, ob ich bald eine neue Stelle finde.",
+        "uk": "Я запитую себе, чи скоро знайду нову роботу.",
+        "tip": "ob вводить непряме запитання «чи»; дієслово в кінці."
+      },
+      {
+        "id": "relative",
+        "label": "Relativsatz",
+        "group": "Зв’язки",
+        "de": "Die Stelle, die ich suche, soll zu mir passen.",
+        "uk": "Робота, яку я шукаю, має мені підходити.",
+        "tip": "Відносний займенник узгоджується з іменником за родом і числом, а відмінок залежить від ролі в підрядному реченні."
+      },
+      {
+        "id": "zu",
+        "label": "Infinitiv mit zu",
+        "group": "Зв’язки",
+        "de": "Ich versuche, eine neue Stelle zu finden.",
+        "uk": "Я намагаюся знайти нову роботу.",
+        "tip": "Інфінітивна конструкція з zu; з модальними дієсловами можливі складні форми."
+      },
+      {
+        "id": "mixed",
+        "label": "Змішана умова",
+        "group": "Умови",
+        "de": "Wenn ich früher eine neue Stelle gesucht hätte, hätte ich jetzt vielleicht eine.",
+        "uk": "Якби я раніше шукав нову роботу, можливо, зараз уже мав би її.",
+        "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      }
+    ]
+  },
+  {
+    "id": "appointment",
+    "title": "Домовленість про зустріч",
+    "context": "Потрібно перенести зустріч і пояснити причину.",
+    "core": "Ich muss unseren Termin verschieben.",
+    "translation": "Мені потрібно перенести нашу зустріч.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Теперішнє",
+        "group": "Час",
+        "de": "Ich muss unseren Termin verschieben.",
+        "uk": "Мені потрібно перенести нашу зустріч.",
+        "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
+      },
+      {
+        "id": "past",
+        "label": "Минуле",
+        "group": "Час",
+        "de": "Ich musste den Termin verschieben.",
+        "uk": "Мені довелося перенести зустріч.",
+        "tip": "Präteritum: форма для розповіді про минуле."
+      },
+      {
+        "id": "perfect",
+        "label": "Perfekt",
+        "group": "Час",
+        "de": "Ich habe unseren Termin verschieben müssen.",
+        "uk": "Мені довелося перенести нашу зустріч.",
+        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+      },
+      {
+        "id": "future",
+        "label": "Майбутнє",
+        "group": "Час",
+        "de": "Morgen werde ich unseren Termin verschieben müssen.",
+        "uk": "Завтра мені доведеться перенести нашу зустріч.",
+        "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Musst du unseren Termin verschieben?",
+        "uk": "Тобі потрібно перенести нашу зустріч?",
+        "tip": "У запитанні відмінюване дієслово стоїть на початку."
+      },
+      {
+        "id": "reason",
+        "label": "Причина",
+        "group": "Зв’язки",
+        "de": "Ich muss unseren Termin verschieben, weil ich arbeiten muss.",
+        "uk": "Мені потрібно перенести нашу зустріч, тому що я мушу працювати.",
+        "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "contrast",
+        "label": "Попри це",
+        "group": "Зв’язки",
+        "de": "Obwohl ich unseren Termin nicht verschieben möchte, muss ich es tun.",
+        "uk": "Хоча я не хочу переносити нашу зустріч, мені доводиться це зробити.",
+        "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "hypothetical",
+        "label": "Уявна умова",
+        "group": "Умови",
+        "de": "Wenn ich mehr Zeit hätte, müsste ich unseren Termin nicht verschieben.",
+        "uk": "Якби я мав більше часу, мені не довелося б переносити нашу зустріч.",
+        "tip": "Konjunktiv II для уявної умови."
+      },
+      {
+        "id": "regret",
+        "label": "Жаль про минуле",
+        "group": "Умови",
+        "de": "Wenn ich besser geplant hätte, hätte ich unseren Termin nicht verschieben müssen.",
+        "uk": "Якби я краще все спланував, мені не довелося б переносити нашу зустріч.",
+        "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
+      },
+      {
+        "id": "polite",
+        "label": "Ввічливе формулювання",
+        "group": "Спілкування",
+        "de": "Ich würde unseren Termin gern verschieben.",
+        "uk": "Я хотів би перенести нашу зустріч.",
+        "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
+      },
+      {
+        "id": "negative",
+        "label": "Заперечення",
+        "group": "Спілкування",
+        "de": "Ich muss unseren Termin nicht verschieben.",
+        "uk": "Мені не потрібно переносити нашу зустріч.",
+        "tip": "nicht / kein: заперечення дії або іменника."
+      },
+      {
+        "id": "deshalb",
+        "label": "Наслідок: deshalb",
+        "group": "Зв’язки",
+        "de": "Ich muss heute länger arbeiten. Deshalb muss ich unseren Termin verschieben.",
+        "uk": "Сьогодні мені потрібно довше працювати. Тому я мушу перенести нашу зустріч.",
+        "tip": "deshalb — прислівник, після нього в головному реченні стоїть відмінюване дієслово."
+      },
+      {
+        "id": "trotzdem",
+        "label": "Попри це: trotzdem",
+        "group": "Зв’язки",
+        "de": "Ich habe wenig Zeit. Trotzdem muss ich unseren Termin nicht verschieben.",
+        "uk": "У мене мало часу. Попри це мені не потрібно переносити нашу зустріч.",
+        "tip": "trotzdem — прислівник; після нього дієслово займає друге місце."
+      },
+      {
+        "id": "dass",
+        "label": "Підрядне: dass",
+        "group": "Зв’язки",
+        "de": "Es tut mir leid, dass ich unseren Termin verschieben muss.",
+        "uk": "Мені шкода, що я мушу перенести нашу зустріч.",
+        "tip": "Після dass відмінюване дієслово стоїть наприкінці підрядної частини."
+      },
+      {
+        "id": "indirect",
+        "label": "Непряме питання: ob",
+        "group": "Спілкування",
+        "de": "Ich frage mich, ob ich unseren Termin verschieben muss.",
+        "uk": "Я запитую себе, чи потрібно мені переносити нашу зустріч.",
+        "tip": "ob вводить непряме запитання «чи»; дієслово в кінці."
+      },
+      {
+        "id": "relative",
+        "label": "Relativsatz",
+        "group": "Зв’язки",
+        "de": "Der Termin, den ich verschieben muss, ist wichtig.",
+        "uk": "Зустріч, яку я мушу перенести, важлива.",
+        "tip": "Відносний займенник узгоджується з іменником за родом і числом, а відмінок залежить від ролі в підрядному реченні."
+      },
+      {
+        "id": "zu",
+        "label": "Infinitiv mit zu",
+        "group": "Зв’язки",
+        "de": "Ich versuche, unseren Termin nicht verschieben zu müssen.",
+        "uk": "Я намагаюся зробити так, щоб не довелося переносити нашу зустріч.",
+        "tip": "Інфінітивна конструкція з zu; з модальними дієсловами можливі складні форми."
+      },
+      {
+        "id": "mixed",
+        "label": "Змішана умова",
+        "group": "Умови",
+        "de": "Wenn ich gestern alles erledigt hätte, müsste ich unseren Termin heute nicht verschieben.",
+        "uk": "Якби я вчора все зробив, сьогодні мені не довелося б переносити нашу зустріч.",
+        "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      }
+    ]
+  },
+  {
+    "id": "disagreement",
+    "title": "Незгода та аргументація",
+    "context": "Ти ввічливо не погоджуєшся й пояснюєш свою позицію.",
+    "core": "Ich sehe das anders.",
+    "translation": "Я бачу це інакше.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Теперішнє",
+        "group": "Час",
+        "de": "Ich sehe das anders.",
+        "uk": "Я бачу це інакше.",
+        "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
+      },
+      {
+        "id": "past",
+        "label": "Минуле",
+        "group": "Час",
+        "de": "Damals sah ich das anders.",
+        "uk": "Тоді я дивився на це інакше.",
+        "tip": "Präteritum: форма для розповіді про минуле."
+      },
+      {
+        "id": "perfect",
+        "label": "Perfekt",
+        "group": "Час",
+        "de": "Ich habe das bisher anders gesehen.",
+        "uk": "Досі я дивився на це інакше.",
+        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+      },
+      {
+        "id": "future",
+        "label": "Майбутнє",
+        "group": "Час",
+        "de": "Ich werde das wahrscheinlich weiterhin anders sehen.",
+        "uk": "Я, мабуть, і надалі бачитиму це інакше.",
+        "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Siehst du das auch anders?",
+        "uk": "Ти теж бачиш це інакше?",
+        "tip": "У запитанні відмінюване дієслово стоїть на початку."
+      },
+      {
+        "id": "reason",
+        "label": "Причина",
+        "group": "Зв’язки",
+        "de": "Ich sehe das anders, weil ich andere Erfahrungen gemacht habe.",
+        "uk": "Я бачу це інакше, тому що маю інший досвід.",
+        "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "contrast",
+        "label": "Попри це",
+        "group": "Зв’язки",
+        "de": "Obwohl ich deine Argumente verstehe, sehe ich das anders.",
+        "uk": "Хоча я розумію твої аргументи, я бачу це інакше.",
+        "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "hypothetical",
+        "label": "Уявна умова",
+        "group": "Умови",
+        "de": "Wenn ich mehr Informationen hätte, würde ich das vielleicht anders sehen.",
+        "uk": "Якби я мав більше інформації, можливо, дивився б на це інакше.",
+        "tip": "Konjunktiv II для уявної умови."
+      },
+      {
+        "id": "regret",
+        "label": "Жаль про минуле",
+        "group": "Умови",
+        "de": "Wenn ich die Fakten früher gekannt hätte, hätte ich das anders gesehen.",
+        "uk": "Якби я знав факти раніше, я б дивився на це інакше.",
+        "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
+      },
+      {
+        "id": "polite",
+        "label": "Ввічливе формулювання",
+        "group": "Спілкування",
+        "de": "Ich würde das gern etwas anders darstellen.",
+        "uk": "Я хотів би представити це трохи інакше.",
+        "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
+      },
+      {
+        "id": "negative",
+        "label": "Заперечення",
+        "group": "Спілкування",
+        "de": "Ich sehe das nicht so.",
+        "uk": "Я так не вважаю.",
+        "tip": "nicht / kein: заперечення дії або іменника."
+      },
+      {
+        "id": "deshalb",
+        "label": "Наслідок: deshalb",
+        "group": "Зв’язки",
+        "de": "Ich habe andere Erfahrungen gemacht. Deshalb sehe ich das anders.",
+        "uk": "Я маю інший досвід. Тому я бачу це інакше.",
+        "tip": "deshalb — прислівник, після нього в головному реченні стоїть відмінюване дієслово."
+      },
+      {
+        "id": "trotzdem",
+        "label": "Попри це: trotzdem",
+        "group": "Зв’язки",
+        "de": "Ich verstehe deine Argumente. Trotzdem sehe ich das anders.",
+        "uk": "Я розумію твої аргументи. Попри це я бачу це інакше.",
+        "tip": "trotzdem — прислівник; після нього дієслово займає друге місце."
+      },
+      {
+        "id": "dass",
+        "label": "Підрядне: dass",
+        "group": "Зв’язки",
+        "de": "Ich glaube, dass ich das anders sehe.",
+        "uk": "Я думаю, що бачу це інакше.",
+        "tip": "Після dass відмінюване дієслово стоїть наприкінці підрядної частини."
+      },
+      {
+        "id": "indirect",
+        "label": "Непряме питання: ob",
+        "group": "Спілкування",
+        "de": "Ich frage mich, ob du das auch anders siehst.",
+        "uk": "Я запитую себе, чи ти теж бачиш це інакше.",
+        "tip": "ob вводить непряме запитання «чи»; дієслово в кінці."
+      },
+      {
+        "id": "relative",
+        "label": "Relativsatz",
+        "group": "Зв’язки",
+        "de": "Die Frage, die ich anders sehe, ist wichtig.",
+        "uk": "Питання, на яке я дивлюся інакше, важливе.",
+        "tip": "Відносний займенник узгоджується з іменником за родом і числом, а відмінок залежить від ролі в підрядному реченні."
+      },
+      {
+        "id": "zu",
+        "label": "Infinitiv mit zu",
+        "group": "Зв’язки",
+        "de": "Ich versuche, das auch aus deiner Sicht zu sehen.",
+        "uk": "Я намагаюся подивитися на це також із твоєї точки зору.",
+        "tip": "Інфінітивна конструкція з zu; з модальними дієсловами можливі складні форми."
+      },
+      {
+        "id": "mixed",
+        "label": "Змішана умова",
+        "group": "Умови",
+        "de": "Wenn ich deine Erklärung früher gehört hätte, würde ich das heute vielleicht anders sehen.",
+        "uk": "Якби я раніше почув твоє пояснення, сьогодні, можливо, дивився б на це інакше.",
+        "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      }
+    ]
+  },
+  {
+    "id": "mistake",
+    "title": "Помилка та вибачення",
+    "context": "Ти припустився помилки й хочеш її виправити.",
+    "core": "Ich habe einen Fehler gemacht.",
+    "translation": "Я припустився помилки.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Теперішнє",
+        "group": "Час",
+        "de": "Ich mache einen Fehler.",
+        "uk": "Я роблю помилку.",
+        "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
+      },
+      {
+        "id": "past",
+        "label": "Минуле",
+        "group": "Час",
+        "de": "Gestern machte ich einen Fehler.",
+        "uk": "Учора я зробив помилку.",
+        "tip": "Präteritum: форма для розповіді про минуле."
+      },
+      {
+        "id": "perfect",
+        "label": "Perfekt",
+        "group": "Час",
+        "de": "Ich habe einen Fehler gemacht.",
+        "uk": "Я припустився помилки.",
+        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+      },
+      {
+        "id": "future",
+        "label": "Майбутнє",
+        "group": "Час",
+        "de": "Ich werde diesen Fehler nicht noch einmal machen.",
+        "uk": "Я більше не зроблю цієї помилки.",
+        "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Habe ich einen Fehler gemacht?",
+        "uk": "Я припустився помилки?",
+        "tip": "У запитанні відмінюване дієслово стоїть на початку."
+      },
+      {
+        "id": "reason",
+        "label": "Причина",
+        "group": "Зв’язки",
+        "de": "Ich habe einen Fehler gemacht, weil ich nicht aufgepasst habe.",
+        "uk": "Я припустився помилки, тому що був неуважним.",
+        "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "contrast",
+        "label": "Попри це",
+        "group": "Зв’язки",
+        "de": "Obwohl ich vorsichtig war, habe ich einen Fehler gemacht.",
+        "uk": "Хоча я був уважним, я припустився помилки.",
+        "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "hypothetical",
+        "label": "Уявна умова",
+        "group": "Умови",
+        "de": "Wenn ich besser aufpassen würde, würde ich diesen Fehler nicht machen.",
+        "uk": "Якби я був уважнішим, я б не робив цієї помилки.",
+        "tip": "Konjunktiv II для уявної умови."
+      },
+      {
+        "id": "regret",
+        "label": "Жаль про минуле",
+        "group": "Умови",
+        "de": "Wenn ich besser aufgepasst hätte, hätte ich diesen Fehler nicht gemacht.",
+        "uk": "Якби я був уважнішим, я б не припустився цієї помилки.",
+        "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
+      },
+      {
+        "id": "polite",
+        "label": "Ввічливе формулювання",
+        "group": "Спілкування",
+        "de": "Ich würde diesen Fehler gern korrigieren.",
+        "uk": "Я хотів би виправити цю помилку.",
+        "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
+      },
+      {
+        "id": "negative",
+        "label": "Заперечення",
+        "group": "Спілкування",
+        "de": "Ich habe keinen Fehler gemacht.",
+        "uk": "Я не припустився помилки.",
+        "tip": "nicht / kein: заперечення дії або іменника."
+      },
+      {
+        "id": "deshalb",
+        "label": "Наслідок: deshalb",
+        "group": "Зв’язки",
+        "de": "Ich war unaufmerksam. Deshalb habe ich einen Fehler gemacht.",
+        "uk": "Я був неуважним. Тому припустився помилки.",
+        "tip": "deshalb — прислівник, після нього в головному реченні стоїть відмінюване дієслово."
+      },
+      {
+        "id": "trotzdem",
+        "label": "Попри це: trotzdem",
+        "group": "Зв’язки",
+        "de": "Ich habe alles geprüft. Trotzdem habe ich einen Fehler gemacht.",
+        "uk": "Я все перевірив. Попри це припустився помилки.",
+        "tip": "trotzdem — прислівник; після нього дієслово займає друге місце."
+      },
+      {
+        "id": "dass",
+        "label": "Підрядне: dass",
+        "group": "Зв’язки",
+        "de": "Ich weiß, dass ich einen Fehler gemacht habe.",
+        "uk": "Я знаю, що припустився помилки.",
+        "tip": "Після dass відмінюване дієслово стоїть наприкінці підрядної частини."
+      },
+      {
+        "id": "indirect",
+        "label": "Непряме питання: ob",
+        "group": "Спілкування",
+        "de": "Ich frage mich, ob ich einen Fehler gemacht habe.",
+        "uk": "Я запитую себе, чи припустився помилки.",
+        "tip": "ob вводить непряме запитання «чи»; дієслово в кінці."
+      },
+      {
+        "id": "relative",
+        "label": "Relativsatz",
+        "group": "Зв’язки",
+        "de": "Der Fehler, den ich gemacht habe, tut mir leid.",
+        "uk": "Мені шкода через помилку, якої я припустився.",
+        "tip": "Відносний займенник узгоджується з іменником за родом і числом, а відмінок залежить від ролі в підрядному реченні."
+      },
+      {
+        "id": "zu",
+        "label": "Infinitiv mit zu",
+        "group": "Зв’язки",
+        "de": "Ich versuche, diesen Fehler nicht noch einmal zu machen.",
+        "uk": "Я намагаюся більше не робити цієї помилки.",
+        "tip": "Інфінітивна конструкція з zu; з модальними дієсловами можливі складні форми."
+      },
+      {
+        "id": "mixed",
+        "label": "Змішана умова",
+        "group": "Умови",
+        "de": "Wenn ich gestern besser aufgepasst hätte, müsste ich diesen Fehler heute nicht korrigieren.",
+        "uk": "Якби я вчора був уважнішим, сьогодні не довелося б виправляти цю помилку.",
+        "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      }
+    ]
+  },
+  {
+    "id": "housing",
+    "title": "Квартира та побут",
+    "context": "Ти шукаєш житло й спілкуєшся з орендодавцем.",
+    "core": "Ich suche eine größere Wohnung.",
+    "translation": "Я шукаю більшу квартиру.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Теперішнє",
+        "group": "Час",
+        "de": "Ich suche eine größere Wohnung.",
+        "uk": "Я шукаю більшу квартиру.",
+        "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
+      },
+      {
+        "id": "past",
+        "label": "Минуле",
+        "group": "Час",
+        "de": "Früher suchte ich eine größere Wohnung.",
+        "uk": "Раніше я шукав більшу квартиру.",
+        "tip": "Präteritum: форма для розповіді про минуле."
+      },
+      {
+        "id": "perfect",
+        "label": "Perfekt",
+        "group": "Час",
+        "de": "Ich habe schon nach einer größeren Wohnung gesucht.",
+        "uk": "Я вже шукав більшу квартиру.",
+        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+      },
+      {
+        "id": "future",
+        "label": "Майбутнє",
+        "group": "Час",
+        "de": "Morgen werde ich weiter nach einer größeren Wohnung suchen.",
+        "uk": "Завтра я продовжу шукати більшу квартиру.",
+        "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Suchst du eine größere Wohnung?",
+        "uk": "Ти шукаєш більшу квартиру?",
+        "tip": "У запитанні відмінюване дієслово стоїть на початку."
+      },
+      {
+        "id": "reason",
+        "label": "Причина",
+        "group": "Зв’язки",
+        "de": "Ich suche eine größere Wohnung, weil ich mehr Platz brauche.",
+        "uk": "Я шукаю більшу квартиру, тому що мені потрібно більше місця.",
+        "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "contrast",
+        "label": "Попри це",
+        "group": "Зв’язки",
+        "de": "Obwohl meine jetzige Wohnung schön ist, suche ich eine größere.",
+        "uk": "Хоча моя теперішня квартира гарна, я шукаю більшу.",
+        "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "hypothetical",
+        "label": "Уявна умова",
+        "group": "Умови",
+        "de": "Wenn ich mehr Geld hätte, würde ich eine größere Wohnung suchen.",
+        "uk": "Якби я мав більше грошей, я б шукав більшу квартиру.",
+        "tip": "Konjunktiv II для уявної умови."
+      },
+      {
+        "id": "regret",
+        "label": "Жаль про минуле",
+        "group": "Умови",
+        "de": "Wenn ich früher nach einer größeren Wohnung gesucht hätte, hätte ich vielleicht schon eine gefunden.",
+        "uk": "Якби я раніше шукав більшу квартиру, можливо, уже знайшов би її.",
+        "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
+      },
+      {
+        "id": "polite",
+        "label": "Ввічливе формулювання",
+        "group": "Спілкування",
+        "de": "Ich würde gern eine größere Wohnung finden.",
+        "uk": "Я хотів би знайти більшу квартиру.",
+        "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
+      },
+      {
+        "id": "negative",
+        "label": "Заперечення",
+        "group": "Спілкування",
+        "de": "Ich suche keine größere Wohnung.",
+        "uk": "Я не шукаю більшу квартиру.",
+        "tip": "nicht / kein: заперечення дії або іменника."
+      },
+      {
+        "id": "deshalb",
+        "label": "Наслідок: deshalb",
+        "group": "Зв’язки",
+        "de": "Ich brauche mehr Platz. Deshalb suche ich eine größere Wohnung.",
+        "uk": "Мені потрібно більше місця. Тому я шукаю більшу квартиру.",
+        "tip": "deshalb — прислівник, після нього в головному реченні стоїть відмінюване дієслово."
+      },
+      {
+        "id": "trotzdem",
+        "label": "Попри це: trotzdem",
+        "group": "Зв’язки",
+        "de": "Die Mieten sind hoch. Trotzdem suche ich eine größere Wohnung.",
+        "uk": "Оренда дорога. Попри це я шукаю більшу квартиру.",
+        "tip": "trotzdem — прислівник; після нього дієслово займає друге місце."
+      },
+      {
+        "id": "dass",
+        "label": "Підрядне: dass",
+        "group": "Зв’язки",
+        "de": "Ich hoffe, dass ich eine größere Wohnung finde.",
+        "uk": "Я сподіваюся, що знайду більшу квартиру.",
+        "tip": "Після dass відмінюване дієслово стоїть наприкінці підрядної частини."
+      },
+      {
+        "id": "indirect",
+        "label": "Непряме питання: ob",
+        "group": "Спілкування",
+        "de": "Ich frage mich, ob ich eine größere Wohnung finde.",
+        "uk": "Я запитую себе, чи знайду більшу квартиру.",
+        "tip": "ob вводить непряме запитання «чи»; дієслово в кінці."
+      },
+      {
+        "id": "relative",
+        "label": "Relativsatz",
+        "group": "Зв’язки",
+        "de": "Die Wohnung, die ich suche, soll größer sein.",
+        "uk": "Квартира, яку я шукаю, має бути більшою.",
+        "tip": "Відносний займенник узгоджується з іменником за родом і числом, а відмінок залежить від ролі в підрядному реченні."
+      },
+      {
+        "id": "zu",
+        "label": "Infinitiv mit zu",
+        "group": "Зв’язки",
+        "de": "Ich versuche, eine größere Wohnung zu finden.",
+        "uk": "Я намагаюся знайти більшу квартиру.",
+        "tip": "Інфінітивна конструкція з zu; з модальними дієсловами можливі складні форми."
+      },
+      {
+        "id": "mixed",
+        "label": "Змішана умова",
+        "group": "Умови",
+        "de": "Wenn ich früher eine größere Wohnung gesucht hätte, hätte ich jetzt vielleicht mehr Platz.",
+        "uk": "Якби я раніше шукав більшу квартиру, можливо, зараз мав би більше місця.",
+        "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      }
+    ]
+  },
+  {
+    "id": "plans",
+    "title": "Плани та зміни",
+    "context": "Ти хочеш змінити звички й розповідаєш про плани.",
+    "core": "Ich möchte etwas in meinem Leben ändern.",
+    "translation": "Я хочу щось змінити у своєму житті.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Теперішнє",
+        "group": "Час",
+        "de": "Ich möchte etwas in meinem Leben ändern.",
+        "uk": "Я хочу щось змінити у своєму житті.",
+        "tip": "Präsens: зверни увагу на позицію відмінюваного дієслова."
+      },
+      {
+        "id": "past",
+        "label": "Минуле",
+        "group": "Час",
+        "de": "Früher wollte ich etwas in meinem Leben ändern.",
+        "uk": "Раніше я хотів щось змінити у своєму житті.",
+        "tip": "Präteritum: форма для розповіді про минуле."
+      },
+      {
+        "id": "perfect",
+        "label": "Perfekt",
+        "group": "Час",
+        "de": "Ich habe schon versucht, etwas in meinem Leben zu ändern.",
+        "uk": "Я вже намагався щось змінити у своєму житті.",
+        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+      },
+      {
+        "id": "future",
+        "label": "Майбутнє",
+        "group": "Час",
+        "de": "Ich werde bald etwas in meinem Leben ändern.",
+        "uk": "Незабаром я щось зміню у своєму житті.",
+        "tip": "Futur I: werden + Infinitiv; у розмові часто можливий Präsens."
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Möchtest du etwas in deinem Leben ändern?",
+        "uk": "Ти хочеш щось змінити у своєму житті?",
+        "tip": "У запитанні відмінюване дієслово стоїть на початку."
+      },
+      {
+        "id": "reason",
+        "label": "Причина",
+        "group": "Зв’язки",
+        "de": "Ich möchte etwas in meinem Leben ändern, weil ich unzufrieden bin.",
+        "uk": "Я хочу щось змінити у своєму житті, тому що я незадоволений.",
+        "tip": "Після weil відмінюване дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "contrast",
+        "label": "Попри це",
+        "group": "Зв’язки",
+        "de": "Obwohl Veränderungen schwierig sind, möchte ich etwas in meinem Leben ändern.",
+        "uk": "Хоча зміни складні, я хочу щось змінити у своєму житті.",
+        "tip": "Після obwohl дієслово стоїть у кінці підрядної частини."
+      },
+      {
+        "id": "hypothetical",
+        "label": "Уявна умова",
+        "group": "Умови",
+        "de": "Wenn ich mehr Mut hätte, würde ich etwas in meinem Leben ändern.",
+        "uk": "Якби я мав більше сміливості, я б щось змінив у своєму житті.",
+        "tip": "Konjunktiv II для уявної умови."
+      },
+      {
+        "id": "regret",
+        "label": "Жаль про минуле",
+        "group": "Умови",
+        "de": "Wenn ich früher etwas in meinem Leben geändert hätte, wäre ich heute zufriedener.",
+        "uk": "Якби я раніше щось змінив у своєму житті, сьогодні був би задоволенішим.",
+        "tip": "Konjunktiv II Vergangenheit для нереальної минулої умови."
+      },
+      {
+        "id": "polite",
+        "label": "Ввічливе формулювання",
+        "group": "Спілкування",
+        "de": "Ich würde gern etwas in meinem Leben ändern.",
+        "uk": "Я хотів би щось змінити у своєму житті.",
+        "tip": "Ввічливість: Konjunktiv II або м'яке формулювання."
+      },
+      {
+        "id": "negative",
+        "label": "Заперечення",
+        "group": "Спілкування",
+        "de": "Ich möchte im Moment nichts in meinem Leben ändern.",
+        "uk": "Зараз я не хочу нічого змінювати у своєму житті.",
+        "tip": "nicht / kein: заперечення дії або іменника."
+      },
+      {
+        "id": "deshalb",
+        "label": "Наслідок: deshalb",
+        "group": "Зв’язки",
+        "de": "Ich bin unzufrieden. Deshalb möchte ich etwas in meinem Leben ändern.",
+        "uk": "Я незадоволений. Тому хочу щось змінити у своєму житті.",
+        "tip": "deshalb — прислівник, після нього в головному реченні стоїть відмінюване дієслово."
+      },
+      {
+        "id": "trotzdem",
+        "label": "Попри це: trotzdem",
+        "group": "Зв’язки",
+        "de": "Veränderungen machen mir Angst. Trotzdem möchte ich etwas in meinem Leben ändern.",
+        "uk": "Зміни мене лякають. Попри це я хочу щось змінити у своєму житті.",
+        "tip": "trotzdem — прислівник; після нього дієслово займає друге місце."
+      },
+      {
+        "id": "dass",
+        "label": "Підрядне: dass",
+        "group": "Зв’язки",
+        "de": "Ich weiß, dass ich etwas in meinem Leben ändern möchte.",
+        "uk": "Я знаю, що хочу щось змінити у своєму житті.",
+        "tip": "Після dass відмінюване дієслово стоїть наприкінці підрядної частини."
+      },
+      {
+        "id": "indirect",
+        "label": "Непряме питання: ob",
+        "group": "Спілкування",
+        "de": "Ich frage mich, ob ich wirklich etwas in meinem Leben ändern möchte.",
+        "uk": "Я запитую себе, чи справді хочу щось змінити у своєму житті.",
+        "tip": "ob вводить непряме запитання «чи»; дієслово в кінці."
+      },
+      {
+        "id": "relative",
+        "label": "Relativsatz",
+        "group": "Зв’язки",
+        "de": "Die Dinge, die ich in meinem Leben ändern möchte, sind mir wichtig.",
+        "uk": "Речі, які я хочу змінити у своєму житті, важливі для мене.",
+        "tip": "Відносний займенник узгоджується з іменником за родом і числом, а відмінок залежить від ролі в підрядному реченні."
+      },
+      {
+        "id": "zu",
+        "label": "Infinitiv mit zu",
+        "group": "Зв’язки",
+        "de": "Ich versuche, etwas in meinem Leben zu ändern.",
+        "uk": "Я намагаюся щось змінити у своєму житті.",
+        "tip": "Інфінітивна конструкція з zu; з модальними дієсловами можливі складні форми."
+      },
+      {
+        "id": "mixed",
+        "label": "Змішана умова",
+        "group": "Умови",
+        "de": "Wenn ich früher etwas in meinem Leben geändert hätte, wäre ich heute vielleicht glücklicher.",
+        "uk": "Якби я раніше щось змінив у своєму житті, сьогодні, можливо, був би щасливішим.",
+        "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      }
+    ]
+  }
 ];
