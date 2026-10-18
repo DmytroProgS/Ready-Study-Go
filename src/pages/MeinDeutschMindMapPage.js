@@ -14,9 +14,11 @@ const shuffle = items => {
   }
   return result;
 };
-const makeDeck = (scope, id) => shuffle(
+const levelFor = id => ({present:1,past:1,perfect:1,future:1,question:1,reason:1,contrast:2,hypothetical:2,regret:3,polite:2,negative:2,deshalb:2,trotzdem:2,dass:2,indirect:3,relative:3,zu:3,passive:3,mixed:3})[id] || 3;
+const levelNames = ['','Рівень 1 · Основа','Рівень 2 · Розширення','Рівень 3 · B2–C1'];
+const makeDeck = (scope, id, level = 1) => shuffle(
   situations.filter(s => scope === 'all' || s.id === id)
-    .flatMap(s => s.variants.map(v => ({situationId:s.id, variantId:v.id})))
+    .flatMap(s => s.variants.filter(v => levelFor(v.id) <= level).map(v => ({situationId:s.id, variantId:v.id})))
 );
 
 
@@ -32,20 +34,21 @@ export default function MeinDeutschMindMapPage() {
   });
   const [round, setRound] = useState(0);
   const [scope, setScope] = useState('selected');
+  const [level, setLevel] = useState(1);
   const [deck, setDeck] = useState(() => makeDeck('selected', situations[0].id));
   const [showGrammarHint, setShowGrammarHint] = useState(false);
   const situation = situations.find(item => item.id === situationId) || situations[0];
   const variant = situation.variants.find(item => item.id === variantId) || situation.variants[0];
-  const currentCard = deck[0] || makeDeck(scope, situationId)[0];
+  const currentCard = deck[0] || makeDeck(scope, situationId, level)[0];
   const exerciseSituation = situations.find(s => s.id === currentCard.situationId);
   const exercise = exerciseSituation.variants.find(v => v.id === currentCard.variantId);
   const key = exerciseSituation.id + ':' + exercise.id;
   const score = progress[key] || { right: 0, review: 0 };
 
   useEffect(() => { localStorage.setItem(STORAGE, JSON.stringify(progress)); }, [progress]);
-  const resetDeck = (newScope, id) => {
+  const resetDeck = (newScope, id, newLevel = level) => {
     setScope(newScope);
-    setDeck(makeDeck(newScope, id));
+    setDeck(makeDeck(newScope, id, newLevel));
     setRound(0);
     setInput('');
     setChecked(false);
@@ -61,7 +64,7 @@ export default function MeinDeutschMindMapPage() {
     const used = deck[0];
     setDeck(previous => {
       if (previous.length > 1) return previous.slice(1);
-      const fresh = makeDeck(scope, situationId);
+      const fresh = makeDeck(scope, situationId, level);
       // Prevent the same card appearing at the boundary between two decks.
       if (fresh.length > 1 && used && fresh[0].situationId === used.situationId && fresh[0].variantId === used.variantId) {
         [fresh[0], fresh[1]] = [fresh[1], fresh[0]];
@@ -78,6 +81,7 @@ export default function MeinDeutschMindMapPage() {
     setProgress(prev => ({ ...prev, [key]: { ...(prev[key] || {right:0,review:0}), [result]: ((prev[key] || {})[result] || 0) + 1 } }));
     next();
   };
+  const changeLevel = value => { const selected = Number(value); setLevel(selected); resetDeck(scope, situationId, selected); };
   const total = Object.values(progress).reduce((sum, item) => sum + item.right + item.review, 0);
   return (
     <main className="mind-page">
@@ -93,7 +97,7 @@ export default function MeinDeutschMindMapPage() {
         <article className="mind-result"><span>ОБРАНА ПЕРСПЕКТИВА</span><h3>{variant.label}</h3><p className="mind-de">{variant.de}</p><p>{variant.uk}</p><div className="mind-tip">💡 {variant.tip}</div><button type="button" onClick={() => {setTab('training');resetDeck('selected', situationId);}}>Потренувати цю конструкцію →</button></article>
       </section>}
       {tab === 'square' && <section className="mind-square"><p>Обирай клітинку й промовляй німецьке речення до відкриття відповіді.</p><div className="mind-square-grid">{situation.variants.map(item => <button key={item.id} className={variantId === item.id ? 'selected' : ''} onClick={() => {setVariantId(item.id);setShowAnswer(false);}}><small>{item.group}</small><strong>{item.label}</strong></button>)}</div><article className="mind-result"><h3>{variant.label}</h3><p>{variant.uk}</p>{showAnswer ? <><p className="mind-de">{variant.de}</p><div className="mind-tip">💡 {variant.tip}</div></> : <p className="mind-hidden">Скажи німецькою вголос, потім відкрий відповідь.</p>}<button type="button" onClick={() => setShowAnswer(v => !v)}>{showAnswer ? 'Приховати відповідь' : 'Показати відповідь'}</button></article></section>}
-      {tab === 'training' && <section className="mind-training"><div className="mind-mode"><strong>🔀 Випадкове тренування</strong><div className="mind-actions"><button type="button" className={scope === 'selected' ? '' : 'secondary'} onClick={() => resetDeck('selected', situationId)}>Ця ситуація</button><button type="button" className={scope === 'all' ? '' : 'secondary'} onClick={() => resetDeck('all', situationId)}>Усі ситуації</button><button type="button" className="secondary" onClick={() => resetDeck(scope, situationId)}>↻ Перемішати заново</button></div><p className="mind-muted">Без повторів до завершення колоди · Залишилося: {deck.length} · Граматичну підказку можна приховати.</p></div><span className="mind-eyebrow">РАУНД {round + 1}{showGrammarHint ? ' · ' + exercise.label : ''}{scope === 'all' ? ' · ' + exerciseSituation.title : ''}</span><button type="button" className="mind-hint-toggle" onClick={() => setShowGrammarHint(v => !v)}>{showGrammarHint ? 'Сховати граматичну підказку' : 'Показати граматичну підказку'}</button><h2>Переклади німецькою</h2><p className="mind-prompt">{exercise.uk}</p><label htmlFor="mind-answer">Твоя відповідь</label><textarea id="mind-answer" rows="3" value={input} onChange={e => {setInput(e.target.value);setChecked(false);}} placeholder="Напиши речення німецькою або спочатку скажи його вголос…" /><div className="mind-actions"><button type="button" onClick={() => setChecked(true)} disabled={!input.trim()}>Перевірити</button><button type="button" className="secondary" onClick={() => setShowAnswer(v => !v)}>{showAnswer ? 'Сховати зразок' : 'Показати зразок'}</button><button type="button" className="secondary" onClick={next}>Пропустити →</button></div>{checked && <div className="mind-feedback">{normalize(input) === normalize(exercise.de) ? '✓ Збігається зі зразком!' : 'Текст відрізняється від зразка. Це не обов’язково помилка: можливі інші правильні формулювання.'}</div>}{(showAnswer || checked) && <div className="mind-result"><strong>Зразок відповіді</strong><p className="mind-de">{exercise.de}</p><p className="mind-tip">{exercise.tip}</p><p className="mind-muted">Самоперевірка: оцінюй зміст і граматику. Автоматична перевірка тут порівнює лише текст зі зразком.</p></div>}<div className="mind-actions"><button type="button" onClick={() => record('right')}>✓ Знаю</button><button type="button" className="secondary" onClick={() => record('review')}>↻ Повторити пізніше</button></div><p className="mind-muted">Для цієї конструкції: знаю {score.right} · повторити {score.review}. Прогрес зберігається тільки в цьому браузері.</p></section>}
+      {tab === 'training' && <section className="mind-training"><div className="mind-mode"><strong>🔀 Випадкове тренування</strong><div className="mind-level-picker"><label htmlFor="mind-level">Складність тренування</label><select id="mind-level" value={level} onChange={e => changeLevel(e.target.value)}>{[1,2,3].map(n => <option key={n} value={n}>{levelNames[n]}{n === 3 ? " · Усі конструкції" : ""}</option>)}</select><p className="mind-muted">Кожен наступний рівень включає попередні. У Mind Map і Grammatik-Quadrat завжди доступне повне дерево.</p></div><div className="mind-actions"><button type="button" className={scope === 'selected' ? '' : 'secondary'} onClick={() => resetDeck('selected', situationId)}>Ця ситуація</button><button type="button" className={scope === 'all' ? '' : 'secondary'} onClick={() => resetDeck('all', situationId)}>Усі ситуації</button><button type="button" className="secondary" onClick={() => resetDeck(scope, situationId)}>↻ Перемішати заново</button></div><p className="mind-muted">{levelNames[level]} · Без повторів до завершення колоди · Залишилося: {deck.length} · Граматичну підказку можна приховати.</p></div><span className="mind-eyebrow">РАУНД {round + 1}{showGrammarHint ? ' · ' + exercise.label : ''}{scope === 'all' ? ' · ' + exerciseSituation.title : ''}</span><button type="button" className="mind-hint-toggle" onClick={() => setShowGrammarHint(v => !v)}>{showGrammarHint ? 'Сховати граматичну підказку' : 'Показати граматичну підказку'}</button><h2>Переклади німецькою</h2><p className="mind-prompt">{exercise.uk}</p><label htmlFor="mind-answer">Твоя відповідь</label><textarea id="mind-answer" rows="3" value={input} onChange={e => {setInput(e.target.value);setChecked(false);}} placeholder="Напиши речення німецькою або спочатку скажи його вголос…" /><div className="mind-actions"><button type="button" onClick={() => setChecked(true)} disabled={!input.trim()}>Перевірити</button><button type="button" className="secondary" onClick={() => setShowAnswer(v => !v)}>{showAnswer ? 'Сховати зразок' : 'Показати зразок'}</button><button type="button" className="secondary" onClick={next}>Пропустити →</button></div>{checked && <div className="mind-feedback">{normalize(input) === normalize(exercise.de) ? '✓ Збігається зі зразком!' : 'Текст відрізняється від зразка. Це не обов’язково помилка: можливі інші правильні формулювання.'}</div>}{(showAnswer || checked) && <div className="mind-result"><strong>Зразок відповіді</strong><p className="mind-de">{exercise.de}</p><p className="mind-tip">{exercise.tip}</p><p className="mind-muted">Самоперевірка: оцінюй зміст і граматику. Автоматична перевірка тут порівнює лише текст зі зразком.</p></div>}<div className="mind-actions"><button type="button" onClick={() => record('right')}>✓ Знаю</button><button type="button" className="secondary" onClick={() => record('review')}>↻ Повторити пізніше</button></div><p className="mind-muted">Для цієї конструкції: знаю {score.right} · повторити {score.review}. Прогрес зберігається тільки в цьому браузері.</p></section>}
       {tab !== 'training' && <section className="mind-random-cta"><h3>🔀 Перевір себе без підказок</h3><p>Усі речення цієї ситуації будуть перемішані. Або вибери тренування з усіх ситуацій одразу.</p><div className="mind-actions"><button type="button" onClick={() => {resetDeck('selected',situationId);setTab('training');}}>Перемішати цю ситуацію</button><button type="button" className="secondary" onClick={() => {resetDeck('all',situationId);setTab('training');}}>Змішати всі ситуації</button></div></section>}
     </main>
   );
