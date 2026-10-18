@@ -150,6 +150,22 @@ export const situations = [
         "de": "Wenn ich gestern nicht so lange gearbeitet hätte, könnte ich heute mitkommen.",
         "uk": "Якби я вчора не працював так довго, сьогодні зміг би піти з вами.",
         "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      },
+      {
+        "id": "concession",
+        "label": "Навіть якщо: selbst wenn",
+        "group": "Зв’язки",
+        "de": "Selbst wenn ich früher Feierabend hätte, könnte ich heute wahrscheinlich nicht mitkommen.",
+        "uk": "Навіть якби я раніше закінчив роботу, сьогодні, мабуть, усе одно не зміг би піти з вами.",
+        "tip": "selbst wenn підсилює поступку; hätte і könnte — Konjunktiv II."
+      },
+      {
+        "id": "reported",
+        "label": "Непряма мова: Konjunktiv I",
+        "group": "Спілкування",
+        "de": "Ich habe gesagt, ich könne heute nicht mitkommen.",
+        "uk": "Я сказав, що сьогодні не можу піти з вами.",
+        "tip": "У непрямій мові könne — Konjunktiv I від können."
       }
     ]
   },
@@ -311,6 +327,22 @@ export const situations = [
         "de": "Wenn ich früher jeden Tag Deutsch gelernt hätte, würde ich heute flüssiger sprechen.",
         "uk": "Якби я раніше щодня вчив німецьку, сьогодні говорив би вільніше.",
         "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      },
+      {
+        "id": "concession",
+        "label": "Навіть якщо: selbst wenn",
+        "group": "Зв’язки",
+        "de": "Selbst wenn ich wenig Zeit hätte, würde ich jeden Tag Deutsch lernen.",
+        "uk": "Навіть якби я мав мало часу, я все одно щодня вчив би німецьку.",
+        "tip": "selbst wenn + Konjunktiv II виражає гіпотетичну поступку."
+      },
+      {
+        "id": "reported",
+        "label": "Непряма мова: Konjunktiv I",
+        "group": "Спілкування",
+        "de": "Er sagt, er lerne jeden Tag Deutsch.",
+        "uk": "Він каже, що щодня вивчає німецьку.",
+        "tip": "lerne — Konjunktiv I у непрямій мові; форма збігається з Präsens для ich, але не для er."
       }
     ]
   },
@@ -464,6 +496,22 @@ export const situations = [
         "de": "Wenn ich früher eine neue Stelle gesucht hätte, hätte ich jetzt vielleicht eine.",
         "uk": "Якби я раніше шукав нову роботу, можливо, зараз уже мав би її.",
         "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      },
+      {
+        "id": "concession",
+        "label": "Навіть якщо: selbst wenn",
+        "group": "Зв’язки",
+        "de": "Selbst wenn ich eine Absage bekäme, würde ich weiter nach einer neuen Stelle suchen.",
+        "uk": "Навіть якби я отримав відмову, я продовжував би шукати нову роботу.",
+        "tip": "bekäme і würde suchen — Konjunktiv II."
+      },
+      {
+        "id": "reported",
+        "label": "Непряма мова: Konjunktiv I",
+        "group": "Спілкування",
+        "de": "Sie sagt, sie suche eine neue Stelle.",
+        "uk": "Вона каже, що шукає нову роботу.",
+        "tip": "suche — Konjunktiv I у непрямій мові."
       }
     ]
   },
@@ -617,6 +665,22 @@ export const situations = [
         "de": "Wenn ich gestern alles erledigt hätte, müsste ich unseren Termin heute nicht verschieben.",
         "uk": "Якби я вчора все зробив, сьогодні мені не довелося б переносити нашу зустріч.",
         "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      },
+      {
+        "id": "concession",
+        "label": "Навіть якщо: selbst wenn",
+        "group": "Зв’язки",
+        "de": "Selbst wenn es dir nicht passt, müsste ich unseren Termin verschieben.",
+        "uk": "Навіть якщо тобі це незручно, мені довелося б перенести нашу зустріч.",
+        "tip": "selbst wenn вводить поступку; müsste — Konjunktiv II."
+      },
+      {
+        "id": "reported",
+        "label": "Непряма мова: Konjunktiv I",
+        "group": "Спілкування",
+        "de": "Er sagt, er müsse unseren Termin verschieben.",
+        "uk": "Він каже, що мусить перенести нашу зустріч.",
+        "tip": "müsse — Konjunktiv I від müssen."
       }
     ]
   },
@@ -770,6 +834,22 @@ export const situations = [
         "de": "Wenn ich deine Erklärung früher gehört hätte, würde ich das heute vielleicht anders sehen.",
         "uk": "Якби я раніше почув твоє пояснення, сьогодні, можливо, дивився б на це інакше.",
         "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      },
+      {
+        "id": "concession",
+        "label": "Навіть якщо: selbst wenn",
+        "group": "Зв’язки",
+        "de": "Selbst wenn alle anderer Meinung wären, würde ich das anders sehen.",
+        "uk": "Навіть якби всі мали іншу думку, я все одно бачив би це інакше.",
+        "tip": "wären і würde sehen — Konjunktiv II."
+      },
+      {
+        "id": "reported",
+        "label": "Непряма мова: Konjunktiv I",
+        "group": "Спілкування",
+        "de": "Sie sagt, sie sehe das anders.",
+        "uk": "Вона каже, що бачить це інакше.",
+        "tip": "sehe — Konjunktiv I від sehen."
       }
     ]
   },
@@ -923,6 +1003,22 @@ export const situations = [
         "de": "Wenn ich gestern besser aufgepasst hätte, müsste ich diesen Fehler heute nicht korrigieren.",
         "uk": "Якби я вчора був уважнішим, сьогодні не довелося б виправляти цю помилку.",
         "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      },
+      {
+        "id": "concession",
+        "label": "Навіть якщо: selbst wenn",
+        "group": "Зв’язки",
+        "de": "Selbst wenn ich mich sehr bemühen würde, könnte ich noch einen Fehler machen.",
+        "uk": "Навіть якби я дуже старався, усе одно міг би припуститися помилки.",
+        "tip": "selbst wenn із Konjunktiv II показує, що результат не гарантований."
+      },
+      {
+        "id": "reported",
+        "label": "Непряма мова: Konjunktiv I",
+        "group": "Спілкування",
+        "de": "Er sagt, er habe einen Fehler gemacht.",
+        "uk": "Він каже, що припустився помилки.",
+        "tip": "habe — Konjunktiv I у непрямій мові про минуле."
       }
     ]
   },
@@ -1076,6 +1172,22 @@ export const situations = [
         "de": "Wenn ich früher eine größere Wohnung gesucht hätte, hätte ich jetzt vielleicht mehr Platz.",
         "uk": "Якби я раніше шукав більшу квартиру, можливо, зараз мав би більше місця.",
         "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      },
+      {
+        "id": "concession",
+        "label": "Навіть якщо: selbst wenn",
+        "group": "Зв’язки",
+        "de": "Selbst wenn die Mieten weiter steigen würden, würde ich eine größere Wohnung suchen.",
+        "uk": "Навіть якби оренда продовжила дорожчати, я все одно шукав би більшу квартиру.",
+        "tip": "selbst wenn + Konjunktiv II виражає поступку."
+      },
+      {
+        "id": "reported",
+        "label": "Непряма мова: Konjunktiv I",
+        "group": "Спілкування",
+        "de": "Er sagt, er suche eine größere Wohnung.",
+        "uk": "Він каже, що шукає більшу квартиру.",
+        "tip": "suche — Konjunktiv I у непрямій мові."
       }
     ]
   },
@@ -1229,6 +1341,22 @@ export const situations = [
         "de": "Wenn ich früher etwas in meinem Leben geändert hätte, wäre ich heute vielleicht glücklicher.",
         "uk": "Якби я раніше щось змінив у своєму житті, сьогодні, можливо, був би щасливішим.",
         "tip": "Минула нереальна умова + теперішній нереальний наслідок."
+      },
+      {
+        "id": "concession",
+        "label": "Навіть якщо: selbst wenn",
+        "group": "Зв’язки",
+        "de": "Selbst wenn Veränderungen schwierig wären, würde ich etwas in meinem Leben ändern.",
+        "uk": "Навіть якби зміни були складними, я все одно щось змінив би у своєму житті.",
+        "tip": "wären і würde ändern — Konjunktiv II."
+      },
+      {
+        "id": "reported",
+        "label": "Непряма мова: Konjunktiv I",
+        "group": "Спілкування",
+        "de": "Sie sagt, sie wolle etwas in ihrem Leben ändern.",
+        "uk": "Вона каже, що хоче щось змінити у своєму житті.",
+        "tip": "wolle — Konjunktiv I від wollen."
       }
     ]
   }
