@@ -36,7 +36,7 @@ export default function MeinDeutschMindMapPage() {
   return (
     <main className="mind-page">
       <Link to="/" className="mind-back">← На головну</Link>
-      <header className="mind-hero"><span className="mind-eyebrow">READY STUDY GO · АКТИВНА НІМЕЦЬКА</span><h1>🧠 Mein Deutsch Mind Map</h1><p>Одна ситуація — багато способів висловити думку. Обирай перспективу, говори вголос і перевіряй себе.</p></header>
+      <header className="mind-hero"><span className="mind-eyebrow">READY STUDY GO · АКТИВНА НІМЕЦЬКА</span><h1>🧠 Mein Deutsch Mind Map</h1><p>Одна ситуація — багато способів висловити думку. Обирай перспективу, тренуй усне мовлення й перевіряй себе.</p></header>
       <div className="mind-toolbar"><label htmlFor="mind-situation">Життєва ситуація</label><select id="mind-situation" value={situationId} onChange={e => selectSituation(e.target.value)}>{situations.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}</select><span className="mind-stat">Виконано раундів: {total}</span></div>
       <div className="mind-tabs" role="tablist" aria-label="Режими тренування">
         {[['map','🕸️ Mind Map'],['square','▦ Grammatik-Quadrat'],['training','🎯 Training']].map(([id,label]) => <button key={id} type="button" role="tab" aria-selected={tab === id} className={tab === id ? 'active' : ''} onClick={() => {setTab(id);setShowAnswer(false);}}>{label}</button>)}
