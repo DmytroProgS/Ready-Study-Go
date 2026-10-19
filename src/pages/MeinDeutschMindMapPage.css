@@ -19,3 +19,49 @@
 .mind-prompt-card .mind-prompt{margin:0;color:#122e66;font-size:clamp(22px,3vw,29px);font-weight:800;line-height:1.5}
 .mind-extra-examples{border-top:1px solid #dce5f4;padding-top:14px;margin-top:18px;color:#23385f}
 .mind-extra-examples ul{margin:10px 0 0;padding-left:22px;line-height:1.75}
+
+.mind-branch{display:flex;flex-direction:column;gap:6px}
+.mind-branch .mind-muted{margin:0 0 8px;line-height:1.45}
+.mind-branch .mind-nodes button{display:flex;flex-direction:column;gap:5px;min-width:135px}
+.mind-branch .mind-nodes button small{font-size:11px;color:#607099}
+.mind-branch .mind-nodes button span{font-weight:650}
+
+.mind-availability-legend{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0 16px;font-size:13px;font-weight:700}
+.mind-availability-legend .mind-available{color:#217246}.mind-availability-legend .mind-unavailable{color:#b04545}
+.mind-nodes button.mind-available,.mind-square-grid button.mind-available{background:#e9f7ed;border-color:#8bc6a0;color:#174e31}
+.mind-nodes button.mind-unavailable,.mind-square-grid button.mind-unavailable{background:#fff0f0;border-color:#e7aaaa;color:#963b3b;opacity:1;cursor:not-allowed}
+.mind-nodes button.mind-available.selected,.mind-square-grid button.mind-available.selected{outline:2px solid #3c50ba;outline-offset:1px}
+.mind-square-branch{margin:16px 0 22px}.mind-square-branch h3{margin:0 0 12px;color:#19386b}
+
+.mind-alternative{margin-top:4px;font-size:clamp(17px,2.2vw,22px);color:#34518b}
+
+.mind-intent-groups{display:flex;flex-direction:column;gap:14px}
+.mind-intent-group{min-width:0}
+.mind-intent-group h4{margin:4px 0 10px;font-size:14px;font-weight:750;color:#37478a;border-left:3px solid #8d8ce4;padding-left:9px}
+.mind-intent-group .mind-nodes,.mind-intent-group .mind-square-grid{margin-top:0}
+
+/* Full-width legend prevents the empty first cell in the two-column map. */
+.mind-map>.mind-availability-legend{grid-column:1/-1;margin:0 0 2px}
+.mind-map-result{grid-column:1/-1}
+.mind-square-branch .mind-intent-group{display:block}
+.mind-inline-result{margin:12px 0 8px;background:#f8faff;border-color:#cad6f4;padding:16px}
+.mind-review-prompt{margin:12px 0 14px;padding:14px 18px}
+.mind-review-prompt .mind-prompt{font-size:clamp(19px,2.5vw,25px);line-height:1.45}
+.mind-map-result .mind-review-prompt{margin-top:16px}
+.mind-focus-picker{margin:12px 0;padding:12px 14px;border:1px solid #ddd7ff;background:#fff;border-radius:12px}
+.mind-focus-picker label{display:block;font-weight:700;margin:0 0 8px}
+.mind-focus-picker select{width:100%;max-width:350px;padding:10px;border:1px solid #cbd4ee;border-radius:9px;background:white;color:#172b53;font:inherit}
+.mind-focus-picker .mind-muted{margin:9px 0 0}
+.mind-empty-deck{border:1px dashed #cbd4ee;border-radius:12px;padding:20px;margin-top:18px;background:#fafbff}
+@media(max-width:650px){.mind-map>.mind-availability-legend{grid-column:1}}
+
+/* Stack A and C on the left while the longer B branch occupies the right. */
+@media(min-width:651px){
+  .mind-map{align-items:start;grid-template-rows:auto auto auto auto}
+  .mind-map>.mind-branch:nth-of-type(1){grid-column:1;grid-row:2}
+  .mind-map>.mind-branch:nth-of-type(2){grid-column:2;grid-row:2 / span 2}
+  .mind-map>.mind-branch:nth-of-type(3){grid-column:1;grid-row:3}
+  .mind-map>.mind-map-result{grid-column:1/-1;grid-row:4}
+}
+.mind-empty-deck h3{margin:0 0 8px;color:#183b72}
+.mind-empty-deck .mind-actions{margin-bottom:0}

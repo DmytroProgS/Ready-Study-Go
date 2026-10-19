@@ -1,4 +1,4 @@
-// Situation-centred grammar: each variant transforms the same central idea.
+// Situation-centred grammar: natural spoken transformations, no forced constructions.
 export const situations = [
   {
     "id": "invitation",
@@ -17,19 +17,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Ich konnte gestern nicht mitkommen.",
         "uk": "Учора я не зміг піти з тобою.",
-        "tip": "Präteritum модального дієслова können → konnte. Дуже природно в усному мовленні."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe gestern nicht mitkommen können.",
-        "uk": "Учора я не зміг піти з тобою.",
-        "tip": "Perfekt із модальним дієсловом та іншим інфінітивом: подвійний інфінітив mitkommen können."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Ich habe gestern nicht mitkommen können."
+        ]
       },
       {
         "id": "future",
@@ -186,19 +181,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Früher lernte ich jeden Tag Deutsch.",
         "uk": "Раніше я щодня вивчав німецьку.",
-        "tip": "Präteritum; у розмові частіше: Früher habe ich jeden Tag Deutsch gelernt."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe gestern Deutsch gelernt.",
-        "uk": "Учора я вчив німецьку.",
-        "tip": "Perfekt: haben + Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Früher habe ich jeden Tag Deutsch gelernt."
+        ]
       },
       {
         "id": "future",
@@ -343,6 +333,42 @@ export const situations = [
         "de": "Er sagt, er lerne jeden Tag Deutsch.",
         "uk": "Він каже, що щодня вивчає німецьку.",
         "tip": "lerne — Konjunktiv I у непрямій мові; форма збігається з Präsens для ich, але не для er."
+      },
+      {
+        "id": "purpose",
+        "label": "Мета · um … zu / damit",
+        "group": "Зв’язки",
+        "type": "extension",
+        "intent": "purpose",
+        "level": 2,
+        "de": "Ich lerne jeden Tag Deutsch, um besser sprechen zu können.",
+        "alternatives": [
+          "Ich lerne jeden Tag Deutsch, damit ich besser sprechen kann."
+        ],
+        "uk": "Я щодня вчу німецьку, щоб краще говорити.",
+        "tip": "um … zu — коротко про мету за того самого виконавця. damit вводить підрядне речення; тут обидва варіанти природні."
+      },
+      {
+        "id": "dependency",
+        "label": "Залежність · je … desto",
+        "group": "Зв’язки",
+        "type": "extension",
+        "intent": "dependency",
+        "level": 3,
+        "de": "Je mehr Deutsch ich lerne, desto sicherer spreche ich.",
+        "uk": "Чим більше я вчу німецьку, тим упевненіше говорю.",
+        "tip": "je + вищий ступінь у підрядній частині; desto + вищий ступінь у головній. Дієслово spreche стоїть після desto sicherer."
+      },
+      {
+        "id": "falls",
+        "label": "Умова · falls",
+        "group": "Умови",
+        "type": "extension",
+        "intent": "condition",
+        "level": 2,
+        "de": "Falls ich heute Zeit habe, lerne ich noch etwas Deutsch.",
+        "uk": "Якщо сьогодні матиму час, ще трохи повчу німецьку.",
+        "tip": "falls означає «якщо / у разі якщо». Після falls дієслово habe стоїть наприкінці підрядного речення."
       }
     ]
   },
@@ -363,19 +389,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Früher suchte ich eine neue Stelle.",
         "uk": "Раніше я шукав нову роботу.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe schon nach einer neuen Stelle gesucht.",
-        "uk": "Я вже шукав нову роботу.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Früher habe ich eine neue Stelle gesucht."
+        ]
       },
       {
         "id": "future",
@@ -532,19 +553,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
-        "de": "Ich musste den Termin verschieben.",
-        "uk": "Мені довелося перенести зустріч.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe unseren Termin verschieben müssen.",
+        "de": "Ich musste unseren Termin verschieben.",
         "uk": "Мені довелося перенести нашу зустріч.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Ich habe unseren Termin verschieben müssen."
+        ]
       },
       {
         "id": "future",
@@ -701,19 +717,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Damals sah ich das anders.",
         "uk": "Тоді я дивився на це інакше.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe das bisher anders gesehen.",
-        "uk": "Досі я дивився на це інакше.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Damals habe ich das anders gesehen."
+        ]
       },
       {
         "id": "future",
@@ -870,19 +881,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Gestern machte ich einen Fehler.",
-        "uk": "Учора я зробив помилку.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe einen Fehler gemacht.",
-        "uk": "Я припустився помилки.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "uk": "Учора я припустився помилки.",
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Gestern habe ich einen Fehler gemacht."
+        ]
       },
       {
         "id": "future",
@@ -1039,19 +1045,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Früher suchte ich eine größere Wohnung.",
         "uk": "Раніше я шукав більшу квартиру.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe schon nach einer größeren Wohnung gesucht.",
-        "uk": "Я вже шукав більшу квартиру.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Früher habe ich eine größere Wohnung gesucht."
+        ]
       },
       {
         "id": "future",
@@ -1208,19 +1209,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Früher wollte ich etwas in meinem Leben ändern.",
         "uk": "Раніше я хотів щось змінити у своєму житті.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe schon versucht, etwas in meinem Leben zu ändern.",
-        "uk": "Я вже намагався щось змінити у своєму житті.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Früher habe ich etwas in meinem Leben ändern wollen."
+        ]
       },
       {
         "id": "future",
@@ -1357,6 +1353,148 @@ export const situations = [
         "de": "Sie sagt, sie wolle etwas in ihrem Leben ändern.",
         "uk": "Вона каже, що хоче щось змінити у своєму житті.",
         "tip": "wolle — Konjunktiv I від wollen."
+      }
+    ]
+  },
+  {
+    "id": "appointment-passive",
+    "title": "Перенесення зустрічі · Aktiv / Passiv",
+    "context": "Потрібно перенести домовлену зустріч. Ти пояснюєш це колезі або другу.",
+    "core": "Ich muss den Termin verschieben.",
+    "translation": "Мені потрібно перенести зустріч.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Актив: зараз",
+        "group": "Час",
+        "de": "Ich muss den Termin verschieben.",
+        "uk": "Мені потрібно перенести зустріч.",
+        "tip": "Активна конструкція з müssen: muss + verschieben.",
+        "level": 1,
+        "type": "direct"
+      },
+      {
+        "id": "past",
+        "label": "Минуле · Präteritum / Perfekt",
+        "group": "Час",
+        "de": "Ich musste den Termin verschieben.",
+        "uk": "Мені довелося перенести зустріч.",
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "level": 1,
+        "type": "direct",
+        "alternatives": [
+          "Ich habe den Termin verschieben müssen."
+        ]
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Müssen wir den Termin verschieben?",
+        "uk": "Нам потрібно перенести зустріч?",
+        "tip": "У запитанні müssen стоїть на першому місці.",
+        "level": 1,
+        "type": "direct"
+      },
+      {
+        "id": "reason",
+        "label": "Причина: weil",
+        "group": "Зв’язки",
+        "de": "Ich muss den Termin verschieben, weil ich arbeiten muss.",
+        "uk": "Мені потрібно перенести зустріч, тому що я мушу працювати.",
+        "tip": "Після weil відмінюване дієслово переходить у кінець.",
+        "level": 2,
+        "type": "extension"
+      },
+      {
+        "id": "polite",
+        "label": "Ввічливе прохання",
+        "group": "Спілкування",
+        "de": "Könnten wir den Termin bitte verschieben?",
+        "uk": "Чи могли б ми, будь ласка, перенести зустріч?",
+        "tip": "Könnten wir ...? — звичайне ввічливе прохання.",
+        "level": 2,
+        "type": "extension"
+      },
+      {
+        "id": "passive-present",
+        "label": "Passiv: зараз",
+        "group": "Стан",
+        "de": "Der Termin wird verschoben.",
+        "uk": "Зустріч переносять.",
+        "tip": "Vorgangspassiv: werden + Partizip II. Важлива сама дія, а не виконавець.",
+        "level": 2,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-past",
+        "label": "Passiv: минуле",
+        "group": "Стан",
+        "de": "Der Termin wurde verschoben.",
+        "uk": "Зустріч перенесли.",
+        "tip": "Präteritum Passiv: wurde + Partizip II.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-perfect",
+        "label": "Passiv: Perfekt",
+        "group": "Стан",
+        "de": "Der Termin ist verschoben worden.",
+        "uk": "Зустріч перенесли.",
+        "tip": "Perfekt Passiv: ist + Partizip II + worden. У побуті часто простіше: Der Termin wurde verschoben.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-modal",
+        "label": "Passiv + müssen",
+        "group": "Стан",
+        "de": "Der Termin muss verschoben werden.",
+        "uk": "Зустріч потрібно перенести.",
+        "tip": "Модальне дієслово + Partizip II + werden.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-question",
+        "label": "Запитання в Passiv",
+        "group": "Стан",
+        "de": "Wurde der Termin schon verschoben?",
+        "uk": "Зустріч уже перенесли?",
+        "tip": "Passiv Präteritum у запитанні: Wurde + підмет + Partizip II.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-weil",
+        "label": "Passiv + weil",
+        "group": "Стан",
+        "de": "Der Termin wird verschoben, weil der Raum nicht frei ist.",
+        "uk": "Зустріч переносять, тому що приміщення зайняте.",
+        "tip": "Поєднання пасиву з причиною; ist наприкінці weil-речення.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-dass",
+        "label": "Passiv + dass",
+        "group": "Стан",
+        "de": "Ich hoffe, dass der Termin nicht verschoben werden muss.",
+        "uk": "Сподіваюся, що зустріч не доведеться переносити.",
+        "tip": "У підрядному реченні з dass модальне muss стоїть наприкінці.",
+        "level": 4,
+        "type": "perspective"
+      },
+      {
+        "id": "state-passive",
+        "label": "Результат: Zustandspassiv",
+        "group": "Стан",
+        "de": "Der Termin ist jetzt verschoben.",
+        "uk": "Тепер зустріч уже перенесена.",
+        "tip": "sein + Partizip II підкреслює результат, а не процес.",
+        "level": 4,
+        "type": "perspective"
       }
     ]
   }
