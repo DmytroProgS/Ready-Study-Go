@@ -32,3 +32,5 @@
 .mind-nodes button.mind-unavailable,.mind-square-grid button.mind-unavailable{background:#fff0f0;border-color:#e7aaaa;color:#963b3b;opacity:1;cursor:not-allowed}
 .mind-nodes button.mind-available.selected,.mind-square-grid button.mind-available.selected{outline:2px solid #3c50ba;outline-offset:1px}
 .mind-square-branch{margin:16px 0 22px}.mind-square-branch h3{margin:0 0 12px;color:#19386b}
+
+.mind-alternative{margin-top:4px;font-size:clamp(17px,2.2vw,22px);color:#34518b}
