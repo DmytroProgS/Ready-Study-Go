@@ -163,7 +163,7 @@ export default function MeinDeutschMindMapPage() {
   const [level, setLevel] = useState(1);
   const [focus, setFocus] = useState('all');
   const [deck, setDeck] = useState(() => makeDeck('selected', situations[0].id));
-  const [initialDeck, setInitialDeck] = useState(() => []);
+  const [initialDeck, setInitialDeck] = useState(() => deck);
   const [showGrammarHint, setShowGrammarHint] = useState(false);
   const situation = situations.find(item => item.id === situationId) || situations[0];
   const variant = situation.variants.find(item => item.id === variantId) || situation.variants[0];
