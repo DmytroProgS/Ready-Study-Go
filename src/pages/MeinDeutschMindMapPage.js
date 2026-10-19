@@ -15,7 +15,6 @@ const grammarCatalog = [
   ['reason','weil · причина','extension'],['contrast','obwohl · попри','extension'],['deshalb','deshalb · наслідок','extension'],['trotzdem','trotzdem · попри','extension'],['dass','dass · думка','extension'],['polite','Ввічливе прохання','extension'],['hypothetical','Уявна умова','extension'],['regret','Жаль про минуле','extension'],['mixed','Змішана умова','extension'],['concession','selbst wenn','extension'],['indirect','Непряме питання','extension'],['zu','Infinitiv mit zu','extension'],
   ['relative','Relativsatz','perspective'],['reported','Konjunktiv I','perspective'],['passive','Passiv','perspective'],['passive-present','Passiv Präsens','perspective'],['passive-past','Passiv Präteritum','perspective'],['passive-perfect','Passiv Perfekt','perspective'],['passive-modal','Passiv + Modalverb','perspective'],['passive-question','Passiv Frage','perspective'],['passive-weil','Passiv + weil','perspective'],['passive-dass','Passiv + dass','perspective'],['state-passive','Zustandspassiv','perspective']
 ];
-const hasGrammar = (s, id) => s.variants.some(v => v.id === id || (id === 'passive' && v.id.startsWith('passive-')));
 const catalogFor = (s, branch) => grammarCatalog.filter(([id,,type]) => type === branch && (id !== 'passive' || !s.variants.some(v => v.id.startsWith('passive-'))));
 const grammarLegend = <p className="mind-availability-legend"><span className="mind-available">● Є приклад</span><span className="mind-unavailable">● Немає природного прикладу в цій ситуації</span></p>;
 const shuffle = items => {
