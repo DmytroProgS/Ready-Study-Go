@@ -19,3 +19,9 @@
 .mind-prompt-card .mind-prompt{margin:0;color:#122e66;font-size:clamp(22px,3vw,29px);font-weight:800;line-height:1.5}
 .mind-extra-examples{border-top:1px solid #dce5f4;padding-top:14px;margin-top:18px;color:#23385f}
 .mind-extra-examples ul{margin:10px 0 0;padding-left:22px;line-height:1.75}
+
+.mind-branch{display:flex;flex-direction:column;gap:6px}
+.mind-branch .mind-muted{margin:0 0 8px;line-height:1.45}
+.mind-branch .mind-nodes button{display:flex;flex-direction:column;gap:5px;min-width:135px}
+.mind-branch .mind-nodes button small{font-size:11px;color:#607099}
+.mind-branch .mind-nodes button span{font-weight:650}
