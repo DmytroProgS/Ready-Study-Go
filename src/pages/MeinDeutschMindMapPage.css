@@ -34,3 +34,8 @@
 .mind-square-branch{margin:16px 0 22px}.mind-square-branch h3{margin:0 0 12px;color:#19386b}
 
 .mind-alternative{margin-top:4px;font-size:clamp(17px,2.2vw,22px);color:#34518b}
+
+.mind-intent-groups{display:flex;flex-direction:column;gap:14px}
+.mind-intent-group{min-width:0}
+.mind-intent-group h4{margin:4px 0 10px;font-size:14px;font-weight:750;color:#37478a;border-left:3px solid #8d8ce4;padding-left:9px}
+.mind-intent-group .mind-nodes,.mind-intent-group .mind-square-grid{margin-top:0}
