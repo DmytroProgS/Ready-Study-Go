@@ -25,3 +25,10 @@
 .mind-branch .mind-nodes button{display:flex;flex-direction:column;gap:5px;min-width:135px}
 .mind-branch .mind-nodes button small{font-size:11px;color:#607099}
 .mind-branch .mind-nodes button span{font-weight:650}
+
+.mind-availability-legend{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0 16px;font-size:13px;font-weight:700}
+.mind-availability-legend .mind-available{color:#217246}.mind-availability-legend .mind-unavailable{color:#b04545}
+.mind-nodes button.mind-available,.mind-square-grid button.mind-available{background:#e9f7ed;border-color:#8bc6a0;color:#174e31}
+.mind-nodes button.mind-unavailable,.mind-square-grid button.mind-unavailable{background:#fff0f0;border-color:#e7aaaa;color:#963b3b;opacity:1;cursor:not-allowed}
+.mind-nodes button.mind-available.selected,.mind-square-grid button.mind-available.selected{outline:2px solid #3c50ba;outline-offset:1px}
+.mind-square-branch{margin:16px 0 22px}.mind-square-branch h3{margin:0 0 12px;color:#19386b}
