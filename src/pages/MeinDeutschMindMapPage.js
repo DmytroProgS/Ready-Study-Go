@@ -21,6 +21,14 @@ const shuffle = items => {
 const levelFor = id => ({present:1,past:1,perfect:1,future:1,question:1,reason:1,contrast:2,hypothetical:2,regret:3,polite:2,negative:2,deshalb:2,trotzdem:2,dass:2,indirect:3,relative:3,zu:3,passive:3,mixed:3,concession:4,reported:4})[id] || 4;
 const levelNames = ['','Рівень 1 · Основа','Рівень 2 · Розширення','Рівень 3 · B2–C1','Рівень 4 · C1'];
 const grammarExamples = {
+  "passive-present":["Die Besprechung wird verschoben.","Der Raum wird reserviert."],
+  "passive-past":["Die Besprechung wurde abgesagt.","Der Termin wurde bestätigt."],
+  "passive-perfect":["Die Besprechung ist abgesagt worden.","Die Unterlagen sind verschickt worden."],
+  "passive-modal":["Die Besprechung muss verschoben werden.","Der Raum muss reserviert werden."],
+  "passive-question":["Wurde die Besprechung abgesagt?","Wurde der Termin bestätigt?"],
+  "passive-weil":["Die Besprechung wird verschoben, weil jemand krank ist.","Der Termin wird abgesagt, weil der Raum nicht frei ist."],
+  "passive-dass":["Ich hoffe, dass die Besprechung nicht abgesagt werden muss.","Sie sagt, dass der Termin verschoben werden muss."],
+  "state-passive":["Der Raum ist schon reserviert.","Die Besprechung ist jetzt abgesagt."],
   "present": [
     "Ich lerne auch am Wochenende Deutsch.",
     "Heute kann ich leider nicht mitkommen."
