@@ -39,3 +39,18 @@
 .mind-intent-group{min-width:0}
 .mind-intent-group h4{margin:4px 0 10px;font-size:14px;font-weight:750;color:#37478a;border-left:3px solid #8d8ce4;padding-left:9px}
 .mind-intent-group .mind-nodes,.mind-intent-group .mind-square-grid{margin-top:0}
+
+/* Full-width legend prevents the empty first cell in the two-column map. */
+.mind-map>.mind-availability-legend{grid-column:1/-1;margin:0 0 2px}
+.mind-map-result{grid-column:1/-1}
+.mind-square-branch .mind-intent-group{display:block}
+.mind-inline-result{margin:12px 0 8px;background:#f8faff;border-color:#cad6f4;padding:16px}
+.mind-review-prompt{margin:12px 0 14px;padding:14px 18px}
+.mind-review-prompt .mind-prompt{font-size:clamp(19px,2.5vw,25px);line-height:1.45}
+.mind-map-result .mind-review-prompt{margin-top:16px}
+.mind-focus-picker{margin:12px 0;padding:12px 14px;border:1px solid #ddd7ff;background:#fff;border-radius:12px}
+.mind-focus-picker label{display:block;font-weight:700;margin:0 0 8px}
+.mind-focus-picker select{width:100%;max-width:350px;padding:10px;border:1px solid #cbd4ee;border-radius:9px;background:white;color:#172b53;font:inherit}
+.mind-focus-picker .mind-muted{margin:9px 0 0}
+.mind-empty-deck{border:1px dashed #cbd4ee;border-radius:12px;padding:20px;margin-top:18px;background:#fafbff}
+@media(max-width:650px){.mind-map>.mind-availability-legend{grid-column:1}}
