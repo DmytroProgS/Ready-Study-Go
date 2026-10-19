@@ -1,4 +1,4 @@
-// Situation-centred grammar: each variant transforms the same central idea.
+// Situation-centred grammar: natural spoken transformations, no forced constructions.
 export const situations = [
   {
     "id": "invitation",
@@ -1357,6 +1357,155 @@ export const situations = [
         "de": "Sie sagt, sie wolle etwas in ihrem Leben ändern.",
         "uk": "Вона каже, що хоче щось змінити у своєму житті.",
         "tip": "wolle — Konjunktiv I від wollen."
+      }
+    ]
+  },
+  {
+    "id": "appointment-passive",
+    "title": "Перенесення зустрічі · Aktiv / Passiv",
+    "context": "Потрібно перенести домовлену зустріч. Ти пояснюєш це колезі або другу.",
+    "core": "Ich muss den Termin verschieben.",
+    "translation": "Мені потрібно перенести зустріч.",
+    "variants": [
+      {
+        "id": "present",
+        "label": "Актив: зараз",
+        "group": "Час",
+        "de": "Ich muss den Termin verschieben.",
+        "uk": "Мені потрібно перенести зустріч.",
+        "tip": "Активна конструкція з müssen: muss + verschieben.",
+        "level": 1,
+        "type": "direct"
+      },
+      {
+        "id": "past",
+        "label": "Актив: минуле",
+        "group": "Час",
+        "de": "Ich musste den Termin verschieben.",
+        "uk": "Мені довелося перенести зустріч.",
+        "tip": "Präteritum від müssen: musste.",
+        "level": 1,
+        "type": "direct"
+      },
+      {
+        "id": "perfect",
+        "label": "Актив: Perfekt",
+        "group": "Час",
+        "de": "Ich habe den Termin verschoben.",
+        "uk": "Я переніс зустріч.",
+        "tip": "Perfekt: haben + verschoben. Дуже природна розмовна форма.",
+        "level": 1,
+        "type": "direct"
+      },
+      {
+        "id": "question",
+        "label": "Запитання",
+        "group": "Спілкування",
+        "de": "Müssen wir den Termin verschieben?",
+        "uk": "Нам потрібно перенести зустріч?",
+        "tip": "У запитанні müssen стоїть на першому місці.",
+        "level": 1,
+        "type": "direct"
+      },
+      {
+        "id": "reason",
+        "label": "Причина: weil",
+        "group": "Зв’язки",
+        "de": "Ich muss den Termin verschieben, weil ich arbeiten muss.",
+        "uk": "Мені потрібно перенести зустріч, тому що я мушу працювати.",
+        "tip": "Після weil відмінюване дієслово переходить у кінець.",
+        "level": 2,
+        "type": "extension"
+      },
+      {
+        "id": "polite",
+        "label": "Ввічливе прохання",
+        "group": "Спілкування",
+        "de": "Könnten wir den Termin bitte verschieben?",
+        "uk": "Чи могли б ми, будь ласка, перенести зустріч?",
+        "tip": "Könnten wir ...? — звичайне ввічливе прохання.",
+        "level": 2,
+        "type": "extension"
+      },
+      {
+        "id": "passive-present",
+        "label": "Passiv: зараз",
+        "group": "Стан",
+        "de": "Der Termin wird verschoben.",
+        "uk": "Зустріч переносять.",
+        "tip": "Vorgangspassiv: werden + Partizip II. Важлива сама дія, а не виконавець.",
+        "level": 2,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-past",
+        "label": "Passiv: минуле",
+        "group": "Стан",
+        "de": "Der Termin wurde verschoben.",
+        "uk": "Зустріч перенесли.",
+        "tip": "Präteritum Passiv: wurde + Partizip II.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-perfect",
+        "label": "Passiv: Perfekt",
+        "group": "Стан",
+        "de": "Der Termin ist verschoben worden.",
+        "uk": "Зустріч перенесли.",
+        "tip": "Perfekt Passiv: ist + Partizip II + worden. У побуті часто простіше: Der Termin wurde verschoben.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-modal",
+        "label": "Passiv + müssen",
+        "group": "Стан",
+        "de": "Der Termin muss verschoben werden.",
+        "uk": "Зустріч потрібно перенести.",
+        "tip": "Модальне дієслово + Partizip II + werden.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-question",
+        "label": "Запитання в Passiv",
+        "group": "Стан",
+        "de": "Wurde der Termin schon verschoben?",
+        "uk": "Зустріч уже перенесли?",
+        "tip": "Passiv Präteritum у запитанні: Wurde + підмет + Partizip II.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-weil",
+        "label": "Passiv + weil",
+        "group": "Стан",
+        "de": "Der Termin wird verschoben, weil der Raum nicht frei ist.",
+        "uk": "Зустріч переносять, тому що приміщення зайняте.",
+        "tip": "Поєднання пасиву з причиною; ist наприкінці weil-речення.",
+        "level": 3,
+        "type": "perspective"
+      },
+      {
+        "id": "passive-dass",
+        "label": "Passiv + dass",
+        "group": "Стан",
+        "de": "Ich hoffe, dass der Termin nicht verschoben werden muss.",
+        "uk": "Сподіваюся, що зустріч не доведеться переносити.",
+        "tip": "У підрядному реченні з dass модальне muss стоїть наприкінці.",
+        "level": 4,
+        "type": "perspective"
+      },
+      {
+        "id": "state-passive",
+        "label": "Результат: Zustandspassiv",
+        "group": "Стан",
+        "de": "Der Termin ist jetzt verschoben.",
+        "uk": "Тепер зустріч уже перенесена.",
+        "tip": "sein + Partizip II підкреслює результат, а не процес.",
+        "level": 4,
+        "type": "perspective"
       }
     ]
   }
