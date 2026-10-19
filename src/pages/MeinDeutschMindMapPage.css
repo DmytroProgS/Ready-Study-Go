@@ -54,3 +54,14 @@
 .mind-focus-picker .mind-muted{margin:9px 0 0}
 .mind-empty-deck{border:1px dashed #cbd4ee;border-radius:12px;padding:20px;margin-top:18px;background:#fafbff}
 @media(max-width:650px){.mind-map>.mind-availability-legend{grid-column:1}}
+
+/* Stack A and C on the left while the longer B branch occupies the right. */
+@media(min-width:651px){
+  .mind-map{align-items:start;grid-template-rows:auto auto auto auto}
+  .mind-map>.mind-branch:nth-of-type(1){grid-column:1;grid-row:2}
+  .mind-map>.mind-branch:nth-of-type(2){grid-column:2;grid-row:2 / span 2}
+  .mind-map>.mind-branch:nth-of-type(3){grid-column:1;grid-row:3}
+  .mind-map>.mind-map-result{grid-column:1/-1;grid-row:4}
+}
+.mind-empty-deck h3{margin:0 0 8px;color:#183b72}
+.mind-empty-deck .mind-actions{margin-bottom:0}
