@@ -333,6 +333,42 @@ export const situations = [
         "de": "Er sagt, er lerne jeden Tag Deutsch.",
         "uk": "Він каже, що щодня вивчає німецьку.",
         "tip": "lerne — Konjunktiv I у непрямій мові; форма збігається з Präsens для ich, але не для er."
+      },
+      {
+        "id": "purpose",
+        "label": "Мета · um … zu / damit",
+        "group": "Зв’язки",
+        "type": "extension",
+        "intent": "purpose",
+        "level": 2,
+        "de": "Ich lerne jeden Tag Deutsch, um besser sprechen zu können.",
+        "alternatives": [
+          "Ich lerne jeden Tag Deutsch, damit ich besser sprechen kann."
+        ],
+        "uk": "Я щодня вчу німецьку, щоб краще говорити.",
+        "tip": "um … zu — коротко про мету за того самого виконавця. damit вводить підрядне речення; тут обидва варіанти природні."
+      },
+      {
+        "id": "dependency",
+        "label": "Залежність · je … desto",
+        "group": "Зв’язки",
+        "type": "extension",
+        "intent": "dependency",
+        "level": 3,
+        "de": "Je mehr Deutsch ich lerne, desto sicherer spreche ich.",
+        "uk": "Чим більше я вчу німецьку, тим упевненіше говорю.",
+        "tip": "je + вищий ступінь у підрядній частині; desto + вищий ступінь у головній. Дієслово spreche стоїть після desto sicherer."
+      },
+      {
+        "id": "falls",
+        "label": "Умова · falls",
+        "group": "Умови",
+        "type": "extension",
+        "intent": "condition",
+        "level": 2,
+        "de": "Falls ich heute Zeit habe, lerne ich noch etwas Deutsch.",
+        "uk": "Якщо сьогодні матиму час, ще трохи повчу німецьку.",
+        "tip": "falls означає «якщо / у разі якщо». Після falls дієслово habe стоїть наприкінці підрядного речення."
       }
     ]
   },
