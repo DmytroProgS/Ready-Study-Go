@@ -17,19 +17,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Ich konnte gestern nicht mitkommen.",
         "uk": "Учора я не зміг піти з тобою.",
-        "tip": "Präteritum модального дієслова können → konnte. Дуже природно в усному мовленні."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe gestern nicht mitkommen können.",
-        "uk": "Учора я не зміг піти з тобою.",
-        "tip": "Perfekt із модальним дієсловом та іншим інфінітивом: подвійний інфінітив mitkommen können."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Ich habe gestern nicht mitkommen können."
+        ]
       },
       {
         "id": "future",
@@ -186,19 +181,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Früher lernte ich jeden Tag Deutsch.",
         "uk": "Раніше я щодня вивчав німецьку.",
-        "tip": "Präteritum; у розмові частіше: Früher habe ich jeden Tag Deutsch gelernt."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe gestern Deutsch gelernt.",
-        "uk": "Учора я вчив німецьку.",
-        "tip": "Perfekt: haben + Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Früher habe ich jeden Tag Deutsch gelernt."
+        ]
       },
       {
         "id": "future",
@@ -363,19 +353,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Früher suchte ich eine neue Stelle.",
         "uk": "Раніше я шукав нову роботу.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe schon nach einer neuen Stelle gesucht.",
-        "uk": "Я вже шукав нову роботу.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Früher habe ich eine neue Stelle gesucht."
+        ]
       },
       {
         "id": "future",
@@ -532,19 +517,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
-        "de": "Ich musste den Termin verschieben.",
-        "uk": "Мені довелося перенести зустріч.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe unseren Termin verschieben müssen.",
+        "de": "Ich musste unseren Termin verschieben.",
         "uk": "Мені довелося перенести нашу зустріч.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Ich habe unseren Termin verschieben müssen."
+        ]
       },
       {
         "id": "future",
@@ -701,19 +681,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Damals sah ich das anders.",
         "uk": "Тоді я дивився на це інакше.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe das bisher anders gesehen.",
-        "uk": "Досі я дивився на це інакше.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Damals habe ich das anders gesehen."
+        ]
       },
       {
         "id": "future",
@@ -870,19 +845,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Gestern machte ich einen Fehler.",
-        "uk": "Учора я зробив помилку.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe einen Fehler gemacht.",
-        "uk": "Я припустився помилки.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "uk": "Учора я припустився помилки.",
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Gestern habe ich einen Fehler gemacht."
+        ]
       },
       {
         "id": "future",
@@ -1039,19 +1009,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Früher suchte ich eine größere Wohnung.",
         "uk": "Раніше я шукав більшу квартиру.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe schon nach einer größeren Wohnung gesucht.",
-        "uk": "Я вже шукав більшу квартиру.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Früher habe ich eine größere Wohnung gesucht."
+        ]
       },
       {
         "id": "future",
@@ -1208,19 +1173,14 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Früher wollte ich etwas in meinem Leben ändern.",
         "uk": "Раніше я хотів щось змінити у своєму житті.",
-        "tip": "Präteritum: форма для розповіді про минуле."
-      },
-      {
-        "id": "perfect",
-        "label": "Perfekt",
-        "group": "Час",
-        "de": "Ich habe schon versucht, etwas in meinem Leben zu ändern.",
-        "uk": "Я вже намагався щось змінити у своєму житті.",
-        "tip": "Perfekt: допоміжне дієслово й Partizip II."
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
+        "alternatives": [
+          "Früher habe ich etwas in meinem Leben ändern wollen."
+        ]
       },
       {
         "id": "future",
@@ -1379,23 +1339,16 @@ export const situations = [
       },
       {
         "id": "past",
-        "label": "Актив: минуле",
+        "label": "Минуле · Präteritum / Perfekt",
         "group": "Час",
         "de": "Ich musste den Termin verschieben.",
         "uk": "Мені довелося перенести зустріч.",
-        "tip": "Präteritum від müssen: musste.",
+        "tip": "Два природні способи сказати ту саму думку в минулому: Präteritum або Perfekt. Обидва варіанти правильні.",
         "level": 1,
-        "type": "direct"
-      },
-      {
-        "id": "perfect",
-        "label": "Актив: Perfekt",
-        "group": "Час",
-        "de": "Ich habe den Termin verschoben.",
-        "uk": "Я переніс зустріч.",
-        "tip": "Perfekt: haben + verschoben. Дуже природна розмовна форма.",
-        "level": 1,
-        "type": "direct"
+        "type": "direct",
+        "alternatives": [
+          "Ich habe den Termin verschieben müssen."
+        ]
       },
       {
         "id": "question",
