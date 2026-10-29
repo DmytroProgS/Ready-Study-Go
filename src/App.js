@@ -48,6 +48,7 @@ import TrainerPage from './pages/trainer/TrainerPage';
 import VoiceTrainerPage from './pages/trainer/VoiceTrainerPage';
 import SelfStudyPage from './pages/selfstudy/SelfStudyPage';
 import SelfStudy0510Page from './pages/selfstudy/SelfStudy0510Page';
+import SelfStudy2910Page from './pages/selfstudy/SelfStudy2910Page';
 import WordTrainerPage from './pages/WordTrainerPage';
 import AkkusativDativExercisePage from './pages/AkkusativDativExercisePage';
 import WechselpraepositionenExercisePage from './pages/WechselpraepositionenExercisePage';
@@ -88,6 +89,7 @@ function App() {
           <Route path="/trainer-voice" element={<VoiceTrainerPage />} />
           <Route path="/self-study" element={<SelfStudyPage />} />
           <Route path="/self-study/05-10" element={<SelfStudy0510Page />} />
+          <Route path="/self-study/29-10" element={<SelfStudy2910Page />} />
           <Route path="/b2" element={<B2Page />} />
           <Route path="/b2/horen" element={<HorenPage />} />
           <Route path="/b2/horen/teil1" element={<HorenTeil1Page />} />
