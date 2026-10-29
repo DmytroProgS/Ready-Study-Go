@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { lesson2910Exercises } from '../../data/selfStudy2910Data';
+import { lesson2910ExtraExercises } from '../../data/selfStudy2910ExtraData';
 import '../homework/Familiengeschichte.css';
 import '../homework/HomeworkSet4.css';
 import './SelfStudy2910Page.css';
@@ -18,7 +19,7 @@ function PracticeDeck({ exercise }) {
       <div className="lesson2910-counter">Картка {index + 1} із {exercise.cards.length}</div>
       <div className="lesson2910-uk">{card.uk}</div>
       <p className="lesson2910-instruction">Скажи німецькою вголос, потім відкрий відповідь.</p>
-      {revealed && <div className="lesson2910-answer"><strong>{card.de}</strong><div className="lesson2910-tip">💡 {card.tip}</div></div>}
+      {revealed && <div className="lesson2910-answer"><strong>{card.de}</strong><div className="lesson2910-tip">💡 {card.tip}</div>{card.explanation && <div className="lesson2910-explanation"><h3>Пояснення</h3>{card.explanation.split("\n").map((line, i) => line ? <p key={i}>{line}</p> : null)}</div>}</div>}
       <div className="lesson2910-actions">
         <button type="button" onClick={() => setRevealed(v => !v)}>{revealed ? 'Сховати відповідь' : 'Показати відповідь'}</button>
         <button type="button" className="lesson2910-secondary" onClick={next}>Наступна →</button>
@@ -39,6 +40,7 @@ export default function SelfStudy2910Page() {
     <section className="set4-exercise lesson2910-section">
       {active==='theory' ? <div className="lesson2910-theory"><h2>Презентація · Дієслова з прийменниками</h2><p>Оригінальна презентація у форматі PDF — без змін. Її можна читати прямо тут або відкрити окремо.</p><div className="lesson2910-pdf-actions"><a href={process.env.PUBLIC_URL + '/lessons/diieslova-z-pryimennykamy.pdf'} target="_blank" rel="noopener noreferrer">📄 Відкрити PDF у новій вкладці</a><a href={process.env.PUBLIC_URL + '/lessons/diieslova-z-pryimennykamy.pdf'} download>⬇ Завантажити PDF</a></div><iframe className="lesson2910-pdf" title="Оригінальна презентація: дієслова з прийменниками" src={process.env.PUBLIC_URL + '/lessons/diieslova-z-pryimennykamy.pdf#toolbar=1'} /></div> : <PracticeDeck key={active} exercise={lesson2910Exercises[Number(active.replace('exercise',''))]}/>}
     </section>
+    {active.startsWith('exercise') && Number(active.replace('exercise','')) === 0 && <section className="lesson2910-extra-section"><h2>Закріплення матеріалу</h2><p>10 твоїх додаткових прикладів до вправи 1. Окрема колода — можеш проходити незалежно від презентації.</p><PracticeDeck key={active + '-extra'} exercise={lesson2910ExtraExercises[0]}/></section>}
     <Link to="/self-study" className="back-link">&larr; Назад</Link>
   </div>;
 }
