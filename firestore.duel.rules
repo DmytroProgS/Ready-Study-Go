@@ -78,14 +78,10 @@ service cloud.firestore {
           && !(uid() in resource.data.ready.keys())
           && resource.data.ready.size() == 1
           && resource.data.ready.keys().hasOnly(resource.data.players.keys())
-          && resource.data.ready.values().hasOnly([true])
           && request.resource.data.index == resource.data.index + 1
           && request.resource.data.status == (resource.data.index == 19 ? 'finished' : 'playing')
           && request.resource.data.answers == {}
           && request.resource.data.ready == {}
-          && request.resource.data.get('history', []).size() == resource.data.get('history', []).size() + 1
-          && request.resource.data.history.size() == resource.data.index + 1
-          && request.resource.data.history[resource.data.index].answers == resource.data.answers
           && request.resource.data.history == resource.data.get('history', []) + [{'answers': resource.data.answers}]
           && sameBase()
           && changedOnly(['history', 'index', 'status', 'answers', 'ready']);
