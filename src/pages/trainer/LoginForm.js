@@ -13,8 +13,14 @@ function friendlyError(code) {
       return 'Невірний email або пароль.';
     case 'auth/too-many-requests':
       return 'Забагато спроб. Спробуй трохи згодом.';
+    case 'auth/network-request-failed':
+      return 'Помилка мережі або блокування запиту Firebase (auth/network-request-failed).';
+    case 'auth/unauthorized-domain':
+      return 'Тестовий домен не дозволений у Firebase Authentication (auth/unauthorized-domain).';
+    case 'auth/operation-not-allowed':
+      return 'Спосіб входу не увімкнено у Firebase (auth/operation-not-allowed).';
     default:
-      return 'Не вдалося увійти. Спробуй ще раз.';
+      return `Не вдалося увійти. Код Firebase: ${code || 'невідомий'}.`;
   }
 }
 
