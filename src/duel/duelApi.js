@@ -59,6 +59,7 @@ export async function submitAnswer(code, user, index, answer) {
     if (!s.exists()) throw new Error('Кімнату не знайдено.');
     const room = s.data();
     if (!room.players[user.uid] || room.status !== 'playing' || room.index !== index) throw new Error('Питання вже змінилося.');
+    if (!Number.isInteger(answer) || answer < 0 || answer > 3) throw new Error('Неправильний варіант відповіді.');
     if (room.answers[user.uid] !== undefined) return;
     tx.update(r, { answers: { ...room.answers, [user.uid]: answer } });
   });
@@ -69,7 +70,7 @@ export async function markReady(code, user, index, total) {
     const r = refFor(code), s = await tx.get(r);
     if (!s.exists()) throw new Error('Кімнату не знайдено.');
     const room = s.data(), uids = Object.keys(room.players);
-    if (!room.players[user.uid] || room.status !== 'playing' || room.index !== index || uids.some(uid => room.answers[uid] === undefined)) throw new Error('Очікуємо відповіді обох гравців.');
+    if (!room.players[user.uid] || room.status !== 'playing' || room.index !== index || uids.length !== 2 || uids.some(uid => room.answers[uid] === undefined)) throw new Error('Очікуємо відповіді обох гравців.');
     const ready = { ...room.ready, [user.uid]: true };
     if (uids.every(uid => ready[uid])) {
       const history = [...(room.history || []), { answers: room.answers }];
