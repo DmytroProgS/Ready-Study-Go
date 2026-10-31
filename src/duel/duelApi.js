@@ -1,4 +1,4 @@
-import { doc, getDoc, onSnapshot, runTransaction, serverTimestamp, setDoc } from 'firebase/firestore';
+import { doc, onSnapshot, runTransaction, serverTimestamp } from 'firebase/firestore';
 import { db } from '../trainer/firebase';
 
 const refFor = code => doc(db, 'duelRooms', code);
