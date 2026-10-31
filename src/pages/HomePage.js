@@ -34,6 +34,15 @@ function HomePage() {
         </Link>
       </div>
 
+      <h2 className="b2-section-title">Гра для двох</h2>
+      <div className="b2-sections">
+        <Link to="/deutsch-duell" className="b2-card b2-card--ready" style={{ background: 'linear-gradient(110deg, #e5efff, #e8f8ef)', borderLeftColor: '#3859c9' }}>
+          <span className="b2-card__icon">🎮</span>
+          <span className="b2-card__label">Deutsch Duell · 20 питань для двох гравців</span>
+          <span className="b2-card__pig">🏆</span>
+        </Link>
+      </div>
+
       <h2 className="b2-section-title">Тренування граматики</h2>
       <div className="b2-sections">
         <Link to="/grammar" className="b2-card b2-card--ready">
