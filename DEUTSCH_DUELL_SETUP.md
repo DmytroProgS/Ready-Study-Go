@@ -1,30 +1,31 @@
-# Deutsch Duell — MVP setup
+# Deutsch Duell — тестування MVP
 
-The game is available at `#/deutsch-duell` and uses the existing Firebase Authentication and Cloud Firestore.
+Сторінка: `#/deutsch-duell`. Потрібні два різні акаунти Firebase Authentication, відкриті на двох пристроях.
 
-## Before testing: Firestore security rules
+## 1. Правила Firestore
 
-The web app alone cannot grant access to the `duelRooms` collection. In Firebase Console → Firestore Database → Rules, **merge** the following `match` block inside the existing `match /databases/{database}/documents` block. Do not replace the existing rules for `users/{uid}`, because the Trainer depends on them.
+Відкрий Firebase Console → Firestore Database → **Rules**. Збережи копію поточних правил.
 
-```
-match /duelRooms/{roomCode} {
-  allow create: if request.auth != null
-    && request.resource.data.host == request.auth.uid
-    && request.resource.data.players.keys().hasOnly([request.auth.uid])
-    && request.resource.data.status == 'lobby';
-  allow read: if request.auth != null
-    && request.auth.uid in resource.data.players.keys();
-  allow update: if request.auth != null
-    && request.auth.uid in resource.data.players.keys()
-    && request.resource.data.host == resource.data.host
-    && request.resource.data.players.keys().hasAll(resource.data.players.keys())
-    && request.resource.data.players.size() <= 2;
-  allow delete: if false;
-}
-```
+У репозиторії відкрий файл [firestore.duel.rules](./firestore.duel.rules). **Скопіюй тільки блок `match /duelRooms/{roomCode} { ... }`** і встав його всередину наявного `match /databases/{database}/documents { ... }`, поряд із `match /users/{userId}/{document=**}`.
 
-**Joining needs a special rule:** Firestore reads are denied to users not yet in the room, and the current client joins via a transaction that reads the room first. To support join-by-code, replace the `allow read` line above with `allow get: if request.auth != null; allow list: if false;`. This exposes room data to any signed-in user who knows its six-character code. Use only for a private prototype. For a production-ready public game, move joining and authoritative scoring to a trusted backend (Cloud Functions) and enforce ownership of each answer.
+Не замінюй увесь вміст Rules файлом з репозиторію: чинні правила `users` потрібні Trainer. Переконайся, що дужки правильно закриті, потім натисни Publish.
 
-This prototype does not save long-term statistics. Room documents store answers and scores for the current game only. Both users must log in with existing accounts. The host creates a room, the guest joins by code, and both answer the same 20 questions. Both answers are required before feedback; both press Next to advance.
+Права гри: тільки авторизовані можуть створити кімнату; гість може додати тільки себе; тільки організатор починає гру; відповідь можна записати один раз і лише під своїм UID; «Далі» можна натиснути тільки після обох відповідей; перехід фіксує завершене питання в історії. Заборонено видаляти кімнати та переглядати список кімнат.
 
-**Do not publish permissive `allow read, write: if true` rules.** Existing rules must be retained.
+**Обмеження MVP:** будь-який авторизований користувач, який знає код кімнати, може прочитати її документ. Правильні відповіді містяться у відкритому клієнтському JavaScript, тому це навчальна дружня гра, не захищений від шахрайства конкурс. Для публічного турніру потрібен серверний арбітр (Cloud Functions). Статистика між іграми не зберігається.
+
+## 2. Авторизація тестового домену
+
+Для Netlify Preview #6 домен `deploy-preview-6--ready-study-go-preview.netlify.app` має бути дозволений у налаштуваннях HTTP referrer для Firebase Browser API key (і, за потреби, Firebase Authentication authorized domains).
+
+## 3. Перевірка на двох пристроях
+
+1. Увійди в `#/deutsch-duell` на пристрої A; створи кімнату та скопіюй код.
+2. На пристрої B увійди іншим Firebase-акаунтом і приєднайся за кодом.
+3. Організатор натискає «Почати гру».
+4. Перевір, що відповідь першого гравця **не відкриває** правильну відповідь до відповіді другого.
+5. Після обох відповідей кожен бачить пояснення. Перший натискає «Далі» і чекає; після другого натискання обидва переходять до наступного питання.
+6. Після 20 питань перевір фінальні бали.
+7. Якщо бачиш `Missing or insufficient permissions`, перевір опубліковані Rules та чи обидва акаунти справді увійшли.
+
+**Не зливай PR #6 в main до перевірки.**
