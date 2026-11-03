@@ -801,6 +801,273 @@ export const duelPacks = [
         "source": "Вправа 2 · Закріплення"
       }
     ]
+  },
+  {
+    "id": "pack-4",
+    "title": "Пакет 4 · Приклади зі слайдів",
+    "description": "10 контрастних пар зі слайдів презентації",
+    "questions": [
+      {
+        "prompt": "Der Kurs besteht ___ drei Teilen.",
+        "options": [
+          "auf",
+          "aus",
+          "von",
+          "mit"
+        ],
+        "correct": 1,
+        "explanation": "bestehen aus + Dativ — складатися з",
+        "full": "Der Kurs besteht aus drei Teilen.",
+        "source": "Презентація · Пара 1 · bestehen aus / bestehen auf"
+      },
+      {
+        "prompt": "Ich bestehe ___ einer Erklärung.",
+        "options": [
+          "auf",
+          "an",
+          "für",
+          "über"
+        ],
+        "correct": 0,
+        "explanation": "bestehen auf + Dativ — наполягати на",
+        "full": "Ich bestehe auf einer Erklärung.",
+        "source": "Презентація · Пара 1 · bestehen aus / bestehen auf"
+      },
+      {
+        "prompt": "Der Erfolg hängt ___ der Vorbereitung ab.",
+        "options": [
+          "mit",
+          "nach",
+          "an",
+          "von"
+        ],
+        "correct": 3,
+        "explanation": "abhängen von + Dativ — залежати від",
+        "full": "Der Erfolg hängt von der Vorbereitung ab.",
+        "source": "Презентація · Пара 2 · abhängen von / ankommen auf"
+      },
+      {
+        "prompt": "Es kommt ___ die Vorbereitung an.",
+        "options": [
+          "an",
+          "für",
+          "auf",
+          "über"
+        ],
+        "correct": 2,
+        "explanation": "ankommen auf + Akkusativ — саме це має значення",
+        "full": "Es kommt auf die Vorbereitung an.",
+        "source": "Презентація · Пара 2 · abhängen von / ankommen auf"
+      },
+      {
+        "prompt": "Ich erinnere mich ___ unseren Urlaub.",
+        "options": [
+          "auf",
+          "an",
+          "über",
+          "unter"
+        ],
+        "correct": 1,
+        "explanation": "sich erinnern an + Akkusativ — згадувати",
+        "full": "Ich erinnere mich an unseren Urlaub.",
+        "source": "Презентація · Пара 3 · sich erinnern / jemanden erinnern"
+      },
+      {
+        "prompt": "Dieses Foto erinnert mich ___ unseren Urlaub.",
+        "options": [
+          "an",
+          "auf",
+          "über",
+          "unter"
+        ],
+        "correct": 0,
+        "explanation": "jemanden erinnern an + Akkusativ — нагадувати комусь",
+        "full": "Dieses Foto erinnert mich an unseren Urlaub.",
+        "source": "Презентація · Пара 3 · sich erinnern / jemanden erinnern"
+      },
+      {
+        "prompt": "Ich freue mich ___ den Urlaub.",
+        "options": [
+          "an",
+          "für",
+          "über",
+          "auf"
+        ],
+        "correct": 3,
+        "explanation": "sich freuen auf + Akkusativ — очікувана майбутня подія",
+        "full": "Ich freue mich auf den Urlaub.",
+        "source": "Презентація · Пара 4 · sich freuen auf / über"
+      },
+      {
+        "prompt": "Ich freue mich ___ das Geschenk.",
+        "options": [
+          "für",
+          "auf",
+          "über",
+          "von"
+        ],
+        "correct": 2,
+        "explanation": "sich freuen über + Akkusativ — радість через отримане",
+        "full": "Ich freue mich über das Geschenk.",
+        "source": "Презентація · Пара 4 · sich freuen auf / über"
+      },
+      {
+        "prompt": "Ich spreche ___ meiner Kollegin.",
+        "options": [
+          "von",
+          "mit",
+          "bei",
+          "für"
+        ],
+        "correct": 1,
+        "explanation": "sprechen mit + Dativ — співрозмовник",
+        "full": "Ich spreche mit meiner Kollegin.",
+        "source": "Презентація · Пара 5 · sprechen mit / über"
+      },
+      {
+        "prompt": "Ich spreche ___ meine Arbeit.",
+        "options": [
+          "über",
+          "für",
+          "auf",
+          "von"
+        ],
+        "correct": 0,
+        "explanation": "sprechen über + Akkusativ — тема",
+        "full": "Ich spreche über meine Arbeit.",
+        "source": "Презентація · Пара 5 · sprechen mit / über"
+      },
+      {
+        "prompt": "Sie leidet ___ einer chronischen Krankheit.",
+        "options": [
+          "auf",
+          "über",
+          "unter",
+          "an"
+        ],
+        "correct": 3,
+        "explanation": "leiden an + Dativ — хвороба",
+        "full": "Sie leidet an einer chronischen Krankheit.",
+        "source": "Презентація · Пара 6 · leiden an / unter"
+      },
+      {
+        "prompt": "Viele Menschen leiden ___ dem Stress.",
+        "options": [
+          "an",
+          "über",
+          "unter",
+          "auf"
+        ],
+        "correct": 2,
+        "explanation": "leiden unter + Dativ — тиск, стрес",
+        "full": "Viele Menschen leiden unter dem Stress.",
+        "source": "Презентація · Пара 6 · leiden an / unter"
+      },
+      {
+        "prompt": "Ich denke ___ meine Familie.",
+        "options": [
+          "auf",
+          "an",
+          "über",
+          "unter"
+        ],
+        "correct": 1,
+        "explanation": "denken an + Akkusativ — думати про когось",
+        "full": "Ich denke an meine Familie.",
+        "source": "Презентація · Пара 7 · denken an / nachdenken über"
+      },
+      {
+        "prompt": "Ich denke ___ meine berufliche Zukunft nach.",
+        "options": [
+          "über",
+          "für",
+          "auf",
+          "von"
+        ],
+        "correct": 0,
+        "explanation": "nachdenken über + Akkusativ — обмірковувати",
+        "full": "Ich denke über meine berufliche Zukunft nach.",
+        "source": "Презентація · Пара 7 · denken an / nachdenken über"
+      },
+      {
+        "prompt": "Ich interessiere mich ___ die ukrainische Geschichte.",
+        "options": [
+          "mit",
+          "um",
+          "von",
+          "für"
+        ],
+        "correct": 3,
+        "explanation": "sich interessieren für + Akkusativ — інтерес",
+        "full": "Ich interessiere mich für die ukrainische Geschichte.",
+        "source": "Презентація · Пара 8 · interessieren für / beschäftigen mit"
+      },
+      {
+        "prompt": "Ich beschäftige mich ___ der ukrainischen Geschichte.",
+        "options": [
+          "von",
+          "bei",
+          "mit",
+          "für"
+        ],
+        "correct": 2,
+        "explanation": "sich beschäftigen mit + Dativ — займатися темою",
+        "full": "Ich beschäftige mich mit der ukrainischen Geschichte.",
+        "source": "Презентація · Пара 8 · interessieren für / beschäftigen mit"
+      },
+      {
+        "prompt": "Sie sorgt ___ ihre Kinder.",
+        "options": [
+          "mit",
+          "für",
+          "um",
+          "von"
+        ],
+        "correct": 1,
+        "explanation": "sorgen für + Akkusativ — забезпечувати, піклуватися",
+        "full": "Sie sorgt für ihre Kinder.",
+        "source": "Презентація · Пара 9 · sorgen für / sich sorgen um"
+      },
+      {
+        "prompt": "Sie sorgt sich ___ ihre Kinder.",
+        "options": [
+          "um",
+          "für",
+          "an",
+          "nach"
+        ],
+        "correct": 0,
+        "explanation": "sich sorgen um + Akkusativ — хвилюватися",
+        "full": "Sie sorgt sich um ihre Kinder.",
+        "source": "Презентація · Пара 9 · sorgen für / sich sorgen um"
+      },
+      {
+        "prompt": "Ich bitte ___ Ihre Unterstützung.",
+        "options": [
+          "für",
+          "an",
+          "nach",
+          "um"
+        ],
+        "correct": 3,
+        "explanation": "bitten um + Akkusativ — просити щось",
+        "full": "Ich bitte um Ihre Unterstützung.",
+        "source": "Презентація · Пара 10 · bitten um / fragen nach"
+      },
+      {
+        "prompt": "Ich frage ___ dem Termin.",
+        "options": [
+          "bei",
+          "mit",
+          "nach",
+          "über"
+        ],
+        "correct": 2,
+        "explanation": "fragen nach + Dativ — запитувати інформацію",
+        "full": "Ich frage nach dem Termin.",
+        "source": "Презентація · Пара 10 · bitten um / fragen nach"
+      }
+    ]
   }
 ];
 export const getDuelPack = id => duelPacks.find(pack => pack.id === id) || duelPacks[0];
