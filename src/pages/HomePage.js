@@ -7,6 +7,43 @@ function HomePage() {
     <div className="b2-page">
       <h1 className="b2-title">Ready Study Go!</h1>
 
+      <h2 className="b2-section-title">Самостійні заняття</h2>
+      <div className="b2-sections">
+        <Link to="/self-study" className="b2-card b2-card--ready">
+          <span className="b2-card__icon">📚</span>
+          <span className="b2-card__label">Самостійні заняття</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
+      </div>
+
+      <h2 className="b2-section-title">Гра для двох</h2>
+      <div className="b2-sections">
+        <Link to="/deutsch-duell" className="b2-card b2-card--ready" style={{ background: 'linear-gradient(110deg, #e5efff, #e8f8ef)', borderLeftColor: '#3859c9' }}>
+          <span className="b2-card__icon">🎮</span>
+          <span className="b2-card__label">Deutsch Duell</span>
+          <span className="b2-card__pig">🏆</span>
+        </Link>
+        <div className="b2-card" style={{ background: 'linear-gradient(110deg, #f0f4ff, #f4efff)', borderLeftColor: '#8b83c8', opacity: 0.75, cursor: 'default' }} aria-label="Речення по черзі — скоро">
+          <span className="b2-card__icon">🔄</span>
+          <span className="b2-card__label">Речення по черзі</span>
+          <span className="b2-card__pig" style={{ fontSize: 14, whiteSpace: 'nowrap' }}>Скоро</span>
+        </div>
+      </div>
+
+      <h2 className="b2-section-title">Підготовка до іспитів</h2>
+      <div className="b2-sections">
+        <Link to="/c1" className="b2-card b2-card--ready">
+          <span className="b2-card__icon">🏆</span>
+          <span className="b2-card__label">Підготовка до C1</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
+        <Link to="/b2" className="b2-card b2-card--ready">
+          <span className="b2-card__icon">🎓</span>
+          <span className="b2-card__label">Підготовка до B2</span>
+          <span className="b2-card__pig">🐷</span>
+        </Link>
+      </div>
+
       <h2 className="b2-section-title b2-section-title--star">⭐ Мій тренажер речень</h2>
       <div className="b2-sections">
         <Link to="/trainer" className="b2-card b2-card--featured">
@@ -16,7 +53,6 @@ function HomePage() {
           <span className="b2-card__pig">🐷</span>
         </Link>
       </div>
-
       <div className="b2-sections">
         <Link to="/trainer-voice" className="b2-card b2-card--featured">
           <span className="b2-card__badge">NEW</span>
@@ -25,7 +61,6 @@ function HomePage() {
           <span className="b2-card__pig">🐷</span>
         </Link>
       </div>
-
       <div className="b2-sections">
         <Link to="/mein-deutsch-mind-map" className="b2-card b2-card--ready" style={{ background: 'linear-gradient(110deg, #dce9ff, #e9dcff)', borderLeftColor: '#6552cf' }}>
           <span className="b2-card__icon">🧠</span>
@@ -34,29 +69,11 @@ function HomePage() {
         </Link>
       </div>
 
-      <h2 className="b2-section-title">Гра для двох</h2>
-      <div className="b2-sections">
-        <Link to="/deutsch-duell" className="b2-card b2-card--ready" style={{ background: 'linear-gradient(110deg, #e5efff, #e8f8ef)', borderLeftColor: '#3859c9' }}>
-          <span className="b2-card__icon">🎮</span>
-          <span className="b2-card__label">Deutsch Duell · 20 питань для двох гравців</span>
-          <span className="b2-card__pig">🏆</span>
-        </Link>
-      </div>
-
       <h2 className="b2-section-title">Тренування граматики</h2>
       <div className="b2-sections">
         <Link to="/grammar" className="b2-card b2-card--ready">
           <span className="b2-card__icon">📝</span>
           <span className="b2-card__label">Präpositionen</span>
-          <span className="b2-card__pig">🐷</span>
-        </Link>
-      </div>
-
-      <h2 className="b2-section-title">Самостійні заняття</h2>
-      <div className="b2-sections">
-        <Link to="/self-study" className="b2-card b2-card--ready">
-          <span className="b2-card__icon">📚</span>
-          <span className="b2-card__label">Самостійні заняття</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
       </div>
@@ -75,20 +92,6 @@ function HomePage() {
         <Link to="/phrases" className="b2-card b2-card--ready">
           <span className="b2-card__icon">💬</span>
           <span className="b2-card__label">Фрази для різних заходів</span>
-          <span className="b2-card__pig">🐷</span>
-        </Link>
-      </div>
-
-      <h2 className="b2-section-title">Підготовка до іспитів</h2>
-      <div className="b2-sections">
-        <Link to="/b2" className="b2-card b2-card--ready">
-          <span className="b2-card__icon">🎓</span>
-          <span className="b2-card__label">Підготовка до B2</span>
-          <span className="b2-card__pig">🐷</span>
-        </Link>
-        <Link to="/c1" className="b2-card b2-card--ready">
-          <span className="b2-card__icon">🏆</span>
-          <span className="b2-card__label">Підготовка до C1</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
       </div>
