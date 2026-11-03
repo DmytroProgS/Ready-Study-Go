@@ -1,3 +1,7 @@
+import { lesson2910Exercises } from '../data/selfStudy2910Data';
+import { lesson2910ExtraExercises } from '../data/selfStudy2910ExtraData';
+import { lesson2910ExtraExercisesMore } from '../data/selfStudy2910ExtraMore';
+
 // 60 original sentences from lesson 29.10: presentation + reinforcement.
 // Three fixed, pre-mixed packs of 20. Never shuffle during a match.
 export const duelPacks = [
@@ -1071,3 +1075,10 @@ export const duelPacks = [
   }
 ];
 export const getDuelPack = id => duelPacks.find(pack => pack.id === id) || duelPacks[0];
+
+const lessonCards = [...lesson2910Exercises, ...lesson2910ExtraExercises, ...lesson2910ExtraExercisesMore].flatMap(exercise => exercise.cards);
+const lessonTranslations = new Map(lessonCards.map(card => [card.de.split(' / ')[0], card.uk]));
+const slideTranslations = ["Курс складається з трьох частин.","Я наполягаю на поясненні.","Успіх залежить від підготовки.","Усе залежить від підготовки.","Я згадую нашу відпустку.","Це фото нагадує мені про нашу відпустку.","Я з нетерпінням чекаю на відпустку.","Я радію подарунку.","Я розмовляю зі своєю колегою.","Я говорю про свою роботу.","Вона страждає на хронічну хворобу.","Багато людей страждають від стресу.","Я думаю про свою сім’ю.","Я розмірковую про своє професійне майбутнє.","Я цікавлюся українською історією.","Я займаюся українською історією.","Вона піклується про своїх дітей.","Вона хвилюється за своїх дітей.","Я прошу вашої підтримки.","Я запитую про дату зустрічі."];
+duelPacks.forEach(pack => pack.questions.forEach((question, index) => {
+  question.uk = pack.id === 'pack-4' ? slideTranslations[index] : lessonTranslations.get(question.full);
+}));
