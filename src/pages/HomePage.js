@@ -23,11 +23,11 @@ function HomePage() {
           <span className="b2-card__label">Deutsch Duell</span>
           <span className="b2-card__pig">🏆</span>
         </Link>
-        <div className="b2-card" style={{ background: 'linear-gradient(110deg, #f0f4ff, #f4efff)', borderLeftColor: '#8b83c8', opacity: 0.75, cursor: 'default' }} aria-label="Речення по черзі — скоро">
+        <Link to="/turn-taking" className="b2-card b2-card--ready" style={{ background: 'linear-gradient(110deg, #f0f4ff, #f4efff)', borderLeftColor: '#8b83c8' }}>
           <span className="b2-card__icon">🔄</span>
           <span className="b2-card__label">Речення по черзі</span>
-          <span className="b2-card__pig" style={{ fontSize: 14, whiteSpace: 'nowrap' }}>Скоро</span>
-        </div>
+          <span className="b2-card__pig">🗂️</span>
+        </Link>
       </div>
 
       <h2 className="b2-section-title">Підготовка до іспитів</h2>
