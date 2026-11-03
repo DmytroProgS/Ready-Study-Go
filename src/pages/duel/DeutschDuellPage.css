@@ -20,3 +20,5 @@
 .duel-exit-actions button{padding:12px 15px;border:0;border-radius:9px;cursor:pointer;font-weight:700}
 .duel-exit-cancel{background:#e9f0ff;color:#193c79}
 .duel-exit-confirm{background:#c43e47;color:#fff}
+
+.duel-solo-button{display:block;margin:14px auto;background:#fff3f5;color:#9c4057;border:1px solid #f1cbd5;border-radius:10px;padding:12px 20px;font:inherit;font-weight:700;cursor:pointer}.duel-solo-button:hover{background:#ffe5eb}
