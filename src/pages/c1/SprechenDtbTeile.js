@@ -112,7 +112,10 @@ export function SprechenDtbTeil2() {
       <div className="c1-random">
         <button className="c1-btn" onClick={() => setCurrent(pick(smalltalkTopics))}>🎲 Випадкова тема</button>
         {current && <div className="c1-random__topic c1-de">{current}</div>}
-        <C1Timer presets={[{ label: '3:00', sec: 180 }, { label: '5:00', sec: 300 }]} />
+        <div className="c1-timer-status-row">
+          <C1Timer presets={[{ label: '3:00', sec: 180 }, { label: '5:00', sec: 300 }]} />
+          {current && <TopicStatus progress={progress} topicKey={'teil2-' + smalltalkTopics.indexOf(current)} />}
+        </div>
       </div>
 
       <RedemittelList items={smalltalkRedemittel} />
@@ -158,7 +161,14 @@ export function SprechenDtbTeil3() {
             {showSolution && current.short && <Solutions problem={current} />}
           </>
         )}
-        <C1Timer presets={[{ label: '5:00', sec: 300 }, { label: '3:00', sec: 180 }]} />
+        <div className="c1-timer-status-row">
+          <C1Timer presets={[{ label: '5:00', sec: 300 }, { label: '3:00', sec: 180 }]} />
+          {current && <TopicStatus progress={progress} topicKey={
+            problems.some(p => p.problem === current.problem)
+              ? 'teil3-' + problems.findIndex(p => p.problem === current.problem)
+              : 'teil3-extra-' + moreProblems.indexOf(current.problem)
+          } />}
+        </div>
       </div>
 
       <RedemittelList items={problemRedemittel} />
