@@ -93,7 +93,7 @@ service cloud.firestore {
       allow create: if signedIn()
         && roomCode.matches('^[A-HJ-NP-Z2-9]{6}$')
         && request.resource.data.keys().hasOnly(['host', 'players', 'packId', 'status', 'index', 'answers', 'ready', 'createdAt'])
-        && request.resource.data.packId in ['pack-1', 'pack-2', 'pack-3']
+        && request.resource.data.packId in ['pack-1', 'pack-2', 'pack-3', 'pack-4']
         && request.resource.data.host == uid()
         && request.resource.data.players.keys().hasOnly([uid()])
         && request.resource.data.players.size() == 1
