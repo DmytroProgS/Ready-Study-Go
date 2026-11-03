@@ -5,6 +5,7 @@ import {
   teil1Topics, teil1Redemittel,
 } from '../../data/sprechenDtbData';
 import C1Timer from './C1Timer';
+import { useC1TopicStatuses, TopicStatus, TopicStatusLogin } from './TopicStatus';
 import '../B2Page.css';
 import './C1InfoPage.css';
 import './c1.css';
@@ -99,6 +100,7 @@ export function SprechenDtbTeil1() {
 }
 
 export function SprechenDtbTeil2() {
+  const progress = useC1TopicStatuses();
   const [current, setCurrent] = useState(null);
   const choose = (t) => { setCurrent(t); toTop(); };
 
@@ -118,11 +120,12 @@ export function SprechenDtbTeil2() {
       <section className="c1-section">
         <h2>Усі {smalltalkTopics.length} тем</h2>
         <p className="c1-uk">Теми, які траплялися на іспитах (з групи).</p>
+        <TopicStatusLogin progress={progress} />
         <ol className="c1-info__list c1-de">
-          {smalltalkTopics.map((t) => (
-            <li key={t}>
-              {t}{' '}
-              <button className="c1-play" title="Тренувати цю тему" onClick={() => choose(t)}>▶</button>
+          {smalltalkTopics.map((t, i) => (
+            <li key={t} className="c1-topic-row">
+              <span>{t}{' '}<button className="c1-play" title="Тренувати цю тему" onClick={() => choose(t)}>▶</button></span>
+              <TopicStatus progress={progress} topicKey={'teil2-' + i} />
             </li>
           ))}
         </ol>
@@ -132,6 +135,7 @@ export function SprechenDtbTeil2() {
 }
 
 export function SprechenDtbTeil3() {
+  const progress = useC1TopicStatuses();
   const [current, setCurrent] = useState(null);
   const [showSolution, setShowSolution] = useState(false);
   const choose = (p) => { setCurrent(p); setShowSolution(false); toTop(); };
@@ -162,12 +166,14 @@ export function SprechenDtbTeil3() {
       <section className="c1-section">
         <h2>Усі {problems.length} ситуацій з рішеннями</h2>
         <p className="c1-uk">Спершу спробуйте самі, а потім відкрийте рішення.</p>
+        <TopicStatusLogin progress={progress} />
         {problems.map((p, i) => (
           <div key={p.problem} className="c1-card">
             <h3 className="c1-de">
               {i + 1}. {p.problem}{' '}
               <button className="c1-play" title="Тренувати цю ситуацію" onClick={() => choose(p)}>▶</button>
             </h3>
+            <TopicStatus progress={progress} topicKey={'teil3-' + i} />
             <details>
               <summary className="c1-uk">💡 рішення</summary>
               <Solutions problem={p} />
@@ -180,10 +186,10 @@ export function SprechenDtbTeil3() {
         <h2>Ще {moreProblems.length} ситуацій без рішень</h2>
         <p className="c1-uk">Теж траплялися на іспитах, рішення придумайте самі.</p>
         <ol className="c1-info__list c1-de">
-          {moreProblems.map((t) => (
-            <li key={t}>
-              {t}{' '}
-              <button className="c1-play" title="Тренувати цю ситуацію" onClick={() => choose({ problem: t })}>▶</button>
+          {moreProblems.map((t, i) => (
+            <li key={t} className="c1-topic-row">
+              <span>{t}{' '}<button className="c1-play" title="Тренувати цю ситуацію" onClick={() => choose({ problem: t })}>▶</button></span>
+              <TopicStatus progress={progress} topicKey={'teil3-extra-' + i} />
             </li>
           ))}
         </ol>
