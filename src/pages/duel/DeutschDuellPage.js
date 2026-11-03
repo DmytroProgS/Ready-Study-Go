@@ -135,6 +135,6 @@ export default function DeutschDuellPage() {
           <button type="button" className="duel-exit-confirm" onClick={() => { setConfirmExit(false); navigate('/'); }}>Так, вийти</button>
         </div>
       </div>
-    </div>
+    </div>}
   </main>;
 }
