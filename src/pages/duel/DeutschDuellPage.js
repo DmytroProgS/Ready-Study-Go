@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../trainer/firebase';
 import LoginForm from '../trainer/LoginForm';
@@ -18,16 +18,26 @@ function scores(room, questions) {
 }
 
 export default function DeutschDuellPage() {
+  const navigate = useNavigate();
   const [user, setUser] = useState(undefined);
   const [name, setName] = useState('');
   const [joinCode, setJoinCode] = useState('');
   const [selectedPack, setSelectedPack] = useState('pack-1');
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(() => {
+    try { return window.sessionStorage.getItem('deutschDuellRoom') || ''; } catch { return ''; }
+  });
+  const [confirmExit, setConfirmExit] = useState(false);
   const [room, setRoom] = useState(null);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
   useEffect(() => onAuthStateChanged(auth, setUser), []);
+  useEffect(() => {
+    try {
+      if (code) window.sessionStorage.setItem('deutschDuellRoom', code);
+      else window.sessionStorage.removeItem('deutschDuellRoom');
+    } catch { /* Browser storage is optional. */ }
+  }, [code]);
   useEffect(() => {
     if (!code) return undefined;
     return watchRoom(code, setRoom, e => setError('Помилка синхронізації: ' + e.message));
@@ -76,6 +86,7 @@ export default function DeutschDuellPage() {
         </>}
         {question && <>
           <div className="duel-progress">Питання {room.index + 1} із {duelQuestions.length}</div>
+          <p className="duel-translation">{question.uk}</p>
           <h2>{question.prompt}</h2>
           <div className="duel-options">{question.options.map((option, i) => <button key={i} disabled={busy || myAnswer !== undefined || bothAnswered} className={bothAnswered && i === question.correct ? 'correct' : myAnswer === i ? 'chosen' : ''} onClick={() => act(() => submitAnswer(code, user, room.index, i))}><b>{'ABCD'[i]}.</b> {option}</button>)}</div>
           {myAnswer === undefined ? <p>Обери один варіант відповіді.</p> : !bothAnswered ? <p>Відповідь збережено. Очікуємо другого гравця…</p> : <>
@@ -94,6 +105,19 @@ export default function DeutschDuellPage() {
       </section>
     </>}
     {error && <p role="alert" className="duel-error">{error}</p>}
-    <Link to="/" className="back-link">← На головну</Link>
+    <button type="button" className="duel-back-button" onClick={() => {
+      if (code && room?.status !== 'finished') setConfirmExit(true);
+      else { setCode(''); navigate('/'); }
+    }}>← На головну</button>
+    {confirmExit && <div className="duel-exit-overlay" role="presentation">
+      <div className="duel-exit-dialog" role="dialog" aria-modal="true" aria-labelledby="duel-exit-title">
+        <h2 id="duel-exit-title">Завершити гру?</h2>
+        <p>Якщо вийдеш, гра для другого учасника продовжиться. Ти зможеш повернутися до кімнати з цього браузера.</p>
+        <div className="duel-exit-actions">
+          <button type="button" className="duel-exit-cancel" onClick={() => setConfirmExit(false)}>Ні, повернутися в гру</button>
+          <button type="button" className="duel-exit-confirm" onClick={() => { setConfirmExit(false); navigate('/'); }}>Так, вийти</button>
+        </div>
+      </div>
+    </div>
   </main>;
 }
