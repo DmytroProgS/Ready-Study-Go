@@ -9,7 +9,7 @@ export function watchRoom(code, callback, onError) {
   return onSnapshot(refFor(code), snap => callback(snap.exists() ? snap.data() : null), onError);
 }
 
-export async function createRoom(user, name) {
+export async function createRoom(user, name, packId) {
   for (let attempt = 0; attempt < 6; attempt++) {
     const code = makeCode();
     const roomRef = refFor(code);
@@ -18,7 +18,7 @@ export async function createRoom(user, name) {
         const existing = await tx.get(roomRef);
         if (existing.exists()) throw new Error('CODE_TAKEN');
         tx.set(roomRef, {
-          host: user.uid, players: { [user.uid]: name },
+          host: user.uid, players: { [user.uid]: name }, packId,
           status: 'lobby', index: 0, answers: {}, ready: {},
           createdAt: serverTimestamp()
         });

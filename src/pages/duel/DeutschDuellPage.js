@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../trainer/firebase';
 import LoginForm from '../trainer/LoginForm';
-import { duelQuestions } from '../../duel/questions';
+import { duelPacks, getDuelPack } from '../../duel/questions';
 import { createRoom, joinRoom, startRoom, submitAnswer, markReady, watchRoom } from '../../duel/duelApi';
 import './DeutschDuellPage.css';
 
-function scores(room) {
+function scores(room, questions) {
   const result = Object.fromEntries(Object.keys(room.players).map(uid => [uid, 0]));
   (room.history || []).forEach((round, i) => {
     Object.keys(result).forEach(uid => {
-      if (round.answers[uid] === duelQuestions[i].correct) result[uid]++;
+      if (round.answers[uid] === questions[i].correct) result[uid]++;
     });
   });
   return result;
@@ -21,6 +21,7 @@ export default function DeutschDuellPage() {
   const [user, setUser] = useState(undefined);
   const [name, setName] = useState('');
   const [joinCode, setJoinCode] = useState('');
+  const [selectedPack, setSelectedPack] = useState('pack-1');
   const [code, setCode] = useState('');
   const [room, setRoom] = useState(null);
   const [error, setError] = useState('');
@@ -38,11 +39,13 @@ export default function DeutschDuellPage() {
     finally { setBusy(false); }
   };
   const displayName = () => name.trim() || (user.email || 'Гравець').split('@')[0];
+  const pack = getDuelPack(room?.packId || selectedPack);
+  const duelQuestions = pack.questions;
   const uids = room ? Object.keys(room.players) : [];
   const bothAnswered = room && uids.length === 2 && uids.every(uid => room.answers[uid] !== undefined);
   const myAnswer = room && user && room.answers[user.uid];
   const question = room && room.status === 'playing' ? duelQuestions[room.index] : null;
-  const score = room && room.status === 'finished' ? scores(room) : null;
+  const score = room && room.status === 'finished' ? scores(room, duelQuestions) : null;
 
   return <main className="duel-page">
     <h1>🎮 Deutsch Duell</h1>
@@ -52,13 +55,20 @@ export default function DeutschDuellPage() {
     </> : !code ? <section className="duel-panel">
       <p>Ти увійшов як <strong>{user.email}</strong></p>
       <label>Ім'я в грі<input value={name} maxLength={24} onChange={e => setName(e.target.value)} placeholder="Твоє ім'я" /></label>
-      <button disabled={busy} onClick={() => act(async () => setCode(await createRoom(user, displayName())))}>Створити кімнату</button>
+      <label>Набір запитань
+        <select className="duel-pack-select" value={selectedPack} onChange={e => setSelectedPack(e.target.value)}>
+          {duelPacks.map(p => <option key={p.id} value={p.id}>{p.title} · 20 запитань</option>)}
+          <option value="random">🎲 Випадковий вибір пакета</option>
+        </select>
+      </label>
+      <button disabled={busy} onClick={() => act(async () => { const packId = selectedPack === 'random' ? duelPacks[Math.floor(Math.random() * duelPacks.length)].id : selectedPack; setCode(await createRoom(user, displayName(), packId)); })}>Створити кімнату</button>
       <div className="duel-divider">або приєднатися</div>
       <label>Код кімнати<input value={joinCode} maxLength={6} onChange={e => setJoinCode(e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''))} placeholder="6 символів" /></label>
       <button disabled={busy || joinCode.length !== 6} onClick={() => act(async () => { await joinRoom(joinCode, user, displayName()); setCode(joinCode); })}>Приєднатися</button>
     </section> : !room ? <p>Підключення до кімнати {code}…</p> : <>
       <section className="duel-panel">
         <div className="duel-room-code">Кімната <strong>{code}</strong> <button onClick={() => navigator.clipboard.writeText(code)}>Копіювати код</button></div>
+        <p className="duel-pack-name">📚 {pack.title} · Заняття 29.10</p>
         <div className="duel-players">{uids.map(uid => <span key={uid}>{uid === user.uid ? '🟢' : '👤'} {room.players[uid]}</span>)}</div>
         {room.status === 'lobby' && <>
           <p>{uids.length < 2 ? 'Очікуємо другого гравця. Передай йому код кімнати.' : 'Обидва гравці на місці!'}</p>
@@ -78,6 +88,7 @@ export default function DeutschDuellPage() {
           <h2>🏆 Результати</h2>
           {uids.map(uid => <p key={uid}><strong>{room.players[uid]}</strong>: {score[uid]} / {duelQuestions.length}</p>)}
           <p>{score[uids[0]] === score[uids[1]] ? 'Нічия!' : 'Переможець: ' + room.players[score[uids[0]] > score[uids[1]] ? uids[0] : uids[1]]}</p>
+          <div className="duel-review"><h3>📖 Усі 20 речень із правильними прийменниками</h3><ol>{duelQuestions.map((q, i) => <li key={i}><strong>{q.full}</strong><small>{q.explanation}</small></li>)}</ol></div>
           <button onClick={() => { setCode(''); setRoom(null); }}>Нова кімната</button>
         </>}
       </section>
