@@ -46,6 +46,7 @@ import BeschwerdePage from './pages/b2/schreiben/BeschwerdePage';
 import PhrasesPage from './pages/PhrasesPage';
 import TrainerPage from './pages/trainer/TrainerPage';
 import DeutschDuellPage from './pages/duel/DeutschDuellPage';
+import TurnTakingPage from './pages/turnTaking/TurnTakingPage';
 import VoiceTrainerPage from './pages/trainer/VoiceTrainerPage';
 import SelfStudyPage from './pages/selfstudy/SelfStudyPage';
 import SelfStudy0510Page from './pages/selfstudy/SelfStudy0510Page';
@@ -88,6 +89,7 @@ function App() {
           <Route path="/phrases" element={<PhrasesPage />} />
           <Route path="/trainer" element={<TrainerPage />} />
           <Route path="/deutsch-duell" element={<DeutschDuellPage />} />
+          <Route path="/turn-taking" element={<TurnTakingPage />} />
           <Route path="/trainer-voice" element={<VoiceTrainerPage />} />
           <Route path="/self-study" element={<SelfStudyPage />} />
           <Route path="/self-study/05-10" element={<SelfStudy0510Page />} />

@@ -1,0 +1,11 @@
+// Add this block INSIDE the existing match /databases/{database}/documents.
+// Do not replace your current rules for /users or /duelRooms.
+match /c1TopicProgress/{userId} {
+  allow get, list: if request.auth != null && request.auth.uid == userId;
+  allow create, update: if request.auth != null
+    && request.auth.uid == userId
+    && request.resource.data.keys().hasOnly(['statuses'])
+    && request.resource.data.statuses is map
+    && request.resource.data.statuses.size() <= 500;
+  allow delete: if false;
+}
