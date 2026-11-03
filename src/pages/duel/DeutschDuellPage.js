@@ -99,7 +99,24 @@ export default function DeutschDuellPage() {
           <h2>🏆 Результати</h2>
           {uids.map(uid => <p key={uid}><strong>{room.players[uid]}</strong>: {score[uid]} / {duelQuestions.length}</p>)}
           <p>{score[uids[0]] === score[uids[1]] ? 'Нічия!' : 'Переможець: ' + room.players[score[uids[0]] > score[uids[1]] ? uids[0] : uids[1]]}</p>
-          <div className="duel-review"><h3>📖 Усі 20 речень із правильними прийменниками</h3><ol>{duelQuestions.map((q, i) => <li key={i}><strong>{q.full}</strong><small>{q.explanation}</small></li>)}</ol></div>
+          <div className="duel-review">
+            <h3>📖 Твої відповіді · 20 речень</h3>
+            <p className="duel-review-subtitle">Персональний розбір для {room.players[user.uid] || 'гравця'}</p>
+            <ol>{duelQuestions.map((q, i) => {
+              const answer = room.history?.[i]?.answers?.[user.uid];
+              const isCorrect = answer === q.correct;
+              const chosen = Number.isInteger(answer) ? q.options[answer] : 'немає відповіді';
+              return <li key={i} className={isCorrect ? 'duel-review-correct' : 'duel-review-wrong'}>
+                <span className="duel-review-status">{isCorrect ? '✓ Вірно' : '✗ Помилка'}</span>
+                <div className="duel-review-uk">{q.uk}</div>
+                <div className="duel-review-sentence"><strong>{q.full}</strong></div>
+                <div className="duel-review-answer">{isCorrect
+                  ? <>Твоя відповідь: <strong className="duel-answer-correct">{chosen}</strong></>
+                  : <>Твоя відповідь: <strong className="duel-answer-wrong">{chosen}</strong> · Правильно: <strong className="duel-answer-correct">{q.options[q.correct]}</strong></>}</div>
+                <small>{q.explanation}</small>
+              </li>;
+            })}</ol>
+          </div>
           <button onClick={() => { setCode(''); setRoom(null); }}>Нова кімната</button>
         </>}
       </section>
