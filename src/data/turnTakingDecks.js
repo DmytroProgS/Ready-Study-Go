@@ -1,5 +1,13 @@
+import { haltPrepositionPhrases } from './haltPrepositionPhrases';
+
 // Add future decks here. Each deck is shuffled every time it starts.
 export const turnTakingDecks = [
+  {
+    id: 'halt-prepositions',
+    title: 'Фрази з halt з Präpositionen',
+    description: '17 фраз · прийменники та зворотні займенники',
+    cards: haltPrepositionPhrases.map(({ uk, de }) => ({ uk, de }))
+  },
   {
     id: 'halt',
     title: 'Фрази з Halt',
