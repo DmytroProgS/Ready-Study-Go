@@ -1,3 +1,4 @@
+import { haltPrepositionPhrases } from '../data/haltPrepositionPhrases';
 import { lesson2910Exercises } from '../data/selfStudy2910Data';
 import { lesson2910ExtraExercises } from '../data/selfStudy2910ExtraData';
 import { lesson2910ExtraExercisesMore } from '../data/selfStudy2910ExtraMore';
@@ -1074,11 +1075,28 @@ export const duelPacks = [
     ]
   }
 ];
+duelPacks.push({
+  id: 'pack-halt-prepositions',
+  title: 'Фрази з halt з Präpositionen',
+  description: '17 речень · прийменники та зворотні займенники',
+  questions: haltPrepositionPhrases.map((phrase, i) => {
+    // Rotate answer positions; the source data keeps the correct answer first.
+    const shift = i % 4;
+    const options = phrase.options.slice(shift).concat(phrase.options.slice(0, shift));
+    return {
+      prompt: phrase.prompt, options,
+      correct: (4 - shift) % 4,
+      full: phrase.de, uk: phrase.uk,
+      explanation: phrase.explanation,
+      source: 'Фрази з halt'
+    };
+  })
+});
 export const getDuelPack = id => duelPacks.find(pack => pack.id === id) || duelPacks[0];
 
 const lessonCards = [...lesson2910Exercises, ...lesson2910ExtraExercises, ...lesson2910ExtraExercisesMore].flatMap(exercise => exercise.cards);
 const lessonTranslations = new Map(lessonCards.map(card => [card.de.split(' / ')[0], card.uk]));
 const slideTranslations = ["Курс складається з трьох частин.","Я наполягаю на поясненні.","Успіх залежить від підготовки.","Усе залежить від підготовки.","Я згадую нашу відпустку.","Це фото нагадує мені про нашу відпустку.","Я з нетерпінням чекаю на відпустку.","Я радію подарунку.","Я розмовляю зі своєю колегою.","Я говорю про свою роботу.","Вона страждає на хронічну хворобу.","Багато людей страждають від стресу.","Я думаю про свою сім’ю.","Я розмірковую про своє професійне майбутнє.","Я цікавлюся українською історією.","Я займаюся українською історією.","Вона піклується про своїх дітей.","Вона хвилюється за своїх дітей.","Я прошу вашої підтримки.","Я запитую про дату зустрічі."];
-duelPacks.forEach(pack => pack.questions.forEach((question, index) => {
+duelPacks.filter(pack => pack.id !== 'pack-halt-prepositions').forEach(pack => pack.questions.forEach((question, index) => {
   question.uk = pack.id === 'pack-4' ? slideTranslations[index] : lessonTranslations.get(question.full);
 }));
