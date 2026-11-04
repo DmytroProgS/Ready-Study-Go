@@ -65,7 +65,7 @@ export default function DeutschDuellPage() {
 
   return <main className="duel-page">
     <h1>🎮 Deutsch Duell</h1>
-    <p>20 запитань · 4 варіанти · без таймера · два пристрої</p>
+    <p>Набори запитань · 4 варіанти · без таймера · два пристрої</p>
     {solo ? <section className="duel-panel">
       <p className="duel-pack-name">😢 Граю сам · {pack.title}</p>
       {soloQuestion ? <>
@@ -79,7 +79,7 @@ export default function DeutschDuellPage() {
         </>}
       </> : <>
         <h2>🏆 Твій результат: {soloScore} / {duelQuestions.length}</h2>
-        <div className="duel-review"><h3>📖 Твої відповіді · 20 речень</h3><ol>{duelQuestions.map((q, i) => {
+        <div className="duel-review"><h3>📖 Твої відповіді · {duelQuestions.length} речень</h3><ol>{duelQuestions.map((q, i) => {
           const answer = solo.answers[i];
           const isCorrect = answer === q.correct;
           return <li key={i} className={isCorrect ? 'duel-review-correct' : 'duel-review-wrong'}>
@@ -100,7 +100,7 @@ export default function DeutschDuellPage() {
       <label>Ім'я в грі<input value={name} maxLength={24} onChange={e => setName(e.target.value)} placeholder="Твоє ім'я" /></label>
       <label>Набір запитань
         <select className="duel-pack-select" value={selectedPack} onChange={e => setSelectedPack(e.target.value)}>
-          {duelPacks.map(p => <option key={p.id} value={p.id}>{p.title} · 20 запитань</option>)}
+          {duelPacks.map(p => <option key={p.id} value={p.id}>{p.title} · {p.questions.length} запитань</option>)}
           <option value="random">🎲 Випадковий вибір пакета</option>
         </select>
       </label>
@@ -112,7 +112,7 @@ export default function DeutschDuellPage() {
     </section> : !room ? <p>Підключення до кімнати {code}…</p> : <>
       <section className="duel-panel">
         <div className="duel-room-code">Кімната <strong>{code}</strong> <button onClick={() => navigator.clipboard.writeText(code)}>Копіювати код</button></div>
-        <p className="duel-pack-name">📚 {pack.title} · Заняття 29.10</p>
+        <p className="duel-pack-name">📚 {pack.title}</p>
         <div className="duel-players">{uids.map(uid => <span key={uid}>{uid === user.uid ? '🟢' : '👤'} {room.players[uid]}</span>)}</div>
         {room.status === 'lobby' && <>
           <p>{uids.length < 2 ? 'Очікуємо другого гравця. Передай йому код кімнати.' : 'Обидва гравці на місці!'}</p>
@@ -135,7 +135,7 @@ export default function DeutschDuellPage() {
           {uids.map(uid => <p key={uid}><strong>{room.players[uid]}</strong>: {score[uid]} / {duelQuestions.length}</p>)}
           <p>{score[uids[0]] === score[uids[1]] ? 'Нічия!' : 'Переможець: ' + room.players[score[uids[0]] > score[uids[1]] ? uids[0] : uids[1]]}</p>
           <div className="duel-review">
-            <h3>📖 Твої відповіді · 20 речень</h3>
+            <h3>📖 Твої відповіді · {duelQuestions.length} речень</h3>
             <p className="duel-review-subtitle">Персональний розбір для {room.players[user.uid] || 'гравця'}</p>
             <ol>{duelQuestions.map((q, i) => {
               const answer = room.history?.[i]?.answers?.[user.uid];
