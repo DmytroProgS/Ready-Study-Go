@@ -809,7 +809,7 @@ export const duelPacks = [
   },
   {
     "id": "pack-4",
-    "title": "Пакет 4 · Приклади зі слайдів",
+    "title": "R004 Präpositionen",
     "description": "10 контрастних пар зі слайдів презентації",
     "questions": [
       {
