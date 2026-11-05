@@ -1,5 +1,6 @@
 import { doc, onSnapshot, runTransaction, serverTimestamp } from 'firebase/firestore';
 import { db } from '../trainer/firebase';
+import { getDuelPack, shuffledQuestionOrder } from './questions';
 
 const refFor = code => doc(db, 'duelRooms', code);
 const codeChars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -49,7 +50,7 @@ export async function startRoom(code, user) {
     if (!s.exists()) throw new Error('Кімнату не знайдено.');
     const room = s.data();
     if (room.host !== user.uid || room.status !== 'lobby' || Object.keys(room.players).length !== 2) throw new Error('Потрібно два гравці.');
-    tx.update(r, { status: 'playing', index: 0, answers: {}, ready: {} });
+    tx.update(r, { status: 'playing', index: 0, answers: {}, ready: {}, history: [], questionOrder: shuffledQuestionOrder(getDuelPack(room.packId).questions.length) });
   });
 }
 
