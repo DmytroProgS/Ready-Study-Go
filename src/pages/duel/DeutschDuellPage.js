@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../trainer/firebase';
 import LoginForm from '../trainer/LoginForm';
-import { duelPacks, getDuelPack } from '../../duel/questions';
+import { duelPacks, getDuelPack, shuffledQuestionOrder, questionsInOrder } from '../../duel/questions';
 import { createRoom, joinRoom, startRoom, submitAnswer, markReady, watchRoom } from '../../duel/duelApi';
 import './DeutschDuellPage.css';
 
@@ -51,7 +51,7 @@ export default function DeutschDuellPage() {
   };
   const displayName = () => name.trim() || (user.email || 'Гравець').split('@')[0];
   const pack = getDuelPack(solo?.packId || room?.packId || selectedPack);
-  const duelQuestions = pack.questions;
+  const duelQuestions = questionsInOrder(pack, solo?.questionOrder || room?.questionOrder);
   const uids = room ? Object.keys(room.players) : [];
   const bothAnswered = room && uids.length === 2 && uids.every(uid => room.answers[uid] !== undefined);
   const myAnswer = room && user && room.answers[user.uid];
@@ -59,7 +59,7 @@ export default function DeutschDuellPage() {
   const score = room && room.status === 'finished' ? scores(room, duelQuestions) : null;
   const soloQuestion = solo && !solo.finished ? duelQuestions[solo.index] : null;
   const choosePack = () => selectedPack === 'random' ? duelPacks[Math.floor(Math.random() * duelPacks.length)].id : selectedPack;
-  const startSolo = (packId = choosePack()) => { setSolo({ packId, index: 0, answers: [], finished: false }); setCode(''); setRoom(null); setError(''); };
+  const startSolo = (packId = choosePack()) => { setSolo({ packId, questionOrder: shuffledQuestionOrder(getDuelPack(packId).questions.length), index: 0, answers: [], finished: false }); setCode(''); setRoom(null); setError(''); };
   const soloNext = () => setSolo(previous => previous && ({ ...previous, index: previous.index + 1, finished: previous.index + 1 >= duelQuestions.length }));
   const soloScore = solo ? solo.answers.filter((answer, i) => answer === duelQuestions[i].correct).length : 0;
 
