@@ -11,7 +11,7 @@ export const turnTakingDecks = [
   {
     id: 'halt',
     title: 'Фрази з Halt',
-    description: '9 фраз на кожен день',
+    description: '16 фраз на кожен день',
     cards: [
       { uk: 'Стій!', de: 'Halt!' },
       { uk: 'Тримайся! Не здавайся!', de: 'Halt durch!' },
@@ -21,7 +21,14 @@ export const turnTakingDecks = [
       { uk: 'Це в межах норми / не так уже й погано.', de: 'Das hält sich in Grenzen.' },
       { uk: 'Він тримає слово.', de: 'Er hält Wort.' },
       { uk: 'Я більше не можу (терпіти).', de: 'Ich halte es nicht mehr aus.' },
-      { uk: 'Замовкни! (грубо)', de: 'Halt die Klappe!' }
+      { uk: 'Замовкни! (грубо)', de: 'Halt die Klappe!' },
+      { uk: 'Я тримаю чашку в руці.', de: 'Ich halte eine Tasse in der Hand.' },
+      { uk: 'Автобус зупиняється тут.', de: 'Der Bus hält hier.' },
+      { uk: 'Я дотримую обіцянки.', de: 'Ich halte mein Versprechen.' },
+      { uk: 'Я вважаю це правильним.', de: 'Ich halte das für richtig.' },
+      { uk: 'Це взуття довго служить.', de: 'Diese Schuhe halten lange.' },
+      { uk: 'Я на твоєму боці.', de: 'Ich halte zu dir.' },
+      { uk: 'Вона робить доповідь.', de: 'Sie hält einen Vortrag.' }
     ]
   }
 ];
