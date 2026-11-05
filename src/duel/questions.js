@@ -4,11 +4,11 @@ import { lesson2910ExtraExercises } from '../data/selfStudy2910ExtraData';
 import { lesson2910ExtraExercisesMore } from '../data/selfStudy2910ExtraMore';
 
 // 60 original sentences from lesson 29.10: presentation + reinforcement.
-// Three fixed, pre-mixed packs of 20. Never shuffle during a match.
+// Three packs of 20. Question order is shuffled at the start of each new match.
 export const duelPacks = [
   {
     "id": "pack-1",
-    "title": "Пакет 1",
+    "title": "R001 Präpositionen",
     "description": "Заняття 29.10 · дієслова з прийменниками",
     "questions": [
       {
@@ -90,7 +90,7 @@ export const duelPacks = [
         "source": "Вправа 4 · Закріплення"
       },
       {
-        "prompt": "Ich beharre ___ meinem Standpunkt.",
+        "prompt": "Ich bestehe ___ meiner Meinung.",
         "options": [
           "an",
           "für",
@@ -98,8 +98,8 @@ export const duelPacks = [
           "auf"
         ],
         "correct": 3,
-        "explanation": "beharren auf + Dativ; також: Ich bleibe bei meiner Meinung.",
-        "full": "Ich beharre auf meinem Standpunkt.",
+        "explanation": "bestehen auf + Dativ — наполягати на своїй думці. Meinung — жіночого роду, тому: meiner Meinung.",
+        "full": "Ich bestehe auf meiner Meinung.",
         "source": "Вправа 2 · Закріплення"
       },
       {
@@ -275,7 +275,7 @@ export const duelPacks = [
   },
   {
     "id": "pack-2",
-    "title": "Пакет 2",
+    "title": "R002 Präpositionen",
     "description": "Заняття 29.10 · дієслова з прийменниками",
     "questions": [
       {
@@ -542,7 +542,7 @@ export const duelPacks = [
   },
   {
     "id": "pack-3",
-    "title": "Пакет 3",
+    "title": "R003 Präpositionen",
     "description": "Заняття 29.10 · дієслова з прийменниками",
     "questions": [
       {
@@ -809,7 +809,7 @@ export const duelPacks = [
   },
   {
     "id": "pack-4",
-    "title": "Пакет 4 · Приклади зі слайдів",
+    "title": "R004 Präpositionen",
     "description": "10 контрастних пар зі слайдів презентації",
     "questions": [
       {
@@ -1077,7 +1077,7 @@ export const duelPacks = [
 ];
 duelPacks.push({
   id: 'pack-halt-prepositions',
-  title: 'Фрази з halt з Präpositionen',
+  title: 'R005 halten + Präpositionen',
   description: '17 речень · прийменники та зворотні займенники',
   questions: haltPrepositionPhrases.map((phrase, i) => {
     // Rotate answer positions; the source data keeps the correct answer first.
@@ -1094,9 +1094,26 @@ duelPacks.push({
 });
 export const getDuelPack = id => duelPacks.find(pack => pack.id === id) || duelPacks[0];
 
+export function shuffledQuestionOrder(length) {
+  const order = Array.from({ length }, (_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return order;
+}
+
+export function questionsInOrder(pack, order) {
+  return Array.isArray(order) && order.length === pack.questions.length &&
+    new Set(order).size === order.length && order.every(i => Number.isInteger(i) && i >= 0 && i < pack.questions.length)
+    ? order.map(i => pack.questions[i])
+    : pack.questions;
+}
+
 const lessonCards = [...lesson2910Exercises, ...lesson2910ExtraExercises, ...lesson2910ExtraExercisesMore].flatMap(exercise => exercise.cards);
 const lessonTranslations = new Map(lessonCards.map(card => [card.de.split(' / ')[0], card.uk]));
 const slideTranslations = ["Курс складається з трьох частин.","Я наполягаю на поясненні.","Успіх залежить від підготовки.","Усе залежить від підготовки.","Я згадую нашу відпустку.","Це фото нагадує мені про нашу відпустку.","Я з нетерпінням чекаю на відпустку.","Я радію подарунку.","Я розмовляю зі своєю колегою.","Я говорю про свою роботу.","Вона страждає на хронічну хворобу.","Багато людей страждають від стресу.","Я думаю про свою сім’ю.","Я розмірковую про своє професійне майбутнє.","Я цікавлюся українською історією.","Я займаюся українською історією.","Вона піклується про своїх дітей.","Вона хвилюється за своїх дітей.","Я прошу вашої підтримки.","Я запитую про дату зустрічі."];
 duelPacks.filter(pack => pack.id !== 'pack-halt-prepositions').forEach(pack => pack.questions.forEach((question, index) => {
   question.uk = pack.id === 'pack-4' ? slideTranslations[index] : lessonTranslations.get(question.full);
+  if (question.full === 'Ich bestehe auf meiner Meinung.') question.uk = 'Я наполягаю на своїй думці.';
 }));

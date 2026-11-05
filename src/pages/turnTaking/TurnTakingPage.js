@@ -42,6 +42,7 @@ export default function TurnTakingPage() {
             <span className="turn-sentence">{flipped ? session.cards[index].de : session.cards[index].uk}</span>
             <span className="turn-flip-hint">↻ Натисни, щоб перевернути</span>
           </button>
+          {flipped && session.cards[index].explanation && <p className="turn-card-explanation"><strong>Пояснення:</strong> {session.cards[index].explanation}</p>}
           <div className="turn-controls">
             <button disabled={index === 0} onClick={() => move(index - 1)}>← Назад</button>
             <button onClick={() => setFlipped(v => !v)}>↻ Перевернути</button>

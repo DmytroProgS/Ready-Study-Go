@@ -4,13 +4,29 @@ import { haltPrepositionPhrases } from './haltPrepositionPhrases';
 export const turnTakingDecks = [
   {
     id: 'halt-prepositions',
-    title: 'Фрази з halt з Präpositionen',
+    title: 'K000 Фрази з halten з Präpositionen',
     description: '17 фраз · прийменники та зворотні займенники',
     cards: haltPrepositionPhrases.map(({ uk, de }) => ({ uk, de }))
   },
   {
+    id: 'k002-halten',
+    title: 'K002 - Halten',
+    description: '9 фраз · aushalten, durchhalten, festhalten',
+    cards: [
+      { uk: 'Я не витримую спеки.', de: 'Ich halte die Hitze nicht aus.', explanation: 'aushalten — Терпіти щось неприємне. Питання: що витримати?' },
+      { uk: 'Це неможливо терпіти!', de: 'Das ist nicht auszuhalten!', explanation: 'aushalten — Терпіти щось неприємне. Питання: що витримати?' },
+      { uk: 'Тут цілком непогано (жартома).', de: 'Hier lässt es sich aushalten.', explanation: 'aushalten — Терпіти щось неприємне. Питання: що витримати?' },
+      { uk: 'Тримайся! Не здавайся!', de: 'Halt durch!', explanation: 'durchhalten — Протриматися до кінця. Питання: як довго?' },
+      { uk: 'Ще два тижні — ти витримаєш!', de: 'Noch zwei Wochen — du hältst das durch!', explanation: 'durchhalten — Протриматися до кінця. Питання: як довго?' },
+      { uk: 'Я протримався до кінця.', de: 'Ich habe bis zum Ende durchgehalten.', explanation: 'durchhalten — Протриматися до кінця. Питання: як довго?' },
+      { uk: 'Тримайся за поручні!', de: 'Halt dich am Geländer fest!', explanation: 'sich festhalten an + Dat — міцно триматися за щось (фізично)' },
+      { uk: 'Зафіксуймо це письмово.', de: 'Halten wir das schriftlich fest.', explanation: 'etwas festhalten — записати, зафіксувати' },
+      { uk: 'Я не відмовляюся від свого плану.', de: 'Ich halte an meinem Plan fest.', explanation: 'an etwas festhalten — дотримуватися чогось, не відмовлятися від чогось, наполягати на чомусь' }
+    ]
+  },
+  {
     id: 'halt',
-    title: 'Фрази з Halt',
+    title: 'K001 Фрази з halten',
     description: '18 фраз на кожен день',
     cards: [
       { uk: 'Стій!', de: 'Halt!' },
