@@ -32,8 +32,7 @@ export const turnTakingDecks = [
       { uk: 'Зупиніться тут, будь ласка!', de: 'Halten Sie bitte hier an!' },
       { uk: 'Він раптово зупинився.', de: 'Er hielt plötzlich an.' }
     ]
-  }
-,
+  },
   {
     id: 'k002-halten',
     title: 'K002 - Halten',
@@ -130,7 +129,7 @@ export const turnTakingDecks = [
       { uk: 'Der Stau hält uns auf.', de: 'Der Stau hat uns aufgehalten.' },
       { uk: 'Er hält sich zurück.', de: 'Er hat sich zurückgehalten.' }
     ]
-  },
+  }
 ];
 
 export function shuffleDeck(cards) {
