@@ -6,3 +6,5 @@
 .turn-error-word{color:#b42318;background:#ffe4e0;border-radius:5px;padding:0 3px;text-decoration:underline;text-decoration-thickness:2px}
 .turn-correct-word{color:#167044;background:#d8f6e3;border-radius:5px;padding:0 3px;text-decoration:underline;text-decoration-thickness:2px}
 .turn-correction-translation{font-size:clamp(18px,2.7vw,24px);font-weight:500;color:#375675}
+
+.turn-topic{margin:12px 0;background:linear-gradient(110deg,#e6f7ee,#eaf2ff);border-left-color:#28a46e}.turn-folder-back{border:0;background:transparent;color:#3459a0;font:inherit;font-weight:700;cursor:pointer;margin:8px auto 12px;display:block}
