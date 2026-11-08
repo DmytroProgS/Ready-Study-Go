@@ -11,6 +11,7 @@ function highlightedSentence(sentence, fragment, className) {
 
 export default function TurnTakingPage() {
   const [session, setSession] = useState(null);
+  const [topic, setTopic] = useState(null);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
 
@@ -30,17 +31,30 @@ export default function TurnTakingPage() {
   return (
     <main className="turn-page">
       <h1>🔄 Речення по черзі</h1>
-      <p className="turn-intro">Звичайні колоди: переклади з української на німецьку. K006: знайди помилку. K007: перепиши речення в Perfekt. Натисни на картку, щоб перевірити себе.</p>
+      <p className="turn-intro">Обери тему та колоду. Перекладай речення й натискай на картку, щоб перевірити себе.</p>
       {!session ? (
         <section className="turn-decks">
-          <h2>Обери колоду</h2>
-          {turnTakingDecks.map(deck => (
+          {!topic ? <>
+            <h2>Обери тему</h2>
+            {[{ id: 'halten', title: 'Halten', icon: '📁' }, { id: 'lassen', title: 'Lassen', icon: '📁' }].map(group => {
+              const count = turnTakingDecks.filter(deck => deck.topic === group.id).length;
+              return <button className="turn-deck turn-topic" key={group.id} onClick={() => setTopic(group.id)}>
+                <span className="turn-deck-icon">{group.icon}</span>
+                <span><strong>{group.title}</strong><small>{count} колод</small></span>
+                <span aria-hidden="true">→</span>
+              </button>;
+            })}
+          </> : <>
+          <button type="button" className="turn-folder-back" onClick={() => setTopic(null)}>← Усі теми</button>
+          <h2>📁 {topic === 'halten' ? 'Halten' : 'Lassen'}</h2>
+          {turnTakingDecks.filter(deck => deck.topic === topic).map(deck => (
             <button className="turn-deck" key={deck.id} onClick={() => startDeck(deck)}>
               <span className="turn-deck-icon">🗂️</span>
               <span><strong>{deck.title}</strong><small>{deck.description} · {deck.cards.length} карток</small></span>
               <span aria-hidden="true">→</span>
             </button>
           ))}
+          </>}
         </section>
       ) : (
         <section className="turn-session">
