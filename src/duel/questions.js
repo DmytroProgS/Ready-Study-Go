@@ -1117,3 +1117,132 @@ duelPacks.filter(pack => pack.id !== 'pack-halt-prepositions').forEach(pack => p
   question.uk = pack.id === 'pack-4' ? slideTranslations[index] : lessonTranslations.get(question.full);
   if (question.full === 'Ich bestehe auf meiner Meinung.') question.uk = 'Я наполягаю на своїй думці.';
 }));
+
+// R006: exactly two choices (von / für), from the supplied 10-sentence exercise.
+duelPacks.push({
+  "id": "pack-halten-von-fuer",
+  "title": "R006 halten: von oder für",
+  "description": "10 речень · обери von або für",
+  "questions": [
+    {
+      "prompt": "Was hältst du ___ meinem Vorschlag?",
+      "options": [
+        "von",
+        "für"
+      ],
+      "correct": 0,
+      "full": "Was hältst du von meinem Vorschlag?",
+      "uk": "Що ти думаєш про мою пропозицію?",
+      "explanation": "halten von + Dativ — мати думку про когось або щось.",
+      "source": "Оцінка — für, думка — von"
+    },
+    {
+      "prompt": "Ich halte ihn ___ einen guten Lehrer.",
+      "options": [
+        "für",
+        "von"
+      ],
+      "correct": 0,
+      "full": "Ich halte ihn für einen guten Lehrer.",
+      "uk": "Я вважаю його хорошим учителем.",
+      "explanation": "halten für + Akkusativ — вважати когось або щось певним.",
+      "source": "Оцінка — für, думка — von"
+    },
+    {
+      "prompt": "Sie hält nicht viel ___ Horoskopen.",
+      "options": [
+        "von",
+        "für"
+      ],
+      "correct": 0,
+      "full": "Sie hält nicht viel von Horoskopen.",
+      "uk": "Вона невисокої думки про гороскопи.",
+      "explanation": "halten von + Dativ — мати думку про когось або щось.",
+      "source": "Оцінка — für, думка — von"
+    },
+    {
+      "prompt": "Hältst du mich ___ naiv?",
+      "options": [
+        "für",
+        "von"
+      ],
+      "correct": 0,
+      "full": "Hältst du mich für naiv?",
+      "uk": "Ти вважаєш мене наївним?",
+      "explanation": "halten für + Akkusativ — вважати когось або щось певним.",
+      "source": "Оцінка — für, думка — von"
+    },
+    {
+      "prompt": "Ich halte das ___ eine schlechte Idee.",
+      "options": [
+        "von",
+        "für"
+      ],
+      "correct": 1,
+      "full": "Ich halte das für eine schlechte Idee.",
+      "uk": "Я вважаю це поганою ідеєю.",
+      "explanation": "halten für + Akkusativ — вважати когось або щось певним.",
+      "source": "Оцінка — für, думка — von"
+    },
+    {
+      "prompt": "Mein Chef hält viel ___ mir.",
+      "options": [
+        "für",
+        "von"
+      ],
+      "correct": 1,
+      "full": "Mein Chef hält viel von mir.",
+      "uk": "Мій начальник високої думки про мене.",
+      "explanation": "halten von + Dativ — мати думку про когось або щось.",
+      "source": "Оцінка — für, думка — von"
+    },
+    {
+      "prompt": "Wir halten den Film ___ langweilig.",
+      "options": [
+        "von",
+        "für"
+      ],
+      "correct": 1,
+      "full": "Wir halten den Film für langweilig.",
+      "uk": "Ми вважаємо фільм нудним.",
+      "explanation": "halten für + Akkusativ — вважати когось або щось певним.",
+      "source": "Оцінка — für, думка — von"
+    },
+    {
+      "prompt": "Was haltet ihr ___ dem neuen Café?",
+      "options": [
+        "für",
+        "von"
+      ],
+      "correct": 1,
+      "full": "Was haltet ihr von dem neuen Café?",
+      "uk": "Що ви думаєте про нове кафе?",
+      "explanation": "halten von + Dativ — мати думку про когось або щось.",
+      "source": "Оцінка — für, думка — von"
+    },
+    {
+      "prompt": "Ich halte dieses Restaurant ___ zu teuer.",
+      "options": [
+        "von",
+        "für"
+      ],
+      "correct": 1,
+      "full": "Ich halte dieses Restaurant für zu teuer.",
+      "uk": "Я вважаю цей ресторан надто дорогим.",
+      "explanation": "halten für + Akkusativ — вважати когось або щось певним.",
+      "source": "Оцінка — für, думка — von"
+    },
+    {
+      "prompt": "Was hältst du ___ meiner neuen Frisur?",
+      "options": [
+        "für",
+        "von"
+      ],
+      "correct": 1,
+      "full": "Was hältst du von meiner neuen Frisur?",
+      "uk": "Що ти думаєш про мою нову зачіску?",
+      "explanation": "halten von + Dativ — мати думку про когось або щось.",
+      "source": "Оцінка — für, думка — von"
+    }
+  ]
+});
