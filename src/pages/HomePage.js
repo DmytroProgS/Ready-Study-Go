@@ -28,6 +28,11 @@ function HomePage() {
           <span className="b2-card__label">Речення по черзі</span>
           <span className="b2-card__pig">🗂️</span>
         </Link>
+        <Link to="/dialogue" className="b2-card b2-card--ready" style={{ background: 'linear-gradient(110deg, #e7faf1, #e5f5ff)', borderLeftColor: '#31a977' }}>
+          <span className="b2-card__icon">💬</span>
+          <span className="b2-card__label">Діалог</span>
+          <span className="b2-card__pig">🗣️</span>
+        </Link>
       </div>
 
       <h2 className="b2-section-title">Підготовка до іспитів</h2>
