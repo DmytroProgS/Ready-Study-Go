@@ -47,6 +47,7 @@ import PhrasesPage from './pages/PhrasesPage';
 import TrainerPage from './pages/trainer/TrainerPage';
 import DeutschDuellPage from './pages/duel/DeutschDuellPage';
 import TurnTakingPage from './pages/turnTaking/TurnTakingPage';
+import DialoguePage from './pages/dialogue/DialoguePage';
 import VoiceTrainerPage from './pages/trainer/VoiceTrainerPage';
 import SelfStudyPage from './pages/selfstudy/SelfStudyPage';
 import SelfStudy0510Page from './pages/selfstudy/SelfStudy0510Page';
@@ -90,6 +91,7 @@ function App() {
           <Route path="/trainer" element={<TrainerPage />} />
           <Route path="/deutsch-duell" element={<DeutschDuellPage />} />
           <Route path="/turn-taking" element={<TurnTakingPage />} />
+          <Route path="/dialogue" element={<DialoguePage />} />
           <Route path="/trainer-voice" element={<VoiceTrainerPage />} />
           <Route path="/self-study" element={<SelfStudyPage />} />
           <Route path="/self-study/05-10" element={<SelfStudy0510Page />} />
