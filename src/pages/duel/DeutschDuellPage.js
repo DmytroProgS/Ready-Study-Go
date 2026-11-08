@@ -65,7 +65,7 @@ export default function DeutschDuellPage() {
 
   return <main className="duel-page">
     <h1>🎮 Deutsch Duell</h1>
-    <p>Набори запитань · 4 варіанти · без таймера · два пристрої</p>
+    <p>Набори запитань · 2 або 4 варіанти · без таймера · два пристрої</p>
     {solo ? <section className="duel-panel">
       <p className="duel-pack-name">😢 Граю сам · {pack.title}</p>
       {soloQuestion ? <>
