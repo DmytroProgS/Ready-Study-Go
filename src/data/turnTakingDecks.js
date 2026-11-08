@@ -1,7 +1,8 @@
 import { haltPrepositionPhrases } from './haltPrepositionPhrases';
+import { lassenDecks } from './lassenDecks';
 
 // Add future decks here. Each deck is shuffled every time it starts.
-export const turnTakingDecks = [
+const haltenDecks = [
   {
     id: 'halt-prepositions',
     title: 'K000 Фрази з halten з Präpositionen',
@@ -131,6 +132,8 @@ export const turnTakingDecks = [
     ]
   }
 ];
+
+export const turnTakingDecks = [...haltenDecks.map(deck => ({ ...deck, topic: 'halten' })), ...lassenDecks];
 
 export function shuffleDeck(cards) {
   const result = [...cards];
