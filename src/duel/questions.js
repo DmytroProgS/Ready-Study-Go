@@ -1,4 +1,5 @@
 import { haltPrepositionPhrases } from '../data/haltPrepositionPhrases';
+import { calendarPacks } from '../data/calendarPrepositionPacks';
 import { lesson2910Exercises } from '../data/selfStudy2910Data';
 import { lesson2910ExtraExercises } from '../data/selfStudy2910ExtraData';
 import { lesson2910ExtraExercisesMore } from '../data/selfStudy2910ExtraMore';
@@ -1246,3 +1247,23 @@ duelPacks.push({
     }
   ]
 });
+
+// Calendar Duel: 13 questions per pack, 4 choices, shuffled question order as usual.
+calendarPacks.forEach(pack => duelPacks.push({
+  id: 'pack-calendar-' + pack.r.toLowerCase(),
+  title: pack.r + ' ' + pack.name,
+  description: '13 запитань · пропущений прийменник або слово',
+  questions: pack.rows.map(([de, uk, gap, options, explanation], index) => {
+    const at = de.indexOf(gap);
+    if (at < 0) throw new Error('Missing gap token in ' + pack.r + ' #' + (index + 1));
+    const shift = index % options.length;
+    const rotated = options.slice(shift).concat(options.slice(0, shift));
+    return {
+      prompt: de.slice(0, at) + '___' + de.slice(at + gap.length),
+      options: rotated,
+      correct: rotated.indexOf(gap),
+      full: de, uk, explanation,
+      source: pack.name
+    };
+  })
+}));
