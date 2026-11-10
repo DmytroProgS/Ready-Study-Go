@@ -36,7 +36,7 @@ export default function TurnTakingPage() {
         <section className="turn-decks">
           {!topic ? <>
             <h2>Обери тему</h2>
-            {[{ id: 'halten', title: 'Halten', icon: '📁' }, { id: 'lassen', title: 'Lassen', icon: '📁' }].map(group => {
+            {[{ id: 'halten', title: 'Halten', icon: '📁' }, { id: 'lassen', title: 'Lassen', icon: '📁' }, { id: 'preposition', title: 'Präposition', icon: '📁' }].map(group => {
               const count = turnTakingDecks.filter(deck => deck.topic === group.id).length;
               return <button className="turn-deck turn-topic" key={group.id} onClick={() => setTopic(group.id)}>
                 <span className="turn-deck-icon">{group.icon}</span>
@@ -46,7 +46,7 @@ export default function TurnTakingPage() {
             })}
           </> : <>
           <button type="button" className="turn-folder-back" onClick={() => setTopic(null)}>← Усі теми</button>
-          <h2>📁 {topic === 'halten' ? 'Halten' : 'Lassen'}</h2>
+          <h2>📁 {topic === 'halten' ? 'Halten' : topic === 'lassen' ? 'Lassen' : 'Präposition'}</h2>
           {turnTakingDecks.filter(deck => deck.topic === topic).map(deck => (
             <button className="turn-deck" key={deck.id} onClick={() => startDeck(deck)}>
               <span className="turn-deck-icon">🗂️</span>
