@@ -75,9 +75,8 @@ export default function TurnTakingPage() {
           <div className="turn-controls">
             <button disabled={index === 0} onClick={() => move(index - 1)}>← Назад</button>
             <button onClick={() => setFlipped(v => !v)}>↻ Перевернути</button>
-            {index < session.cards.length - 1
-              ? <button onClick={() => move(index + 1)}>Далі →</button>
-              : <button onClick={() => startDeck(session.deck)}>🔀 Перемішати знову</button>}
+            {index < session.cards.length - 1 && <button onClick={() => move(index + 1)}>Далі →</button>}
+            <button onClick={() => startDeck(session.deck)}>🔀 Перемішати</button>
           </div>
           <button className="turn-other" onClick={() => setSession(null)}>← Обрати іншу колоду</button>
         </section>
