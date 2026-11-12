@@ -38,10 +38,3 @@
 .duel-panel .duel-options button:disabled:not(.correct):not(.chosen){
   background:#f1f3f7;color:#52627c;border-color:#d7dfeb;
 }
-.duel-feedback{text-align:left;margin:14px 0 20px;padding:16px 18px;border-radius:12px;border:2px solid}
-.duel-feedback--correct{background:#e5f8ed;border-color:#208556;color:#145a38}
-.duel-feedback--wrong{background:#fff0f0;border-color:#c43e47;color:#8d2430}
-.duel-feedback-heading{display:flex;align-items:center;gap:8px;font-size:18px;margin-bottom:8px}
-.duel-feedback-answer{font-size:16px;font-weight:500;line-height:1.5}
-.duel-feedback-answer strong{font-size:18px;text-decoration:underline;text-underline-offset:3px}
-.duel-feedback-rule{margin-top:10px;padding-top:10px;border-top:1px solid currentColor;line-height:1.55;color:#233552}
