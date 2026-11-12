@@ -7,6 +7,13 @@ import { duelPacks, getDuelPack, shuffledQuestionOrder, questionsInOrder } from 
 import { createRoom, joinRoom, startRoom, submitAnswer, markReady, watchRoom } from '../../duel/duelApi';
 import './DeutschDuellPage.css';
 
+function AnswerFeedback({ question, isCorrect }) {
+  return <p className="duel-explanation" role="status">
+    <strong>✅ {isCorrect ? 'Правильно!' : 'Правильна відповідь: ' + question.options[question.correct]}</strong>
+    {' '}{question.explanation}
+  </p>;
+}
+
 function scores(room, questions) {
   const result = Object.fromEntries(Object.keys(room.players).map(uid => [uid, 0]));
   (room.history || []).forEach((round, i) => {
@@ -74,7 +81,7 @@ export default function DeutschDuellPage() {
         <div className="duel-options">{soloQuestion.options.map((option, i) => <button key={i} disabled={solo.answers[solo.index] !== undefined} className={solo.answers[solo.index] !== undefined && i === soloQuestion.correct ? 'correct' : solo.answers[solo.index] === i ? 'chosen' : ''} onClick={() => setSolo(previous => ({ ...previous, answers: [...previous.answers, i] }))}><b>{'ABCD'[i]}.</b> {option}</button>)}</div>
         {solo.answers[solo.index] === undefined ? <p>Обери один варіант відповіді.</p> : <>
           <p className="duel-translation">{soloQuestion.uk}</p>
-          <p className="duel-explanation"><strong>{solo.answers[solo.index] === soloQuestion.correct ? '✅ Правильно!' : 'Правильна відповідь: ' + soloQuestion.options[soloQuestion.correct]}</strong> {soloQuestion.explanation}</p>
+          <AnswerFeedback question={soloQuestion} isCorrect={solo.answers[solo.index] === soloQuestion.correct} />
           <button onClick={soloNext}>{solo.index + 1 === duelQuestions.length ? 'Переглянути результат →' : 'Далі →'}</button>
         </>}
       </> : <>
@@ -125,7 +132,7 @@ export default function DeutschDuellPage() {
           <div className="duel-options">{question.options.map((option, i) => <button key={i} disabled={busy || myAnswer !== undefined || bothAnswered} className={bothAnswered && i === question.correct ? 'correct' : myAnswer === i ? 'chosen' : ''} onClick={() => act(() => submitAnswer(code, user, room.index, i))}><b>{'ABCD'[i]}.</b> {option}</button>)}</div>
           {myAnswer === undefined ? <p>Обери один варіант відповіді.</p> : !bothAnswered ? <p>Відповідь збережено. Очікуємо другого гравця…</p> : <>
             <p className="duel-translation">{question.uk}</p>
-            <p className="duel-explanation"><strong>{myAnswer === question.correct ? '✅ Правильно!' : 'Правильна відповідь: ' + question.options[question.correct]}</strong> {question.explanation}</p>
+            <AnswerFeedback question={question} isCorrect={myAnswer === question.correct} />
             <p>{uids.map(uid => room.players[uid] + ': ' + (room.answers[uid] === question.correct ? '✓' : '✗')).join(' · ')}</p>
             <button disabled={busy || !!room.ready[user.uid]} onClick={() => act(() => markReady(code, user, room.index, duelQuestions.length))}>{room.ready[user.uid] ? 'Очікуємо другого гравця…' : 'Далі →'}</button>
           </>}
