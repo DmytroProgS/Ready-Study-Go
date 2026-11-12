@@ -8,14 +8,10 @@ import { createRoom, joinRoom, startRoom, submitAnswer, markReady, watchRoom } f
 import './DeutschDuellPage.css';
 
 function AnswerFeedback({ question, isCorrect }) {
-  return <div className="duel-feedback duel-feedback--correct" role="status">
-    <div className="duel-feedback-heading">
-      <span aria-hidden="true">✅</span>
-      <strong>{isCorrect ? 'Правильно!' : 'Правильна відповідь'}</strong>
-    </div>
-    <div className="duel-feedback-answer"><strong>{question.options[question.correct]}</strong></div>
-    {question.explanation && <div className="duel-feedback-rule">{question.explanation}</div>}
-  </div>;
+  return <p className="duel-explanation" role="status">
+    <strong>✅ {isCorrect ? 'Правильно!' : 'Правильна відповідь: ' + question.options[question.correct]}</strong>
+    {' '}{question.explanation}
+  </p>;
 }
 
 function scores(room, questions) {
