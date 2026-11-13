@@ -1,0 +1,6 @@
+/* Compact, optional translations beneath German DTB speaking prompts. */
+.c1-translation{margin:7px 0 10px;text-align:left}
+.c1-translation__button{border:1px solid #9eb9e6;background:#f1f6ff;color:#204c93;border-radius:7px;padding:5px 10px;font:inherit;font-size:0.9em;cursor:pointer}
+.c1-translation__button:hover{background:#e1edff}
+.c1-translation__button:focus-visible{outline:2px solid #255db5;outline-offset:2px}
+.c1-translation__text{margin:8px 0 0;padding:9px 12px;border-left:3px solid #4b84c8;background:#f4f8ff;color:#26435f;line-height:1.5;font-size:0.95em}

@@ -5,10 +5,12 @@ import {
   teil1Topics, teil1Redemittel,
 } from '../../data/sprechenDtbData';
 import C1Timer from './C1Timer';
+import { smalltalkTranslations, problemTranslations, extraProblemTranslations } from '../../data/sprechenDtbTranslations';
 import { useC1TopicStatuses, TopicStatus, TopicStatusLogin } from './TopicStatus';
 import '../B2Page.css';
 import './C1InfoPage.css';
 import './c1.css';
+import './SprechenDtbTranslations.css';
 
 // Три сторінки усної частини DTB C1. На кожній: випадкова тема, таймер, Redemittel і внизу список усіх тем.
 // Кнопка «▶» біля теми в списку робить її поточною і прокручує сторінку вгору.
@@ -23,6 +25,19 @@ const pickTwo = (list) => {
 };
 
 const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+function TranslationToggle({ translation }) {
+  const [visible, setVisible] = useState(false);
+  if (!translation) return null;
+  return (
+    <div className="c1-translation">
+      <button type="button" className="c1-translation__button" aria-expanded={visible} onClick={() => setVisible(value => !value)}>
+        {visible ? 'Сховати переклад' : '🌐 Показати переклад'}
+      </button>
+      {visible && <p className="c1-translation__text" lang="uk">{translation}</p>}
+    </div>
+  );
+}
 
 function RedemittelList({ items }) {
   return items.map(([title, list]) => (
@@ -111,7 +126,10 @@ export function SprechenDtbTeil2() {
     >
       <div className="c1-random">
         <button className="c1-btn" onClick={() => setCurrent(pick(smalltalkTopics))}>🎲 Випадкова тема</button>
-        {current && <div className="c1-random__topic c1-de">{current}</div>}
+        {current && <>
+          <div className="c1-random__topic c1-de">{current}</div>
+          <TranslationToggle key={current} translation={smalltalkTranslations[smalltalkTopics.indexOf(current)]} />
+        </>}
         <div className="c1-timer-status-row">
           <C1Timer presets={[{ label: '3:00', sec: 180 }, { label: '5:00', sec: 300 }]} />
           {current && <TopicStatus progress={progress} topicKey={'teil2-' + smalltalkTopics.indexOf(current)} />}
@@ -128,6 +146,7 @@ export function SprechenDtbTeil2() {
           {smalltalkTopics.map((t, i) => (
             <li key={t} className="c1-topic-row">
               <span>{t}{' '}<button className="c1-play" title="Тренувати цю тему" onClick={() => choose(t)}>▶</button></span>
+              <TranslationToggle translation={smalltalkTranslations[i]} />
               <TopicStatus progress={progress} topicKey={'teil2-' + i} />
             </li>
           ))}
@@ -153,6 +172,11 @@ export function SprechenDtbTeil3() {
         {current && (
           <>
             <div className="c1-random__topic c1-de">{current.problem}</div>
+            <TranslationToggle key={current.problem} translation={
+              problems.some(p => p.problem === current.problem)
+                ? problemTranslations[problems.findIndex(p => p.problem === current.problem)]
+                : extraProblemTranslations[moreProblems.indexOf(current.problem)]
+            } />
             {current.short && (
               <button className="c1-transcript__toggle" onClick={() => setShowSolution(!showSolution)}>
                 {showSolution ? 'Сховати рішення' : '💡 Показати можливі рішення'}
@@ -183,6 +207,7 @@ export function SprechenDtbTeil3() {
               {i + 1}. {p.problem}{' '}
               <button className="c1-play" title="Тренувати цю ситуацію" onClick={() => choose(p)}>▶</button>
             </h3>
+            <TranslationToggle translation={problemTranslations[i]} />
             <TopicStatus progress={progress} topicKey={'teil3-' + i} />
             <details>
               <summary className="c1-uk">💡 рішення</summary>
@@ -199,6 +224,7 @@ export function SprechenDtbTeil3() {
           {moreProblems.map((t, i) => (
             <li key={t} className="c1-topic-row">
               <span>{t}{' '}<button className="c1-play" title="Тренувати цю ситуацію" onClick={() => choose({ problem: t })}>▶</button></span>
+              <TranslationToggle translation={extraProblemTranslations[i]} />
               <TopicStatus progress={progress} topicKey={'teil3-extra-' + i} />
             </li>
           ))}
@@ -207,3 +233,4 @@ export function SprechenDtbTeil3() {
     </Layout>
   );
 }
+
