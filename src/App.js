@@ -26,6 +26,7 @@ import C1SchreibenPage from './pages/c1/C1SchreibenPage';
 import C1SprechenPage from './pages/c1/C1SprechenPage';
 import StellungnahmePage from './pages/c1/StellungnahmePage';
 import SprechenDtbPage from './pages/c1/SprechenDtbPage';
+import DtbRedewendungenPage from './pages/c1/DtbRedewendungenPage';
 import { SprechenDtbTeil1, SprechenDtbTeil2, SprechenDtbTeil3 } from './pages/c1/SprechenDtbTeile';
 import HorenPage from './pages/b2/HorenPage';
 import LesenPage from './pages/b2/LesenPage';
@@ -122,6 +123,7 @@ function App() {
           <Route path="/c1/sprechen-dtb/teil1" element={<SprechenDtbTeil1 />} />
           <Route path="/c1/sprechen-dtb/teil2" element={<SprechenDtbTeil2 />} />
           <Route path="/c1/sprechen-dtb/teil3" element={<SprechenDtbTeil3 />} />
+          <Route path="/c1/sprechen-dtb/redewendungen" element={<DtbRedewendungenPage />} />
           <Route path="/c1/:module" element={<C1ModulePage />} />
           <Route path="/c1/:module/:part" element={<C1ExercisePage />} />
           <Route path="/exercise/:id" element={<ExercisePage />} />
