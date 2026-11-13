@@ -27,6 +27,11 @@ function SprechenDtbPage() {
           </Link>
         ))}
       </div>
+      <Link to="/c1/sprechen-dtb/redewendungen" className="b2-card b2-card--ready" style={{marginTop:16}}>
+        <span className="b2-card__num">🗂️</span>
+        <span className="b2-card__label">Redewendungen — 13 карток · 🇺🇦 ↔ 🇩🇪</span>
+        <span className="b2-card__pig">🐷</span>
+      </Link>
       <Link to="/c1" className="back-link">← Назад</Link>
     </div>
   );
