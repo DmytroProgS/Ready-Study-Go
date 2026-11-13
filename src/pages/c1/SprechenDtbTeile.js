@@ -10,6 +10,7 @@ import { useC1TopicStatuses, TopicStatus, TopicStatusLogin } from './TopicStatus
 import '../B2Page.css';
 import './C1InfoPage.css';
 import './c1.css';
+import './SprechenDtbTranslations.css';
 
 // Три сторінки усної частини DTB C1. На кожній: випадкова тема, таймер, Redemittel і внизу список усіх тем.
 // Кнопка «▶» біля теми в списку робить її поточною і прокручує сторінку вгору.
