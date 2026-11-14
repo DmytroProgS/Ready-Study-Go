@@ -1,5 +1,6 @@
 import { haltPrepositionPhrases } from './haltPrepositionPhrases';
 import { lassenDecks } from './lassenDecks';
+import { substantiveDecks } from './substantiveDecks';
 import { calendarPacks } from './calendarPrepositionPacks';
 
 // Add future decks here. Each deck is shuffled every time it starts.
@@ -134,7 +135,7 @@ const haltenDecks = [
   }
 ];
 
-export const turnTakingDecks = [...haltenDecks.map(deck => ({ ...deck, topic: 'halten' })), ...lassenDecks, ...calendarPacks.map(pack => ({ id: pack.k.toLowerCase() + '-calendar', title: pack.k + ' ' + pack.name, description: '13 речень · переклад українською → німецькою', topic: 'preposition', cards: pack.rows.map(([de, uk]) => ({ uk, de })) }))];
+export const turnTakingDecks = [...haltenDecks.map(deck => ({ ...deck, topic: 'halten' })), ...lassenDecks, ...substantiveDecks, ...calendarPacks.map(pack => ({ id: pack.k.toLowerCase() + '-calendar', title: pack.k + ' ' + pack.name, description: '13 речень · переклад українською → німецькою', topic: 'preposition', cards: pack.rows.map(([de, uk]) => ({ uk, de })) }))];
 
 export function shuffleDeck(cards) {
   const result = [...cards];
