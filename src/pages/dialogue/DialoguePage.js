@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { dialogues } from '../../data/dialogues';
+import { passivDialogues } from '../../data/passivDialogues';
 import './DialoguePage.css';
 
 export default function DialoguePage() {
@@ -38,6 +39,18 @@ export default function DialoguePage() {
               <span>💬</span><span><strong>{item.title}</strong><small>{item.description} · {item.messages.length} реплік</small></span><span>→</span>
             </button>
           ))}
+          <h2>Ситуації з Passiv</h2>
+          <p>Три ситуації по ролях. У кожній — п’ять запитань і відповідей для тренування пасиву.</p>
+          {passivDialogues.map(item => (
+            <button type="button" key={item.id} className="dialogue-choice dialogue-choice--passiv" onClick={() => start(item)}>
+              <span>🗣️</span><span><strong>{item.title}</strong><small>{item.description} · {item.messages.length} реплік</small></span><span>→</span>
+            </button>
+          ))}
+          <div className="dialogue-passiv-reference">
+            <h3>📚 Шпаргалка: Passiv на одному прикладі</h3>
+            <img src={process.env.PUBLIC_URL + '/grammar/passiv-problem-monster.png'} alt="Кольорова схема Passiv: Das Problem, п’ять форм і таблиця werden" loading="lazy" onError={event => { event.currentTarget.style.display = 'none'; }} />
+            <p className="dialogue-passiv-note">Präsens · Präteritum · Modalverb · Konjunktiv II · Zustandspassiv</p>
+          </div>
         </section>
       ) : (
         <section className="dialogue-chat" aria-label={dialogue.title}>
