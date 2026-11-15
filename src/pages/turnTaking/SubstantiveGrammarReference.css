@@ -49,3 +49,13 @@
 .sub-ref-table{font-size:13px}
 .sub-ref-examples{min-width:680px}
 }
+
+/* Desktop: fit all four gender columns without a horizontal scrollbar. */
+@media(min-width:1050px){
+  .sub-ref-scroll{overflow-x:visible}
+  .sub-ref-examples{min-width:0;width:100%}
+  .sub-ref-person-table{min-width:0;width:100%}
+  .sub-ref-table{font-size:clamp(13px,1.08vw,16px)}
+  .sub-ref-examples td{padding:11px 8px}
+  .sub-ref-case-header{grid-template-columns:32% 25% 43%}
+}
