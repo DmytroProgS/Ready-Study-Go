@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { turnTakingDecks, shuffleDeck } from '../../data/turnTakingDecks';
 import './TurnTakingPage.css';
+import SubstantiveGrammarReference from './SubstantiveGrammarReference';
 
 function highlightedSentence(sentence, fragment, className) {
   const position = sentence.indexOf(fragment);
@@ -54,6 +55,7 @@ export default function TurnTakingPage() {
               <span aria-hidden="true">→</span>
             </button>
           ))}
+          {topic === 'substantive' && <SubstantiveGrammarReference />}
           </>}
         </section>
       ) : (
