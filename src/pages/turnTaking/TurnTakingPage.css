@@ -8,3 +8,12 @@
 .turn-correction-translation{font-size:clamp(18px,2.7vw,24px);font-weight:500;color:#375675}
 
 .turn-topic{margin:12px 0;background:linear-gradient(110deg,#e6f7ee,#eaf2ff);border-left-color:#28a46e}.turn-folder-back{border:0;background:transparent;color:#3459a0;font:inherit;font-weight:700;cursor:pointer;margin:8px auto 12px;display:block}
+
+/* Give the reference a desktop-wide reading area without widening the deck buttons. */
+@media(min-width:1050px){
+  .turn-page:has(.sub-grammar-reference){max-width:1400px}
+  .turn-decks:has(.sub-grammar-reference){max-width:1320px}
+  .turn-decks:has(.sub-grammar-reference)>h2,
+  .turn-decks:has(.sub-grammar-reference)>.turn-folder-back,
+  .turn-decks:has(.sub-grammar-reference)>.turn-deck{max-width:650px;margin-left:auto;margin-right:auto}
+}
