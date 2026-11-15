@@ -70,18 +70,6 @@ const adjectivesPossessive = [
   ['meinem guten Mann', 'meinem guten Kind', 'meiner guten Frau', 'meinen guten Kindern'],
   ['meines guten Mannes', 'meines guten Kindes', 'meiner guten Frau', 'meiner guten Kinder']
 ];
-const standalonePossessives = [
-  ['meiner', 'meins', 'meine', 'meine'],
-  ['deiner', 'deins', 'deine', 'deine'],
-  ['seiner', 'seins', 'seine', 'seine'],
-  ['ihrer', 'ihres', 'ihre', 'ihre'],
-  ['seiner', 'seines', 'seiner', 'seiner'],
-  ['unserer', 'unseres', 'unserer', 'unserer'],
-  ['eurer', 'eures', 'eurer', 'eurer'],
-  ['ihrer', 'ihres', 'ihrer', 'ihrer'],
-  ['Ihrer', 'Ihres', 'Ihrer', 'Ihrer']
-];
-
 function GrammarTable({ title, rows, rowNames = cases }) {
   return <div className="sub-grammar-table-wrap">
     <h4>{title}</h4>
@@ -104,7 +92,6 @@ function PronounTable({ title, rows, rowNames }) {
     </div>
   </div>;
 }
-const stemForm = (stem, ending) => stem === 'euer' && ending ? 'eur' + ending : stem + ending;
 
 export default function SubstantiveGrammarReference() {
   return <section className="sub-grammar-reference">
