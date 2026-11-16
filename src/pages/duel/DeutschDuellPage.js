@@ -9,7 +9,7 @@ import './DeutschDuellPage.css';
 
 function AnswerFeedback({ question, isCorrect }) {
   return <p className="duel-explanation" role="status">
-    <strong>✅ {isCorrect ? 'Правильно!' : 'Правильна відповідь: ' + question.options[question.correct]}</strong>
+    <strong>{isCorrect ? '✅ Правильно!' : '❌ Неправильно. Правильна відповідь: ' + question.options[question.correct]}</strong>
     {' '}{question.explanation}
   </p>;
 }
@@ -129,12 +129,14 @@ export default function DeutschDuellPage() {
         {question && <>
           <div className="duel-progress">Питання {room.index + 1} із {duelQuestions.length}</div>
           <h2>{question.prompt}</h2>
-          <div className="duel-options">{question.options.map((option, i) => <button key={i} disabled={busy || myAnswer !== undefined || bothAnswered} className={bothAnswered && i === question.correct ? 'correct' : myAnswer === i ? 'chosen' : ''} onClick={() => act(() => submitAnswer(code, user, room.index, i))}><b>{'ABCD'[i]}.</b> {option}</button>)}</div>
-          {myAnswer === undefined ? <p>Обери один варіант відповіді.</p> : !bothAnswered ? <p>Відповідь збережено. Очікуємо другого гравця…</p> : <>
+          <div className="duel-options">{question.options.map((option, i) => <button key={i} disabled={busy || myAnswer !== undefined || bothAnswered} className={myAnswer !== undefined && i === question.correct ? 'correct' : myAnswer === i ? 'chosen' : ''} onClick={() => act(() => submitAnswer(code, user, room.index, i))}><b>{'ABCD'[i]}.</b> {option}</button>)}</div>
+          {myAnswer === undefined ? <p>Обери один варіант відповіді.</p> : <>
             <p className="duel-translation">{question.uk}</p>
             <AnswerFeedback question={question} isCorrect={myAnswer === question.correct} />
-            <p>{uids.map(uid => room.players[uid] + ': ' + (room.answers[uid] === question.correct ? '✓' : '✗')).join(' · ')}</p>
-            <button disabled={busy || !!room.ready[user.uid]} onClick={() => act(() => markReady(code, user, room.index, duelQuestions.length))}>{room.ready[user.uid] ? 'Очікуємо другого гравця…' : 'Далі →'}</button>
+            {bothAnswered ? <>
+              <p>{uids.map(uid => room.players[uid] + ': ' + (room.answers[uid] === question.correct ? '✓' : '✗')).join(' · ')}</p>
+              <button disabled={busy || !!room.ready[user.uid]} onClick={() => act(() => markReady(code, user, room.index, duelQuestions.length))}>{room.ready[user.uid] ? 'Очікуємо другого гравця…' : 'Далі →'}</button>
+            </> : <p>Відповідь збережено. Очікуємо другого гравця, щоб перейти далі…</p>}
           </>}
         </>}
         {room.status === 'finished' && <>
