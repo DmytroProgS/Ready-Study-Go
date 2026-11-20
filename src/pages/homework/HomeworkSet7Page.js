@@ -11,11 +11,11 @@ import './HomeworkSet4.css';
 
 // Список вправ заняття 09.07. Додавай нові, замінюючи placeholder: true на component.
 const exercises = [
-  { n: 1, label: 'Вивчення слів', subtitle: 'Картки: переклади на німецьку, натисни щоб перевірити', component: <WordCards words={set7Words} /> },
-  { n: 2, label: 'Вивчення слів (Набір 2)', subtitle: 'Картки: переклади на німецьку, натисни щоб перевірити', component: <WordCards words={set7Words2} /> },
-  { n: 3, label: 'Вправа 1', subtitle: 'Обери правильне дієслово з двох варіантів', component: <WebGuerillasVerben /> },
-  { n: 4, label: 'Вправа 2', subtitle: 'Переклади речення німецькою — натисни картку для відповіді', component: <WebGuerillasSaetze /> },
-  { n: 5, label: 'Переказати текст', subtitle: 'WEB-GUERILLAS — прочитай текст і перекажи своїми словами', component: <RetellWebGuerillas /> },
+  { n: 1, label: 'Vokabeln lernen', subtitle: 'Karteikarten zum Übersetzen ins Deutsche', component: <WordCards words={set7Words} /> },
+  { n: 2, label: 'Vokabeln lernen (Set 2)', subtitle: 'Karteikarten zum Übersetzen ins Deutsche', component: <WordCards words={set7Words2} /> },
+  { n: 3, label: 'Übung 1', subtitle: 'Das passende Verb aus zwei Optionen wählen', component: <WebGuerillasVerben /> },
+  { n: 4, label: 'Übung 2', subtitle: 'Sätze ins Deutsche übersetzen und mit den Karten prüfen', component: <WebGuerillasSaetze /> },
+  { n: 5, label: 'Text nacherzählen', subtitle: 'WEB-GUERILLAS — den Text in eigenen Worten nacherzählen', component: <RetellWebGuerillas /> },
 ];
 
 function HomeworkSet7Page() {
@@ -23,7 +23,7 @@ function HomeworkSet7Page() {
 
   return (
     <div className="cloze-page">
-      <h1 className="cloze-page__lesson">Заняття 09.07</h1>
+      <h1 className="cloze-page__lesson">Unterricht am 09.07</h1>
 
       <nav className="set4-nav">
         {exercises.map((ex) => (
@@ -51,7 +51,7 @@ function HomeworkSet7Page() {
 
           {ex.placeholder ? (
             <div className="set4-placeholder">
-              Завдання буде додано незабаром.
+              Die Aufgabe folgt in Kürze.
             </div>
           ) : (
             ex.component
@@ -59,7 +59,7 @@ function HomeworkSet7Page() {
         </section>
       ))}
 
-      <Link to="/homework" className="back-link">&larr; Назад</Link>
+      <Link to="/homework" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

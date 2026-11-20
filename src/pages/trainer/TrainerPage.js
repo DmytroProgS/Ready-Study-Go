@@ -35,15 +35,15 @@ function TrainerPage() {
   }, [user]);
 
   if (user === undefined) {
-    return <div className="trainer-page"><p className="trainer-loading">Завантаження…</p></div>;
+    return <div className="trainer-page"><p className="trainer-loading">Wird geladen …</p></div>;
   }
 
   if (!user) {
     return (
       <div className="trainer-page">
-        <h1 className="trainer-title">Тренажер речень</h1>
+        <h1 className="trainer-title">Satztrainer</h1>
         <LoginForm />
-        <Link to="/" className="back-link">&larr; На головну</Link>
+        <Link to="/" className="back-link">&larr; Zur Startseite</Link>
       </div>
     );
   }
@@ -52,7 +52,7 @@ function TrainerPage() {
     <div className="trainer-page">
       <div className="trainer-topbar">
         <span className="trainer-user">👤 {user.email}</span>
-        <button className="trainer-logout" onClick={() => signOut(auth)}>Вийти</button>
+        <button className="trainer-logout" onClick={() => signOut(auth)}>Abmelden</button>
       </div>
 
       <nav className="trainer-tabs">
@@ -60,13 +60,13 @@ function TrainerPage() {
           className={`trainer-tab ${tab === 'study' ? 'is-active' : ''}`}
           onClick={() => setTab('study')}
         >
-          🎯 Навчання
+          🎯 Lernen
         </button>
         <button
           className={`trainer-tab ${tab === 'cards' ? 'is-active' : ''}`}
           onClick={() => setTab('cards')}
         >
-          🗂 Мої картки ({cards.length})
+          🗂 Meine Karten ({cards.length})
         </button>
       </nav>
 
@@ -76,7 +76,7 @@ function TrainerPage() {
         <MyCardsView uid={user.uid} cards={cards} />
       )}
 
-      <Link to="/" className="back-link">&larr; На головну</Link>
+      <Link to="/" className="back-link">&larr; Zur Startseite</Link>
     </div>
   );
 }

@@ -48,7 +48,7 @@ function SprachbausteineTeil2Page() {
             onChange={e => handleSelect(gap, e.target.value)}
             disabled={submitted}
           >
-            <option value="">— виберіть —</option>
+            <option value="">– Bitte wählen –</option>
             {gapData.options.map((opt, idx) => (
               <option key={opt} value={opt}>{String.fromCharCode(97 + idx)}) {opt}</option>
             ))}
@@ -62,7 +62,7 @@ function SprachbausteineTeil2Page() {
   return (
     <div className="sb-page">
       <div className="sb-header">
-        <Link to="/b2/sprachbausteine" className="back-link">← Назад до Sprachbausteine</Link>
+        <Link to="/b2/sprachbausteine" className="back-link">← Zurück zu den Sprachbausteinen</Link>
         <h1>Sprachbausteine Teil 2</h1>
         <div className="sb-variant-nav">
           {variants.map((_, i) => (
@@ -82,22 +82,22 @@ function SprachbausteineTeil2Page() {
 
       {submitted && (
         <div className={`sb-score ${score === 6 ? 'perfect' : 'partial'}`}>
-          Результат: {score} / 6 {score === 6 ? '🎉' : ''}
+          Ergebnis: {score} / 6 {score === 6 ? '🎉' : ''}
         </div>
       )}
 
       <div className="sb-actions">
         {!submitted ? (
           <button className="sb-btn sb-btn--check" onClick={handleSubmit} disabled={!allAnswered}>
-            Перевірити
+            Überprüfen
           </button>
         ) : (
           <>
             <button className="sb-btn sb-btn--next" onClick={() => handleGoTo((vi + 1) % variants.length)}>
-              Наступний варіант
+              Nächste Variante
             </button>
             <button className="sb-btn sb-btn--reset" onClick={handleReset}>
-              Спробувати ще раз
+              Erneut versuchen
             </button>
           </>
         )}

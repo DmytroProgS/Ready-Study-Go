@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PageNavigation } from '../../components/PageNavigation';
 import { dialogues } from '../../data/dialogues';
 import { passivDialogues } from '../../data/passivDialogues';
 import './DialoguePage.css';
@@ -23,48 +24,54 @@ export default function DialoguePage() {
 
   const messages = dialogue?.messages || [];
   const finished = dialogue && step === messages.length;
+  const backToSelection = () => {
+    if (dialogue) setDialogue(null);
+    else setCategory(null);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <main className="dialogue-page">
-      <h1>💬 Діалог</h1>
+      <PageNavigation onBack={category ? backToSelection : undefined} />
+      <h1>💬 Dialog</h1>
       {!dialogue ? (
         !category ? (
           <section className="dialogue-picker">
-            <p>Обери розділ для тренування діалогів по ролях.</p>
+            <p>Wähle einen Bereich, um Dialoge im Rollenspiel zu üben.</p>
             <button type="button" className="dialogue-choice dialogue-choice--passiv" onClick={() => setCategory('passiv')}>
-              <span>🗣️</span><span><strong>Ситуація з Passiv</strong><small>3 ситуації · 5 запитань і відповідей у кожній</small></span><span>→</span>
+              <span>🗣️</span><span><strong>Situationen im Passiv</strong><small>3 Situationen mit je 5 Fragen und Antworten</small></span><span>→</span>
             </button>
             <button type="button" className="dialogue-choice" onClick={() => setCategory('halten')}>
-              <span>💬</span><span><strong>Ситуація з halten</strong><small>Діалог Lena і Max · вирази з halten</small></span><span>→</span>
+              <span>💬</span><span><strong>Dialog mit „halten“</strong><small>Dialog zwischen Lena und Max · Wendungen mit „halten“</small></span><span>→</span>
             </button>
           </section>
         ) : (
           <section className="dialogue-picker">
-            <button type="button" className="dialogue-back dialogue-category-back" onClick={() => setCategory(null)}>← До розділів</button>
-            <h2>{category === 'passiv' ? 'Ситуація з Passiv' : 'Ситуація з halten'}</h2>
-            <p>Промовляйте репліки німецькою вголос. Натискайте «Відправити», щоб побачити переклад і перейти до наступної репліки.</p>
-            <div className="dialogue-mode" role="group" aria-label="Режим тренування">
-              <button type="button" className={mode === 'two' ? 'selected' : ''} aria-pressed={mode === 'two'} onClick={() => setMode('two')}>👥 Удвох</button>
-              <button type="button" className={mode === 'solo' ? 'selected' : ''} aria-pressed={mode === 'solo'} onClick={() => setMode('solo')}>🙂 Самостійно</button>
+            <button type="button" className="dialogue-back dialogue-category-back" onClick={backToSelection}>← Zur Übersicht</button>
+            <h2>{category === 'passiv' ? 'Situationen im Passiv' : 'Dialog mit „halten“'}</h2>
+            <p>Sprecht die Sätze laut auf Deutsch. Klickt auf „Senden“, um die Übersetzung zu sehen und zum nächsten Satz zu wechseln.</p>
+            <div className="dialogue-mode" role="group" aria-label="Übungsmodus">
+              <button type="button" className={mode === 'two' ? 'selected' : ''} aria-pressed={mode === 'two'} onClick={() => setMode('two')}>👥 Zu zweit</button>
+              <button type="button" className={mode === 'solo' ? 'selected' : ''} aria-pressed={mode === 'solo'} onClick={() => setMode('solo')}>🙂 Allein</button>
             </div>
-            <h3>Обери діалог</h3>
+            <h3>Wähle einen Dialog</h3>
             {(category === 'passiv' ? passivDialogues : dialogues).map(item => (
               <button type="button" key={item.id} className={'dialogue-choice' + (category === 'passiv' ? ' dialogue-choice--passiv' : '')} onClick={() => start(item)}>
-                <span>{category === 'passiv' ? '🗣️' : '💬'}</span><span><strong>{item.title}</strong><small>{item.description} · {item.messages.length} реплік</small></span><span>→</span>
+                <span>{category === 'passiv' ? '🗣️' : '💬'}</span><span><strong>{item.title}</strong><small>{item.description} · {item.messages.length} Beiträge</small></span><span>→</span>
               </button>
             ))}
             {category === 'passiv' ? (
               <div className="dialogue-passiv-reference">
-                <h3>📚 Шпаргалка: Passiv на одному прикладі</h3>
-                <img src={process.env.PUBLIC_URL + '/grammar/passiv-problem-monster.png'} alt="Кольорова схема Passiv: Das Problem, п’ять форм і таблиця werden" loading="lazy" />
+                <h3>📚 Passiv im Überblick: ein Beispiel</h3>
+                <img src={process.env.PUBLIC_URL + '/grammar/passiv-problem-monster.png'} alt="Farbige Übersicht zum Passiv: Das Problem, fünf Formen und eine Tabelle zu „werden“" loading="lazy" />
                 <p className="dialogue-passiv-note">Präsens · Präteritum · Modalverb · Konjunktiv II · Zustandspassiv</p>
               </div>
             ) : (
               <div className="dialogue-passiv-reference">
-                <h3>📚 Таблиця: вирази з halten</h3>
+                <h3>📚 Wendungen mit „halten“ im Überblick</h3>
                 <div className="dialogue-grammar-table-wrap">
                   <table className="dialogue-grammar-table">
-                    <thead><tr><th>Вираз</th><th>Значення</th></tr></thead>
+                    <thead><tr><th>Wendung</th><th>Bedeutung</th></tr></thead>
                     <tbody>
                       <tr><td>Was hältst du von ...?</td><td>Що ти думаєш про ...?</td></tr>
                       <tr><td>etwas für ... halten</td><td>вважати щось ...</td></tr>
@@ -84,8 +91,8 @@ export default function DialoguePage() {
       ) : (
         <section className="dialogue-chat" aria-label={dialogue.title}>
           <header className="dialogue-header">
-            <div><strong>{dialogue.title}</strong><small>{mode === 'solo' ? '🙂 Самостійно · обидві ролі' : '👥 Удвох · по черзі'} · {Math.min(step + 1, messages.length)} із {messages.length}</small></div>
-            <button type="button" onClick={() => start(dialogue)}>↻ Заново</button>
+            <div><strong>{dialogue.title}</strong><small>{mode === 'solo' ? '🙂 Allein · beide Rollen' : '👥 Zu zweit · abwechselnd'} · {Math.min(step + 1, messages.length)} von {messages.length}</small></div>
+            <button type="button" onClick={() => start(dialogue)}>↻ Neu starten</button>
           </header>
           <div className="dialogue-thread" aria-live="polite">
             {messages.slice(0, Math.min(step + 1, messages.length)).map((message, i) => (
@@ -96,24 +103,24 @@ export default function DialoguePage() {
                   {i < step ? (
                     <div className="dialogue-answer">
                       <p lang="de">{message.de}</p>
-                      <span className="dialogue-check" aria-label="Відправлено">✓✓</span>
+                      <span className="dialogue-check" aria-label="Gesendet">✓✓</span>
                     </div>
-                  ) : <span className="dialogue-prompt">Промов німецькою вголос</span>}
+                  ) : <span className="dialogue-prompt">Sprich den Satz laut auf Deutsch.</span>}
                 </div>
               </div>
             ))}
-            {finished && <div className="dialogue-finished">🎉 Діалог завершено!</div>}
+            {finished && <div className="dialogue-finished">🎉 Dialog abgeschlossen!</div>}
             <div ref={bottomRef} />
           </div>
           <div className="dialogue-actions">
             {finished
-              ? <button type="button" onClick={() => start(dialogue)}>↻ Повторити діалог</button>
-              : <button type="button" onClick={() => setStep(value => Math.min(value + 1, messages.length))}>➤ Відправити</button>}
+              ? <button type="button" onClick={() => start(dialogue)}>↻ Dialog wiederholen</button>
+              : <button type="button" onClick={() => setStep(value => Math.min(value + 1, messages.length))}>➤ Senden</button>}
           </div>
-          <button type="button" className="dialogue-back" onClick={() => setDialogue(null)}>← До списку діалогів</button>
+          <button type="button" className="dialogue-back" onClick={backToSelection}>← Zur Dialogauswahl</button>
         </section>
       )}
-      <Link className="dialogue-home" to="/">← На головну</Link>
+      <Link className="dialogue-home" to="/">← Zur Startseite</Link>
     </main>
   );
 }

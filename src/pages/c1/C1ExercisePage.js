@@ -53,8 +53,8 @@ function C1ExercisePage() {
   if (!part) {
     return (
       <div className="b2-page">
-        <p>Такого розділу немає.</p>
-        <Link to="/c1" className="back-link">← Назад</Link>
+        <p>Diesen Bereich gibt es nicht.</p>
+        <Link to="/c1" className="back-link">← Zurück</Link>
       </div>
     );
   }
@@ -208,12 +208,12 @@ function C1ExercisePage() {
                 <div className="c1-note">
                   <span className="sb-gap-num">[{it.n}]</span>
                   <input className="c1-note__input" value={answers[it.n] || ''} disabled={submitted}
-                    onChange={(e) => setAnswer(it.n, e.target.value)} placeholder="ваші нотатки…" />
+                    onChange={(e) => setAnswer(it.n, e.target.value)} placeholder="Deine Notizen …" />
                   {submitted && (
                     <div className="c1-note__check">
                       <div className="c1-note__model">✔ {v.answers[it.n]}</div>
                       <div className="c1-note__score">
-                        Мій бал:
+                        Meine Punkte:
                         {[0, 1, 2].map((p) => (
                           <button key={p} className={'c1-note__pt' + (selfScores[it.n] === p ? ' active' : '')}
                             onClick={() => setSelfScores((s) => ({ ...s, [it.n]: p }))}>{p}</button>
@@ -234,7 +234,7 @@ function C1ExercisePage() {
   return (
     <div className="lesen-page c1-ex">
       <div className="lesen-header">
-        <Link to={'/c1/' + mod.id} className="back-link">← Назад до {mod.title}</Link>
+        <Link to={'/c1/' + mod.id} className="back-link">← Zurück zu {mod.title}</Link>
         <h1>{part.title}</h1>
         {part.variants.length > 1 && (
           <div className="lesen-variant-nav">
@@ -246,7 +246,7 @@ function C1ExercisePage() {
         )}
       </div>
 
-      <p className="c1-ex__meta">{v.label} · {part.time} · {part.points} б. за завдання</p>
+      <p className="c1-ex__meta">{v.label} · {part.time} · {part.points} Punkte pro Aufgabe</p>
       <p className="c1-ex__instruction">{v.instruction}</p>
       {v.note && <p className="c1-ex__note">⚠️ {v.note}</p>}
 
@@ -310,16 +310,16 @@ function C1ExercisePage() {
         {!submitted ? (
           <button className="lesen-btn lesen-btn-check" onClick={() => setSubmitted(true)}
             disabled={!isNotes && !allAnswered}>
-            {isNotes ? 'Показати відповіді' : 'Перевірити'}
+            {isNotes ? 'Antworten anzeigen' : 'Überprüfen'}
           </button>
         ) : (
           <>
             <div className={'lesen-result' + (points === maxPoints ? ' perfect' : '')}>
               {isNotes
-                ? `Самооцінка: ${points} / ${maxPoints} балів`
-                : `Результат: ${correctCount} / ${itemNums.length} · ${points} / ${maxPoints} балів`}
+                ? `Selbsteinschätzung: ${points} / ${maxPoints} Punkte`
+                : `Ergebnis: ${correctCount} / ${itemNums.length} · ${points} / ${maxPoints} Punkte`}
             </div>
-            <button className="lesen-btn lesen-btn-retry" onClick={reset}>Спробувати ще раз</button>
+            <button className="lesen-btn lesen-btn-retry" onClick={reset}>Erneut versuchen</button>
           </>
         )}
       </div>

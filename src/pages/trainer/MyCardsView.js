@@ -5,7 +5,7 @@ import { listSets, filterBySet, ALL, NO_SET } from '../../trainer/sets';
 
 const NEW = '__new__';
 
-// Вибір набору: випадаючий список існуючих + пункт «Новий набір…» з полем вводу.
+// Вибір набору: випадаючий список існуючих + пункт «Neues Set …» з полем вводу.
 function SetPicker({ value, onChange, sets }) {
   const [creatingNew, setCreatingNew] = useState(false);
 
@@ -23,16 +23,16 @@ function SetPicker({ value, onChange, sets }) {
   return (
     <>
       <select className="trainer-input" value={creatingNew ? NEW : value} onChange={handleSelect}>
-        <option value="">Без набору</option>
+        <option value="">Ohne Set</option>
         {sets.map((s) => <option key={s} value={s}>{s}</option>)}
-        <option value={NEW}>➕ Новий набір…</option>
+        <option value={NEW}>➕ Neues Set …</option>
       </select>
       {creatingNew && (
         <input
           className="trainer-input"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          placeholder="Назва нового набору"
+          placeholder="Name des neuen Sets"
           autoFocus
         />
       )}
@@ -72,8 +72,8 @@ function MyCardsView({ uid, cards }) {
     } catch (err) {
       setError(
         err?.code === 'permission-denied'
-          ? 'Немає доступу до бази. Перевір, що правила Firestore опубліковані.'
-          : 'Не вдалося зберегти картку. Спробуй ще раз.'
+          ? 'Kein Zugriff auf die Datenbank. Prüfe, ob die Firestore-Regeln veröffentlicht sind.'
+          : 'Die Karte konnte nicht gespeichert werden. Versuche es erneut.'
       );
     } finally {
       setBusy(false);
@@ -98,35 +98,35 @@ function MyCardsView({ uid, cards }) {
   return (
     <div className="mycards-view">
       <form className="mycards-form" onSubmit={submit}>
-        <label className="mycards-label">Набір (тема)</label>
+        <label className="mycards-label">Set (Thema)</label>
         <SetPicker value={set} onChange={setSet} sets={sets} />
 
-        <label className="mycards-label">Німецьке речення</label>
+        <label className="mycards-label">Deutscher Satz</label>
         <input
           className="trainer-input"
           value={de}
           onChange={(e) => setDe(e.target.value)}
-          placeholder="напр. Ich möchte mir das alte Schloss anschauen."
+          placeholder="z. B. Ich möchte mir das alte Schloss anschauen."
           required
         />
-        <label className="mycards-label">Український переклад</label>
+        <label className="mycards-label">Ukrainische Übersetzung</label>
         <input
           className="trainer-input"
           value={ua}
           onChange={(e) => setUa(e.target.value)}
-          placeholder="напр. Я хотів би оглянути старий замок."
+          placeholder="z. B. Я хотів би оглянути старий замок."
           required
         />
         <button className="trainer-btn trainer-btn--primary" type="submit" disabled={busy}>
-          {busy ? 'Додаємо…' : '+ Додати картку'}
+          {busy ? 'Wird hinzugefügt …' : '+ Karte hinzufügen'}
         </button>
         {error && <p className="trainer-error">{error}</p>}
       </form>
 
       <div className="mycards-filter">
-        <label>Показати набір:</label>
+        <label>Set anzeigen:</label>
         <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-          <option value={ALL}>Усі набори ({cards.length})</option>
+          <option value={ALL}>Alle Sets ({cards.length})</option>
           {sets.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
@@ -134,7 +134,7 @@ function MyCardsView({ uid, cards }) {
         </select>
       </div>
 
-      <p className="mycards-count">Показано: {visible.length}</p>
+      <p className="mycards-count">Angezeigt: {visible.length}</p>
 
       <ul className="mycards-list">
         {visible.map((c) => (
@@ -146,19 +146,19 @@ function MyCardsView({ uid, cards }) {
                   className="trainer-input"
                   value={editDe}
                   onChange={(e) => setEditDe(e.target.value)}
-                  placeholder="Німецьке речення"
+                  placeholder="Deutscher Satz"
                 />
                 <input
                   className="trainer-input"
                   value={editUa}
                   onChange={(e) => setEditUa(e.target.value)}
-                  placeholder="Український переклад"
+                  placeholder="Ukrainische Übersetzung"
                 />
                 <div className="mycards-edit__actions">
                   <button className="trainer-btn trainer-btn--primary" onClick={() => saveEdit(c.id)}>
-                    Зберегти
+                    Speichern
                   </button>
-                  <button className="trainer-btn" onClick={cancelEdit}>Скасувати</button>
+                  <button className="trainer-btn" onClick={cancelEdit}>Abbrechen</button>
                 </div>
               </div>
             ) : (
@@ -170,17 +170,17 @@ function MyCardsView({ uid, cards }) {
                 </div>
                 <div className="mycards-item__actions">
                   {isSpeechSupported() && (
-                    <button className="mycards-icon" onClick={() => speak(c.de)} title="Прочитати вголос">
+                    <button className="mycards-icon" onClick={() => speak(c.de)} title="Vorlesen">
                       🔊
                     </button>
                   )}
-                  <button className="mycards-icon" onClick={() => startEdit(c)} title="Редагувати">
+                  <button className="mycards-icon" onClick={() => startEdit(c)} title="Bearbeiten">
                     ✏️
                   </button>
                   <button
                     className="mycards-icon mycards-icon--del"
                     onClick={() => removeCard(uid, c.id)}
-                    title="Видалити"
+                    title="Löschen"
                   >
                     🗑
                   </button>

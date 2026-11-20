@@ -2,8 +2,8 @@
 export const dialogues = [
   {
     id: 'd000',
-    title: 'D000 Діалог із halten',
-    description: 'Lena і Max · плани та рішення',
+    title: 'D000 Dialog mit „halten“',
+    description: 'Lena und Max · Pläne und Entscheidungen',
     messages: [
       { speaker: 'Lena', uk: 'Максе, що ти думаєш про мій план?', de: 'Max, was hältst du von meinem Plan?' },
       { speaker: 'Max', uk: 'Чесно? Я вважаю його надто ризикованим.', de: 'Ehrlich? Ich halte ihn für zu riskant.' },
@@ -16,8 +16,8 @@ export const dialogues = [
   },
   {
     id: 'd001',
-    title: 'Діалог з Halten 2',
-    description: 'Lena, Max, таксист і керівник · 8 ситуацій із halten',
+    title: 'Dialog mit „halten“ 2',
+    description: 'Lena, Max, ein Taxifahrer und ein Vorgesetzter · 8 Situationen mit „halten“',
     messages: [
       { speaker: 'Lena', uk: 'Можеш на хвилинку взяти мою каву? Мені треба відкрити сумку.', de: 'Kannst du kurz meinen Kaffee nehmen? Ich muss meine Tasche öffnen.' },
       { speaker: 'Max', uk: 'Звісно, я потримаю твою каву.', de: 'Klar, ich halte deinen Kaffee kurz.' },

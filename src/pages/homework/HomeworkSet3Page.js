@@ -105,7 +105,7 @@ function HomeworkSet3Page() {
 
   const handleSelect = (verb) => {
     setSelectedVerb(verb);
-    setFeedback(verb === currentQuestion.answer ? 'Вірно!' : 'Ні, не вірно.');
+    setFeedback(verb === currentQuestion.answer ? 'Richtig!' : 'Leider falsch.');
   };
 
   const nextQuestion = () => {
@@ -128,13 +128,13 @@ function HomeworkSet3Page() {
 
   return (
     <div className="homework-set3-page">
-      <h1 className="homework-set3-page__title">Заняття 11.05</h1>
+      <h1 className="homework-set3-page__title">Unterricht am 11.05</h1>
       <p className="homework-set3-page__intro">
         У цій вправі обери одне дієслово, яке підходить до всіх трьох виразів у блоці.
       </p>
 
       <div className="homework-set3-card">
-        <div className="homework-set3-card__title">Питання {currentQuestion.id} з {questions.length}</div>
+        <div className="homework-set3-card__title">Frage {currentQuestion.id} von {questions.length}</div>
         <div className="homework-set3-phrases">
           {currentQuestion.phrases.map((phrase) => (
             <span key={phrase} className="homework-set3-phrase">{phrase}</span>
@@ -156,21 +156,21 @@ function HomeworkSet3Page() {
       </div>
 
       {feedback && (
-        <div className={`homework-set3-feedback ${feedback === 'Вірно!' ? 'homework-set3-feedback--correct' : 'homework-set3-feedback--wrong'}`}>
+        <div className={`homework-set3-feedback ${feedback === 'Richtig!' ? 'homework-set3-feedback--correct' : 'homework-set3-feedback--wrong'}`}>
           {feedback}
         </div>
       )}
 
       <div className="homework-set3-nav">
         <button type="button" className="homework-set3-nav__btn" onClick={prevQuestion} disabled={currentIndex === 0}>
-          &larr; Назад
+          &larr; Zurück
         </button>
         <button type="button" className="homework-set3-nav__btn" onClick={nextQuestion} disabled={currentIndex === questions.length - 1}>
-          Далі &rarr;
+          Weiter &rarr;
         </button>
       </div>
 
-      <Link to="/homework" className="back-link">&larr; Назад</Link>
+      <Link to="/homework" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

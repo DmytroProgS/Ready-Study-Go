@@ -19,29 +19,29 @@ function C1SprechenPage() {
   return (
     <div className="b2-page c1-info">
       <h1 className="b2-title">🗣️ Mündlicher Ausdruck</h1>
-      <p className="b2-hint">Paarprüfung · 20 хв підготовки + ~16 хв · 48 балів (16 за зміст + 32 за мову)</p>
+      <p className="b2-hint">Paarprüfung · 20 Min. Vorbereitung + ca. 16 Min. Prüfung · 48 Punkte (16 für den Inhalt, 32 für die Sprache)</p>
 
       <section className="c1-section">
-        <h2>🎲 Тренування як на іспиті</h2>
+        <h2>🎲 Prüfungssimulation</h2>
         <div className="c1-random">
-          <button className="c1-btn" onClick={() => setDrawn(pickTwo())}>Витягнути 2 теми</button>
+          <button className="c1-btn" onClick={() => setDrawn(pickTwo())}>Zwei Themen ziehen</button>
           {drawn && drawn.map((t) => (
             <div key={t.n} className="c1-random__topic">
               <strong>{t.n}.</strong> {t.title} <span className="c1-uk">({t.hint})</span>
             </div>
           ))}
           <C1Timer presets={[
-            { label: 'Підготовка 20:00', sec: 1200 },
-            { label: 'Презентація 3:00', sec: 180 },
-            { label: 'Запитання 2:00', sec: 120 },
-            { label: 'Дискусія 6:00', sec: 360 },
+            { label: 'Vorbereitung 20:00', sec: 1200 },
+            { label: 'Präsentation 3:00', sec: 180 },
+            { label: 'Fragen 2:00', sec: 120 },
+            { label: 'Diskussion 6:00', sec: 360 },
           ]} />
           <p className="c1-uk">Оберіть одну з двох тем. Не забудьте на початку сказати, до кого звертаєтесь (Vorgesetzte, Kollegen, Kunden, neue Mitarbeiter).</p>
         </div>
       </section>
 
       <section className="c1-section">
-        <h2>Як проходить іспит</h2>
+        <h2>Prüfungsablauf</h2>
         <ol className="c1-flow">
           {examFlow.map((s, i) => (
             <li key={s.title}>
@@ -58,7 +58,7 @@ function C1SprechenPage() {
       </section>
 
       <section className="c1-section">
-        <h2>Teil 1A — 12 тем презентації</h2>
+        <h2>Teil 1A — 12 Präsentationsthemen</h2>
         <p className="c1-uk">На іспиті дають 2 теми саме з цього списку. Підготуйте план до кожної. Не вчіть текст напамʼять: таку промову екзаменатори переривають.</p>
         {topics.map((t) => (
           <details key={t.n} className="c1-info__part">
@@ -86,7 +86,7 @@ function C1SprechenPage() {
       </section>
 
       <section className="c1-section">
-        <h2>Teil 2 — Diskussion (6 хв)</h2>
+        <h2>Teil 2 — Diskussion (6 Min.)</h2>
         <div className="c1-card">
           <div className="c1-uk">Ситуація: у перерві ви розмовляєте з колегою. Завдання на аркуші:</div>
           <ul className="c1-de">{discussionTask.map((d) => <li key={d}>{d}</li>)}</ul>
@@ -110,7 +110,7 @@ function C1SprechenPage() {
         ))}
       </section>
 
-      <Link to="/c1" className="back-link">← Назад</Link>
+      <Link to="/c1" className="back-link">← Zurück</Link>
     </div>
   );
 }

@@ -83,7 +83,7 @@ function BeschwerdePage() {
   return (
     <div className="beschwerde-page">
       <div className="beschwerde-header">
-        <Link to="/b2/schreiben" className="back-link">← Назад до Schreiben</Link>
+        <Link to="/b2/schreiben" className="back-link">← Zurück zum Schreiben</Link>
         <h1>Beschwerde</h1>
         <div className="beschwerde-variant-nav">
           {beschwerdeVariants.map((v, i) => (
@@ -153,18 +153,18 @@ function BeschwerdePage() {
             disabled={!allAnswered}
             className="beschwerde-btn beschwerde-btn-check"
           >
-            Перевірити
+            Überprüfen
           </button>
         ) : (
           <>
             <div className={`beschwerde-result ${score === total ? 'perfect' : ''}`}>
-              Результат: {score} / {total} {score === total ? '🎉' : ''}
+              Ergebnis: {score} / {total} {score === total ? '🎉' : ''}
             </div>
             <button onClick={handleNext} className="beschwerde-btn beschwerde-btn-next">
-              Наступний варіант
+              Nächste Variante
             </button>
             <button onClick={handleReset} className="beschwerde-btn beschwerde-btn-retry">
-              Спробувати ще раз
+              Erneut versuchen
             </button>
           </>
         )}

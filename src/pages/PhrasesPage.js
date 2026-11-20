@@ -28,23 +28,22 @@ function PhrasesPage() {
 
   return (
     <div className="feste-page">
-      <h1 className="feste-page__title">Фрази для різних заходів</h1>
+      <h1 className="feste-page__title">Redemittel für verschiedene Anlässe</h1>
       <p className="feste-page__intro">
-        Прочитай українську фразу, згадай німецький варіант — і клацни на картку, щоб перевірити себе.
+        Lies den ukrainischen Satz, sage ihn auf Deutsch und klicke zur Kontrolle auf die Karte.
       </p>
 
       <div className="feste-group-nav">
         <button type="button" className="feste-nav-btn" onClick={() => setActiveGroupIndex((prev) => Math.max(prev - 1, 0))} disabled={!hasPrev}>
-          ← Назад
+          ← Zurück
         </button>
 
         <div className="feste-nav-current">
           <span className="feste-nav-current__de">{activeGroup.de}</span>
-          <span className="feste-nav-current__ua">{activeGroup.ua}</span>
         </div>
 
         <button type="button" className="feste-nav-btn" onClick={() => setActiveGroupIndex((prev) => Math.min(prev + 1, phrasesGroups.length - 1))} disabled={!hasNext}>
-          Вперед →
+          Weiter →
         </button>
       </div>
 
@@ -57,7 +56,6 @@ function PhrasesPage() {
             onClick={() => setActiveGroupIndex(gi)}
           >
             <span className="feste-group-tab__de">{group.de}</span>
-            <span className="feste-group-tab__ua">{group.ua}</span>
           </button>
         ))}
       </div>
@@ -98,48 +96,48 @@ function PhrasesPage() {
                       </p>
                       <p className="feste-card__hidden" style={{ marginTop: '10px' }}>
                         <span className="feste-card__hidden-icon">🔒</span>
-                        натисни для розкриття
+                        Zum Aufdecken klicken
                       </p>
                     </>
                   )}
                   {stage === 1 && (
                     <>
                       <div style={{ marginBottom: '15px' }}>
-                        <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>Питання українською:</p>
+                        <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>Frage auf Ukrainisch:</p>
                         <p className="feste-card__ua" style={{ fontWeight: 'bold' }}>
                           {item.question_ua}
                         </p>
                       </div>
                       <div>
-                        <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>Відповідь українською:</p>
+                        <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>Antwort auf Ukrainisch:</p>
                         <p className="feste-card__ua">{item.answer_ua}</p>
                       </div>
                       <p className="feste-card__hidden" style={{ marginTop: '10px' }}>
                         <span className="feste-card__hidden-icon">🔐</span>
-                        натисни для німецької версії
+                        Klicken für die deutsche Version
                       </p>
                     </>
                   )}
                   {stage === 2 && (
                     <>
                       <div style={{ marginBottom: '15px', paddingBottom: '15px', borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
-                        <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>Відповідь українською:</p>
+                        <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>Antwort auf Ukrainisch:</p>
                         <p className="feste-card__ua">{item.answer_ua}</p>
                       </div>
                       <div>
-                        <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>Відповідь німецькою:</p>
+                        <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>Antwort auf Deutsch:</p>
                         <p className="feste-card__de">{item.answer_de}</p>
                       </div>
                       <p className="feste-card__hidden" style={{ marginTop: '10px' }}>
                         <span className="feste-card__hidden-icon">✅</span>
-                        натисни для повторення
+                        Zum Wiederholen klicken
                       </p>
                     </>
                   )}
                 </div>
               );
             })}
-            <p className="feste-page__hint">Натисни на картку 3 рази: питання → відповідь укр. → відповідь нім.</p>
+            <p className="feste-page__hint">Klicke dreimal auf die Karte: Frage → ukrainische Antwort → deutsche Antwort.</p>
           </>
         ) : (
           // Standard Format (Bewerbungsgespräch, Jobcenter)
@@ -168,19 +166,19 @@ function PhrasesPage() {
                     ) : (
                       <span className="feste-card__hidden">
                         <span className="feste-card__hidden-icon">🔒</span>
-                        натисни, щоб побачити німецькою
+                        Klicken für die deutsche Version
                       </span>
                     )}
                   </div>
                 </div>
               );
             })}
-            <p className="feste-page__hint">Клацни знову — щоб закрити картку.</p>
+            <p className="feste-page__hint">Klicke erneut, um die Karte zu schließen.</p>
           </>
         )}
       </section>
 
-      <Link to="/" className="back-link">← Назад</Link>
+      <Link to="/" className="back-link">← Zurück</Link>
     </div>
   );
 }

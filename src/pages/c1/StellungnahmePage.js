@@ -73,16 +73,16 @@ function StellungnahmePage() {
   return (
     <div className="b2-page c1-info">
       <h1 className="b2-title">📝 Stellungnahme</h1>
-      <p className="b2-hint">Schreiben · 20 тем парами (1+2, 3+4 …) · на іспиті дають одну пару, ви обираєте одну тему</p>
+      <p className="b2-hint">Schreiben · 20 Themen in Paaren (1+2, 3+4 …) · In der Prüfung bekommst du ein Paar und wählst ein Thema.</p>
 
       <section className="c1-section">
-        <h2>📊 Яка пара ймовірніша</h2>
+        <h2>📊 Welche Themenpaare sind wahrscheinlicher?</h2>
         <p className="c1-uk">
-          Правило з групи: пару, яку давали останні ~3 місяці, зазвичай не дають знову. Гарантії немає, це лише ймовірність.
+          Erfahrung aus der Lerngruppe: Themenpaare aus den letzten drei Monaten kommen meist seltener vor. Die Einschätzung ist unverbindlich.
         </p>
         {daysOld > 30 && (
           <p className="sn-warning">
-            ⚠️ Останній запис у статистиці — {fmtDate(lastDataDate)} ({daysOld} дн. тому). Додайте свіжі дати з групи нижче, інакше прогноз неточний.
+            ⚠️ Letzter Eintrag: {fmtDate(lastDataDate)} (vor {daysOld} Tagen). Ergänze unten aktuelle Termine aus der Lerngruppe, damit die Einschätzung genauer wird.
           </p>
         )}
         <div className="sn-ranking">
@@ -93,12 +93,12 @@ function StellungnahmePage() {
                 onClick={() => setChosen(chosen === r.p ? null : r.p)}>
                 <span className="sn-pair__rank">{i + 1}</span>
                 <span className="sn-pair__nums">{r.p} + {r.p + 1}</span>
-                <span className="sn-pair__last">востаннє {r.last ? fmtDate(r.last) : '—'}</span>
+                <span className="sn-pair__last">zuletzt {r.last ? fmtDate(r.last) : '—'}</span>
               </button>
             );
           })}
         </div>
-        <p className="c1-uk">🟢 давно не було · 🟡 можливо · ⚪ нещодавно була. Натисніть на пару, щоб відкрити обидві теми.</p>
+        <p className="c1-uk">🟢 Lange nicht vorgekommen · 🟡 Möglich · ⚪ Erst kürzlich vorgekommen. Klicke auf ein Paar, um beide Themen zu sehen.</p>
 
         {chosen && (
           <div className="sn-chosen">
@@ -112,15 +112,15 @@ function StellungnahmePage() {
         )}
 
         <details className="c1-info__part">
-          <summary><span className="c1-info__part-name">➕ Додати дату іспиту / вся історія</span></summary>
+          <summary><span className="c1-info__part-name">➕ Prüfungstermin hinzufügen und Verlauf ansehen</span></summary>
           <div className="sn-add">
             <input type="date" value={newDate} onChange={(e) => setNewDate(e.target.value)} />
             <select value={newPair} onChange={(e) => setNewPair(e.target.value)}>
               {PAIRS.map((p) => <option key={p} value={p}>{p} + {p + 1}</option>)}
             </select>
-            <button className="c1-btn" onClick={addEntry} disabled={!newDate}>Додати</button>
+            <button className="c1-btn" onClick={addEntry} disabled={!newDate}>Hinzufügen</button>
           </div>
-          <p className="c1-uk">Додані вами дати зберігаються лише в цьому браузері.</p>
+          <p className="c1-uk">Hinzugefügte Termine werden nur in diesem Browser gespeichert.</p>
           <ul className="sn-history">
             {history.map((h) => {
               const own = userHistory.includes(h);
@@ -136,7 +136,7 @@ function StellungnahmePage() {
       </section>
 
       <section className="c1-section">
-        <h2>20 тем з ідеями</h2>
+        <h2>20 Themen mit Ideen</h2>
         {topics.map((t) => (
           <details key={t.n} className="c1-info__part">
             <summary><span className="c1-info__part-name">{t.n}. {t.text}</span></summary>
@@ -156,7 +156,7 @@ function StellungnahmePage() {
       </section>
 
       <section className="c1-section">
-        <h2>План тексту</h2>
+        <h2>Textaufbau</h2>
         <ol className="c1-flow">
           {structure.map(([h, d], i) => (
             <li key={h}><span>{i + 1}</span><strong>{h}</strong><div className="c1-de">{d}</div></li>
@@ -175,14 +175,14 @@ function StellungnahmePage() {
       </section>
 
       <section className="c1-section">
-        <h2>Пишемо</h2>
+        <h2>Schreiben</h2>
         <C1Timer presets={[{ label: '30:00', sec: 1800 }, { label: '45:00', sec: 2700 }]} />
         <textarea className="c1-textarea" value={text} onChange={(e) => onText(e.target.value)}
           placeholder="Wie ich erfahren habe, plant die Geschäftsführung, …" />
-        <div className="c1-wordcount">Слів: {words}</div>
+        <div className="c1-wordcount">Wörter: {words}</div>
       </section>
 
-      <Link to="/c1" className="back-link">← Назад</Link>
+      <Link to="/c1" className="back-link">← Zurück</Link>
     </div>
   );
 }

@@ -73,7 +73,7 @@ function C1AudioPlayer({ segments }) {
   }, []);
 
   if (!isSpeechSupported()) {
-    return <p className="c1-audio__unsupported">Цей браузер не вміє озвучувати текст — читайте транскрипт.</p>;
+    return <p className="c1-audio__unsupported">Dieser Browser kann den Text nicht vorlesen. Lies bitte das Transkript.</p>;
   }
 
   const stop = () => {
@@ -118,15 +118,15 @@ function C1AudioPlayer({ segments }) {
       <div className="c1-audio__controls">
         {segments.length > 1 && (
           <button className="c1-audio__btn c1-audio__btn--main" onClick={() => (playing === 'all' ? stop() : play('all'))}>
-            {playing === 'all' ? '⏹ Стоп' : '▶ Слухати все підряд'}
+            {playing === 'all' ? '⏹ Stopp' : '▶ Alles anhören'}
           </button>
         )}
         <label className="c1-audio__rate">
-          Темп
+          Tempo
           <select value={rate} onChange={(e) => setRate(Number(e.target.value))} disabled={playing !== null}>
-            <option value={0.8}>повільно</option>
-            <option value={0.95}>звичайно</option>
-            <option value={1.1}>як на іспиті</option>
+            <option value={0.8}>Langsam</option>
+            <option value={0.95}>Normal</option>
+            <option value={1.1}>Prüfungstempo</option>
           </select>
         </label>
       </div>
@@ -150,7 +150,7 @@ export function Transcript({ segments }) {
   return (
     <div className="c1-transcript">
       <button className="c1-transcript__toggle" onClick={() => setOpen(!open)}>
-        {open ? 'Сховати транскрипт' : '📄 Показати транскрипт (після прослуховування)'}
+        {open ? 'Transkript ausblenden' : '📄 Transkript anzeigen (nach dem Anhören)'}
       </button>
       {open && segments.map((seg) => (
         <div key={seg.label} className="c1-transcript__seg">

@@ -16,16 +16,16 @@ import './HomeworkSet4.css';
 
 // Список вправ заняття 01.07. Додавай нові, замінюючи placeholder: true на component.
 const exercises = [
-  { n: 1, label: 'Вивчення слів', subtitle: 'Картки: переклади на німецьку, натисни щоб перевірити', component: <WordCards words={set6Words} /> },
-  { n: 2, label: 'Переказати текст', subtitle: 'Прочитай текст і перекажи своїми словами', component: <RetellTexte /> },
-  { n: 3, label: 'Завдання 1', subtitle: 'Berufliche Aktivitäten — Was bedeutet das? Ordnen Sie zu', component: <BeruflicheAktivitaeten /> },
-  { n: 4, label: 'Завдання 2', subtitle: 'von oder durch in Passivsätzen — Ergänzen Sie', component: <VonOderDurch /> },
-  { n: 5, label: 'Завдання 3', subtitle: 'Mut zur Pause! — Ergänzen Sie von oder durch', component: <MutZurPause /> },
-  { n: 6, label: 'Завдання 4', subtitle: 'Neue Arbeitswelt — Sätze im Passiv mit von oder durch', component: <NeueArbeitswelt /> },
-  { n: 7, label: 'Завдання 5', subtitle: 'Schilder — Sätze mit müssen, sollen oder nicht dürfen', component: <Schilder /> },
-  { n: 8, label: 'Завдання 6', subtitle: 'Gebrauchsanweisung — nummerieren und Sätze im Passiv', component: <Gebrauchsanweisung /> },
-  { n: 9, label: 'Завдання 7', subtitle: 'Alles falsch gemacht — Sätze im Präteritum (Passiv)', component: <AllesFalsch /> },
-  { n: 10, label: 'Завдання 8', subtitle: 'Passiv — Achten Sie auf die Zeitform', component: <PassivZeitform /> },
+  { n: 1, label: 'Vokabeln lernen', subtitle: 'Karteikarten zum Übersetzen ins Deutsche', component: <WordCards words={set6Words} /> },
+  { n: 2, label: 'Text nacherzählen', subtitle: 'Lies den Text und erzähle ihn in eigenen Worten nach.', component: <RetellTexte /> },
+  { n: 3, label: 'Aufgabe 1', subtitle: 'Berufliche Aktivitäten — Was bedeutet das? Ordnen Sie zu', component: <BeruflicheAktivitaeten /> },
+  { n: 4, label: 'Aufgabe 2', subtitle: 'von oder durch in Passivsätzen — Ergänzen Sie', component: <VonOderDurch /> },
+  { n: 5, label: 'Aufgabe 3', subtitle: 'Mut zur Pause! — Ergänzen Sie von oder durch', component: <MutZurPause /> },
+  { n: 6, label: 'Aufgabe 4', subtitle: 'Neue Arbeitswelt — Sätze im Passiv mit von oder durch', component: <NeueArbeitswelt /> },
+  { n: 7, label: 'Aufgabe 5', subtitle: 'Schilder — Sätze mit müssen, sollen oder nicht dürfen', component: <Schilder /> },
+  { n: 8, label: 'Aufgabe 6', subtitle: 'Gebrauchsanweisung — nummerieren und Sätze im Passiv', component: <Gebrauchsanweisung /> },
+  { n: 9, label: 'Aufgabe 7', subtitle: 'Alles falsch gemacht — Sätze im Präteritum (Passiv)', component: <AllesFalsch /> },
+  { n: 10, label: 'Aufgabe 8', subtitle: 'Passiv — Achten Sie auf die Zeitform', component: <PassivZeitform /> },
 ];
 
 function HomeworkSet6Page() {
@@ -33,7 +33,7 @@ function HomeworkSet6Page() {
 
   return (
     <div className="cloze-page">
-      <h1 className="cloze-page__lesson">Заняття 01.07</h1>
+      <h1 className="cloze-page__lesson">Unterricht am 01.07</h1>
 
       <nav className="set4-nav">
         {exercises.map((ex) => (
@@ -61,7 +61,7 @@ function HomeworkSet6Page() {
 
           {ex.placeholder ? (
             <div className="set4-placeholder">
-              Завдання буде додано незабаром.
+              Die Aufgabe folgt in Kürze.
             </div>
           ) : (
             ex.component
@@ -69,7 +69,7 @@ function HomeworkSet6Page() {
         </section>
       ))}
 
-      <Link to="/homework" className="back-link">&larr; Назад</Link>
+      <Link to="/homework" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

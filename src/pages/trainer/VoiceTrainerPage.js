@@ -8,7 +8,7 @@ import VoiceStudyView from './VoiceStudyView';
 import MyCardsView from './MyCardsView';
 import './Trainer.css';
 
-// Голосовий тренажер: та сама автентифікація й ті самі картки, що й у текстовому,
+// Satztrainer mit Spracheingabe: та сама автентифікація й ті самі картки, що й у текстовому,
 // але вкладка навчання — вимова через мікрофон.
 function VoiceTrainerPage() {
   const [user, setUser] = useState(undefined);
@@ -28,15 +28,15 @@ function VoiceTrainerPage() {
   }, [user]);
 
   if (user === undefined) {
-    return <div className="trainer-page"><p className="trainer-loading">Завантаження…</p></div>;
+    return <div className="trainer-page"><p className="trainer-loading">Wird geladen …</p></div>;
   }
 
   if (!user) {
     return (
       <div className="trainer-page">
-        <h1 className="trainer-title">Голосовий тренажер 🎤</h1>
+        <h1 className="trainer-title">Satztrainer mit Spracheingabe 🎤</h1>
         <LoginForm />
-        <Link to="/" className="back-link">&larr; На головну</Link>
+        <Link to="/" className="back-link">&larr; Zur Startseite</Link>
       </div>
     );
   }
@@ -45,7 +45,7 @@ function VoiceTrainerPage() {
     <div className="trainer-page">
       <div className="trainer-topbar">
         <span className="trainer-user">👤 {user.email}</span>
-        <button className="trainer-logout" onClick={() => signOut(auth)}>Вийти</button>
+        <button className="trainer-logout" onClick={() => signOut(auth)}>Abmelden</button>
       </div>
 
       <nav className="trainer-tabs">
@@ -53,13 +53,13 @@ function VoiceTrainerPage() {
           className={`trainer-tab ${tab === 'voice' ? 'is-active' : ''}`}
           onClick={() => setTab('voice')}
         >
-          🎤 Вимова
+          🎤 Aussprache
         </button>
         <button
           className={`trainer-tab ${tab === 'cards' ? 'is-active' : ''}`}
           onClick={() => setTab('cards')}
         >
-          🗂 Мої картки ({cards.length})
+          🗂 Meine Karten ({cards.length})
         </button>
       </nav>
 
@@ -69,7 +69,7 @@ function VoiceTrainerPage() {
         <MyCardsView uid={user.uid} cards={cards} />
       )}
 
-      <Link to="/" className="back-link">&larr; На головну</Link>
+      <Link to="/" className="back-link">&larr; Zur Startseite</Link>
     </div>
   );
 }

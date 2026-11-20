@@ -1,6 +1,6 @@
 export const lesson2910Exercises = [
   {
-    "title": "Вправа 1",
+    "title": "Übung1",
     "description": "Встав прийменник — скажи повне речення.",
     "cards": [
       {
@@ -56,7 +56,7 @@ export const lesson2910Exercises = [
     ]
   },
   {
-    "title": "Вправа 2",
+    "title": "Übung2",
     "description": "Dativ чи Akkusativ — скажи повне речення.",
     "cards": [
       {
@@ -102,7 +102,7 @@ export const lesson2910Exercises = [
     ]
   },
   {
-    "title": "Вправа 3",
+    "title": "Übung3",
     "description": "Обери правильну конструкцію.",
     "cards": [
       {
@@ -138,7 +138,7 @@ export const lesson2910Exercises = [
     ]
   },
   {
-    "title": "Вправа 4",
+    "title": "Übung4",
     "description": "Переклади німецькою.",
     "cards": [
       {

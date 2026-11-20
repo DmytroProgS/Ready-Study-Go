@@ -6,21 +6,21 @@ import { auth } from '../../trainer/firebase';
 function friendlyError(code) {
   switch (code) {
     case 'auth/invalid-email':
-      return 'Некоректний email.';
+      return 'Ungültige E-Mail-Adresse.';
     case 'auth/user-not-found':
     case 'auth/wrong-password':
     case 'auth/invalid-credential':
-      return 'Невірний email або пароль.';
+      return 'E-Mail-Adresse oder Passwort ist falsch.';
     case 'auth/too-many-requests':
-      return 'Забагато спроб. Спробуй трохи згодом.';
+      return 'Zu viele Versuche. Versuche es später erneut.';
     case 'auth/network-request-failed':
-      return 'Помилка мережі або блокування запиту Firebase (auth/network-request-failed).';
+      return 'Netzwerkfehler oder blockierte Firebase-Anfrage (auth/network-request-failed).';
     case 'auth/unauthorized-domain':
-      return 'Тестовий домен не дозволений у Firebase Authentication (auth/unauthorized-domain).';
+      return 'Die Testdomain ist in Firebase Authentication nicht zugelassen (auth/unauthorized-domain).';
     case 'auth/operation-not-allowed':
-      return 'Спосіб входу не увімкнено у Firebase (auth/operation-not-allowed).';
+      return 'Diese Anmeldemethode ist in Firebase nicht aktiviert (auth/operation-not-allowed).';
     default:
-      return `Не вдалося увійти. Код Firebase: ${code || 'невідомий'}.`;
+      return `Die Anmeldung ist fehlgeschlagen. Firebase-Code: ${code || 'unbekannt'}.`;
   }
 }
 
@@ -45,7 +45,7 @@ function LoginForm() {
 
   return (
     <form className="trainer-login" onSubmit={submit}>
-      <p className="trainer-login__hint">Увійди у свій кабінет</p>
+      <p className="trainer-login__hint">Melde dich in deinem persönlichen Bereich an</p>
       <input
         className="trainer-input"
         type="email"
@@ -58,7 +58,7 @@ function LoginForm() {
       <input
         className="trainer-input"
         type="password"
-        placeholder="пароль"
+        placeholder="Passwort"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         autoComplete="current-password"
@@ -66,7 +66,7 @@ function LoginForm() {
       />
       {error && <p className="trainer-error">{error}</p>}
       <button className="trainer-btn trainer-btn--primary" type="submit" disabled={busy}>
-        {busy ? 'Входимо…' : 'Увійти'}
+        {busy ? 'Anmeldung läuft …' : 'Anmelden'}
       </button>
     </form>
   );

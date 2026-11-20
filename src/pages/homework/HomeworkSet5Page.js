@@ -8,9 +8,9 @@ import './HomeworkSet4.css';
 
 // Список вправ заняття 11.06. Додавай нові, замінюючи placeholder: true на component.
 const exercises = [
-  { n: 1, label: 'Modalverben', subtitle: 'Wiederholung L2 — таблиця значень модальних дієслів', component: <ModalverbenTabelle /> },
-  { n: 2, label: 'Завдання 1', subtitle: 'Welche Bedeutung haben die kursiven Modalverben? — зіставлення', component: <ModalverbenZuordnen /> },
-  { n: 3, label: 'Завдання 2', subtitle: 'Deutsche Auswanderung nach Australien — вибір альтернатив і переказ', component: <ModalverbenUmformulieren /> },
+  { n: 1, label: 'Modalverben', subtitle: 'Wiederholung L2 — Bedeutungen der Modalverben im Überblick', component: <ModalverbenTabelle /> },
+  { n: 2, label: 'Aufgabe 1', subtitle: 'Welche Bedeutung haben die kursiven Modalverben? – Zuordnung', component: <ModalverbenZuordnen /> },
+  { n: 3, label: 'Aufgabe 2', subtitle: 'Deutsche Auswanderung nach Australien — Alternativen wählen und den Text nacherzählen', component: <ModalverbenUmformulieren /> },
 ];
 
 function HomeworkSet5Page() {
@@ -18,7 +18,7 @@ function HomeworkSet5Page() {
 
   return (
     <div className="cloze-page">
-      <h1 className="cloze-page__lesson">Заняття 11.06</h1>
+      <h1 className="cloze-page__lesson">Unterricht am 11.06</h1>
 
       <nav className="set4-nav">
         {exercises.map((ex) => (
@@ -46,7 +46,7 @@ function HomeworkSet5Page() {
 
           {ex.placeholder ? (
             <div className="set4-placeholder">
-              Завдання буде додано незабаром.
+              Die Aufgabe folgt in Kürze.
             </div>
           ) : (
             ex.component
@@ -54,7 +54,7 @@ function HomeworkSet5Page() {
         </section>
       ))}
 
-      <Link to="/homework" className="back-link">&larr; Назад</Link>
+      <Link to="/homework" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

@@ -7,8 +7,8 @@ function WordTrainerPage() {
     {
       id: 'akkusativ-dativ',
       title: 'Akkusativ & Dativ',
-      subtitle: 'Сталі прийменники',
-      description: 'Прийменники, жорстко прив\'язані до одного відмінка',
+      subtitle: 'Präpositionen mit festem Kasus',
+      description: 'Präpositionen, die einen festen Kasus verlangen',
       icon: '📌',
       color: 'trainer-card--akkusativ',
     },
@@ -16,23 +16,23 @@ function WordTrainerPage() {
       id: 'wechselpraep',
       title: 'Wechselpräpositionen',
       subtitle: 'Wo vs. Wohin?',
-      description: 'Дієслова руху і статика: статика (Dativ) vs динаміка (Akkusativ)',
+      description: 'Ort (Dativ) oder Richtung (Akkusativ)',
       icon: '🔄',
       color: 'trainer-card--wechsel',
     },
     {
       id: 'verben-praep',
       title: 'Verben mit Präpositionen',
-      subtitle: 'Керування дієслів',
-      description: 'B1-B2: Фіксовані зв\'язки дієслово + прийменник',
+      subtitle: 'Verbvalenz',
+      description: 'B1–B2: Verben mit festen Präpositionen',
       icon: '🎯',
       color: 'trainer-card--verb',
     },
     {
       id: 'genitiv',
       title: 'Genitiv Präpositionen',
-      subtitle: 'Фіксовані вирази',
-      description: 'Родовий відмінок і часові конструкції (im Sommer, am Montag, um 5 Uhr)',
+      subtitle: 'Feste Wendungen',
+      description: 'Genitiv und Zeitangaben (im Sommer, am Montag, um 5 Uhr)',
       icon: '⏰',
       color: 'trainer-card--genitiv',
     },
@@ -41,7 +41,7 @@ function WordTrainerPage() {
   return (
     <div className="word-trainer-page">
       <h1 className="trainer-title">🎓 Word Trainer</h1>
-      <p className="trainer-subtitle">Виберіть розділ для тренування</p>
+      <p className="trainer-subtitle">Wähle einen Übungsbereich.</p>
 
       <div className="trainer-grid">
         {trainers.map((trainer) => (
@@ -61,7 +61,7 @@ function WordTrainerPage() {
         ))}
       </div>
 
-      <Link to="/grammar" className="back-link">← Назад до граматики</Link>
+      <Link to="/grammar" className="back-link">← Zurück zur Grammatik</Link>
     </div>
   );
 }

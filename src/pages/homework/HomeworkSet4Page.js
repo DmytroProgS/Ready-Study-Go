@@ -11,12 +11,12 @@ import './HomeworkSet4.css';
 
 // Список вправ заняття. Додавай нові, замінюючи placeholder: true на component.
 const exercises = [
-  { n: 1, label: 'Вправа 1', subtitle: 'Familiengeschichte — дієслова у правильній формі', component: <FamiliengeschichteCloze /> },
-  { n: 2, label: 'Вправа 2', subtitle: 'Finden Sie das passende Verb — підбір дієслова', component: <VerbenMatch /> },
-  { n: 3, label: 'Вправа 3', subtitle: 'Nomen zu den Verben — артикль і пропущені літери', component: <NomenBilden /> },
-  { n: 4, label: 'Вправа 4', subtitle: 'Migrationsgeschichten — тексти для читання', component: <MigrationsTexte /> },
-  { n: 5, label: 'Вправа 5', subtitle: 'Lebenswege — три тексти для читання', component: <LebenswegeTexte /> },
-  { n: 6, label: 'Слова', subtitle: 'Wortschatz — флешкартки (клік = переклад)', component: <Wortschatz /> },
+  { n: 1, label: 'Übung 1', subtitle: 'Familiengeschichte — Verben in der richtigen Form', component: <FamiliengeschichteCloze /> },
+  { n: 2, label: 'Übung 2', subtitle: 'Finden Sie das passende Verb — das passende Verb finden', component: <VerbenMatch /> },
+  { n: 3, label: 'Übung 3', subtitle: 'Nomen zu den Verben — Artikel und fehlende Buchstaben ergänzen', component: <NomenBilden /> },
+  { n: 4, label: 'Übung 4', subtitle: 'Migrationsgeschichten — Lesetexte', component: <MigrationsTexte /> },
+  { n: 5, label: 'Übung 5', subtitle: 'Lebenswege — drei Lesetexte', component: <LebenswegeTexte /> },
+  { n: 6, label: 'Wortschatz', subtitle: 'Wortschatz — Karteikarten mit Übersetzung', component: <Wortschatz /> },
 ];
 
 function HomeworkSet4Page() {
@@ -24,7 +24,7 @@ function HomeworkSet4Page() {
 
   return (
     <div className="cloze-page">
-      <h1 className="cloze-page__lesson">Заняття 08.06</h1>
+      <h1 className="cloze-page__lesson">Unterricht am 08.06</h1>
 
       <nav className="set4-nav">
         {exercises.map((ex) => (
@@ -52,7 +52,7 @@ function HomeworkSet4Page() {
 
           {ex.placeholder ? (
             <div className="set4-placeholder">
-              Завдання буде додано незабаром.
+              Die Aufgabe folgt in Kürze.
             </div>
           ) : (
             ex.component
@@ -60,7 +60,7 @@ function HomeworkSet4Page() {
         </section>
       ))}
 
-      <Link to="/homework" className="back-link">&larr; Назад</Link>
+      <Link to="/homework" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

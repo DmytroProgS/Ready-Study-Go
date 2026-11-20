@@ -5,46 +5,46 @@ import './B2Page.css';
 function HomeworkPage() {
   return (
     <div className="b2-page">
-      <h1 className="b2-title">Домашні завдання від Ольги/Марго</h1>
+      <h1 className="b2-title">Hausaufgaben von Olga und Margot</h1>
       <div className="b2-sections">
         <Link to="/homework/set/1" className="b2-card b2-card--ready">
           <span className="b2-card__num">1</span>
-          <span className="b2-card__label">Заняття 20.04</span>
+          <span className="b2-card__label">Unterricht am 20.04</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
         <Link to="/homework/set/2" className="b2-card b2-card--ready">
           <span className="b2-card__num">2</span>
-          <span className="b2-card__label">Заняття 04.05</span>
+          <span className="b2-card__label">Unterricht am 04.05</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
         <Link to="/homework/set/3" className="b2-card b2-card--ready">
           <span className="b2-card__num">3</span>
-          <span className="b2-card__label">Заняття 11.05</span>
+          <span className="b2-card__label">Unterricht am 11.05</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
         <Link to="/homework/set/4" className="b2-card b2-card--ready">
           <span className="b2-card__num">4</span>
-          <span className="b2-card__label">Заняття 08.06</span>
+          <span className="b2-card__label">Unterricht am 08.06</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
         <Link to="/homework/set/5" className="b2-card b2-card--ready">
           <span className="b2-card__num">5</span>
-          <span className="b2-card__label">Заняття 11.06</span>
+          <span className="b2-card__label">Unterricht am 11.06</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
         <Link to="/homework/set/6" className="b2-card b2-card--ready">
           <span className="b2-card__num">6</span>
-          <span className="b2-card__label">Заняття 01.07</span>
+          <span className="b2-card__label">Unterricht am 01.07</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
         <Link to="/homework/set/7" className="b2-card b2-card--ready">
           <span className="b2-card__num">7</span>
-          <span className="b2-card__label">Заняття 09.07</span>
+          <span className="b2-card__label">Unterricht am 09.07</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
         <Link to="/homework/set/8" className="b2-card b2-card--ready">
           <span className="b2-card__num">8</span>
-          <span className="b2-card__label">Заняття 16.07</span>
+          <span className="b2-card__label">Unterricht am 16.07</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
         <Link to="/homework/feste-ausdruecke" className="b2-card b2-card--ready">
@@ -53,7 +53,7 @@ function HomeworkPage() {
           <span className="b2-card__pig">🐷</span>
         </Link>
       </div>
-      <Link to="/" className="back-link">&larr; Назад</Link>
+      <Link to="/" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

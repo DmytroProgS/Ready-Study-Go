@@ -18,13 +18,13 @@ function recognitionError(err) {
   switch (code) {
     case 'not-allowed':
     case 'service-not-allowed':
-      return 'Немає доступу до мікрофона. Дозволь його в браузері.';
+      return 'Kein Zugriff auf das Mikrofon. Erlaube den Zugriff im Browser.';
     case 'no-speech':
-      return 'Не почув голосу. Спробуй ще раз ближче до мікрофона.';
+      return 'Es wurde keine Stimme erkannt. Versuche es näher am Mikrofon erneut.';
     case 'unsupported':
-      return 'Твій браузер не підтримує розпізнавання. Відкрий у Chrome або Edge.';
+      return 'Dein Browser unterstützt keine Spracherkennung. Öffne die Seite in Chrome oder Edge.';
     default:
-      return 'Не вдалося розпізнати. Спробуй ще раз.';
+      return 'Die Sprache wurde nicht erkannt. Versuche es erneut.';
   }
 }
 
@@ -91,8 +91,8 @@ function VoiceStudyView({ cards }) {
   if (cards.length === 0) {
     return (
       <div className="study-empty">
-        <p>У тебе ще немає карток.</p>
-        <p>Додай речення на вкладці <b>«🗂 Мої картки»</b> — вони спільні з текстовим тренажером.</p>
+        <p>Du hast noch keine Karten.</p>
+        <p>Füge unter <b>„🗂 Meine Karten“</b> Sätze hinzu. Sie stehen auch im schriftlichen Satztrainer zur Verfügung.</p>
       </div>
     );
   }
@@ -100,17 +100,17 @@ function VoiceStudyView({ cards }) {
   if (!isRecognitionSupported()) {
     return (
       <div className="study-empty">
-        <p>🎤 Розпізнавання голосу тут не підтримується.</p>
-        <p>Відкрий застосунок у <b>Chrome</b> або <b>Edge</b> — там воно працює.</p>
+        <p>🎤 Die Spracherkennung wird hier nicht unterstützt.</p>
+        <p>Öffne die App in <b>Chrome</b> oder <b>Edge</b>, um die Spracherkennung zu nutzen.</p>
       </div>
     );
   }
 
   const SetSelect = (
     <div className="study-setpick">
-      <label>Набір:</label>
+      <label>Set:</label>
       <select value={set} onChange={(e) => setSetSel(e.target.value)}>
-        <option value={ALL}>Усі набори</option>
+        <option value={ALL}>Alle Sets</option>
         {sets.map((s) => <option key={s} value={s}>{s}</option>)}
         {hasNoSet && <option value={NO_SET}>{NO_SET}</option>}
       </select>
@@ -122,7 +122,7 @@ function VoiceStudyView({ cards }) {
       <div className="voice-view">
         {SetSelect}
         <div className="study-empty">
-          <p>У цьому наборі поки немає карток.</p>
+          <p>Dieses Set enthält noch keine Karten.</p>
         </div>
       </div>
     );
@@ -138,25 +138,25 @@ function VoiceStudyView({ cards }) {
       {SetSelect}
       <div className="study-topline">
         <span className="study-counter">{pos + 1} / {liveOrder.length}</span>
-        <button className="study-all-btn" onClick={reshuffle} title="Перемішати">🔀 Перемішати</button>
+        <button className="study-all-btn" onClick={reshuffle} title="Mischen">🔀 Mischen</button>
       </div>
 
       {/* Картка: спершу лише українською. Німецька відкривається після спроби. */}
       <div className="voice-card">
-        <p className="voice-card__label">Скажи німецькою:</p>
+        <p className="voice-card__label">Sprich den Satz auf Deutsch:</p>
         <p className="voice-card__ua voice-card__ua--big">{card.ua}</p>
 
         {answered && (
           <div className="voice-answer">
-            <p className="voice-answer__label">Правильна відповідь:</p>
+            <p className="voice-answer__label">Richtige Antwort:</p>
             <p className="voice-words">
               {result.words.map((w, i) => (
                 <span key={i} className={w.ok ? 'voice-w--ok' : 'voice-w--bad'}>{w.word} </span>
               ))}
             </p>
             {isSpeechSupported() && (
-              <button className="study-speak" onClick={() => speak(card.de)} title="Послухати зразок">
-                🔊 Послухати зразок
+              <button className="study-speak" onClick={() => speak(card.de)} title="Beispiel anhören">
+                🔊 Beispiel anhören
               </button>
             )}
           </div>
@@ -169,27 +169,27 @@ function VoiceStudyView({ cards }) {
           onClick={listen}
           disabled={listening}
         >
-          {listening ? '🎙 Слухаю…' : '🎤 Говорити'}
+          {listening ? '🎙 Aufnahme läuft …' : '🎤 Sprechen'}
         </button>
       )}
 
       {error && (
         <>
           <p className="trainer-error">{error}</p>
-          <button className="voice-mic" onClick={listen} disabled={listening}>🎤 Спробувати ще</button>
+          <button className="voice-mic" onClick={listen} disabled={listening}>🎤 Erneut versuchen</button>
         </>
       )}
 
       {answered && (
         <div className="voice-result">
           <div className={`voice-score ${scoreClass}`}>
-            {result.score}% <span className="voice-score__sub">({result.matched}/{result.total} слів)</span>
+            {result.score}% <span className="voice-score__sub">({result.matched}/{result.total} Wörter)</span>
           </div>
 
-          <p className="voice-result__title">Що ти сказав:</p>
+          <p className="voice-result__title">Das hast du gesagt:</p>
           <p className="voice-words voice-words--spoken">
             {result.spokenWords.length === 0 ? (
-              <span className="voice-result__heard">— (нічого не розпізнано)</span>
+              <span className="voice-result__heard">— (Nichts erkannt)</span>
             ) : (
               result.spokenWords.map((w, i) => (
                 <span key={i} className={w.ok ? 'voice-w--ok' : 'voice-w--bad'}>{w.word} </span>
@@ -199,15 +199,15 @@ function VoiceStudyView({ cards }) {
 
           {result.score < 100 && (
             <button className="voice-mic voice-mic--retry" onClick={listen} disabled={listening}>
-              {listening ? '🎙 Слухаю…' : '🔁 Повтори ще раз'}
+              {listening ? '🎙 Aufnahme läuft …' : '🔁 Wiederhole den Satz'}
             </button>
           )}
         </div>
       )}
 
       <div className="study-actions voice-nav">
-        <button className="trainer-btn" onClick={() => go(-1)} disabled={pos === 0}>&larr; Назад</button>
-        <button className="trainer-btn" onClick={() => go(1)} disabled={pos >= liveOrder.length - 1}>Далі &rarr;</button>
+        <button className="trainer-btn" onClick={() => go(-1)} disabled={pos === 0}>&larr; Zurück</button>
+        <button className="trainer-btn" onClick={() => go(1)} disabled={pos >= liveOrder.length - 1}>Weiter &rarr;</button>
       </div>
     </div>
   );

@@ -92,7 +92,7 @@ function AkkusativDativExercise() {
     setIsAnswered(false);
   };
 
-  if (exercises.length === 0) return <div>Завантаження...</div>;
+  if (exercises.length === 0) return <div>Wird geladen …</div>;
 
   const isCorrect = selectedAnswer === currentExercise.answer;
   const { clue: hintClue, rule: hintRule } = splitHint(currentExercise.hint);
@@ -100,14 +100,14 @@ function AkkusativDativExercise() {
   return (
     <div className="trainer-exercise">
       <div className="trainer-header">
-        <h1>Akkusativ & Dativ — Сталі прийменники</h1>
+        <h1>Präpositionen mit festem Kasus: Akkusativ und Dativ</h1>
       </div>
 
       <div className="exercise-card">
         <div className="exercise-hint">{hintClue}{isAnswered && hintRule && ` ${hintRule}`}</div>
         <div className="exercise-question">{currentExercise.german}</div>
         {isAnswered && (
-          <div className="exercise-category">Категорія: <strong>{currentExercise.category}</strong></div>
+          <div className="exercise-category">Kategorie: <strong>{currentExercise.category}</strong></div>
         )}
 
         <div className="exercise-answer-buttons">
@@ -140,10 +140,10 @@ function AkkusativDativExercise() {
         {isAnswered && (
           <div className={`answer-display ${isCorrect ? 'correct' : 'incorrect'}`}>
             <div className="answer-status">
-              {isCorrect ? '✓ Правильно!' : '✗ Неправильно'}
+              {isCorrect ? '✓ Richtig!' : '✗ Falsch'}
             </div>
             <div className="answer-text">
-              <strong>Правильна відповідь:</strong> {currentExercise.answer}
+              <strong>Richtige Antwort:</strong> {currentExercise.answer}
             </div>
             <div className="answer-explanation">
               {currentExercise.explanation}
@@ -157,16 +157,16 @@ function AkkusativDativExercise() {
           onClick={prevExercise}
           disabled={currentIndex === 0}
           className="nav-btn nav-btn--icon"
-          aria-label="Попередня"
-          title="Попередня"
+          aria-label="Zurück"
+          title="Zurück"
         >
           ←
         </button>
         <button
           onClick={resetExercises}
           className="nav-btn nav-btn--icon nav-btn--reset"
-          aria-label="Заново"
-          title="Заново"
+          aria-label="Neu starten"
+          title="Neu starten"
         >
           🔄
         </button>
@@ -174,8 +174,8 @@ function AkkusativDativExercise() {
           onClick={nextExercise}
           disabled={currentIndex === exercises.length - 1}
           className="nav-btn nav-btn--icon"
-          aria-label="Наступна"
-          title="Наступна"
+          aria-label="Weiter"
+          title="Weiter"
         >
           →
         </button>
@@ -183,7 +183,7 @@ function AkkusativDativExercise() {
 
       <div className="trainer-footer">
         <span className="trainer-count"><strong>{currentIndex + 1}</strong> / {exercises.length}</span>
-        <Link to="/word-trainer" className="back-link">← Повернутись до вибору</Link>
+        <Link to="/word-trainer" className="back-link">← Zurück zur Auswahl</Link>
       </div>
     </div>
   );

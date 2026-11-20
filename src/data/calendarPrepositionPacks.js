@@ -5,7 +5,7 @@ export const calendarPacks = [
   {
     "r": "R007",
     "k": "K011",
-    "name": "Приклади з Календаря 1",
+    "name": "Beispiele aus dem Kalender 1",
     "rows": [
       [
         "Ich wende mich an den Kundenservice.",
@@ -168,7 +168,7 @@ export const calendarPacks = [
   {
     "r": "R008",
     "k": "K012",
-    "name": "Приклади з Календаря 2",
+    "name": "Beispiele aus dem Kalender 2",
     "rows": [
       [
         "Ich beschäftige mich mit der ukrainischen Geschichte.",

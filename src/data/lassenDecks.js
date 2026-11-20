@@ -2,7 +2,7 @@ export const lassenDecks = [
   {
     "id": "k008-lassen",
     "title": "K008 Lassen",
-    "description": "16 речень · lassen",
+    "description": "16 Sätze · lassen",
     "topic": "lassen",
     "cards": [
       {
@@ -74,7 +74,7 @@ export const lassenDecks = [
   {
     "id": "k009-lassen",
     "title": "K009 Lassen",
-    "description": "16 речень · lassen",
+    "description": "16 Sätze · lassen",
     "topic": "lassen",
     "cards": [
       {
@@ -146,7 +146,7 @@ export const lassenDecks = [
   {
     "id": "k010-lassen",
     "title": "K010 Lassen",
-    "description": "16 речень · lassen",
+    "description": "16 Sätze · lassen",
     "topic": "lassen",
     "cards": [
       {

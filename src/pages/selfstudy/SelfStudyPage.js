@@ -6,7 +6,7 @@ import './SelfStudy.css';
 function SelfStudyPage() {
   return (
     <div className="b2-page">
-      <h1 className="b2-title">Самостійні заняття</h1>
+      <h1 className="b2-title">Selbststudium</h1>
 
       <a
         className="treasure-link"
@@ -16,8 +16,8 @@ function SelfStudyPage() {
       >
         <span className="treasure-link__icon">🍯</span>
         <span className="treasure-link__text">
-          <span className="treasure-link__title">Скарби знань</span>
-          <span className="treasure-link__sub">матеріали на Google Диску</span>
+          <span className="treasure-link__title">Materialsammlung</span>
+          <span className="treasure-link__sub">Materialien auf Google Drive</span>
         </span>
         <span className="treasure-link__rainbow">🌈</span>
       </a>
@@ -30,22 +30,22 @@ function SelfStudyPage() {
       >
         <span className="treasure-link__icon">📞</span>
         <span className="treasure-link__text">
-          <span className="treasure-link__title">Актуальне посилання на Зідзвони</span>
-          <span className="treasure-link__sub">зустріч у Google Meet</span>
+          <span className="treasure-link__title">Aktueller Link zu den Treffen</span>
+          <span className="treasure-link__sub">Treffen in Google Meet</span>
         </span>
         <span className="treasure-link__rainbow">🌈</span>
       </a>
 
       <div className="b2-sections">
-        <Link to="/deutsch-duell" className="b2-card b2-card--ready"><span className="b2-card__icon">🎮</span><span className="b2-card__label">Deutsch Duell · Гра для двох</span><span className="b2-card__pig">🏆</span></Link>
-        <Link to="/self-study/29-10" className="b2-card b2-card--ready"><span className="b2-card__icon">📅</span><span className="b2-card__label">Заняття 29.10</span><span className="b2-card__pig">🐷</span></Link>
+        <Link to="/deutsch-duell" state={{ fromSelfStudy: true }} className="b2-card b2-card--ready"><span className="b2-card__icon">🎮</span><span className="b2-card__label">Deutsch Duell für zwei</span><span className="b2-card__pig">🏆</span></Link>
+        <Link to="/self-study/29-10" className="b2-card b2-card--ready"><span className="b2-card__icon">📅</span><span className="b2-card__label">Unterricht am 29.10</span><span className="b2-card__pig">🐷</span></Link>
         <Link to="/self-study/05-10" className="b2-card b2-card--ready">
           <span className="b2-card__icon">📅</span>
-          <span className="b2-card__label">Заняття 05.10</span>
+          <span className="b2-card__label">Unterricht am 05.10</span>
           <span className="b2-card__pig">🐷</span>
         </Link>
       </div>
-      <Link to="/" className="back-link">&larr; Назад</Link>
+      <Link to="/" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

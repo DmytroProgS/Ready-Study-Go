@@ -1079,7 +1079,7 @@ export const duelPacks = [
 duelPacks.push({
   id: 'pack-halt-prepositions',
   title: 'R005 halten + Präpositionen',
-  description: '17 речень · прийменники та зворотні займенники',
+  description: '17 Sätze · Präpositionen und Reflexivpronomen',
   questions: haltPrepositionPhrases.map((phrase, i) => {
     // Rotate answer positions; the source data keeps the correct answer first.
     const shift = i % 4;
@@ -1252,7 +1252,7 @@ duelPacks.push({
 calendarPacks.forEach(pack => duelPacks.push({
   id: 'pack-calendar-' + pack.r.toLowerCase(),
   title: pack.r + ' ' + pack.name,
-  description: '13 запитань · пропущений прийменник або слово',
+  description: '13 Fragen · fehlende Präposition oder fehlendes Wort',
   questions: pack.rows.map(([de, uk, gap, options, explanation], index) => {
     const at = de.indexOf(gap);
     if (at < 0) throw new Error('Missing gap token in ' + pack.r + ' #' + (index + 1));

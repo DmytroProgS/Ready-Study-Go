@@ -49,7 +49,7 @@ function LesenTeil4Page() {
   return (
     <div className="lesen-page">
       <div className="lesen-header">
-        <Link to="/b2/lesen" className="back-link">← Назад до Lesen</Link>
+        <Link to="/b2/lesen" className="back-link">← Zurück zum Leseverstehen</Link>
         <h1>Lesen Teil 4</h1>
         <div className="lesen-variant-nav">
           {lesenTeil4Variants.map((v, i) => (
@@ -131,18 +131,18 @@ function LesenTeil4Page() {
             disabled={!allAnswered}
             className="lesen-btn lesen-btn-check"
           >
-            Перевірити
+            Überprüfen
           </button>
         ) : (
           <>
             <div className={`lesen-result ${score === variant.questions.length ? 'perfect' : ''}`}>
-              Результат: {score} / {variant.questions.length}
+              Ergebnis: {score} / {variant.questions.length}
             </div>
             <button onClick={handleNext} className="lesen-btn lesen-btn-next">
-              Наступний варіант
+              Nächste Variante
             </button>
             <button onClick={handleReset} className="lesen-btn lesen-btn-retry">
-              Спробувати ще раз
+              Erneut versuchen
             </button>
           </>
         )}

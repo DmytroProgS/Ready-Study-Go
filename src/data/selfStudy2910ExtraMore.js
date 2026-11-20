@@ -1,7 +1,7 @@
 export const lesson2910ExtraExercisesMore = [
   {
-    "title": "Закріплення матеріалу · Вправа 2",
-    "description": "8 додаткових речень.",
+    "title": "Vertiefung · Übung 2",
+    "description": "8 zusätzliche Sätze.",
     "cards": [
       {
         "uk": "Я часто згадую часи без війни.",
@@ -50,8 +50,8 @@ export const lesson2910ExtraExercisesMore = [
     ]
   },
   {
-    "title": "Закріплення матеріалу · Вправа 3",
-    "description": "6 додаткових речень.",
+    "title": "Vertiefung · Übung 3",
+    "description": "6 zusätzliche Sätze.",
     "cards": [
       {
         "uk": "Я з нетерпінням чекаю на закінчення війни.",
@@ -87,8 +87,8 @@ export const lesson2910ExtraExercisesMore = [
     ]
   },
   {
-    "title": "Закріплення матеріалу · Вправа 4",
-    "description": "6 додаткових речень.",
+    "title": "Vertiefung · Übung 4",
+    "description": "6 zusätzliche Sätze.",
     "cards": [
       {
         "uk": "Я цікавлюся темою «Історія України».",

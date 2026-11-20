@@ -8,10 +8,10 @@ import '../homework/Familiengeschichte.css';
 import '../homework/HomeworkSet4.css';
 
 const tabs = [
-  { key: 'video', label: '🎬 Відео', component: <VideoLesson youtubeId={lesson0510Video.youtubeId} title={lesson0510Video.title} discussion={lesson0510Discussion} personal={lesson0510Personal} /> },
-  { key: 'quiz', label: '❓ Квіз', component: <Quiz questions={lesson0510Quiz} /> },
-  { key: 'vocab', label: '🗂 Словник', component: <VocabCards words={lesson0510Vocab} /> },
-  { key: 'extra', label: '➕ Додатково', component: <VocabCards words={lesson0510Extra} /> },
+  { key: 'video', label: '🎬 Video', component: <VideoLesson youtubeId={lesson0510Video.youtubeId} title={lesson0510Video.title} discussion={lesson0510Discussion} personal={lesson0510Personal} /> },
+  { key: 'quiz', label: '❓ Quiz', component: <Quiz questions={lesson0510Quiz} /> },
+  { key: 'vocab', label: '🗂 Wortschatz', component: <VocabCards words={lesson0510Vocab} /> },
+  { key: 'extra', label: '➕ Zusatzmaterial', component: <VocabCards words={lesson0510Extra} /> },
 ];
 
 function SelfStudy0510Page() {
@@ -19,7 +19,7 @@ function SelfStudy0510Page() {
 
   return (
     <div className="cloze-page">
-      <h1 className="cloze-page__lesson">Самостійне заняття 05.10</h1>
+      <h1 className="cloze-page__lesson">Selbststudium am 05.10</h1>
 
       <nav className="set4-nav">
         {tabs.map((t) => (
@@ -44,7 +44,7 @@ function SelfStudy0510Page() {
         </section>
       ))}
 
-      <Link to="/self-study" className="back-link">&larr; Назад</Link>
+      <Link to="/self-study" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

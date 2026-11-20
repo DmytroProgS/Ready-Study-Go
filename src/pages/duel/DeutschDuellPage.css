@@ -23,6 +23,13 @@
 
 .duel-solo-button{display:block;margin:14px auto;background:#fff3f5;color:#9c4057;border:1px solid #f1cbd5;border-radius:10px;padding:12px 20px;font:inherit;font-weight:700;cursor:pointer}.duel-solo-button:hover{background:#ffe5eb}
 
+.duel-invitation{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  gap:12px;margin:12px 0;padding:16px;background:#eef3ff;
+  border:1px solid #cbd9f6;border-radius:12px;text-align:left;
+}
+.duel-invitation span{display:block;margin-top:4px;color:#3e506d}
+
 /* Answer states: keep full contrast even when answer buttons are disabled. */
 .duel-panel .duel-options button:disabled{opacity:1;cursor:default}
 .duel-panel .duel-options button.correct,

@@ -11,7 +11,7 @@ function Quiz({ questions }) {
   const [finished, setFinished] = useState(false);
 
   if (!questions || questions.length === 0) {
-    return <p className="quiz-empty">Питання ще не додані.</p>;
+    return <p className="quiz-empty">Hier gibt es noch keine Fragen.</p>;
   }
 
   const q = questions[current];
@@ -45,16 +45,16 @@ function Quiz({ questions }) {
       <div className="quiz-result">
         <p className="quiz-result__score">{score} / {questions.length} ({pct}%)</p>
         <p className="quiz-result__msg">
-          {pct >= 80 ? '🎉 Чудово!' : pct >= 50 ? '👍 Непогано, повтори ще.' : '💪 Ще потренуйся.'}
+          {pct >= 80 ? '🎉 Sehr gut!' : pct >= 50 ? '👍 Gut gemacht! Wiederhole die Übung noch einmal.' : '💪 Übe noch ein bisschen weiter.'}
         </p>
-        <button className="quiz-btn quiz-btn--primary" onClick={restart}>Пройти знову</button>
+        <button className="quiz-btn quiz-btn--primary" onClick={restart}>Erneut versuchen</button>
       </div>
     );
   }
 
   return (
     <div className="quiz">
-      <p className="quiz-progress">Питання {current + 1} / {questions.length}</p>
+      <p className="quiz-progress">Frage {current + 1} / {questions.length}</p>
 
       <div className="quiz-question quiz-hoverable" tabIndex={0}>
         {q.question}
@@ -79,7 +79,7 @@ function Quiz({ questions }) {
 
       {picked !== null && (
         <button className="quiz-btn quiz-btn--primary" onClick={next}>
-          {isLast ? 'Завершити' : 'Далі →'}
+          {isLast ? 'Abschließen' : 'Weiter →'}
         </button>
       )}
     </div>

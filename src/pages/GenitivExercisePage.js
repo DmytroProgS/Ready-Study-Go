@@ -85,14 +85,14 @@ function GenitivExercisePage() {
     setIsAnswered(false);
   };
 
-  if (exercises.length === 0) return <div>Завантаження...</div>;
+  if (exercises.length === 0) return <div>Wird geladen …</div>;
 
   const isCorrect = selectedAnswer === currentExercise.answer;
 
   return (
     <div className="trainer-exercise">
       <div className="trainer-header">
-        <h1>Genitiv Präpositionen & Фіксовані вирази</h1>
+        <h1>Genitivpräpositionen und feste Wendungen</h1>
       </div>
 
       <div className="exercise-card">
@@ -101,9 +101,9 @@ function GenitivExercisePage() {
         {isAnswered && (
           <div className="exercise-category">
             {currentExercise.prepCategory === 'Genitivpräposition' ? (
-              <>Прийменник: <strong>{currentExercise.prep}</strong> | Керування: <strong>{currentExercise.prep} + Genitiv</strong></>
+              <>Präposition: <strong>{currentExercise.prep}</strong> | Rektion: <strong>{currentExercise.prep} + Genitiv</strong></>
             ) : (
-              <>Часовий вираз: <strong>{currentExercise.prep}</strong></>
+              <>Zeitangabe: <strong>{currentExercise.prep}</strong></>
             )}
           </div>
         )}
@@ -138,13 +138,13 @@ function GenitivExercisePage() {
         {isAnswered && (
           <div className={`answer-display ${isCorrect ? 'correct' : 'incorrect'}`}>
             <div className="answer-status">
-              {isCorrect ? '✓ Правильно!' : '✗ Неправильно'}
+              {isCorrect ? '✓ Richtig!' : '✗ Falsch'}
             </div>
             <div className="answer-text">
-              <strong>Правильна відповідь:</strong> {currentExercise.answer}
+              <strong>Richtige Antwort:</strong> {currentExercise.answer}
             </div>
             <div className="answer-full-form">
-              <strong>Повна форма:</strong> {currentExercise.fullAnswer}
+              <strong>Vollständige Form:</strong> {currentExercise.fullAnswer}
             </div>
             <div className="answer-explanation">
               {currentExercise.explanation}
@@ -158,16 +158,16 @@ function GenitivExercisePage() {
           onClick={prevExercise}
           disabled={currentIndex === 0}
           className="nav-btn nav-btn--icon"
-          aria-label="Попередня"
-          title="Попередня"
+          aria-label="Zurück"
+          title="Zurück"
         >
           ←
         </button>
         <button
           onClick={resetExercises}
           className="nav-btn nav-btn--icon nav-btn--reset"
-          aria-label="Заново"
-          title="Заново"
+          aria-label="Neu starten"
+          title="Neu starten"
         >
           🔄
         </button>
@@ -175,8 +175,8 @@ function GenitivExercisePage() {
           onClick={nextExercise}
           disabled={currentIndex === exercises.length - 1}
           className="nav-btn nav-btn--icon"
-          aria-label="Наступна"
-          title="Наступна"
+          aria-label="Weiter"
+          title="Weiter"
         >
           →
         </button>
@@ -184,7 +184,7 @@ function GenitivExercisePage() {
 
       <div className="trainer-footer">
         <span className="trainer-count"><strong>{currentIndex + 1}</strong> / {exercises.length}</span>
-        <Link to="/word-trainer" className="back-link">← Повернутись до вибору</Link>
+        <Link to="/word-trainer" className="back-link">← Zurück zur Auswahl</Link>
       </div>
     </div>
   );

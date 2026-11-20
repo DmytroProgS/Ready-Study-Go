@@ -6,14 +6,14 @@ function ExercisePage() {
 
   return (
     <div className="exercise-page">
-      <h2>Тренування для розділу {id}</h2>
+      <h2>Übungen für den Bereich {id}</h2>
       <div className="exercises">
         {/* Можеш тут виводити конкретні тренажери */}
-        <p>Тренажер 1</p>
-        <p>Тренажер 2</p>
-        <p>Тренажер 3</p>
-        <p>Тренажер 4</p>
-        <p>Тренажер 5</p>
+        <p>Übung 1</p>
+        <p>Übung 2</p>
+        <p>Übung 3</p>
+        <p>Übung 4</p>
+        <p>Übung 5</p>
       </div>
     </div>
   );

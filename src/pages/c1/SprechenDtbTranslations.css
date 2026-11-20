@@ -4,3 +4,10 @@
 .c1-translation__button:hover{background:#e1edff}
 .c1-translation__button:focus-visible{outline:2px solid #255db5;outline-offset:2px}
 .c1-translation__text{margin:8px 0 0;padding:9px 12px;border-left:3px solid #4b84c8;background:#f4f8ff;color:#26435f;line-height:1.5;font-size:0.95em}
+
+.c1-redemittel__translation {
+  margin: 4px 0 0;
+  color: #435471;
+  font-size: 0.9em;
+  line-height: 1.45;
+}

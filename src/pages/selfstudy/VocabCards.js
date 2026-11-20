@@ -44,7 +44,7 @@ function VocabCards({ words }) {
     }
   };
 
-  if (!card) return <p className="vocab-empty">Слова ще не додані.</p>;
+  if (!card) return <p className="vocab-empty">Hier gibt es noch keine Vokabeln.</p>;
 
   return (
     <div className="praep-page vocab-cards">
@@ -56,9 +56,9 @@ function VocabCards({ words }) {
       >
         <div className="praep-card__inner">
           <div className="praep-card__front">
-            <p className="praep-card__hint">Пригадай німецькою:</p>
+            <p className="praep-card__hint">Wie heißt das auf Deutsch?</p>
             <p className="praep-card__text">{card.ua}</p>
-            <p className="praep-card__tap">натисни для відповіді</p>
+            <p className="praep-card__tap">Klicken für die Antwort</p>
           </div>
 
           <div className="praep-card__back vocab-back">
@@ -68,7 +68,7 @@ function VocabCards({ words }) {
                 <button
                   className="vocab-speak"
                   onClick={(e) => { e.stopPropagation(); speak(card.de); }}
-                  title="Прочитати слово"
+                  title="Wort vorlesen"
                 >
                   🔊
                 </button>
@@ -85,7 +85,7 @@ function VocabCards({ words }) {
                         <button
                           className="vocab-ex__speak"
                           onClick={(e) => { e.stopPropagation(); speak(ex.de); }}
-                          title="Прочитати приклад"
+                          title="Beispiel vorlesen"
                         >
                           🔊
                         </button>
@@ -101,9 +101,9 @@ function VocabCards({ words }) {
       </div>
 
       <div className="praep-nav">
-        <button onClick={prev} disabled={index === 0} className="praep-btn">&larr; Назад</button>
-        <button onClick={reshuffleCards} className="praep-btn praep-btn--shuffle">🔀 Перемішати</button>
-        <button onClick={next} disabled={index === cards.length - 1} className="praep-btn">Далі &rarr;</button>
+        <button onClick={prev} disabled={index === 0} className="praep-btn">&larr; Zurück</button>
+        <button onClick={reshuffleCards} className="praep-btn praep-btn--shuffle">🔀 Mischen</button>
+        <button onClick={next} disabled={index === cards.length - 1} className="praep-btn">Weiter &rarr;</button>
       </div>
     </div>
   );

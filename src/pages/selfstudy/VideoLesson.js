@@ -4,7 +4,7 @@ import './VideoLesson.css';
 // Вбудоване відео з YouTube за його ID + питання для дискусії під ним.
 function VideoLesson({ youtubeId, title, discussion, personal }) {
   if (!youtubeId) {
-    return <p className="video-empty">Відео ще не додане.</p>;
+    return <p className="video-empty">Hier gibt es noch kein Video.</p>;
   }
 
   return (
@@ -12,7 +12,7 @@ function VideoLesson({ youtubeId, title, discussion, personal }) {
       <div className="video-frame">
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
-          title={title || 'Відео'}
+          title={title || 'Video'}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

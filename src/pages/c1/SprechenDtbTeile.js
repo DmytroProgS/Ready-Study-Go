@@ -32,7 +32,7 @@ function TranslationToggle({ translation }) {
   return (
     <div className="c1-translation">
       <button type="button" className="c1-translation__button" aria-expanded={visible} onClick={() => setVisible(value => !value)}>
-        {visible ? 'Сховати переклад' : '🌐 Показати переклад'}
+        {visible ? 'Übersetzung ausblenden' : '🌐 Übersetzung anzeigen'}
       </button>
       {visible && <p className="c1-translation__text" lang="uk">{translation}</p>}
     </div>
@@ -43,7 +43,17 @@ function RedemittelList({ items }) {
   return items.map(([title, list]) => (
     <details key={title} className="c1-info__part">
       <summary><span className="c1-info__part-name">{title}</span></summary>
-      <ul className="c1-redemittel c1-de">{list.map((it) => <li key={it}>{it}</li>)}</ul>
+      <ul className="c1-redemittel c1-de">
+        {list.map((phrase) => {
+          const [german, ukrainian] = typeof phrase === 'string' ? [phrase] : phrase;
+          return (
+            <li key={german}>
+              <span lang="de">{german}</span>
+              {ukrainian && <p className="c1-redemittel__translation" lang="uk">{ukrainian}</p>}
+            </li>
+          );
+        })}
+      </ul>
     </details>
   ));
 }
@@ -54,7 +64,7 @@ function Layout({ title, intro, children }) {
       <h1 className="b2-title">{title}</h1>
       <p className="c1-uk">{intro}</p>
       {children}
-      <Link to="/c1/sprechen-dtb" className="back-link">← Назад до Sprechen</Link>
+      <Link to="/c1/sprechen-dtb" className="back-link">← Zurück zum mündlichen Teil</Link>
     </div>
   );
 }
@@ -84,25 +94,25 @@ export function SprechenDtbTeil1() {
       intro="1A: обираєте одну з двох тем і говорите ~2 хв. 1B: екзаменатор ставить уточнювальні запитання (~2 хв). 1C: другий екзаменатор просить партнера пояснити своїми словами один момент із ваших відповідей (~½ хв), тому слухайте партнера і робіть нотатки."
     >
       <div className="c1-random">
-        <button className="c1-btn" onClick={() => setCurrent(pickTwo(teil1Topics))}>🎲 Витягнути 2 теми</button>
+        <button className="c1-btn" onClick={() => setCurrent(pickTwo(teil1Topics))}>🎲 Zwei Themen ziehen</button>
         {current && current.map((t) => (
           <div key={t.n} className="c1-random__topic c1-de">
             <strong>{t.n}.</strong> {t.title} <span className="c1-uk">(z. B. {t.hint})</span>
           </div>
         ))}
-        <C1Timer presets={[{ label: 'Монолог 2:00', sec: 120 }, { label: 'Запитання 2:00', sec: 120 }]} />
+        <C1Timer presets={[{ label: 'Monolog 2:00', sec: 120 }, { label: 'Fragen 2:00', sec: 120 }]} />
       </div>
 
       <RedemittelList items={teil1Redemittel} />
 
       <section className="c1-section">
-        <h2>Усі {teil1Topics.length} тем</h2>
+        <h2>Alle {teil1Topics.length} Themen</h2>
         <p className="c1-uk">Офіційний список з Übungstest DTB C1. На іспиті дають 2 з них на вибір.</p>
         {teil1Topics.map((t) => (
           <div key={t.n} className="c1-card">
             <h3 className="c1-de">
               {t.n}. {t.title}{' '}
-              <button className="c1-play" title="Тренувати цю тему" onClick={() => choose(t)}>▶</button>
+              <button className="c1-play" title="Dieses Thema üben" onClick={() => choose(t)}>▶</button>
             </h3>
             <div className="c1-uk">z. B. {t.hint}</div>
             <div className="c1-uk" style={{ marginTop: 6 }}>Можливі запитання екзаменатора:</div>
@@ -125,7 +135,7 @@ export function SprechenDtbTeil2() {
       intro="Неформальна розмова з колегою (~3 хв). Кожен отримує фразу, з якої починає розмову. Діліться досвідом, давайте поради, реагуйте на слова партнера, порівнюйте з Україною."
     >
       <div className="c1-random">
-        <button className="c1-btn" onClick={() => setCurrent(pick(smalltalkTopics))}>🎲 Випадкова тема</button>
+        <button className="c1-btn" onClick={() => setCurrent(pick(smalltalkTopics))}>🎲 Zufälliges Thema</button>
         {current && <>
           <div className="c1-random__topic c1-de">{current}</div>
           <TranslationToggle key={current} translation={smalltalkTranslations[smalltalkTopics.indexOf(current)]} />
@@ -139,13 +149,13 @@ export function SprechenDtbTeil2() {
       <RedemittelList items={smalltalkRedemittel} />
 
       <section className="c1-section">
-        <h2>Усі {smalltalkTopics.length} тем</h2>
+        <h2>Alle {smalltalkTopics.length} Themen</h2>
         <p className="c1-uk">Теми, які траплялися на іспитах (з групи).</p>
         <TopicStatusLogin progress={progress} />
         <ol className="c1-info__list c1-de">
           {smalltalkTopics.map((t, i) => (
             <li key={t} className="c1-topic-row">
-              <span>{t}{' '}<button className="c1-play" title="Тренувати цю тему" onClick={() => choose(t)}>▶</button></span>
+              <span>{t}{' '}<button className="c1-play" title="Dieses Thema üben" onClick={() => choose(t)}>▶</button></span>
               <TranslationToggle translation={smalltalkTranslations[i]} />
               <TopicStatus progress={progress} topicKey={'teil2-' + i} />
             </li>
@@ -168,7 +178,7 @@ export function SprechenDtbTeil3() {
       intro="Разом із партнером шукаєте рішення (~4–5 хв): спершу термінові заходи (kurzfristig), потім довгострокові (langfristig). Пропонуйте, погоджуйтеся або заперечуйте і домовтеся, хто що робить."
     >
       <div className="c1-random">
-        <button className="c1-btn" onClick={() => choose(pick(problems))}>🎲 Випадкова ситуація</button>
+        <button className="c1-btn" onClick={() => choose(pick(problems))}>🎲 Zufällige Situation</button>
         {current && (
           <>
             <div className="c1-random__topic c1-de">{current.problem}</div>
@@ -179,7 +189,7 @@ export function SprechenDtbTeil3() {
             } />
             {current.short && (
               <button className="c1-transcript__toggle" onClick={() => setShowSolution(!showSolution)}>
-                {showSolution ? 'Сховати рішення' : '💡 Показати можливі рішення'}
+                {showSolution ? 'Lösungen ausblenden' : '💡 Lösungsvorschläge anzeigen'}
               </button>
             )}
             {showSolution && current.short && <Solutions problem={current} />}
@@ -198,19 +208,19 @@ export function SprechenDtbTeil3() {
       <RedemittelList items={problemRedemittel} />
 
       <section className="c1-section">
-        <h2>Усі {problems.length} ситуацій з рішеннями</h2>
+        <h2>Alle {problems.length} Situationen mit Lösungen</h2>
         <p className="c1-uk">Спершу спробуйте самі, а потім відкрийте рішення.</p>
         <TopicStatusLogin progress={progress} />
         {problems.map((p, i) => (
           <div key={p.problem} className="c1-card">
             <h3 className="c1-de">
               {i + 1}. {p.problem}{' '}
-              <button className="c1-play" title="Тренувати цю ситуацію" onClick={() => choose(p)}>▶</button>
+              <button className="c1-play" title="Diese Situation üben" onClick={() => choose(p)}>▶</button>
             </h3>
             <TranslationToggle translation={problemTranslations[i]} />
             <TopicStatus progress={progress} topicKey={'teil3-' + i} />
             <details>
-              <summary className="c1-uk">💡 рішення</summary>
+              <summary className="c1-uk">💡 Lösungen</summary>
               <Solutions problem={p} />
             </details>
           </div>
@@ -218,12 +228,12 @@ export function SprechenDtbTeil3() {
       </section>
 
       <section className="c1-section">
-        <h2>Ще {moreProblems.length} ситуацій без рішень</h2>
+        <h2>{moreProblems.length} weitere Situationen ohne Lösungen</h2>
         <p className="c1-uk">Теж траплялися на іспитах, рішення придумайте самі.</p>
         <ol className="c1-info__list c1-de">
           {moreProblems.map((t, i) => (
             <li key={t} className="c1-topic-row">
-              <span>{t}{' '}<button className="c1-play" title="Тренувати цю ситуацію" onClick={() => choose({ problem: t })}>▶</button></span>
+              <span>{t}{' '}<button className="c1-play" title="Diese Situation üben" onClick={() => choose({ problem: t })}>▶</button></span>
               <TranslationToggle translation={extraProblemTranslations[i]} />
               <TopicStatus progress={progress} topicKey={'teil3-extra-' + i} />
             </li>

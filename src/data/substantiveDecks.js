@@ -2,8 +2,8 @@
 export const substantiveDecks = [
   {
     "id": "k013-coffee",
-    "title": "K013 Кава",
-    "description": "30 речень · особові, присвійні та зворотні займенники",
+    "title": "K013 Kaffee",
+    "description": "30 Sätze · Personal-, Possessiv- und Reflexivpronomen",
     "topic": "substantive",
     "cards": [
       {

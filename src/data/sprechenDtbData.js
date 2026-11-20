@@ -54,21 +54,64 @@ export const smalltalkTopics = [
 ];
 
 export const smalltalkRedemittel = [
-  ['Gespräch beginnen', ['Hast du schon gehört, dass …?', 'Hast du kurz Zeit? Ich brauche deinen Rat.', 'Weißt du schon das Neueste? …']],
-  ['Meinung äußern', ['Ich finde, dass …', 'Ehrlich gesagt halte ich nicht viel davon, weil …', 'Das hat Vor- und Nachteile: Einerseits …, andererseits …']],
-  ['Rat geben', ['An deiner Stelle würde ich …', 'Hast du schon mal überlegt, …?', 'Vielleicht wäre es sinnvoll, mit … zu sprechen.']],
-  ['Erfahrung erzählen', ['Mir ist mal etwas Ähnliches passiert: …', 'Bei meiner früheren Firma war es so, dass …']],
-  ['Nachfragen / reagieren', ['Wie meinst du das genau?', 'Das kann ich gut verstehen.', 'Und was sagt der Chef dazu?']],
-  ['Abschließen', ['Gut, dann lass uns … machen.', 'Danke für den Tipp, das probiere ich aus!', 'Sag mir Bescheid, wie es gelaufen ist.']],
+  ['Gespräch beginnen', [
+    ['Hast du schon gehört, dass …?', 'Ти вже чув / чула, що …?'],
+    ['Hast du kurz Zeit? Ich brauche deinen Rat.', 'Маєш хвилинку? Мені потрібна твоя порада.'],
+    ['Weißt du schon das Neueste? …', 'Ти вже знаєш останні новини? …'],
+  ]],
+  ['Meinung äußern', [
+    ['Ich finde, dass …', 'Я вважаю, що …'],
+    ['Ehrlich gesagt halte ich nicht viel davon, weil …', 'Чесно кажучи, я не в захваті від цієї ідеї, бо …'],
+    ['Das hat Vor- und Nachteile: Einerseits …, andererseits …', 'Це має свої переваги й недоліки. З одного боку, …, з іншого — …'],
+  ]],
+  ['Rat geben', [
+    ['An deiner Stelle würde ich …', 'На твоєму місці я б …'],
+    ['Hast du schon mal überlegt, …?', 'Ти коли-небудь замислювався / замислювалася над тим, щоб …?'],
+    ['Vielleicht wäre es sinnvoll, mit … zu sprechen.', 'Можливо, варто було б поговорити з …'],
+  ]],
+  ['Erfahrung erzählen', [
+    ['Mir ist mal etwas Ähnliches passiert: …', 'Зі мною колись сталося щось схоже: …'],
+    ['Bei meiner früheren Firma war es so, dass …', 'У компанії, де я раніше працював / працювала, було так: …'],
+  ]],
+  ['Nachfragen / reagieren', [
+    ['Wie meinst du das genau?', 'Що саме ти маєш на увазі?'],
+    ['Das kann ich gut verstehen.', 'Я це добре розумію.'],
+    ['Und was sagt der Chef dazu?', 'А що на це каже керівник?'],
+  ]],
+  ['Abschließen', [
+    ['Gut, dann lass uns … machen.', 'Добре, тоді давай …'],
+    ['Danke für den Tipp, das probiere ich aus!', 'Дякую за пораду, я спробую!'],
+    ['Sag mir Bescheid, wie es gelaufen ist.', 'Дай мені знати, як усе пройшло.'],
+  ]],
 ];
 
 export const problemRedemittel = [
-  ['Einleitung', ['Hast du bereits vernommen, dass …? — Das ist mir schon zu Ohren gekommen. / Das ist mir nicht neu.', 'Ist dir aufgefallen, dass …? — Ja, das ist mir ins Auge gestochen.']],
-  ['Kurzfristige Maßnahmen', ['In Anbetracht dieser Situation müssen wir unverzüglich eine Lösung finden.', 'Zunächst sollten wir Sofortmaßnahmen ergreifen, um den aktuellen Schaden zu begrenzen.', 'Wir könnten … Wie ist deine Einschätzung dazu?']],
-  ['Zustimmen', ['Das klingt überaus vernünftig. Kannst du diese Aufgabe übernehmen?', 'Es wäre ratsam, das dringend zu erledigen. Verschieben wir es nicht auf die lange Bank, ok?', 'Des Weiteren könnten wir ebenfalls …']],
-  ['Bedenken äußern', ['Ich kann deinen Ansatz vollkommen nachvollziehen, hege jedoch Bedenken, ob es in der Praxis wie erwartet funktioniert.', 'Was hältst du stattdessen davon, wenn …?']],
-  ['Langfristige Maßnahmen', ['Langfristig gesehen dachte ich daran, … zu … Wie siehst du das?', 'Um solche Situationen in Zukunft zu vermeiden, sollten wir …']],
-  ['Abschluss', ['Zusammenfassend lässt sich sagen, dass wir …', 'Vielen Dank für den fruchtbaren und konstruktiven Austausch!']],
+  ['Einleitung', [
+    ['Hast du bereits vernommen, dass …? — Das ist mir schon zu Ohren gekommen. / Das ist mir nicht neu.', 'Ти вже чув / чула, що …? — До мене вже дійшла ця інформація. / Для мене це не новина.'],
+    ['Ist dir aufgefallen, dass …? — Ja, das ist mir ins Auge gestochen.', 'Ти помітив / помітила, що …? — Так, це одразу впало мені в око.'],
+  ]],
+  ['Kurzfristige Maßnahmen', [
+    ['In Anbetracht dieser Situation müssen wir unverzüglich eine Lösung finden.', 'З огляду на цю ситуацію ми маємо негайно знайти рішення.'],
+    ['Zunächst sollten wir Sofortmaßnahmen ergreifen, um den aktuellen Schaden zu begrenzen.', 'Насамперед нам слід вжити невідкладних заходів, щоб обмежити завдану шкоду.'],
+    ['Wir könnten … Wie ist deine Einschätzung dazu?', 'Ми могли б … Як ти це оцінюєш?'],
+  ]],
+  ['Zustimmen', [
+    ['Das klingt überaus vernünftig. Kannst du diese Aufgabe übernehmen?', 'Це звучить дуже розумно. Можеш узяти на себе це завдання?'],
+    ['Es wäre ratsam, das dringend zu erledigen. Verschieben wir es nicht auf die lange Bank, ok?', 'Варто зробити це якнайшвидше. Не відкладаймо це на потім, гаразд?'],
+    ['Des Weiteren könnten wir ebenfalls …', 'Крім того, ми могли б також …'],
+  ]],
+  ['Bedenken äußern', [
+    ['Ich kann deinen Ansatz vollkommen nachvollziehen, hege jedoch Bedenken, ob es in der Praxis wie erwartet funktioniert.', 'Я цілком розумію твій підхід, але маю сумніви, чи спрацює це на практиці так, як ми очікуємо.'],
+    ['Was hältst du stattdessen davon, wenn …?', 'А як ти дивишся на те, щоб натомість …?'],
+  ]],
+  ['Langfristige Maßnahmen', [
+    ['Langfristig gesehen dachte ich daran, … zu … Wie siehst du das?', 'На перспективу в мене є така ідея: … Що ти про це думаєш?'],
+    ['Um solche Situationen in Zukunft zu vermeiden, sollten wir …', 'Щоб уникнути таких ситуацій у майбутньому, нам слід …'],
+  ]],
+  ['Abschluss', [
+    ['Zusammenfassend lässt sich sagen, dass wir …', 'Підсумовуючи, можна сказати, що ми …'],
+    ['Vielen Dank für den fruchtbaren und konstruktiven Austausch!', 'Щиро дякую за плідне й конструктивне обговорення!'],
+  ]],
 ];
 
 export const problems = [

@@ -5,8 +5,8 @@ function SprechenPage() {
   return (
     <div className="homepage">
       <h1>Sprechen</h1>
-      <p>Розділ в розробці...</p>
-      <Link to="/b2" className="back-link">← Назад</Link>
+      <p>Dieser Bereich ist in Arbeit …</p>
+      <Link to="/b2" className="back-link">← Zurück</Link>
     </div>
   );
 }

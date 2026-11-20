@@ -1,8 +1,8 @@
 export const additionalSubstantiveDecks = [
   {
     "id": "k014-possessive",
-    "title": "K014 Узгодження присвійних займенників за родами та числом",
-    "description": "20 речень · присвійні займенники",
+    "title": "K014 Possessivpronomen nach Genus und Numerus",
+    "description": "20 Sätze · Possessivpronomen",
     "topic": "substantive",
     "cards": [
       {
@@ -89,8 +89,8 @@ export const additionalSubstantiveDecks = [
   },
   {
     "id": "k015-missing-persons",
-    "title": "K015 Відсутні особи (Du, Ihr, Sie, Es)",
-    "description": "36 речень · особові та присвійні займенники",
+    "title": "K015 Weitere Personalpronomen (du, ihr, Sie, es)",
+    "description": "36 Sätze · Personal- und Possessivpronomen",
     "topic": "substantive",
     "cards": [
       {
@@ -241,8 +241,8 @@ export const additionalSubstantiveDecks = [
   },
   {
     "id": "k016-akkusativ",
-    "title": "K016 Akkusativ — Дії з предметами",
-    "description": "16 речень · Akkusativ",
+    "title": "K016 Akkusativ – Handlungen mit Gegenständen",
+    "description": "16 Sätze · Akkusativ",
     "topic": "substantive",
     "cards": [
       {
@@ -313,8 +313,8 @@ export const additionalSubstantiveDecks = [
   },
   {
     "id": "k017-dativ",
-    "title": "K017 Dativ — Перебування або дія з прийменником",
-    "description": "12 речень · Dativ",
+    "title": "K017 Dativ – Ortsangaben und Handlungen mit Präpositionen",
+    "description": "12 Sätze · Dativ",
     "topic": "substantive",
     "cards": [
       {
@@ -369,8 +369,8 @@ export const additionalSubstantiveDecks = [
   },
   {
     "id": "k018-kein",
-    "title": "K018 Заперечення kein",
-    "description": "12 речень · Nominativ, Akkusativ, Dativ",
+    "title": "K018 Verneinung mit „kein“",
+    "description": "12 Sätze · Nominativ, Akkusativ, Dativ",
     "topic": "substantive",
     "cards": [
       {

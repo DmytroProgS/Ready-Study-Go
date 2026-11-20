@@ -18,7 +18,7 @@ function shuffle(arr) {
 function PraepositionenPage() {
   const { mode } = useParams();
   const dataset = mode === 'extra' ? extraSet : currentSet;
-  const title = mode === 'extra' ? 'По вживаності' : 'Вчимо зараз';
+  const title = mode === 'extra' ? 'Nach Häufigkeit' : 'Aktuelle Lernliste';
   const [selectedGroup, setSelectedGroup] = useState(mode === 'extra' ? 'top30' : 'all');
 
   const remainderVerbs = useMemo(() => {
@@ -34,7 +34,7 @@ function PraepositionenPage() {
         top31_50: 'TOP 31-50',
         top51_75: 'TOP 51-75',
         top76_100: 'TOP 76-100',
-        all: `Залишок (${remainderVerbs.length})`,
+        all: `Weitere (${remainderVerbs.length})`,
       };
     }
     return {
@@ -42,7 +42,7 @@ function PraepositionenPage() {
       top31_50: 'TOP 31-50',
       top51_75: 'TOP 51-75',
       top76_100: 'TOP 76-100',
-      all: `Усі ${dataset.length}`,
+      all: `Alle ${dataset.length}`,
     };
   }, [dataset.length, mode, remainderVerbs.length]);
 
@@ -101,7 +101,7 @@ function PraepositionenPage() {
 
       {mode === 'extra' && (
         <div className="praep-group-panel">
-          <div className="praep-group-panel__label">Групи за вживаністю:</div>
+          <div className="praep-group-panel__label">Nach Häufigkeit gruppiert:</div>
           <div className="praep-group-tabs">
             {Object.keys(groupLabels).map((groupKey) => (
               <button
@@ -123,7 +123,7 @@ function PraepositionenPage() {
       >
         <div className="praep-card__inner">
           <div className="praep-card__front">
-            <p className="praep-card__hint">Переклади на німецьку:</p>
+            <p className="praep-card__hint">Übersetze ins Deutsche:</p>
             {card.variants ? (
               <ol className="praep-card__list praep-card__list--ua">
                 {card.variants.map((v, i) => (
@@ -133,7 +133,7 @@ function PraepositionenPage() {
             ) : (
               <p className="praep-card__text">{card.exUA}</p>
             )}
-            <p className="praep-card__tap">натисни для відповіді</p>
+            <p className="praep-card__tap">Klicken für die Antwort</p>
           </div>
           <div className="praep-card__back">
             {card.variants ? (
@@ -166,12 +166,12 @@ function PraepositionenPage() {
       </div>
 
       <div className="praep-nav">
-        <button onClick={prev} disabled={index === 0} className="praep-btn">← Назад</button>
-        <button onClick={reshuffleCards} className="praep-btn praep-btn--shuffle">🔀 Перемішати</button>
-        <button onClick={next} disabled={index === cards.length - 1} className="praep-btn">Далі →</button>
+        <button onClick={prev} disabled={index === 0} className="praep-btn">← Zurück</button>
+        <button onClick={reshuffleCards} className="praep-btn praep-btn--shuffle">🔀 Mischen</button>
+        <button onClick={next} disabled={index === cards.length - 1} className="praep-btn">Weiter →</button>
       </div>
 
-      <Link to="/grammar" className="back-link">← До граматики</Link>
+      <Link to="/grammar" className="back-link">← Zur Grammatik</Link>
     </div>
   );
 }

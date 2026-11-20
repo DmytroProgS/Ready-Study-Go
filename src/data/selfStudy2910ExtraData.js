@@ -1,5 +1,5 @@
 export const lesson2910ExtraExercises = [
-  { title: 'Закріплення матеріалу · Вправа 1', description: 'Твої 10 додаткових речень для усного тренування.', cards: [
+  { title: 'Vertiefung · Übung 1', description: '10 zusätzliche Sätze zum Sprechen.', cards: [
   {
     "uk": "Я наполягаю на поверненні грошей.",
     "de": "Ich bestehe auf einer Rückzahlung.",

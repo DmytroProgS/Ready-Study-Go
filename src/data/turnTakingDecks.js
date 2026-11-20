@@ -8,14 +8,14 @@ import { calendarPacks } from './calendarPrepositionPacks';
 const haltenDecks = [
   {
     id: 'halt-prepositions',
-    title: 'K000 Фрази з halten з Präpositionen',
-    description: '17 фраз · прийменники та зворотні займенники',
+    title: 'K000 Wendungen mit „halten“ und Präpositionen',
+    description: '17 Wendungen · Präpositionen und Reflexivpronomen',
     cards: haltPrepositionPhrases.map(({ uk, de }) => ({ uk, de }))
   },
   {
     id: 'halt',
-    title: 'K001 Фрази з halten',
-    description: '18 фраз на кожен день',
+    title: 'K001 Wendungen mit „halten“',
+    description: '18 Wendungen für den Alltag',
     cards: [
       { uk: 'Стій!', de: 'Halt!' },
       { uk: 'Тримайся! Не здавайся!', de: 'Halt durch!' },
@@ -40,7 +40,7 @@ const haltenDecks = [
   {
     id: 'k002-halten',
     title: 'K002 - Halten',
-    description: '9 фраз · aushalten, durchhalten, festhalten',
+    description: '9 Wendungen · aushalten, durchhalten, festhalten',
     cards: [
       { uk: 'Я не витримую спеки.', de: 'Ich halte die Hitze nicht aus.', explanation: 'aushalten — Терпіти щось неприємне. Питання: що витримати?' },
       { uk: 'Це неможливо терпіти!', de: 'Das ist nicht auszuhalten!', explanation: 'aushalten — Терпіти щось неприємне. Питання: що витримати?' },
@@ -55,8 +55,8 @@ const haltenDecks = [
   },
   {
     id: 'k003-halten',
-    title: 'K003 Побут і транспорт halten',
-    description: '10 фраз · побут і транспорт',
+    title: 'K003 „halten“ im Alltag und im Verkehr',
+    description: '10 Wendungen · Alltag und Verkehr',
     cards: [
       { uk: 'Потримай, будь ласка, мою каву.', de: 'Halt bitte mal meinen Kaffee.' },
       { uk: 'Цей поїзд зупиняється в Дрездені?', de: 'Hält dieser Zug in Dresden?' },
@@ -72,8 +72,8 @@ const haltenDecks = [
   },
   {
     id: 'k004-halten',
-    title: 'K004 Думки й емоції halten',
-    description: '10 фраз · думки й емоції',
+    title: 'K004 „halten“ für Meinungen und Gefühle',
+    description: '10 Wendungen · Meinungen und Gefühle',
     cards: [
       { uk: 'Що ти про це думаєш?', de: 'Was hältst du davon?' },
       { uk: 'Я не вважаю це гарною ідеєю.', de: 'Ich halte das für keine gute Idee.' },
@@ -89,8 +89,8 @@ const haltenDecks = [
   },
   {
     id: 'k005-halten',
-    title: 'K005 Робота і стосунки halten',
-    description: '10 фраз · робота і стосунки',
+    title: 'K005 „halten“ im Beruf und in Beziehungen',
+    description: '10 Wendungen · Beruf und Beziehungen',
     cards: [
       { uk: 'Ми мусимо дотриматися терміну.', de: 'Wir müssen die Frist einhalten.' },
       { uk: 'Я триматиму тебе в курсі.', de: 'Ich halte dich auf dem Laufenden.' },
@@ -106,8 +106,8 @@ const haltenDecks = [
   },
   {
     id: 'k006-halten',
-    title: 'K006 Знайди і виправ помилку halten',
-    description: '8 речень · знайди помилку та перевір виправлення',
+    title: 'K006 Fehler mit „halten“ finden und korrigieren',
+    description: '8 Sätze · Fehler finden und die Korrektur prüfen',
     mode: 'correction',
     cards: [
       { de: 'Ich halte mich an den Regeln.', corrected: 'Ich halte mich an die Regeln.', wrong: 'den', right: 'die', uk: 'Я дотримуюся правил.', explanation: 'an + Akkusativ' },
@@ -122,8 +122,8 @@ const haltenDecks = [
   },
   {
     id: 'k007-halten',
-    title: 'K007 Перепиши в Perfekt halten',
-    description: '6 речень · Präsens → Perfekt',
+    title: 'K007 Sätze mit „halten“ ins Perfekt setzen',
+    description: '6 Sätze · Präsens → Perfekt',
     mode: 'perfekt',
     cards: [
       { uk: 'Der Bus hält an der Ecke.', de: 'Der Bus hat an der Ecke gehalten.' },
@@ -136,7 +136,7 @@ const haltenDecks = [
   }
 ];
 
-export const turnTakingDecks = [...haltenDecks.map(deck => ({ ...deck, topic: 'halten' })), ...lassenDecks, ...substantiveDecks, ...additionalSubstantiveDecks, ...calendarPacks.map(pack => ({ id: pack.k.toLowerCase() + '-calendar', title: pack.k + ' ' + pack.name, description: '13 речень · переклад українською → німецькою', topic: 'preposition', cards: pack.rows.map(([de, uk]) => ({ uk, de })) }))];
+export const turnTakingDecks = [...haltenDecks.map(deck => ({ ...deck, topic: 'halten' })), ...lassenDecks, ...substantiveDecks, ...additionalSubstantiveDecks, ...calendarPacks.map(pack => ({ id: pack.k.toLowerCase() + '-calendar', title: pack.k + ' ' + pack.name, description: '13 Sätze · Übersetzung vom Ukrainischen ins Deutsche', topic: 'preposition', cards: pack.rows.map(([de, uk]) => ({ uk, de })) }))];
 
 export function shuffleDeck(cards) {
   const result = [...cards];

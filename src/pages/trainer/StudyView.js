@@ -121,9 +121,9 @@ function StudyView({ uid, cards, streak }) {
 
   const SetSelect = (
     <div className="study-setpick">
-      <label>Набір:</label>
+      <label>Set:</label>
       <select value={set} onChange={(e) => setSetSel(e.target.value)}>
-        <option value={ALL}>Усі набори</option>
+        <option value={ALL}>Alle Sets</option>
         {sets.map((s) => <option key={s} value={s}>{s}</option>)}
         {hasNoSet && <option value={NO_SET}>{NO_SET}</option>}
       </select>
@@ -133,8 +133,8 @@ function StudyView({ uid, cards, streak }) {
   if (cards.length === 0) {
     return (
       <div className="study-empty">
-        <p>У тебе ще немає карток.</p>
-        <p>Перейди на вкладку <b>«🗂 Мої картки»</b> і додай перше речення.</p>
+        <p>Du hast noch keine Karten.</p>
+        <p>Öffne <b>„🗂 Meine Karten“</b> und füge deinen ersten Satz hinzu.</p>
       </div>
     );
   }
@@ -142,15 +142,15 @@ function StudyView({ uid, cards, streak }) {
   const isUaFirst = direction === 'ua-de';
   const frontText = isUaFirst ? card?.ua : card?.de;
   const backText = isUaFirst ? card?.de : card?.ua;
-  const frontHint = isUaFirst ? 'Згадай німецькою:' : 'Перекладай українською:';
+  const frontHint = isUaFirst ? 'Wie lautet der Satz auf Deutsch?' : 'Übersetze ins Ukrainische:';
   const germanOnFront = !isUaFirst;
 
   const StatsBar = (
     <div className="study-stats">
-      <span title="Серія днів поспіль">🔥 {streak?.streak ?? 0}</span>
-      <span title="Чекає сьогодні">📅 {stats.due}</span>
-      <span title="На паузі">⏳ {stats.paused}</span>
-      <span title="Добре завчено">🏆 {stats.learned}</span>
+      <span title="Tage in Folge">🔥 {streak?.streak ?? 0}</span>
+      <span title="Heute fällig">📅 {stats.due}</span>
+      <span title="Pausiert">⏳ {stats.paused}</span>
+      <span title="Gut gelernt">🏆 {stats.learned}</span>
     </div>
   );
 
@@ -160,14 +160,14 @@ function StudyView({ uid, cards, streak }) {
         {SetSelect}
         {StatsBar}
         <div className="study-empty">
-          <p className="study-done">🎉 На сьогодні все повторено!</p>
+          <p className="study-done">🎉 Für heute ist alles wiederholt!</p>
           {stats.paused > 0 && (
-            <p>На паузі: <b>{stats.paused}</b> — повернуться, коли настане їхній час.</p>
+            <p>Pausiert: <b>{stats.paused}</b>. Diese Karten erscheinen wieder, sobald sie fällig sind.</p>
           )}
           <button className="trainer-btn trainer-btn--primary" onClick={startAll}>
-            🔄 Повторити все зараз
+            🔄 Jetzt alles wiederholen
           </button>
-          <button className="trainer-btn" onClick={startDue}>Перевірити дозрілі</button>
+          <button className="trainer-btn" onClick={startDue}>Fällige Karten prüfen</button>
         </div>
       </div>
     );
@@ -183,7 +183,7 @@ function StudyView({ uid, cards, streak }) {
         <button
           className="study-dir__switch"
           onClick={() => setDirection(isUaFirst ? 'de-ua' : 'ua-de')}
-          title="Змінити напрям"
+          title="Übersetzungsrichtung wechseln"
         >
           🔄
         </button>
@@ -191,9 +191,9 @@ function StudyView({ uid, cards, streak }) {
       </div>
 
       <div className="study-topline">
-        <span className="study-counter">Залишилось: {liveQueue.length}</span>
-        <button className="study-all-btn" onClick={startAll} title="Проганяти всі картки">
-          🔄 Усі
+        <span className="study-counter">Übrig: {liveQueue.length}</span>
+        <button className="study-all-btn" onClick={startAll} title="Alle Karten üben">
+          🔄 Alle
         </button>
       </div>
 
@@ -211,12 +211,12 @@ function StudyView({ uid, cards, streak }) {
               <button
                 className="study-speak"
                 onClick={(e) => { e.stopPropagation(); speak(card.de); }}
-                title="Прочитати вголос"
+                title="Vorlesen"
               >
-                🔊 Читати
+                🔊 Vorlesen
               </button>
             )}
-            <p className="study-card__tap">натисни, щоб перевірити</p>
+            <p className="study-card__tap">Zum Überprüfen klicken</p>
           </div>
           <div className="study-card__back">
             <p className="study-card__de">{backText}</p>
@@ -224,9 +224,9 @@ function StudyView({ uid, cards, streak }) {
               <button
                 className="study-speak"
                 onClick={(e) => { e.stopPropagation(); speak(card.de); }}
-                title="Прочитати вголос"
+                title="Vorlesen"
               >
-                🔊 Читати
+                🔊 Vorlesen
               </button>
             )}
           </div>
@@ -236,16 +236,16 @@ function StudyView({ uid, cards, streak }) {
       {flipped ? (
         <div className="study-actions">
           <button className="trainer-btn study-btn--fail" onClick={() => answer(false)}>
-            ❌ Не згадав
+            ❌ Nicht gewusst
           </button>
           <button className="trainer-btn study-btn--ok" onClick={() => answer(true)}>
-            ✅ Згадав
+            ✅ Gewusst
           </button>
         </div>
       ) : (
         <p className="study-flip-hint">
-          Спершу згадай сам, потім перевертай 🙂 <br />
-          <span className="study-keys">← / → або свайп — оцінити, пробіл — перевернути</span>
+          Überlege zuerst und drehe dann die Karte um 🙂 <br />
+          <span className="study-keys">Mit ← / → oder Wischen bewerten, mit der Leertaste umdrehen</span>
         </p>
       )}
     </div>

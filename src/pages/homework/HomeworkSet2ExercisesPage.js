@@ -46,7 +46,7 @@ const footnotes = [
 function HomeworkSet2ExercisesPage() {
   return (
     <div className="exercises-page">
-      <h1 className="exercises-page__title">Вправи · Заняття 04.05</h1>
+      <h1 className="exercises-page__title">Übungen · Unterricht am 04.05</h1>
       <p className="exercises-page__intro">
         Lesen Sie den ganzen Magazinartikel und vergleichen Sie mit Ihren Vermutungen.
       </p>
@@ -80,7 +80,7 @@ function HomeworkSet2ExercisesPage() {
         </p>
       </div>
 
-      <Link to="/homework/set/2" className="back-link">&larr; Назад</Link>
+      <Link to="/homework/set/2" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

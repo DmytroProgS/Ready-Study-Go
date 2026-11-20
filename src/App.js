@@ -59,12 +59,14 @@ import WechselpraepositionenExercisePage from './pages/WechselpraepositionenExer
 import VerbPraepExercisePage from './pages/VerbPraepExercisePage';
 import GenitivExercisePage from './pages/GenitivExercisePage';
 import MeinDeutschMindMapPage from './pages/MeinDeutschMindMapPage';
+import { RouteNavigation } from './components/PageNavigation';
 import './App.css';
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <RouteNavigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/grammar" element={<GrammarPage />} />

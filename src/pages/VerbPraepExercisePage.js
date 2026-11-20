@@ -174,14 +174,14 @@ function VerbPraepExercisePage() {
     setIsAnswered(false);
   };
 
-  if (exercises.length === 0) return <div>Завантаження...</div>;
+  if (exercises.length === 0) return <div>Wird geladen …</div>;
 
   const isCorrect = selectedAnswer === currentExercise.answer;
 
   return (
     <div className="trainer-exercise">
       <div className="trainer-header">
-        <h1>Verben mit Präpositionen — Керування дієслів (B1-B2)</h1>
+        <h1>Verben mit festen Präpositionen (B1–B2)</h1>
       </div>
 
       <div className="exercise-card">
@@ -194,7 +194,7 @@ function VerbPraepExercisePage() {
         )}
         {isAnswered && (
           <div className="exercise-category">
-            Керування: <strong>{currentExercise.prep}</strong>
+            Rektion: <strong>{currentExercise.prep}</strong>
           </div>
         )}
 
@@ -228,10 +228,10 @@ function VerbPraepExercisePage() {
         {isAnswered && (
           <div className={`answer-display ${isCorrect ? 'correct' : 'incorrect'}`}>
             <div className="answer-status">
-              {isCorrect ? '✓ Правильно!' : '✗ Неправильно'}
+              {isCorrect ? '✓ Richtig!' : '✗ Falsch'}
             </div>
             <div className="answer-text">
-              <strong>Правильна відповідь:</strong> {currentExercise.answer}
+              <strong>Richtige Antwort:</strong> {currentExercise.answer}
             </div>
             <div className="answer-explanation">
               {currentExercise.ua} → {currentExercise.prep}
@@ -245,16 +245,16 @@ function VerbPraepExercisePage() {
           onClick={prevExercise}
           disabled={currentIndex === 0}
           className="nav-btn nav-btn--icon"
-          aria-label="Попередня"
-          title="Попередня"
+          aria-label="Zurück"
+          title="Zurück"
         >
           ←
         </button>
         <button
           onClick={resetExercises}
           className="nav-btn nav-btn--icon nav-btn--reset"
-          aria-label="Заново"
-          title="Заново"
+          aria-label="Neu starten"
+          title="Neu starten"
         >
           🔄
         </button>
@@ -262,8 +262,8 @@ function VerbPraepExercisePage() {
           onClick={nextExercise}
           disabled={currentIndex === exercises.length - 1}
           className="nav-btn nav-btn--icon"
-          aria-label="Наступна"
-          title="Наступна"
+          aria-label="Weiter"
+          title="Weiter"
         >
           →
         </button>
@@ -271,7 +271,7 @@ function VerbPraepExercisePage() {
 
       <div className="trainer-footer">
         <span className="trainer-count"><strong>{currentIndex + 1}</strong> / {exercises.length}</span>
-        <Link to="/word-trainer" className="back-link">← Повернутись до вибору</Link>
+        <Link to="/word-trainer" className="back-link">← Zurück zur Auswahl</Link>
       </div>
     </div>
   );

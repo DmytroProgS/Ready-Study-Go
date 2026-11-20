@@ -77,7 +77,7 @@ function possessiveForm(stem, suffix) {
 function ReferenceTable({ heading, rows, first = 'Kasus' }) {
   return <div className="sub-ref-table-section">
     {heading && <h4>{heading}</h4>}
-    <div className="sub-ref-scroll" tabIndex="0" role="region" aria-label={heading || 'Граматична таблиця'}>
+    <div className="sub-ref-scroll" tabIndex="0" role="region" aria-label={heading || 'Grammatiktabelle'}>
       <table className="sub-ref-table sub-ref-examples">
         <thead><tr><th>{first}</th>{['Maskulinum','Neutrum','Femininum','Plural'].map((x,i) => <th className={'sub-ref-head-' + colors[i]} key={x}>{x}</th>)}</tr></thead>
         <tbody>{rows.map((row,i) => <tr key={i}><th scope="row">{cases[i]}</th>{row.map((cell,j) => <td key={j}>{cell}</td>)}</tr>)}</tbody>
@@ -101,7 +101,7 @@ function articleExample(ci,gi,kind) {
   return art === '—' ? null : <>{art} {noun}</>;
 }
 function BigExamples() {
-  return <ReferenceTable heading="Артиклі та прикметники — усі приклади" rows={cases.map((_,ci)=>words.map((_,gi)=>{
+  return <ReferenceTable heading="Artikel und Adjektive – alle Beispiele" rows={cases.map((_,ci)=>words.map((_,gi)=>{
     const lines = [
       articleExample(ci,gi,'definite'),
       example(ci,gi,'definite'),
@@ -115,10 +115,10 @@ function BigExamples() {
   }))}/>;
 }
 function Comparison() {
-  return <ReferenceTable heading="der / dieser / mein — порівняння" rows={cases.map((_,ci)=>words.map((_,gi)=><div className="sub-ref-lines"><div>{forms[ci][0][gi]} / {forms[ci][1][gi]} {genitiveNoun(ci,gi)},</div><div className="sub-ref-pink">{forms[ci][2][gi]} {genitiveNoun(ci,gi)}</div></div>))}/>;
+  return <ReferenceTable heading="der / dieser / mein – Vergleich" rows={cases.map((_,ci)=>words.map((_,gi)=><div className="sub-ref-lines"><div>{forms[ci][0][gi]} / {forms[ci][1][gi]} {genitiveNoun(ci,gi)},</div><div className="sub-ref-pink">{forms[ci][2][gi]} {genitiveNoun(ci,gi)}</div></div>))}/>;
 }
 function Welcher() {
-  return <ReferenceTable heading="welcher — відмінювання" rows={cases.map((_,ci)=>words.map((_,gi)=><>{welcher[ci][gi]} {genitiveNoun(ci,gi)}</>))}/>;
+  return <ReferenceTable heading="welcher – Deklination" rows={cases.map((_,ci)=>words.map((_,gi)=><>{welcher[ci][gi]} {genitiveNoun(ci,gi)}</>))}/>;
 }
 function Pronouns() {
   return <div className="sub-ref-pronouns">
@@ -146,11 +146,11 @@ function Pronouns() {
 export default function SubstantiveGrammarReference() {
   return <section className="sub-grammar-reference">
     <details>
-      <summary>📖 Мої граматичні таблиці</summary>
+      <summary>📖 Meine Grammatiktabellen</summary>
       <div className="sub-grammar-content">
-        <p>Ті самі таблиці, кольори, порядок і приклади — тепер у чіткому текстовому вигляді. На телефоні прокручуй широкі таблиці вбік.</p>
-        <div className="sub-ref-original"><h3>1. Особові та присвійні займенники</h3><Pronouns/></div>
-        <div className="sub-ref-original"><h3>2. Артиклі, прикметники та welcher</h3><BigExamples/><Comparison/><Welcher/></div>
+        <p>Auf dem Handy kannst du breite Tabellen zur Seite scrollen.</p>
+        <div className="sub-ref-original"><h3>1. Personal- und Possessivpronomen</h3><Pronouns/></div>
+        <div className="sub-ref-original"><h3>2. Artikel, Adjektive und „welcher“</h3><BigExamples/><Comparison/><Welcher/></div>
       </div>
     </details>
   </section>;

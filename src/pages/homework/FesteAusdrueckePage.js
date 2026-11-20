@@ -19,12 +19,12 @@ function FesteAusdrueckePage() {
     <div className="feste-page">
       <h1 className="feste-page__title">Feste Ausdrücke</h1>
       <p className="feste-page__intro">
-        Прочитай українську фразу, згадай німецький варіант — і клацни на картку, щоб перевірити себе.
+        Lies den ukrainischen Satz, sage ihn auf Deutsch und klicke zur Kontrolle auf die Karte.
       </p>
 
       <div className="feste-group-nav">
         <button type="button" className="feste-nav-btn" onClick={() => setActiveGroupIndex((prev) => Math.max(prev - 1, 0))} disabled={!hasPrev}>
-          ← Назад
+          ← Zurück
         </button>
 
         <div className="feste-nav-current">
@@ -33,7 +33,7 @@ function FesteAusdrueckePage() {
         </div>
 
         <button type="button" className="feste-nav-btn" onClick={() => setActiveGroupIndex((prev) => Math.min(prev + 1, festeAusdrueckeGroups.length - 1))} disabled={!hasNext}>
-          Вперед →
+          Weiter →
         </button>
       </div>
 
@@ -83,7 +83,7 @@ function FesteAusdrueckePage() {
                 ) : (
                   <span className="feste-card__hidden">
                     <span className="feste-card__hidden-icon">🔒</span>
-                    натисни, щоб побачити німецькою
+                    Klicken für die deutsche Version
                   </span>
                 )}
               </div>
@@ -92,9 +92,9 @@ function FesteAusdrueckePage() {
         })}
       </section>
 
-      <p className="feste-page__hint">Клацни знову — щоб закрити картку.</p>
+      <p className="feste-page__hint">Klicke erneut, um die Karte zu schließen.</p>
 
-      <Link to="/homework" className="back-link">&larr; Назад</Link>
+      <Link to="/homework" className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

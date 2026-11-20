@@ -1,8 +1,8 @@
 export const passivDialogues = [
   {
     id: 'passiv-problem',
-    title: 'Ситуація 1. Технічна проблема (Das Problem)',
-    description: '5 форм Passiv · робоча проблема',
+    title: 'Situation 1. Ein technisches Problem',
+    description: '5 Passivformen · Ein Problem bei der Arbeit',
     messages: [
       { speaker: 'A', uk: 'Що зараз відбувається з технічною проблемою?', de: 'Was passiert gerade mit dem technischen Problem?' },
       { speaker: 'B', uk: 'Проблему зараз вирішують.', de: 'Das Problem wird gerade gelöst.' },
@@ -18,8 +18,8 @@ export const passivDialogues = [
   },
   {
     id: 'passiv-paket',
-    title: 'Ситуація 2. Доставка посилки (Das Paket)',
-    description: '5 форм Passiv · розмова зі службою доставки',
+    title: 'Situation 2. Paketzustellung',
+    description: '5 Passivformen · Ein Gespräch mit dem Paketdienst',
     messages: [
       { speaker: 'Клієнт', uk: 'Коли я отримаю свою посилку?', de: 'Wann bekomme ich mein Paket?' },
       { speaker: 'Служба доставки', uk: 'Посилку доставлять сьогодні.', de: 'Das Paket wird heute geliefert.' },
@@ -35,8 +35,8 @@ export const passivDialogues = [
   },
   {
     id: 'passiv-zimmer',
-    title: 'Ситуація 3. Прибирання кімнати (Das Zimmer)',
-    description: '5 форм Passiv · підготовка до гостей',
+    title: 'Situation 3. Zimmer aufräumen',
+    description: '5 Passivformen · Vorbereitungen für den Besuch',
     messages: [
       { speaker: 'A', uk: 'Чому я зараз не можу зайти до гостьової кімнати?', de: 'Warum kann ich gerade nicht ins Gästezimmer?' },
       { speaker: 'B', uk: 'Кімнату зараз прибирають.', de: 'Das Zimmer wird gerade aufgeräumt.' },

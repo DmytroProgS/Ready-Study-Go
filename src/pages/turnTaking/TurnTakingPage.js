@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PageNavigation } from '../../components/PageNavigation';
 import { turnTakingDecks, shuffleDeck } from '../../data/turnTakingDecks';
 import './TurnTakingPage.css';
 import SubstantiveGrammarReference from './SubstantiveGrammarReference';
@@ -23,6 +24,11 @@ export default function TurnTakingPage() {
   };
   const currentCard = session?.cards[index];
   const mode = session?.deck.mode;
+  const backToSelection = () => {
+    if (session) setSession(null);
+    else setTopic(null);
+    window.scrollTo(0, 0);
+  };
 
   const move = next => {
     setIndex(next);
@@ -31,27 +37,30 @@ export default function TurnTakingPage() {
 
   return (
     <main className="turn-page">
-      <h1>🔄 Речення по черзі</h1>
-      <p className="turn-intro">Обери тему та колоду. Перекладай речення й натискай на картку, щоб перевірити себе.</p>
+      <PageNavigation onBack={topic ? backToSelection : undefined}>
+        {session && <button type="button" onClick={backToSelection}>Anderes Kartenset wählen</button>}
+      </PageNavigation>
+      <h1>🔄 Sätze im Wechsel</h1>
+      <p className="turn-intro">Wähle ein Thema und ein Kartenset. Übersetze die Sätze und klicke zur Kontrolle auf die Karte.</p>
       {!session ? (
         <section className="turn-decks">
           {!topic ? <>
-            <h2>Обери тему</h2>
+            <h2>Wähle ein Thema</h2>
             {[{ id: 'halten', title: 'Halten', icon: '📁' }, { id: 'lassen', title: 'Lassen', icon: '📁' }, { id: 'preposition', title: 'Präposition', icon: '📁' }, { id: 'substantive', title: 'Substantive', icon: '📁' }].map(group => {
               const count = turnTakingDecks.filter(deck => deck.topic === group.id).length;
               return <button className="turn-deck turn-topic" key={group.id} onClick={() => setTopic(group.id)}>
                 <span className="turn-deck-icon">{group.icon}</span>
-                <span><strong>{group.title}</strong><small>{count} колод</small></span>
+                <span><strong>{group.title}</strong><small>{count} {count === 1 ? 'Kartenset' : 'Kartensets'}</small></span>
                 <span aria-hidden="true">→</span>
               </button>;
             })}
           </> : <>
-          <button type="button" className="turn-folder-back" onClick={() => setTopic(null)}>← Усі теми</button>
+          <button type="button" className="turn-folder-back" onClick={backToSelection}>← Alle Themen</button>
           <h2>📁 {topic === 'halten' ? 'Halten' : topic === 'lassen' ? 'Lassen' : topic === 'preposition' ? 'Präposition' : 'Substantive'}</h2>
           {turnTakingDecks.filter(deck => deck.topic === topic).map(deck => (
             <button className="turn-deck" key={deck.id} onClick={() => startDeck(deck)}>
               <span className="turn-deck-icon">🗂️</span>
-              <span><strong>{deck.title}</strong><small>{deck.description} · {deck.cards.length} карток</small></span>
+              <span><strong>{deck.title}</strong><small>{deck.description} · {deck.cards.length} Karten</small></span>
               <span aria-hidden="true">→</span>
             </button>
           ))}
@@ -60,10 +69,10 @@ export default function TurnTakingPage() {
         </section>
       ) : (
         <section className="turn-session">
-          <div className="turn-topline"><strong>{session.deck.title}</strong><span>Картка {index + 1} із {session.cards.length}</span></div>
+          <div className="turn-topline"><strong>{session.deck.title}</strong><span>Karte {index + 1} von {session.cards.length}</span></div>
           <div className="turn-progress"><div style={{ width: ((index + 1) / session.cards.length * 100) + '%' }} /></div>
-          <button type="button" className={'turn-flashcard' + (flipped ? ' turn-flashcard--de' : '')} onClick={() => setFlipped(v => !v)} aria-label="Перевернути картку">
-            <span className="turn-language">{mode === 'correction' ? (flipped ? '✅ Виправлення' : '🔎 Знайди помилку') : mode === 'perfekt' ? (flipped ? '✅ Perfekt' : '🇩🇪 Präsens') : (flipped ? '🇩🇪 Німецькою' : '🇺🇦 Українською')}</span>
+          <button type="button" className={'turn-flashcard' + (flipped ? ' turn-flashcard--de' : '')} onClick={() => setFlipped(v => !v)} aria-label="Karte umdrehen">
+            <span className="turn-language">{mode === 'correction' ? (flipped ? '✅ Korrektur' : '🔎 Finde den Fehler') : mode === 'perfekt' ? (flipped ? '✅ Perfekt' : '🇩🇪 Präsens') : (flipped ? '🇩🇪 Deutsch' : '🇺🇦 Ukrainisch')}</span>
             {mode === 'correction' && flipped ? (
               <span className="turn-correction-result">
                 <span className="turn-correction-line">{highlightedSentence(currentCard.de, currentCard.wrong, 'turn-error-word')}</span>
@@ -71,20 +80,20 @@ export default function TurnTakingPage() {
                 <span className="turn-correction-translation">{currentCard.uk}</span>
               </span>
             ) : <span className="turn-sentence">{flipped ? currentCard.de : mode === 'correction' ? currentCard.de : currentCard.uk}</span>}
-            <span className="turn-flip-hint">↻ Натисни, щоб перевернути</span>
+            <span className="turn-flip-hint">↻ Zum Umdrehen klicken</span>
           </button>
-          {flipped && currentCard.explanation && <p className="turn-card-explanation"><strong>Пояснення:</strong> {currentCard.explanation}</p>}
+          {flipped && currentCard.explanation && <p className="turn-card-explanation"><strong>Erklärung:</strong> {currentCard.explanation}</p>}
           <div className="turn-controls">
-            <button disabled={index === 0} onClick={() => move(index - 1)}>← Назад</button>
-            <button onClick={() => setFlipped(v => !v)}>↻ Перевернути</button>
+            <button disabled={index === 0} onClick={() => move(index - 1)}>← Zurück</button>
+            <button onClick={() => setFlipped(v => !v)}>↻ Umdrehen</button>
             {index < session.cards.length - 1
-              ? <button onClick={() => move(index + 1)}>Далі →</button>
-              : <button onClick={() => startDeck(session.deck)}>🔀 Перемішати знову</button>}
+              ? <button onClick={() => move(index + 1)}>Weiter →</button>
+              : <button onClick={() => startDeck(session.deck)}>🔀 Erneut mischen</button>}
           </div>
-          <button className="turn-other" onClick={() => setSession(null)}>← Обрати іншу колоду</button>
+          <button className="turn-other" onClick={backToSelection}>← Anderes Kartenset wählen</button>
         </section>
       )}
-      <Link className="turn-home" to="/">← На головну</Link>
+      <Link className="turn-home" to="/">← Zur Startseite</Link>
     </main>
   );
 }

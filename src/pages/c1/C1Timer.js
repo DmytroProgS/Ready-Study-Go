@@ -24,7 +24,7 @@ function C1Timer({ presets }) {
   return (
     <div className="c1-timer">
       <span className={'c1-timer__time' + (left === 0 ? ' done' : '')}>{left === 0 ? '⏰ 00:00' : fmt(left)}</span>
-      <button onClick={() => setRunning(!running)}>{running ? '⏸ Пауза' : '▶ Старт'}</button>
+      <button onClick={() => setRunning(!running)}>{running ? '⏸ Pause' : '▶ Start'}</button>
       <button onClick={() => choose(preset)}>↺</button>
       {presets.map((p, i) => (
         <button key={p.label} className={i === preset ? 'active' : ''} onClick={() => choose(i)}>

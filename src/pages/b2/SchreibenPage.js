@@ -13,7 +13,7 @@ function SchreibenPage() {
           <span className="b2-card__pig">🐷</span>
         </Link>
       </div>
-      <Link to="/b2" className="back-link">← Назад</Link>
+      <Link to="/b2" className="back-link">← Zurück</Link>
     </div>
   );
 }

@@ -4,8 +4,8 @@ import { homework1, homework2 } from '../../data/homeworkData';
 import '../PraepositionenPage.css';
 
 const sets = {
-  '1': { data: homework1, title: 'Заняття 20.04' },
-  '2': { data: homework2, title: 'Заняття 04.05' },
+  '1': { data: homework1, title: 'Unterricht am 20.04' },
+  '2': { data: homework2, title: 'Unterricht am 04.05' },
 };
 
 function shuffle(arr) {
@@ -64,9 +64,9 @@ function HomeworkCardsPage() {
       >
         <div className="praep-card__inner">
           <div className="praep-card__front">
-            <p className="praep-card__hint">Переклади на німецьку:</p>
+            <p className="praep-card__hint">Übersetze ins Deutsche:</p>
             <p className="praep-card__text">{card.ua}</p>
-            <p className="praep-card__tap">натисни для відповіді</p>
+            <p className="praep-card__tap">Klicken für die Antwort</p>
           </div>
           <div className="praep-card__back">
             <p className="praep-card__de-example">{card.de}</p>
@@ -75,12 +75,12 @@ function HomeworkCardsPage() {
       </div>
 
       <div className="praep-nav">
-        <button onClick={prev} disabled={index === 0} className="praep-btn">&larr; Назад</button>
-        <button onClick={reshuffleCards} className="praep-btn praep-btn--shuffle">🔀 Перемішати</button>
-        <button onClick={next} disabled={index === cards.length - 1} className="praep-btn">Далі &rarr;</button>
+        <button onClick={prev} disabled={index === 0} className="praep-btn">&larr; Zurück</button>
+        <button onClick={reshuffleCards} className="praep-btn praep-btn--shuffle">🔀 Mischen</button>
+        <button onClick={next} disabled={index === cards.length - 1} className="praep-btn">Weiter &rarr;</button>
       </div>
 
-      <Link to={setId === '2' ? '/homework/set/2' : '/homework'} className="back-link">&larr; Назад</Link>
+      <Link to={setId === '2' ? '/homework/set/2' : '/homework'} className="back-link">&larr; Zurück</Link>
     </div>
   );
 }

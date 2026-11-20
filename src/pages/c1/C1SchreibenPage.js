@@ -65,10 +65,10 @@ function C1SchreibenPage() {
   return (
     <div className="b2-page c1-info">
       <h1 className="b2-title">✍️ Schriftlicher Ausdruck</h1>
-      <p className="b2-hint">70 хв · ~350 слів · 48 балів (4 критерії × 12)</p>
+      <p className="b2-hint">70 Min. · ca. 350 Wörter · 48 Punkte (4 Kriterien × 12)</p>
 
       <section className="c1-section">
-        <h2>Завдання (Übungstest 1)</h2>
+        <h2>Aufgabe (Übungstest 1)</h2>
         <div className="lesen-variant-nav" style={{ marginBottom: 10 }}>
           {themes.map((th, i) => (
             <button key={th.id} className={'lesen-variant-btn' + (i === theme ? ' active' : '')} onClick={() => setTheme(i)}>
@@ -85,17 +85,17 @@ function C1SchreibenPage() {
       </section>
 
       <section className="c1-section">
-        <h2>Пишемо</h2>
-        <C1Timer presets={[{ label: 'Іспит 70:00', sec: 4200 }, { label: 'Тренування 40:00', sec: 2400 }]} />
+        <h2>Schreiben</h2>
+        <C1Timer presets={[{ label: 'Prüfung 70:00', sec: 4200 }, { label: 'Übung 40:00', sec: 2400 }]} />
         <textarea className="c1-textarea" value={text} onChange={(e) => onChange(e.target.value)}
           placeholder="Sehr geehrte/r … / Wie von Ihnen gewünscht, habe ich …" />
         <div className={'c1-wordcount' + (words >= 300 && words <= 420 ? ' ok' : '')}>
-          Слів: {words} / ~350
+          Wörter: {words} / ~350
         </div>
       </section>
 
       <section className="c1-section">
-        <h2>План тексту</h2>
+        <h2>Textaufbau</h2>
         <ol className="c1-flow">
           {structure.map(([h, d], i) => (
             <li key={h}><span>{i + 1}</span><strong>{h}</strong><div className="c1-de">{d}</div></li>
@@ -115,7 +115,7 @@ function C1SchreibenPage() {
       </section>
 
       <section className="c1-section">
-        <h2>Як оцінюють</h2>
+        <h2>Bewertung</h2>
         <div className="c1-card">
           <ul>
             <li><strong>Aufgabengerechtheit</strong>: усе із завдання, «roter Faden», критичний погляд.</li>
@@ -127,7 +127,7 @@ function C1SchreibenPage() {
         </div>
       </section>
 
-      <Link to="/c1" className="back-link">← Назад</Link>
+      <Link to="/c1" className="back-link">← Zurück</Link>
     </div>
   );
 }

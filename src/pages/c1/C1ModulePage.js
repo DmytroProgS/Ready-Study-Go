@@ -10,8 +10,8 @@ function C1ModulePage() {
   if (!mod) {
     return (
       <div className="b2-page">
-        <p>Такого розділу немає.</p>
-        <Link to="/c1" className="back-link">← Назад</Link>
+        <p>Diesen Bereich gibt es nicht.</p>
+        <Link to="/c1" className="back-link">← Zurück</Link>
       </div>
     );
   }
@@ -29,7 +29,7 @@ function C1ModulePage() {
           </Link>
         ))}
       </div>
-      <Link to="/c1" className="back-link">← Назад</Link>
+      <Link to="/c1" className="back-link">← Zurück</Link>
     </div>
   );
 }

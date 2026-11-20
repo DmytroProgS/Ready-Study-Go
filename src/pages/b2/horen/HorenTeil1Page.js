@@ -74,7 +74,7 @@ function HorenTeil1Page() {
   return (
     <div className="lesen-page">
       <div className="lesen-header">
-        <Link to="/b2/horen" className="back-link">&larr; Назад до H&ouml;ren</Link>
+        <Link to="/b2/horen" className="back-link">&larr; Zurück zum Hörverstehen</Link>
         <h1>H&ouml;ren Teil 1</h1>
         <div className="lesen-variant-nav">
           {horenTeil1Variants.map((v, i) => (
@@ -217,18 +217,18 @@ function HorenTeil1Page() {
             disabled={!allAnswered}
             className="lesen-btn lesen-btn-check"
           >
-            Перевірити
+            Überprüfen
           </button>
         ) : (
           <>
             <div className={'lesen-result' + (score === totalQuestions ? ' perfect' : '')}>
-              Результат: {score} / {totalQuestions}
+              Ergebnis: {score} / {totalQuestions}
             </div>
             <button onClick={handleNext} className="lesen-btn lesen-btn-next">
-              Наступний варіант
+              Nächste Variante
             </button>
             <button onClick={handleReset} className="lesen-btn lesen-btn-retry">
-              Спробувати ще раз
+              Erneut versuchen
             </button>
           </>
         )}

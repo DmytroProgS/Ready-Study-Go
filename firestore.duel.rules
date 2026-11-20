@@ -2,7 +2,7 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Paste ONLY this match block inside your existing match /databases/{database}/documents.
+    // Paste both duel match blocks inside your existing match /databases/{database}/documents.
     // Keep your current /users rules unchanged.
     match /duelRooms/{roomCode} {
       function signedIn() {
@@ -38,6 +38,26 @@ service cloud.firestore {
           && request.resource.data.players[uid()].size() <= 24
           && changedOnly(['players']);
       }
+      function questionCount() {
+        return resource.data.packId == 'pack-halt-prepositions' ? 17
+          : resource.data.packId == 'pack-halten-von-fuer' ? 10
+          : resource.data.packId in ['pack-calendar-r007', 'pack-calendar-r008'] ? 13
+          : 20;
+      }
+      function validQuestionOrder() {
+        return request.resource.data.questionOrder is list
+          && request.resource.data.questionOrder.size() == questionCount()
+          && request.resource.data.questionOrder.toSet().size() == questionCount()
+          && request.resource.data.questionOrder.hasOnly(
+            questionCount() == 10
+              ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+              : questionCount() == 13
+                ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                : questionCount() == 17
+                  ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+                  : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+          );
+      }
       function startByHost() {
         return member()
           && uid() == resource.data.host
@@ -47,18 +67,21 @@ service cloud.firestore {
           && request.resource.data.index == 0
           && request.resource.data.answers == {}
           && request.resource.data.ready == {}
+          && request.resource.data.history == []
+          && validQuestionOrder()
           && sameBase()
-          && changedOnly(['status', 'index', 'answers', 'ready']);
+          && changedOnly(['status', 'index', 'answers', 'ready', 'history', 'questionOrder']);
       }
       function answerOnce() {
         return member()
           && resource.data.status == 'playing'
-          && resource.data.index < 20
+          && resource.data.index < questionCount()
           && !(uid() in resource.data.answers.keys())
           && request.resource.data.answers.diff(resource.data.answers).affectedKeys().hasOnly([uid()])
           && request.resource.data.answers[uid()] is int
           && request.resource.data.answers[uid()] >= 0
-          && request.resource.data.answers[uid()] <= 3
+          && request.resource.data.answers[uid()] <=
+            (resource.data.packId == 'pack-halten-von-fuer' ? 1 : 3)
           && sameBase()
           && changedOnly(['answers']);
       }
@@ -80,7 +103,7 @@ service cloud.firestore {
           && resource.data.ready.size() == 1
           && resource.data.ready.keys().hasOnly(resource.data.players.keys())
           && request.resource.data.index == resource.data.index + 1
-          && request.resource.data.status == (resource.data.index == 19 ? 'finished' : 'playing')
+          && request.resource.data.status == (resource.data.index == questionCount() - 1 ? 'finished' : 'playing')
           && request.resource.data.answers == {}
           && request.resource.data.ready == {}
           && request.resource.data.history is list
@@ -93,7 +116,16 @@ service cloud.firestore {
       allow create: if signedIn()
         && roomCode.matches('^[A-HJ-NP-Z2-9]{6}$')
         && request.resource.data.keys().hasOnly(['host', 'players', 'packId', 'status', 'index', 'answers', 'ready', 'createdAt'])
-        && request.resource.data.packId in ['pack-1', 'pack-2', 'pack-3', 'pack-4']
+        && request.resource.data.packId in [
+          'pack-1',
+          'pack-2',
+          'pack-3',
+          'pack-4',
+          'pack-halt-prepositions',
+          'pack-halten-von-fuer',
+          'pack-calendar-r007',
+          'pack-calendar-r008'
+        ]
         && request.resource.data.host == uid()
         && request.resource.data.players.keys().hasOnly([uid()])
         && request.resource.data.players.size() == 1
@@ -112,6 +144,31 @@ service cloud.firestore {
       allow list, delete: if false;
       allow update: if joinAsGuest() || startByHost() || answerOnce()
         || readyOnce() || advanceTogether();
+    }
+
+    match /duelInvitations/{roomCode} {
+      function roomPath() {
+        return /databases/$(database)/documents/duelRooms/$(roomCode);
+      }
+      function justCreatedByHost() {
+        let room = getAfter(roomPath()).data;
+        return room.host == request.auth.uid
+          && room.createdAt == request.time
+          && room.status == 'lobby'
+          && room.players.keys().hasOnly([request.auth.uid]);
+      }
+
+      allow get: if request.auth != null;
+      allow list: if request.auth != null && request.query.limit <= 10;
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(['host', 'createdAt'])
+        && request.resource.data.host == request.auth.uid
+        && request.resource.data.createdAt == request.time
+        && justCreatedByHost();
+      allow delete: if request.auth != null
+        && (resource.data.host == request.auth.uid
+          || request.auth.uid in getAfter(roomPath()).data.players.keys());
+      allow update: if false;
     }
   }
 }

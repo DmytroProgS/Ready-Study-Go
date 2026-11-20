@@ -94,7 +94,7 @@ function WechselpraepositionenExercisePage() {
     setIsAnswered(false);
   };
 
-  if (exercises.length === 0) return <div>Завантаження...</div>;
+  if (exercises.length === 0) return <div>Wird geladen …</div>;
 
   const isCorrect = selectedAnswer === currentExercise.answer;
   const { clue: hintClue, rule: hintRule } = splitHint(currentExercise.hint);
@@ -110,7 +110,7 @@ function WechselpraepositionenExercisePage() {
         <div className="exercise-question">{currentExercise.german}</div>
         {isAnswered && (
           <div className="exercise-category">
-            Відмінок: <strong>{currentExercise.casus}</strong> | Прийменник: <strong>{currentExercise.category}</strong>
+            Kasus: <strong>{currentExercise.casus}</strong> | Präposition: <strong>{currentExercise.category}</strong>
           </div>
         )}
 
@@ -144,16 +144,16 @@ function WechselpraepositionenExercisePage() {
         {isAnswered && (
           <div className={`answer-display ${isCorrect ? 'correct' : 'incorrect'}`}>
             <div className="answer-status">
-              {isCorrect ? '✓ Правильно!' : '✗ Неправильно'}
+              {isCorrect ? '✓ Richtig!' : '✗ Falsch'}
             </div>
             <div className="answer-text">
-              <strong>Правильна відповідь:</strong> {currentExercise.answer}
+              <strong>Richtige Antwort:</strong> {currentExercise.answer}
             </div>
             <div className="answer-explanation">
               {currentExercise.explanation}
             </div>
             <div className="answer-full-form">
-              <strong>Повна форма:</strong> {currentExercise.correctForm}
+              <strong>Vollständige Form:</strong> {currentExercise.correctForm}
             </div>
           </div>
         )}
@@ -164,16 +164,16 @@ function WechselpraepositionenExercisePage() {
           onClick={prevExercise}
           disabled={currentIndex === 0}
           className="nav-btn nav-btn--icon"
-          aria-label="Попередня"
-          title="Попередня"
+          aria-label="Zurück"
+          title="Zurück"
         >
           ←
         </button>
         <button
           onClick={resetExercises}
           className="nav-btn nav-btn--icon nav-btn--reset"
-          aria-label="Заново"
-          title="Заново"
+          aria-label="Neu starten"
+          title="Neu starten"
         >
           🔄
         </button>
@@ -181,8 +181,8 @@ function WechselpraepositionenExercisePage() {
           onClick={nextExercise}
           disabled={currentIndex === exercises.length - 1}
           className="nav-btn nav-btn--icon"
-          aria-label="Наступна"
-          title="Наступна"
+          aria-label="Weiter"
+          title="Weiter"
         >
           →
         </button>
@@ -190,7 +190,7 @@ function WechselpraepositionenExercisePage() {
 
       <div className="trainer-footer">
         <span className="trainer-count"><strong>{currentIndex + 1}</strong> / {exercises.length}</span>
-        <Link to="/word-trainer" className="back-link">← Повернутись до вибору</Link>
+        <Link to="/word-trainer" className="back-link">← Zurück zur Auswahl</Link>
       </div>
     </div>
   );
