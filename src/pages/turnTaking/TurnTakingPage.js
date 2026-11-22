@@ -5,6 +5,33 @@ import { turnTakingDecks, shuffleDeck } from '../../data/turnTakingDecks';
 import './TurnTakingPage.css';
 import SubstantiveGrammarReference from './SubstantiveGrammarReference';
 
+const extendedSteps = [
+  { label: 'Kurzer Satz · Ukrainisch', lang: 'uk' },
+  { label: 'Kurzer Satz · Deutsch', lang: 'de', action: 'Übersetzung anzeigen' },
+  { label: 'Erweiterter Satz · Ukrainisch', lang: 'uk', action: 'Erweiterten Satz anzeigen' },
+  { label: 'Erweiterter Satz · Deutsch', lang: 'de', action: 'Übersetzung des erweiterten Satzes anzeigen' },
+];
+
+function ExtendedCard({ card, step, onReveal }) {
+  const action = extendedSteps[step + 1]?.action;
+
+  return (
+    <div className="turn-extended-card">
+      <ol className="turn-extended-lines" aria-live="polite">
+        {extendedSteps.slice(0, step + 1).map(({ label, lang }, i) => (
+          <li key={label}>
+            <span className="turn-language">{label}</span>
+            <span className="turn-extended-sentence" lang={lang}>{card[i]}</span>
+          </li>
+        ))}
+      </ol>
+      {action && <button type="button" className="turn-extended-reveal" onClick={onReveal}>
+        {action}
+      </button>}
+    </div>
+  );
+}
+
 function highlightedSentence(sentence, fragment, className) {
   const position = sentence.indexOf(fragment);
   if (position < 0) return sentence;
@@ -16,14 +43,17 @@ export default function TurnTakingPage() {
   const [topic, setTopic] = useState(null);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [step, setStep] = useState(0);
 
   const startDeck = deck => {
     setSession({ deck, cards: shuffleDeck(deck.cards) });
     setIndex(0);
     setFlipped(false);
+    setStep(0);
   };
   const currentCard = session?.cards[index];
   const mode = session?.deck.mode;
+  const extended = mode === 'extended';
   const backToSelection = () => {
     if (session) setSession(null);
     else setTopic(null);
@@ -33,6 +63,7 @@ export default function TurnTakingPage() {
   const move = next => {
     setIndex(next);
     setFlipped(false);
+    setStep(0);
   };
 
   return (
@@ -41,7 +72,9 @@ export default function TurnTakingPage() {
         {session && <button type="button" onClick={backToSelection}>Anderes Kartenset wählen</button>}
       </PageNavigation>
       <h1>🔄 Sätze im Wechsel</h1>
-      <p className="turn-intro">Wähle ein Thema und ein Kartenset. Übersetze die Sätze und klicke zur Kontrolle auf die Karte.</p>
+      <p className="turn-intro">{extended
+        ? 'Übersetze zuerst den kurzen Satz laut. Decke die Übersetzung auf und übe dann den erweiterten Satz.'
+        : 'Wähle ein Thema und ein Kartenset. Übersetze die Sätze und klicke zur Kontrolle auf die Karte.'}</p>
       {!session ? (
         <section className="turn-decks">
           {!topic ? <>
@@ -71,21 +104,25 @@ export default function TurnTakingPage() {
         <section className="turn-session">
           <div className="turn-topline"><strong>{session.deck.title}</strong><span>Karte {index + 1} von {session.cards.length}</span></div>
           <div className="turn-progress"><div style={{ width: ((index + 1) / session.cards.length * 100) + '%' }} /></div>
-          <button type="button" className={'turn-flashcard' + (flipped ? ' turn-flashcard--de' : '')} onClick={() => setFlipped(v => !v)} aria-label="Karte umdrehen">
-            <span className="turn-language">{mode === 'correction' ? (flipped ? '✅ Korrektur' : '🔎 Finde den Fehler') : mode === 'perfekt' ? (flipped ? '✅ Perfekt' : '🇩🇪 Präsens') : (flipped ? '🇩🇪 Deutsch' : '🇺🇦 Ukrainisch')}</span>
-            {mode === 'correction' && flipped ? (
-              <span className="turn-correction-result">
-                <span className="turn-correction-line">{highlightedSentence(currentCard.de, currentCard.wrong, 'turn-error-word')}</span>
-                <span className="turn-correction-line">{highlightedSentence(currentCard.corrected, currentCard.right, 'turn-correct-word')}</span>
-                <span className="turn-correction-translation">{currentCard.uk}</span>
-              </span>
-            ) : <span className="turn-sentence">{flipped ? currentCard.de : mode === 'correction' ? currentCard.de : currentCard.uk}</span>}
-            <span className="turn-flip-hint">↻ Zum Umdrehen klicken</span>
-          </button>
-          {flipped && currentCard.explanation && <p className="turn-card-explanation"><strong>Erklärung:</strong> {currentCard.explanation}</p>}
+          {extended ? (
+            <ExtendedCard card={currentCard} step={step} onReveal={() => setStep(value => Math.min(value + 1, extendedSteps.length - 1))} />
+          ) : <>
+            <button type="button" className={'turn-flashcard' + (flipped ? ' turn-flashcard--de' : '')} onClick={() => setFlipped(v => !v)} aria-label="Karte umdrehen">
+              <span className="turn-language">{mode === 'correction' ? (flipped ? '✅ Korrektur' : '🔎 Finde den Fehler') : mode === 'perfekt' ? (flipped ? '✅ Perfekt' : '🇩🇪 Präsens') : (flipped ? '🇩🇪 Deutsch' : '🇺🇦 Ukrainisch')}</span>
+              {mode === 'correction' && flipped ? (
+                <span className="turn-correction-result">
+                  <span className="turn-correction-line">{highlightedSentence(currentCard.de, currentCard.wrong, 'turn-error-word')}</span>
+                  <span className="turn-correction-line">{highlightedSentence(currentCard.corrected, currentCard.right, 'turn-correct-word')}</span>
+                  <span className="turn-correction-translation">{currentCard.uk}</span>
+                </span>
+              ) : <span className="turn-sentence">{flipped ? currentCard.de : mode === 'correction' ? currentCard.de : currentCard.uk}</span>}
+              <span className="turn-flip-hint">↻ Zum Umdrehen klicken</span>
+            </button>
+            {flipped && currentCard.explanation && <p className="turn-card-explanation"><strong>Erklärung:</strong> {currentCard.explanation}</p>}
+          </>}
           <div className="turn-controls">
             <button disabled={index === 0} onClick={() => move(index - 1)}>← Zurück</button>
-            <button onClick={() => setFlipped(v => !v)}>↻ Umdrehen</button>
+            {!extended && <button onClick={() => setFlipped(v => !v)}>↻ Umdrehen</button>}
             {index < session.cards.length - 1
               ? <button onClick={() => move(index + 1)}>Weiter →</button>
               : <button onClick={() => startDeck(session.deck)}>🔀 Erneut mischen</button>}
