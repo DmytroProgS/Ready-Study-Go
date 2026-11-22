@@ -3,6 +3,7 @@ import { lassenDecks } from './lassenDecks';
 import { substantiveDecks } from './substantiveDecks';
 import { additionalSubstantiveDecks } from './additionalSubstantiveDecks';
 import { calendarPacks } from './calendarPrepositionPacks';
+import { calendarTurnTakingNotes } from './calendarTurnTakingNotes';
 import { extendedPrepositionDeck } from './extendedPrepositionDeck';
 
 // Add future decks here. Each deck is shuffled every time it starts.
@@ -148,7 +149,12 @@ export const turnTakingDecks = [
     title: pack.k + ' ' + pack.name,
     description: '13 Sätze · Übersetzung vom Ukrainischen ins Deutsche',
     topic: 'preposition',
-    cards: pack.rows.map(([de, uk]) => ({ uk, de })),
+    cards: pack.rows.map(([de, uk]) => {
+      const note = calendarTurnTakingNotes[de];
+      return note
+        ? { uk, de: [note.answer ?? de, ...note.alternatives].join(' / '), explanation: note.explanation }
+        : { uk, de };
+    }),
   })),
 ];
 

@@ -118,7 +118,14 @@ export default function TurnTakingPage() {
               ) : <span className="turn-sentence">{flipped ? currentCard.de : mode === 'correction' ? currentCard.de : currentCard.uk}</span>}
               <span className="turn-flip-hint">↻ Zum Umdrehen klicken</span>
             </button>
-            {flipped && currentCard.explanation && <p className="turn-card-explanation"><strong>Erklärung:</strong> {currentCard.explanation}</p>}
+            {flipped && currentCard.explanation && (
+              Array.isArray(currentCard.explanation)
+                ? <div className="turn-card-explanation" lang="uk">
+                    <strong>Пояснення</strong>
+                    {currentCard.explanation.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+                  </div>
+                : <p className="turn-card-explanation"><strong>Erklärung:</strong> {currentCard.explanation}</p>
+            )}
           </>}
           <div className="turn-controls">
             <button disabled={index === 0} onClick={() => move(index - 1)}>← Zurück</button>
