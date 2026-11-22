@@ -122,7 +122,15 @@ export default function TurnTakingPage() {
               Array.isArray(currentCard.explanation)
                 ? <div className="turn-card-explanation" lang="uk">
                     <strong>Пояснення</strong>
-                    {currentCard.explanation.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+                    {currentCard.explanation.map(paragraph => (
+                      <p key={paragraph}>
+                        {paragraph.split(/(\*\*[^*]+\*\*)/g).map((part, index) =>
+                          part.startsWith('**')
+                            ? <strong key={index} lang="de">{part.slice(2, -2)}</strong>
+                            : part
+                        )}
+                      </p>
+                    ))}
                   </div>
                 : <p className="turn-card-explanation"><strong>Erklärung:</strong> {currentCard.explanation}</p>
             )}
