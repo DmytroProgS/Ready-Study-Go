@@ -221,14 +221,14 @@ export const calendarPacks = [
       [
         "Ich werde mir die Sache noch überlegen.",
         "Я ще обміркую це питання.",
-        "überlegen",
+        "mir",
         [
-          "überlegen",
-          "entscheiden",
-          "beschäftigen",
-          "verlieben"
+          "mir",
+          "mich",
+          "sich",
+          "dir"
         ],
-        "sich etwas überlegen — без прийменника; тут пропущено дієслово"
+        "sich etwas überlegen — зворотний займенник у Dativ: ich → mir."
       ],
       [
         "Ich werde über diese Dinge nachdenken.",
@@ -257,14 +257,14 @@ export const calendarPacks = [
       [
         "Dann entscheide ich mich.",
         "Тоді я приймаю рішення.",
-        "entscheide",
+        "mich",
         [
-          "entscheide",
-          "bedanke",
-          "kümmere",
-          "freue"
+          "mich",
+          "mir",
+          "sich",
+          "dich"
         ],
-        "sich entscheiden — без прийменника; тут пропущено дієслово"
+        "sich entscheiden — зворотний займенник в Akkusativ: ich → mich."
       ],
       [
         "Ich entscheide mich für das blaue Kleid.",

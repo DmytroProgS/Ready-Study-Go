@@ -73,3 +73,8 @@
   .turn-decks:has(.sub-grammar-reference)>.turn-folder-back,
   .turn-decks:has(.sub-grammar-reference)>.turn-deck{max-width:650px;margin-left:auto;margin-right:auto}
 }
+
+.turn-card-explanation p strong[lang="de"] {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}

@@ -16,12 +16,12 @@ export const haltPrepositionPhrases = [
   {
     "de": "Halt dich an den Plan!",
     "uk": "Дотримуйся плану!",
-    "prompt": "Halt ___ an den Plan!",
+    "prompt": "Halt dich ___ den Plan!",
     "options": [
-      "dich",
-      "dir",
-      "sich",
-      "mich"
+      "an",
+      "auf",
+      "für",
+      "über"
     ],
     "correct": 0,
     "explanation": "sich halten an + Akkusativ; наказовий спосіб du: Halt dich an ..."
